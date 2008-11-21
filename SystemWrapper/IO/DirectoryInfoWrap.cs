@@ -2,6 +2,9 @@ using System.IO;
 
 namespace SystemWrapper.IO
 {
+    /// <summary>
+    /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
+    /// </summary>
     public class DirectoryInfoWrap : IDirectoryInfoWrap
     {
         readonly DirectoryInfo _directoryInfo;
