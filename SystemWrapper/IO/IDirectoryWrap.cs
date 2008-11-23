@@ -6,7 +6,7 @@ using SystemWrapper.Security.AccessControl;
 namespace SystemWrapper.IO
 {
     /// <summary>
-    /// Wrapper for System.IO.Directory class.
+    /// Wrapper for <see cref="System.IO.Directory"/> class.
     /// </summary>
     public interface IDirectoryWrap
     {
