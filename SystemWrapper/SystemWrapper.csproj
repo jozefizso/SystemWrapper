@@ -55,6 +55,10 @@
     <Compile Include="IO\IDirectoryWrap.cs" />
     <Compile Include="IO\IFileInfoWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AssemblyNameWrap.cs" />
+    <Compile Include="Reflection\AssemblyWrap.cs" />
+    <Compile Include="Reflection\IAssemblyNameWrap.cs" />
+    <Compile Include="Reflection\IAssemblyWrap.cs" />
     <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="Security\AccessControl\IDirectorySecurityWrap.cs" />
   </ItemGroup>

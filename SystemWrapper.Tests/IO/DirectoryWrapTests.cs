@@ -36,16 +36,6 @@ namespace SystemWrapper.Tests.IO
             Assert.IsFalse(_directoryWrap.Exists(path), "Directory TempTest must be removed.");
         }
 
-        // TODO: need finish.
-        [Test]
-        public void CreateDirectory_with_security()
-        {
-            IDirectoryWrap directoryWrap = new DirectoryWrap();
-            DirectorySecurity ds = new DirectorySecurity();
-            ds.AddAccessRule(new FileSystemAccessRule(@"USGROUP\vadimk", FileSystemRights.Read, AccessControlType.Allow));
-            IDirectoryInfoWrap diWrap = directoryWrap.CreateDirectory(path, new DirectorySecurityWrap(ds));
-        }
-
         [Test]
         [ExpectedArgumentNullException]
         public void ArgumentNullException_is_thrown_if_directorySecurity_is_null()
