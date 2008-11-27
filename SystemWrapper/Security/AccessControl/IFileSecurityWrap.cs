@@ -3,13 +3,13 @@ using System.Security.AccessControl;
 namespace SystemWrapper.Security.AccessControl
 {
     /// <summary>
-    /// Wrapper for <see cref="T:System.Security.AccessControl.DirectorySecurity"/> class.
+    /// Wrapper for <see cref="T:System.Security.AccessControl.FileSecurity"/> class.
     /// </summary>
-    public interface IDirectorySecurityWrap
+    public interface IFileSecurityWrap
     {
         /// <summary>
         /// Gets <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.
         /// </summary>
-        DirectorySecurity DirectorySecurityInstance { get; }
+        FileSecurity FileSecurityInstance { get; }
     }
 }

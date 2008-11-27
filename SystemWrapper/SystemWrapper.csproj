@@ -51,16 +51,27 @@
     <Compile Include="IO\DirectoryInfoWrap.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
+    <Compile Include="IO\FileStreamWrap.cs" />
     <Compile Include="IO\IDirectoryInfoWrap.cs" />
     <Compile Include="IO\IDirectoryWrap.cs" />
     <Compile Include="IO\IFileInfoWrap.cs" />
+    <Compile Include="IO\IFileStreamWrap.cs" />
+    <Compile Include="IO\IStreamReaderWrap.cs" />
+    <Compile Include="IO\IStreamWriterWrap.cs" />
+    <Compile Include="IO\StreamReaderWrap.cs" />
+    <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\AssemblyNameWrap.cs" />
     <Compile Include="Reflection\AssemblyWrap.cs" />
     <Compile Include="Reflection\IAssemblyNameWrap.cs" />
     <Compile Include="Reflection\IAssemblyWrap.cs" />
     <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
+    <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="Security\AccessControl\IDirectorySecurityWrap.cs" />
+    <Compile Include="Security\AccessControl\IFileSecurityWrap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CurrentCoverage.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

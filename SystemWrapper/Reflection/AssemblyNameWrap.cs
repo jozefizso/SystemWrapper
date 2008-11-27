@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace SystemWrapper.Reflection
 {
     /// <summary>
-    /// Wrapper for <see cref="System.Reflection.Assembly"/> class.
+    /// Wrapper for <see cref="System.Reflection.AssemblyName"/> class.
     /// </summary>
     [Serializable]
     [ComVisible(true)]

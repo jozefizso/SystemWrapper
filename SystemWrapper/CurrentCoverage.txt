@@ -1,0 +1,30 @@
+﻿System.IO
+	* Complete
+	--------------------------
+	- Directory
+	- DirectoryInfo
+	- FileInfo
+	- StreamReader
+	- StreamWriter
+	
+	* Partial
+	--------------------------
+	- FileStream
+	
+System.Reflection
+	* Complete
+	--------------------------
+	- AssemblyName
+
+	* Partial
+	--------------------------
+	- Assembly
+	
+System.Security.AccessControl
+	* Complete
+	--------------------------
+
+	* Partial
+	--------------------------
+	- DirectorySecurity
+	- FileSecurity

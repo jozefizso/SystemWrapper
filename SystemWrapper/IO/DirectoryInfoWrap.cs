@@ -56,7 +56,7 @@ namespace SystemWrapper.IO
 
         public void Create(IDirectorySecurityWrap directorySecurity)
         {
-            DirectoryInfo.Create(directorySecurity.DirectorySecurity);
+            DirectoryInfo.Create(directorySecurity.DirectorySecurityInstance);
         }
 
         public IDirectoryInfoWrap CreateSubdirectory(string path)
@@ -66,7 +66,7 @@ namespace SystemWrapper.IO
 
         public IDirectoryInfoWrap CreateSubdirectory(string path, IDirectorySecurityWrap directorySecurity)
         {
-            return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path, directorySecurity.DirectorySecurity));
+            return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path, directorySecurity.DirectorySecurityInstance));
         }
 
         public override void Delete()
@@ -142,7 +142,12 @@ namespace SystemWrapper.IO
 
         public void SetAccessControl(IDirectorySecurityWrap directorySecurity)
         {
-            DirectoryInfo.SetAccessControl(directorySecurity.DirectorySecurity);
+            DirectoryInfo.SetAccessControl(directorySecurity.DirectorySecurityInstance);
+        }
+
+        public override string ToString()
+        {
+            return DirectoryInfo.ToString();
         }
 
         private static IDirectoryInfoWrap[] ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(DirectoryInfo[] directoryInfos)
@@ -151,11 +156,6 @@ namespace SystemWrapper.IO
             for (int i = 0; i < directoryInfos.Length; i++)
                 directoryInfoWraps[i] = new DirectoryInfoWrap(directoryInfos[i]);
             return directoryInfoWraps;
-        }
-
-        public override string ToString()
-        {
-            return DirectoryInfo.ToString();
         }
     }
 }

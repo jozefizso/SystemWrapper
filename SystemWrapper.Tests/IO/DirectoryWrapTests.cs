@@ -54,7 +54,7 @@ namespace SystemWrapper.Tests.IO
         public void GetAccessControl_test()
         {
             IDirectorySecurityWrap directorySecurityWrap = _directoryWrap.GetAccessControl(path);
-            Assert.IsNotNull(directorySecurityWrap.DirectorySecurity);
+            Assert.IsNotNull(directorySecurityWrap.DirectorySecurityInstance);
         }
 
         [Test]
