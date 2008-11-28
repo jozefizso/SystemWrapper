@@ -60,6 +60,8 @@
     <Compile Include="IO\IStreamWriterWrap.cs" />
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
+    <Compile Include="Microsoft.Win32\SafeHandles\ISafeFileHandleWrap.cs" />
+    <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\AssemblyNameWrap.cs" />
     <Compile Include="Reflection\AssemblyWrap.cs" />

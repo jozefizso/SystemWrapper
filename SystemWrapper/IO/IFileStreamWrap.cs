@@ -1,4 +1,7 @@
+using System;
 using System.IO;
+using System.Security.Permissions;
+using SystemWrapper.Microsoft.Win32.SafeHandles;
 
 namespace SystemWrapper.IO
 {
@@ -10,83 +13,99 @@ namespace SystemWrapper.IO
         // Properties
 
         /// <summary>
+        /// Gets a value indicating whether the current stream supports reading.
+        /// </summary>
+        /// <value> true if the stream supports reading; false if the stream is closed or was opened with write-only access. </value>
+        bool CanRead { get; }
+        /// <summary>
+        /// Gets a value indicating whether the current stream supports seeking. 
+        /// </summary>
+        bool CanSeek { get; }
+        /// <summary>
+        /// Gets a value that determines whether the current stream can time out. 
+        /// </summary>
+        bool CanTimeout { get; }
+        /// <summary>
+        /// Gets a value indicating whether the current stream supports writing.
+        /// </summary>
+        bool CanWrite { get; }
+        /// <summary>
         /// Gets <see cref="T:System.IO.FileStream"/> object.
         /// </summary>
         FileStream FileStreamInstance { get; }
+        /// <summary>
+        /// Gets a value indicating whether the FileStream was opened asynchronously or synchronously.
+        /// </summary>
+        bool IsAsync { get; }
+        /// <summary>
+        /// Gets the length in bytes of the stream.
+        /// </summary>
+        long Length { get; }
+        /// <summary>
+        /// Gets the name of the IFileStreamWrap that was passed to the constructor.
+        /// </summary>
+        string Name { get; }
+        /// <summary>
+        /// Gets or sets the current position of this stream.
+        /// </summary>
+        long Position { get; set; }
+        /// <summary>
+        /// Gets or sets a value, in miliseconds, that determines how long the stream will attempt to read before timing out.
+        /// </summary>
+        int ReadTimeout { get; set; }
+        /// <summary>
+        /// Gets a ISafeFileHandleWrap object that represents the operating system file handle for the file that the current FileStream object encapsulates. 
+        /// </summary>
+        ISafeFileHandleWrap SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
+        /// <summary>
+        /// Gets or sets a value, in miliseconds, that determines how long the stream will attempt to write before timing out.
+        /// </summary>
+        int WriteTimeout { get; set; }
+
+         // Methods
+
+        /// <summary>
+        /// Begins an asynchronous read.
+        /// </summary>
+        /// <param name="array">The buffer to read data into.</param>
+        /// <param name="offset">The byte offset in array at which to begin reading.</param>
+        /// <param name="numBytes">The maximum number of bytes to read.</param>
+        /// <param name="userCallback">The method to be called when the asynchronous read operation is completed.</param>
+        /// <param name="stateObject">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+        /// <returns>A user-provided object that distinguishes this particular asynchronous read request from other requests.</returns>
+        [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
+        IAsyncResult BeginRead(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject);
+        /// <summary>
+        /// Begins an asynchronous write. 
+        /// </summary>
+        /// <param name="array">The buffer to read data into.</param>
+        /// <param name="offset">The byte offset in array at which to begin reading.</param>
+        /// <param name="numBytes">The maximum number of bytes to read.</param>
+        /// <param name="userCallback">The method to be called when the asynchronous read operation is completed.</param>
+        /// <param name="stateObject">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
+        /// <returns>An IAsyncResult that references the asynchronous write.</returns>
+        [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
+        IAsyncResult BeginWrite(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject);
+        /// <summary>
+        /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
+        /// </summary>
+        void Close();
 
         /*
-                    // Methods
-                    static FileStream();
-                    internal FileStream();
-                    public FileStream(SafeFileHandle handle, FileAccess access);
-                    [Obsolete("This constructor has been deprecated.  Please use new FileStream(SafeFileHandle handle, FileAccess access) instead.  http://go.microsoft.com/fwlink/?linkid=14202")]
-                    public FileStream(IntPtr handle, FileAccess access);
-                    public FileStream(string path, FileMode mode);
-                    public FileStream(SafeFileHandle handle, FileAccess access, int bufferSize);
-                    [Obsolete("This constructor has been deprecated.  Please use new FileStream(SafeFileHandle handle, FileAccess access) instead, and optionally make a new SafeFileHandle with ownsHandle=false if needed.  http://go.microsoft.com/fwlink/?linkid=14202")]
-                    public FileStream(IntPtr handle, FileAccess access, bool ownsHandle);
-                    public FileStream(string path, FileMode mode, FileAccess access);
-                    [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-                    public FileStream(SafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync);
-                    [Obsolete("This constructor has been deprecated.  Please use new FileStream(SafeFileHandle handle, FileAccess access, int bufferSize) instead, and optionally make a new SafeFileHandle with ownsHandle=false if needed.  http://go.microsoft.com/fwlink/?linkid=14202")]
-                    public FileStream(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize);
-                    public FileStream(string path, FileMode mode, FileAccess access, FileShare share);
-                    [Obsolete("This constructor has been deprecated.  Please use new FileStream(SafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync) instead, and optionally make a new SafeFileHandle with ownsHandle=false if needed.  http://go.microsoft.com/fwlink/?linkid=14202"), SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-                    public FileStream(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync);
-                    public FileStream(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize);
-                    public FileStream(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, bool useAsync);
-                    public FileStream(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, FileOptions options);
-                    public FileStream(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options);
-                    public FileStream(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options, FileSecurity fileSecurity);
-                    internal FileStream(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, FileOptions options, string msgPath, bool bFromProxy);
-                    private static unsafe void AsyncFSCallback(uint errorCode, uint numBytes, NativeOverlapped* pOverlapped);
-                    [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
-                    public override IAsyncResult BeginRead(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject);
-                    private FileStreamAsyncResult BeginReadCore(byte[] bytes, int offset, int numBytes, AsyncCallback userCallback, object stateObject, int numBufferedBytesRead);
-                    [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
-                    public override IAsyncResult BeginWrite(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject);
-                    private FileStreamAsyncResult BeginWriteCore(byte[] bytes, int offset, int numBytes, AsyncCallback userCallback, object stateObject);
-                    protected override void Dispose(bool disposing);
+
                     public override int EndRead(IAsyncResult asyncResult);
                     public override void EndWrite(IAsyncResult asyncResult);
-                    protected override void Finalize();
                     public override void Flush();
-                    private void FlushRead();
-                    private void FlushWrite(bool calledFromFinalizer);
                     public FileSecurity GetAccessControl();
-                    private static Win32Native.SECURITY_ATTRIBUTES GetSecAttrs(FileShare share);
-                    private static Win32Native.SECURITY_ATTRIBUTES GetSecAttrs(FileShare share, FileSecurity fileSecurity, out object pinningHandle);
-                    internal void Init(string path, FileMode mode, FileAccess access, int rights, bool useRights, FileShare share, int bufferSize, FileOptions options, Win32Native.SECURITY_ATTRIBUTES secAttrs, string msgPath, bool bFromProxy);
                     public virtual void Lock(long position, long length);
                     public override int Read([In, Out] byte[] array, int offset, int count);
                     public override int ReadByte();
-                    private int ReadCore(byte[] buffer, int offset, int count);
-                    private unsafe int ReadFileNative(SafeFileHandle handle, byte[] bytes, int offset, int count, NativeOverlapped* overlapped, out int hr);
                     public override long Seek(long offset, SeekOrigin origin);
-                    private long SeekCore(long offset, SeekOrigin origin);
                     public void SetAccessControl(FileSecurity fileSecurity);
                     public override void SetLength(long value);
-                    private void SetLengthCore(long value);
                     public virtual void Unlock(long position, long length);
-                    private void VerifyHandleIsSync();
-                    private void VerifyOSHandlePosition();
                     public override void Write(byte[] array, int offset, int count);
                     public override void WriteByte(byte value);
-                    private void WriteCore(byte[] buffer, int offset, int count);
-                    private unsafe int WriteFileNative(SafeFileHandle handle, byte[] bytes, int offset, int count, NativeOverlapped* overlapped, out int hr);
-
-                    // Properties
-                    public override bool CanRead { get; }
-                    public override bool CanSeek { get; }
-                    public override bool CanWrite { get; }
-                    [Obsolete("This property has been deprecated.  Please use FileStream's SafeFileHandle property instead.  http://go.microsoft.com/fwlink/?linkid=14202")]
-                    public virtual IntPtr Handle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
-                    public virtual bool IsAsync { get; }
-                    public override long Length { get; }
-                    public string Name { get; }
-                    internal string NameInternal { get; }
-                    public override long Position { get; set; }
-                    public virtual SafeFileHandle SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
         */
     }
 }

@@ -1,4 +1,12 @@
-﻿System.IO
+﻿Microsoft.Win32.SafeHandles.SafeFileHandle
+	* Complete
+	--------------------------
+	- SafeFileHandle
+
+	* Partial
+	--------------------------
+	
+System.IO
 	* Complete
 	--------------------------
 	- Directory
