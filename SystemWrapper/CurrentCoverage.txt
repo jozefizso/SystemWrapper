@@ -1,4 +1,4 @@
-﻿Microsoft.Win32.SafeHandles.SafeFileHandle
+﻿Microsoft.Win32.SafeHandles
 	* Complete
 	--------------------------
 	- SafeFileHandle
@@ -12,12 +12,12 @@ System.IO
 	- Directory
 	- DirectoryInfo
 	- FileInfo
+	- FileStream
 	- StreamReader
 	- StreamWriter
 	
 	* Partial
 	--------------------------
-	- FileStream
 	
 System.Reflection
 	* Complete

@@ -1,7 +1,9 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using SystemWrapper.Microsoft.Win32.SafeHandles;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
@@ -90,22 +92,84 @@ namespace SystemWrapper.IO
         /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
         /// </summary>
         void Close();
-
-        /*
-
-                    public override int EndRead(IAsyncResult asyncResult);
-                    public override void EndWrite(IAsyncResult asyncResult);
-                    public override void Flush();
-                    public FileSecurity GetAccessControl();
-                    public virtual void Lock(long position, long length);
-                    public override int Read([In, Out] byte[] array, int offset, int count);
-                    public override int ReadByte();
-                    public override long Seek(long offset, SeekOrigin origin);
-                    public void SetAccessControl(FileSecurity fileSecurity);
-                    public override void SetLength(long value);
-                    public virtual void Unlock(long position, long length);
-                    public override void Write(byte[] array, int offset, int count);
-                    public override void WriteByte(byte value);
-        */
+        /// <summary>
+        /// Waits for the pending asynchronous read to complete. 
+        /// </summary>
+        /// <param name="asyncResult">The reference to the pending asynchronous request to wait for.</param>
+        /// <returns>The number of bytes read from the stream, between 0 and the number of bytes you requested. Streams only return 0 at the end of the stream, otherwise, they should block until at least 1 byte is available.</returns>
+        int EndRead(IAsyncResult asyncResult);
+        /// <summary>
+        /// Ends an asynchronous write, blocking until the I/O operation has completed. 
+        /// </summary>
+        /// <param name="asyncResult">The pending asynchronous I/O request. </param>
+        void EndWrite(IAsyncResult asyncResult);
+        /// <summary>
+        /// Clears all buffers for this stream and causes any buffered data to be written to the file system.
+        /// </summary>
+        void Flush();
+        /// <summary>
+        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
+        /// </summary>
+        /// <returns>A IFileSecurityWrap object that encapsulates the access control settings for the file described by the current FileStream object. </returns>
+        IFileSecurityWrap GetAccessControl();
+        /// <summary>
+        /// Prevents other processes from changing the FileStream while permitting read access. 
+        /// </summary>
+        /// <param name="position">The beginning of the range to lock. The value of this parameter must be equal to or greater than zero (0). </param>
+        /// <param name="length">The range to be locked. </param>
+        void Lock(long position, long length);
+        /// <summary>
+        /// Reads a block of bytes from the stream and writes the data in a given buffer. 
+        /// </summary>
+        /// <param name="array">When this method returns, contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source. </param>
+        /// <param name="offset">The byte offset in array at which the read bytes will be placed. </param>
+        /// <param name="count">The maximum number of bytes to read. </param>
+        /// <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached. </returns>
+        int Read([In, Out] byte[] array, int offset, int count);
+        /// <summary>
+        /// Reads a byte from the file and advances the read position one byte. 
+        /// </summary>
+        /// <returns>The byte, cast to an Int32, or -1 if the end of the stream has been reached.</returns>
+        int ReadByte();
+        /// <summary>
+        /// Sets the current position of this stream to the given value. 
+        /// </summary>
+        /// <param name="offset">The point relative to origin from which to begin seeking.</param>
+        /// <param name="origin">Specifies the beginning, the end, or the current position as a reference point for origin, using a value of type SeekOrigin. </param>
+        /// <returns></returns>
+        long Seek(long offset, SeekOrigin origin);
+        /// <summary>
+        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the file described by the current FileStream object. 
+        /// </summary>
+        /// <param name="fileSecurity">A IFileSecurityWrap object that describes an ACL entry to apply to the current file.</param>
+        void SetAccessControl(IFileSecurityWrap fileSecurity);
+        /// <summary>
+        /// Sets the length of this stream to the given value.
+        /// </summary>
+        /// <param name="value">The new length of the stream.</param>
+        void SetLength(long value);
+        /// <summary>
+        /// Returns a String that represents the current Object. 
+        /// </summary>
+        /// <returns>A String that represents the current Object. </returns>
+        string ToString();
+        /// <summary>
+        /// Allows access by other processes to all or part of a file that was previously locked.
+        /// </summary>
+        /// <param name="position">The beginning of the range to unlock.</param>
+        /// <param name="length">The range to be unlocked.</param>
+        void Unlock(long position, long length);
+        /// <summary>
+        /// Writes a block of bytes to this stream using data from a buffer.
+        /// </summary>
+        /// <param name="array">The buffer containing data to write to the stream.</param>
+        /// <param name="offset">The zero-based byte offset in array at which to begin copying bytes to the current stream.</param>
+        /// <param name="count">The number of bytes to be written to the current stream.</param>
+        void Write(byte[] array, int offset, int count);
+        /// <summary>
+        /// Writes a byte to the current position in the file stream.
+        /// </summary>
+        /// <param name="value">A byte to write to the stream.</param>
+        void WriteByte(byte value);
     }
 }

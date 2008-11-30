@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Permissions;
 using SystemWrapper.Microsoft.Win32.SafeHandles;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
@@ -213,29 +214,74 @@ namespace SystemWrapper.IO
             return FileStreamInstance.BeginWrite(array, offset, numBytes, userCallback, stateObject);
         }
 
+        public override int EndRead(IAsyncResult asyncResult)
+        {
+            return FileStreamInstance.EndRead(asyncResult);
+        }
+
+        public override void EndWrite(IAsyncResult asyncResult)
+        {
+            FileStreamInstance.EndWrite(asyncResult);
+        }
+
         public override void Flush()
         {
-            throw new System.NotImplementedException();
+            FileStreamInstance.Flush();
         }
 
-        public override long Seek(long offset, SeekOrigin origin)
+        public IFileSecurityWrap GetAccessControl()
         {
-            throw new System.NotImplementedException();
+            return new FileSecurityWrap(FileStreamInstance.GetAccessControl());
         }
 
-        public override void SetLength(long value)
+        public virtual void Lock(long position, long length)
         {
-            throw new System.NotImplementedException();
+            FileStreamInstance.Lock(position, length);
         }
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            throw new System.NotImplementedException();
+            return FileStreamInstance.Read(buffer, offset, count);
+        }
+
+        public override int ReadByte()
+        {
+            return FileStreamInstance.ReadByte();
+        }
+
+        public override long Seek(long offset, SeekOrigin origin)
+        {
+            return FileStreamInstance.Seek(offset, origin);
+        }
+
+        public void SetAccessControl(IFileSecurityWrap fileSecurity)
+        {
+            FileStreamInstance.SetAccessControl(fileSecurity.FileSecurityInstance);
+        }
+
+        public override void SetLength(long value)
+        {
+            FileStreamInstance.SetLength(value);
+        }
+
+        public override string ToString()
+        {
+            return FileStreamInstance.ToString();
+        }
+
+        public void Unlock(long position, long length)
+        {
+            FileStreamInstance.Unlock(position, length);
         }
 
         public override void Write(byte[] buffer, int offset, int count)
         {
-            throw new System.NotImplementedException();
+            FileStreamInstance.Write(buffer, offset, count);
+        }
+
+        public override void WriteByte(byte value)
+        {
+            FileStreamInstance.WriteByte(value);
         }
     }
 }
