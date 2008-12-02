@@ -1,7 +1,10 @@
 using System;
+using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using System.Security.Policy;
+using SystemWrapper.IO;
 
 namespace SystemWrapper.Reflection
 {
@@ -94,15 +97,100 @@ namespace SystemWrapper.Reflection
             get { return AssemblyInstance.ReflectionOnly; }
         }
 
+        public object CreateInstance(string typeName)
+        {
+            return AssemblyInstance.CreateInstance(typeName);
+        }
+
+        public object CreateInstance(string typeName, bool ignoreCase)
+        {
+            return AssemblyInstance.CreateInstance(typeName, ignoreCase);
+        }
+
+        public object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes)
+        {
+            return AssemblyInstance.CreateInstance(typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes);
+        }
+
+        public string CreateQualifiedName(string assemblyName, string typeName)
+        {
+            return Assembly.CreateQualifiedName(assemblyName, typeName);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return AssemblyInstance.Equals(obj);
+        }
+
+        public IAssemblyWrap GetAssembly(Type type)
+        {
+            return new AssemblyWrap(Assembly.GetAssembly(type));
+        }
+
+        public IAssemblyWrap GetCallingAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetCallingAssembly());
+        }
+
+        public virtual object[] GetCustomAttributes(bool inherit)
+        {
+            return AssemblyInstance.GetCustomAttributes(inherit);
+        }
+
+        public virtual object[] GetCustomAttributes(Type attributeType, bool inherit)
+        {
+            return AssemblyInstance.GetCustomAttributes(attributeType, inherit);
+        }
+
+        public IAssemblyWrap GetEntryAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetEntryAssembly());
+        }
+
+        public IAssemblyWrap GetExecutingAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetExecutingAssembly());
+        }
+
+        public virtual Type[] GetExportedTypes()
+        {
+            return AssemblyInstance.GetExportedTypes();
+        }
+
+        public IFileStreamWrap GetFile(string name)
+        {
+            return new FileStreamWrap(AssemblyInstance.GetFile(name));
+        }
+
+        public virtual IFileStreamWrap[] GetFiles()
+        {
+            return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles());
+        }
+
+        public IFileStreamWrap[] GetFiles(bool getResourceModules)
+        {
+            return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles(getResourceModules));
+        }
+
         public IAssemblyNameWrap GetName()
         {
             return new AssemblyNameWrap(AssemblyInstance.GetName());
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            AssemblyInstance.GetObjectData(info, context);
         }
 
         public IAssemblyNameWrap[] GetReferencedAssemblies()
         {
             AssemblyName[] assemblyNames = AssemblyInstance.GetReferencedAssemblies();
             return AssemblyNameWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(assemblyNames);
+        }
+
+        public bool IsDefined(Type attributeType, bool inherit)
+        {
+            return AssemblyInstance.IsDefined(attributeType, inherit);
         }
 
         public IAssemblyWrap LoadFrom(string assemblyFile)

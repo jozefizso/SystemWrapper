@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reflection\AssemblyWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="IO\DirectoryWrapTests.cs" />
     <Compile Include="IO\FileInfoWrapTests.cs" />

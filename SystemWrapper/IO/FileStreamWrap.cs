@@ -283,5 +283,14 @@ namespace SystemWrapper.IO
         {
             FileStreamInstance.WriteByte(value);
         }
+
+        internal static IFileStreamWrap[] ConvertFileStreamArrayIntoIFileStreamWrapArray(FileStream[] fileStreams)
+        {
+            FileStreamWrap[] fileStreamWraps = new FileStreamWrap[fileStreams.Length];
+            for (int i = 0; i < fileStreams.Length; i++)
+                fileStreamWraps[i] = new FileStreamWrap(fileStreams[i]);
+            return fileStreamWraps;
+        }
+
     }
 }

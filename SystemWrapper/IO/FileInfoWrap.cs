@@ -174,7 +174,6 @@ namespace SystemWrapper.IO
             for (int i = 0; i < fileInfos.Length; i++)
                 fileInfoWraps[i] = new FileInfoWrap(fileInfos[i]);
             return fileInfoWraps;
-
         }
     }
 }

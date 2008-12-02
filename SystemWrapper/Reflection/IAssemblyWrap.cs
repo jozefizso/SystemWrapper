@@ -1,15 +1,18 @@
+using System;
+using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
-using System.Security.Policy;
+using System.Runtime.Serialization;
+using System.Security;
+using SystemWrapper.IO;
 
 namespace SystemWrapper.Reflection
 {
     /// <summary>
     /// Wrapper for <see cref="System.Reflection.Assembly"/> class.
     /// </summary>
-    public interface IAssemblyWrap
+    public interface IAssemblyWrap : IEvidenceFactory, ICustomAttributeProvider, ISerializable
     {
         // Properties
 
@@ -29,10 +32,6 @@ namespace SystemWrapper.Reflection
         /// Gets the URI, including escape characters, that represents the codebase.
         /// </summary>
         string EscapedCodeBase { get; }
-        /// <summary>
-        /// Gets the evidence for this assembly.
-        /// </summary>
-        Evidence Evidence { [SecurityPermission(SecurityAction.Demand, ControlEvidence = true)] get; }
         /// <summary>
         /// Gets the display name of the assembly. 
         /// </summary>
@@ -69,6 +68,90 @@ namespace SystemWrapper.Reflection
         // Methods
 
         /// <summary>
+        /// Locates the specified type from this assembly and creates an instance of it using the system activator, using case-sensitive search.
+        /// </summary>
+        /// <param name="typeName">The Type.FullName of the type to locate.</param>
+        /// <returns>An instance of Object representing the type, with culture, arguments, binder, and activation attributes set to nullNothingnullptra null reference (Nothing in Visual Basic), and BindingFlags set to Public or Instance, or nullNothingnullptra null reference (Nothing in Visual Basic) if typeName is not found.</returns>
+        object CreateInstance(string typeName);
+        /// <summary>
+        /// Locates the specified type from this assembly and creates an instance of it using the system activator, with optional case-sensitive search.
+        /// </summary>
+        /// <param name="typeName">The Type.FullName of the type to locate.</param>
+        /// <param name="ignoreCase"> true to ignore the case of the type name; otherwise, false.</param>
+        /// <returns>An instance of Object representing the type, with culture, arguments, binder, and activation attributes set to nullNothingnullptra null reference (Nothing in Visual Basic), and BindingFlags set to Public or Instance, or nullNothingnullptra null reference (Nothing in Visual Basic) if typeName is not found.</returns>
+        object CreateInstance(string typeName, bool ignoreCase);
+        /// <summary>
+        /// Locates the specified type from this assembly and creates an instance of it using the system activator, with optional case-sensitive search and having the specified culture, arguments, and binding and activation attributes.
+        /// </summary>
+        /// <param name="typeName">The Type.FullName of the type to locate.</param>
+        /// <param name="ignoreCase"> true to ignore the case of the type name; otherwise, false.</param>
+        /// <param name="bindingAttr">A bitmask that affects the way in which the search is conducted. The value is a combination of bit flags from BindingFlags.</param>
+        /// <param name="binder">An object that enables the binding, coercion of argument types, invocation of members, and retrieval of MemberInfo objects via reflection. If binder is nullNothingnullptra null reference (Nothing in Visual Basic), the default binder is used.</param>
+        /// <param name="args">An array of type Object containing the arguments to be passed to the constructor. This array of arguments must match in number, order, and type the parameters of the constructor to be invoked. If the default constructor is desired, args must be an empty array or nullNothingnullptra null reference (Nothing in Visual Basic).</param>
+        /// <param name="culture">An instance of CultureInfo used to govern the coercion of types. If this is nullNothingnullptra null reference (Nothing in Visual Basic), the CultureInfo for the current thread is used. (This is necessary to convert a String that represents 1000 to a Double value, for example, since 1000 is represented differently by different cultures.)</param>
+        /// <param name="activationAttributes">An array of one or more attributes that can participate in activation. Typically, an array that contains a single UrlAttribute object. The UrlAttribute specifies the URL that is required to activate a remote object.</param>
+        /// <returns>An instance of Object representing the type and matching the specified criteria, or nullNothingnullptra null reference (Nothing in Visual Basic) if typeName is not found.</returns>
+        object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes);
+        /// <summary>
+        /// Creates the name of a type qualified by the display name of its assembly.
+        /// </summary>
+        /// <param name="assemblyName">The display name of an assembly.</param>
+        /// <param name="typeName">The full name of a type.</param>
+        /// <returns>A String that is the full name of the type qualified by the display name of the assembly.</returns>
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        string CreateQualifiedName(string assemblyName, string typeName);
+        /// <summary>
+        /// Determines whether this assembly and the specified object are equal.
+        /// </summary>
+        /// <param name="o">The object to compare with this instance.</param>
+        /// <returns> true if o is equal to this instance; otherwise, false.</returns>
+        bool Equals(object o);
+        /// <summary>
+        /// Gets the currently loaded assembly in which the specified class is defined. 
+        /// </summary>
+        /// <param name="type">A Type object representing a class in the assembly that will be returned.</param>
+        /// <returns>The assembly in which the specified class is defined.</returns>
+        IAssemblyWrap GetAssembly(Type type);
+        /// <summary>
+        /// Returns the IAssemblyWrap of the method that invoked the currently executing method. 
+        /// </summary>
+        /// <returns>The Assembly object of the method that invoked the currently executing method.</returns>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        IAssemblyWrap GetCallingAssembly();
+        /// <summary>
+        /// Gets the process executable in the default application domain. In other application domains, this is the first executable that was executed by AppDomain.ExecuteAssembly.
+        /// </summary>
+        /// <returns>The Assembly that is the process executable in the default application domain, or the first executable that was executed by AppDomain.ExecuteAssembly. Can return nullNothingnullptra null reference (Nothing in Visual Basic) when called from unmanaged code. </returns>
+        IAssemblyWrap GetEntryAssembly();
+        /// <summary>
+        /// Gets the assembly that contains the code that is currently executing.
+        /// </summary>
+        /// <returns>A IAssemblyWrap representing the assembly that contains the code that is currently executing. </returns>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        IAssemblyWrap GetExecutingAssembly();
+        /// <summary>
+        /// Gets the public types defined in this assembly that are visible outside the assembly.
+        /// </summary>
+        /// <returns>An array of Type objects that represent the types defined in this assembly that are visible outside the assembly.</returns>
+        Type[] GetExportedTypes();
+        /// <summary>
+        /// Gets a IFileStreamWrap for the specified file in the file table of the manifest of this assembly.
+        /// </summary>
+        /// <param name="name">The name of the specified file. Do not include the path to the file.</param>
+        /// <returns>A IFileStreamWrap for the specified file, or nullNothingnullptra null reference (Nothing in Visual Basic) if the file is not found.</returns>
+        IFileStreamWrap GetFile(string name);
+        /// <summary>
+        /// Gets the files in the file table of an assembly manifest.
+        /// </summary>
+        /// <returns>An array of IFileStreamWrap objects.</returns>
+        IFileStreamWrap[] GetFiles();
+        /// <summary>
+        /// Gets the files in the file table of an assembly manifest, specifying whether to include resource modules.
+        /// </summary>
+        /// <param name="getResourceModules"> true to include resource modules; otherwise, false.</param>
+        /// <returns>An array of IFileStreamWrap objects.</returns>
+        IFileStreamWrap[] GetFiles(bool getResourceModules);
+        /// <summary>
         /// Gets an <see cref="T:SystemWrapper.Reflection.IAssemblyNameWrap"/> for this assembly. 
         /// </summary>
         /// <returns>An <see cref="T:SystemWrapper.Reflection.IAssemblyNameWrap"/> for this assembly. </returns>
@@ -87,24 +170,6 @@ namespace SystemWrapper.Reflection
         IAssemblyWrap LoadFrom(string assemblyFile);
 
         /*
-            public object CreateInstance(string typeName);
-            public object CreateInstance(string typeName, bool ignoreCase);
-            public object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes);
-            [MethodImpl(MethodImplOptions.InternalCall)]
-            public static extern string CreateQualifiedName(string assemblyName, string typeName);
-            public override bool Equals(object o);
-            public static Assembly GetAssembly(Type type);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly GetCallingAssembly();
-            public virtual object[] GetCustomAttributes(bool inherit);
-            public virtual object[] GetCustomAttributes(Type attributeType, bool inherit);
-            public static Assembly GetEntryAssembly();
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly GetExecutingAssembly();
-            public virtual Type[] GetExportedTypes();
-            public virtual FileStream GetFile(string name);
-            public virtual FileStream[] GetFiles();
-            public virtual FileStream[] GetFiles(bool getResourceModules);
             public override int GetHashCode();
             public Module[] GetLoadedModules();
             public Module[] GetLoadedModules(bool getResourceModules);
@@ -152,10 +217,6 @@ namespace SystemWrapper.Reflection
             public static Assembly LoadFrom(string assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
             public Module LoadModule(string moduleName, byte[] rawModule);
             public Module LoadModule(string moduleName, byte[] rawModule, byte[] rawSymbolStore);
-            [MethodImpl(MethodImplOptions.NoInlining), Obsolete("This method has been deprecated. Please use Assembly.Load() instead. http://go.microsoft.com/fwlink/?linkid=14202")]
-            public static Assembly LoadWithPartialName(string partialName);
-            [MethodImpl(MethodImplOptions.NoInlining), Obsolete("This method has been deprecated. Please use Assembly.Load() instead. http://go.microsoft.com/fwlink/?linkid=14202")]
-            public static Assembly LoadWithPartialName(string partialName, Evidence securityEvidence);
             [MethodImpl(MethodImplOptions.NoInlining)]
             public static Assembly ReflectionOnlyLoad(string assemblyString);
             [MethodImpl(MethodImplOptions.NoInlining)]
