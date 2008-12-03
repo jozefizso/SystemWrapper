@@ -152,6 +152,11 @@ namespace SystemWrapper.Reflection
         /// <returns>An array of IFileStreamWrap objects.</returns>
         IFileStreamWrap[] GetFiles(bool getResourceModules);
         /// <summary>
+        /// Returns the hash code for this instance. 
+        /// </summary>
+        /// <returns>A 32-bit signed integer hash code.</returns>
+        int GetHashCode();
+        /// <summary>
         /// Gets an <see cref="T:SystemWrapper.Reflection.IAssemblyNameWrap"/> for this assembly. 
         /// </summary>
         /// <returns>An <see cref="T:SystemWrapper.Reflection.IAssemblyNameWrap"/> for this assembly. </returns>
@@ -170,7 +175,6 @@ namespace SystemWrapper.Reflection
         IAssemblyWrap LoadFrom(string assemblyFile);
 
         /*
-            public override int GetHashCode();
             public Module[] GetLoadedModules();
             public Module[] GetLoadedModules(bool getResourceModules);
             [MethodImpl(MethodImplOptions.NoInlining)]

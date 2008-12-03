@@ -172,6 +172,11 @@ namespace SystemWrapper.Reflection
             return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles(getResourceModules));
         }
 
+        public override int GetHashCode()
+        {
+            return AssemblyInstance.GetHashCode();
+        }
+
         public IAssemblyNameWrap GetName()
         {
             return new AssemblyNameWrap(AssemblyInstance.GetName());
