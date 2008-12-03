@@ -94,10 +94,10 @@ namespace SystemWrapper.Reflection
             set { AssemblyNameInstance.ProcessorArchitecture = value; }
         }
 
-        public Version Version
+        public IVersionWrap Version
         {
-            get { return AssemblyNameInstance.Version; }
-            set { AssemblyNameInstance.Version = value; }
+            get { return new VersionWrap(AssemblyNameInstance.Version); }
+            set { AssemblyNameInstance.Version = value.VersionInstance; }
         }
 
         public AssemblyVersionCompatibility VersionCompatibility

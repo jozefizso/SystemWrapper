@@ -1,4 +1,3 @@
-using System;
 using System.Configuration.Assemblies;
 using System.Globalization;
 using System.Reflection;
@@ -57,7 +56,7 @@ namespace SystemWrapper.Reflection
         /// <summary>
         /// Gets or sets the major, minor, build, and revision numbers of the assembly.
         /// </summary>
-        Version Version { get; set; }
+        IVersionWrap Version { get; set; }
         /// <summary>
         /// Defines the different types of assembly version compatibility. This feature is not available in version 1.0 of the .NET Framework.
         /// </summary>

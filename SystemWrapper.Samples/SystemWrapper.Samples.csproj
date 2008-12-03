@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</ProjectGuid>
+    <ProjectGuid>{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SystemWrapper</RootNamespace>
-    <AssemblyName>SystemWrapper</AssemblyName>
+    <RootNamespace>SystemWrapper.Samples</RootNamespace>
+    <AssemblyName>SystemWrapper.Samples</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SystemWrapper.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,10 +29,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gallio, Version=3.0.5.546, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL" />
+    <Reference Include="MbUnit, Version=3.0.5.546, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SystemWrapper.Tests\libs\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -48,34 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IO\DirectoryInfoWrap.cs" />
-    <Compile Include="IO\DirectoryWrap.cs" />
-    <Compile Include="IO\FileInfoWrap.cs" />
-    <Compile Include="IO\FileStreamWrap.cs" />
-    <Compile Include="IO\IDirectoryInfoWrap.cs" />
-    <Compile Include="IO\IDirectoryWrap.cs" />
-    <Compile Include="IO\IFileInfoWrap.cs" />
-    <Compile Include="IO\IFileStreamWrap.cs" />
-    <Compile Include="IO\IStreamReaderWrap.cs" />
-    <Compile Include="IO\IStreamWriterWrap.cs" />
-    <Compile Include="IO\StreamReaderWrap.cs" />
-    <Compile Include="IO\StreamWriterWrap.cs" />
-    <Compile Include="IVersionWrap.cs" />
-    <Compile Include="Microsoft.Win32\SafeHandles\ISafeFileHandleWrap.cs" />
-    <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="AssemblySample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflection\AssemblyNameWrap.cs" />
-    <Compile Include="Reflection\AssemblyWrap.cs" />
-    <Compile Include="Reflection\IAssemblyNameWrap.cs" />
-    <Compile Include="Reflection\IAssemblyWrap.cs" />
-    <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
-    <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
-    <Compile Include="Security\AccessControl\IDirectorySecurityWrap.cs" />
-    <Compile Include="Security\AccessControl\IFileSecurityWrap.cs" />
-    <Compile Include="VersionWrap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CurrentCoverage.txt" />
+    <ProjectReference Include="..\SystemWrapper\SystemWrapper.csproj">
+      <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
+      <Name>SystemWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
