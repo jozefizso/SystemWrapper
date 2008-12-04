@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SystemWrapper")]
 [assembly: AssemblyDescription("Wraps .NET system resources.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Vadim Kreynin")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct(".NET SystemWrapper")]
 [assembly: AssemblyCopyright("Copyright ©  2008")]
 [assembly: AssemblyTrademark("")]
