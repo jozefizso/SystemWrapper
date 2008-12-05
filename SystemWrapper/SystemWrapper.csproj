@@ -30,8 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>bin\Release\SystemWrapper.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\SqlClient\ISqlCommandWrap.cs" />
+    <Compile Include="Data\SqlClient\ISqlConnectionWrap.cs" />
+    <Compile Include="Data\SqlClient\ISqlDataReaderWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionWrap.cs">
+    </Compile>
+    <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="IO\DirectoryInfoWrap.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />

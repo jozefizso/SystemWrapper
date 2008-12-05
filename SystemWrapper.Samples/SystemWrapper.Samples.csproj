@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\SqlClient\SqlConnectionSample.cs" />
+    <Compile Include="Data\SqlClient\SqlDataReaderSample.cs" />
+    <Compile Include="IO\DirectoryInfoSample.cs" />
     <Compile Include="Reflection\AssemblySample.cs" />
     <Compile Include="IO\FileInfoSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
