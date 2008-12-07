@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDomainWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlCommandWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlConnectionWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlDataReaderWrap.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Data\SqlClient\SqlConnectionWrap.cs">
     </Compile>
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="IAppDomainWrap.cs" />
     <Compile Include="IO\DirectoryInfoWrap.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
