@@ -64,8 +64,10 @@
     <Compile Include="IO\IDirectoryWrap.cs" />
     <Compile Include="IO\IFileInfoWrap.cs" />
     <Compile Include="IO\IFileStreamWrap.cs" />
+    <Compile Include="IO\IPathWrap.cs" />
     <Compile Include="IO\IStreamReaderWrap.cs" />
     <Compile Include="IO\IStreamWriterWrap.cs" />
+    <Compile Include="IO\PathWrap.cs" />
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="IVersionWrap.cs" />
