@@ -176,6 +176,7 @@ namespace SystemWrapper.IO
             get { return FileStreamInstance.CanWrite; }
         }
 
+        public Stream StreamInstance{ get{ return this.FileStreamInstance; } }
         public FileStream FileStreamInstance { get; private set; }
 
         public bool IsAsync

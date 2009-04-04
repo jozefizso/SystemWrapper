@@ -123,20 +123,21 @@ namespace SystemWrapper.IO
 
         public Stream BaseStream
         {
-            get { throw new System.NotImplementedException(); }
+            get { return StreamReaderInstance.BaseStream; }
         }
 
         public Encoding CurrentEncoding
         {
-            get { throw new System.NotImplementedException(); }
+            get { return StreamReaderInstance.CurrentEncoding; }
         }
 
         public bool EndOfStream
         {
-            get { throw new System.NotImplementedException(); }
+            get { return StreamReaderInstance.EndOfStream; }
         }
 
         public StreamReader StreamReaderInstance { get; private set; }
+        public TextReader TextReaderInstance{ get{ return StreamReaderInstance; } }
 
         public override void Close()
         {

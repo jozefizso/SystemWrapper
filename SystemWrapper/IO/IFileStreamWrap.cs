@@ -10,7 +10,7 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileStream"/> class.
     /// </summary>
-    public interface IFileStreamWrap
+    public interface IFileStreamWrap : IStreamWrap
     {
         // Properties
 

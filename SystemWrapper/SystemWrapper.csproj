@@ -12,6 +12,10 @@
     <AssemblyName>SystemWrapper</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ispro\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <SignAssembly>False</SignAssembly>
+    <AssemblyOriginatorKeyFile>SystemWrapper.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,17 +60,29 @@
     </Compile>
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="IAppDomainWrap.cs" />
+    <Compile Include="IO\BinaryReaderWrap.cs" />
+    <Compile Include="IO\BinaryWriterWrap.cs" />
+    <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
+    <Compile Include="IO\Compression\IDeflateStreamWrap.cs" />
     <Compile Include="IO\DirectoryInfoWrap.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
     <Compile Include="IO\FileStreamWrap.cs" />
+    <Compile Include="IO\FileWrap.cs" />
+    <Compile Include="IO\IBinaryReaderWrap.cs" />
+    <Compile Include="IO\IBinaryWriterWrap.cs" />
     <Compile Include="IO\IDirectoryInfoWrap.cs" />
     <Compile Include="IO\IDirectoryWrap.cs" />
     <Compile Include="IO\IFileInfoWrap.cs" />
     <Compile Include="IO\IFileStreamWrap.cs" />
+    <Compile Include="IO\IFileWrap.cs" />
+    <Compile Include="IO\IMemoryStreamWrap.cs" />
     <Compile Include="IO\IPathWrap.cs" />
     <Compile Include="IO\IStreamReaderWrap.cs" />
+    <Compile Include="IO\IStreamWrap.cs" />
     <Compile Include="IO\IStreamWriterWrap.cs" />
+    <Compile Include="IO\ITextReaderWrap.cs" />
+    <Compile Include="IO\MemoryStreamWrap.cs" />
     <Compile Include="IO\PathWrap.cs" />
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
@@ -86,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CurrentCoverage.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IO\Compression" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
