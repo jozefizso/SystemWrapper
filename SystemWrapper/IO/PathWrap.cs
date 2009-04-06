@@ -1,10 +1,13 @@
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace SystemWrapper.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.Path"/> class.
     /// </summary>
+    [Serializable, ComVisible(true)]
     public class PathWrap : IPathWrap
     {
         public char AltDirectorySeparatorChar

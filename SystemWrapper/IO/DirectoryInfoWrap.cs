@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using SystemWrapper.Security.AccessControl;
 
@@ -7,6 +9,7 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
     /// </summary>
+    [Serializable, ComVisible(true)]
     public class DirectoryInfoWrap : FileSystemInfo, IDirectoryInfoWrap
     {
         /// <summary>

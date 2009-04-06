@@ -18,6 +18,8 @@ System
 System.IO
 	* Complete
 	--------------------------
+	- BinaryReader
+	- BinaryWriter
 	- Directory
 	- DirectoryInfo
 	- FileInfo
@@ -28,6 +30,8 @@ System.IO
 	
 	* Partial
 	--------------------------
+	- BinaryReader
+	- BinaryWriter
 	
 System.Reflection
 	* Complete
