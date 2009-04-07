@@ -22,6 +22,7 @@ System.IO
 	- BinaryWriter
 	- Directory
 	- DirectoryInfo
+	- File
 	- FileInfo
 	- FileStream
 	- Path
