@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting;
 using System.Security.AccessControl;
 using SystemWrapper.Security.AccessControl;
 
@@ -10,7 +11,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class DirectoryInfoWrap : FileSystemInfo, IDirectoryInfoWrap
+    public class DirectoryInfoWrap : IDirectoryInfoWrap
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
@@ -30,14 +31,66 @@ namespace SystemWrapper.IO
             DirectoryInfo = new DirectoryInfo(path);
         }
 
+        public FileAttributes Attributes
+        {
+            get { return DirectoryInfo.Attributes; }
+            set { DirectoryInfo.Attributes = value; }
+        }
+
+        public IDateTimeWrap CreationTime
+        {
+            get { return new DateTimeWrap(DirectoryInfo.CreationTime); }
+            set { DirectoryInfo.CreationTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap CreationTimeUtc
+        {
+            get { return new DateTimeWrap(DirectoryInfo.CreationTimeUtc); }
+            set { DirectoryInfo.CreationTimeUtc = value.DateTimeInstance; }
+        }
+
         public DirectoryInfo DirectoryInfo { get; private set; }
 
-        public override bool Exists
+        public bool Exists
         {
             get { return DirectoryInfo.Exists; }
         }
 
-        public override string Name
+        public string Extension
+        {
+            get { return DirectoryInfo.Extension; }
+        }
+
+        public string FullName
+        {
+            get { return DirectoryInfo.FullName; }
+        }
+
+        public IDateTimeWrap LastAccessTime
+        {
+            get { return new DateTimeWrap(DirectoryInfo.LastAccessTime); }
+            set { DirectoryInfo.LastAccessTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastAccessTimeUtc
+        {
+            get { return new DateTimeWrap(DirectoryInfo.LastAccessTimeUtc); }
+            set { DirectoryInfo.LastAccessTimeUtc = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastWriteTime
+        {
+            get { return new DateTimeWrap(DirectoryInfo.LastWriteTime); }
+            set { DirectoryInfo.LastWriteTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastWriteTimeUtc
+        {
+            get { return new DateTimeWrap(DirectoryInfo.LastWriteTimeUtc); }
+            set { DirectoryInfo.LastWriteTimeUtc = value.DateTimeInstance; }
+        }
+
+        public string Name
         {
             get { return DirectoryInfo.Name; }
         }
@@ -62,6 +115,11 @@ namespace SystemWrapper.IO
             DirectoryInfo.Create(directorySecurity.DirectorySecurityInstance);
         }
 
+        public ObjRef CreateObjRef(Type requestedType)
+        {
+            return DirectoryInfo.CreateObjRef(requestedType);
+        }
+
         public IDirectoryInfoWrap CreateSubdirectory(string path)
         {
             return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path));
@@ -72,7 +130,7 @@ namespace SystemWrapper.IO
             return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path, directorySecurity.DirectorySecurityInstance));
         }
 
-        public override void Delete()
+        public void Delete()
         {
             DirectoryInfo.Delete();
         }
@@ -138,9 +196,24 @@ namespace SystemWrapper.IO
             return DirectoryInfo.GetFileSystemInfos(searchPattern);
         }
 
+        public object GetLifetimeService()
+        {
+            return DirectoryInfo.GetLifetimeService();
+        }
+
+        public object InitializeLifetimeService()
+        {
+            return DirectoryInfo.InitializeLifetimeService();
+        }
+
         public void MoveTo(string destDirName)
         {
             DirectoryInfo.MoveTo(destDirName);
+        }
+
+        public void Refresh()
+        {
+            DirectoryInfo.Refresh();
         }
 
         public void SetAccessControl(IDirectorySecurityWrap directorySecurity)

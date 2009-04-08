@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Security.AccessControl;
 using SystemWrapper.Security.AccessControl;
@@ -158,25 +157,25 @@ namespace SystemWrapper.IO
         /// Returns the date and time the specified file or directory was last accessed.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain access date and time information. </param>
-        /// <returns>A DateTime structure set to the date and time the specified file or directory was last accessed. This value is expressed in local time.</returns>
+        /// <returns>A IDateTimeWrap set to the date and time the specified file or directory was last accessed. This value is expressed in local time.</returns>
         IDateTimeWrap GetLastAccessTime(string path);
         /// <summary>
         /// Returns the date and time, in Coordinated Universal Time (UTC) format, that the specified file or directory was last accessed.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain access date and time information.</param>
-        /// <returns>A DateTime structure set to the date and time the specified file or directory was last accessed. This value is expressed in UTC time.</returns>
+        /// <returns>A IDateTimeWrap set to the date and time the specified file or directory was last accessed. This value is expressed in UTC time.</returns>
         IDateTimeWrap GetLastAccessTimeUtc(string path);
         /// <summary>
         /// Returns the date and time the specified file or directory was last written to.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain modification date and time information. </param>
-        /// <returns>A DateTime structure set to the date and time the specified file or directory was last written to. This value is expressed in local time.</returns>
+        /// <returns>A IDateTimeWrap set to the date and time the specified file or directory was last written to. This value is expressed in local time.</returns>
         IDateTimeWrap GetLastWriteTime(string path);
         /// <summary>
         /// Returns the date and time, in Coordinated Universal Time (UTC) format, that the specified file or directory was last written to. 
         /// </summary>
         /// <param name="path">The file or directory for which to obtain modification date and time information.</param>
-        /// <returns>A DateTime structure set to the date and time the specified file or directory was last written to. This value is expressed in UTC time.</returns>
+        /// <returns>A IDateTimeWrap set to the date and time the specified file or directory was last written to. This value is expressed in UTC time.</returns>
         IDateTimeWrap GetLastWriteTimeUtc(string path);
         /// <summary>
         /// Retrieves the names of the logical drives on this computer in the form "<drive letter>:\". 
@@ -205,13 +204,13 @@ namespace SystemWrapper.IO
         /// Sets the creation date and time for the specified file or directory.
         /// </summary>
         /// <param name="path">The file or directory for which to set the creation date and time information.</param>
-        /// <param name="creationTime">A DateTime containing the value to set for the creation date and time of path. This value is expressed in local time.</param>
+        /// <param name="creationTime">A IDateTimeWrap containing the value to set for the creation date and time of path. This value is expressed in local time.</param>
         void SetCreationTime(string path, IDateTimeWrap creationTime);
         /// <summary>
         /// Sets the creation date and time, in Coordinated Universal Time (UTC) format, for the specified file or directory. 
         /// </summary>
         /// <param name="path">The file or directory for which to set the creation date and time information. </param>
-        /// <param name="creationTimeUtc">A DateTime containing the value to set for the creation date and time of path. This value is expressed in UTC time.</param>
+        /// <param name="creationTimeUtc">A IDateTimeWrap containing the value to set for the creation date and time of path. This value is expressed in UTC time.</param>
         void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc);
         /// <summary>
         /// Sets the application's current working directory to the specified directory. 
@@ -222,13 +221,13 @@ namespace SystemWrapper.IO
         /// Sets the date and time the specified file or directory was last accessed.
         /// </summary>
         /// <param name="path">The file or directory for which to set the access date and time information. </param>
-        /// <param name="lastAccessTime">A DateTime containing the value to set for the access date and time of path. This value is expressed in local time.</param>
+        /// <param name="lastAccessTime">A IDateTimeWrap containing the value to set for the access date and time of path. This value is expressed in local time.</param>
         void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime);
         /// <summary>
         /// Sets the date and time, in Coordinated Universal Time (UTC) format, that the specified file or directory was last accessed.
         /// </summary>
         /// <param name="path">The file or directory for which to set the access date and time information.</param>
-        /// <param name="lastAccessTimeUtc">A DateTime containing the value to set for the access date and time of path. This value is expressed in UTC time.</param>
+        /// <param name="lastAccessTimeUtc">A IDateTimeWrap containing the value to set for the access date and time of path. This value is expressed in UTC time.</param>
         void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc);
         /// <summary>
         /// Sets the date and time a directory was last written to.

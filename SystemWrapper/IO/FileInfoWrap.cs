@@ -10,7 +10,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class FileInfoWrap : FileSystemInfo, IFileInfoWrap
+    public class FileInfoWrap : IFileInfoWrap
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
@@ -30,6 +30,24 @@ namespace SystemWrapper.IO
             FileInfoInstance = new FileInfo(fileName);
         }
 
+        public FileAttributes Attributes
+        {
+            get { return FileInfoInstance.Attributes; }
+            set { FileInfoInstance.Attributes = value; }
+        }
+
+        public IDateTimeWrap CreationTime
+        {
+            get { return new DateTimeWrap(FileInfoInstance.CreationTime); }
+            set { FileInfoInstance.CreationTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap CreationTimeUtc
+        {
+            get { return new DateTimeWrap(FileInfoInstance.CreationTimeUtc); }
+            set { FileInfoInstance.CreationTimeUtc = value.DateTimeInstance; }
+        }
+
         public IDirectoryInfoWrap Directory
         {
             get { return new DirectoryInfoWrap(FileInfoInstance.Directory); }
@@ -40,12 +58,22 @@ namespace SystemWrapper.IO
             get { return FileInfoInstance.DirectoryName; }
         }
 
-        public override bool Exists
+        public bool Exists
         {
             get { return FileInfoInstance.Exists; }
         }
 
+        public string Extension
+        {
+            get { return FileInfoInstance.Extension; }
+        }
+
         public FileInfo FileInfoInstance { get; private set; }
+
+        public string FullName
+        {
+            get { return FileInfoInstance.FullName; }
+        }
 
         public bool IsReadOnly
         {
@@ -53,12 +81,36 @@ namespace SystemWrapper.IO
             set { FileInfoInstance.IsReadOnly = value; }
         }
 
+        public IDateTimeWrap LastAccessTime
+        {
+            get { return new DateTimeWrap(FileInfoInstance.LastAccessTime); }
+            set { FileInfoInstance.LastAccessTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastAccessTimeUtc
+        {
+            get { return new DateTimeWrap(FileInfoInstance.LastAccessTimeUtc); }
+            set { FileInfoInstance.LastAccessTimeUtc = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastWriteTime
+        {
+            get { return new DateTimeWrap(FileInfoInstance.LastWriteTime); }
+            set { FileInfoInstance.LastWriteTime = value.DateTimeInstance; }
+        }
+
+        public IDateTimeWrap LastWriteTimeUtc
+        {
+            get { return new DateTimeWrap(FileInfoInstance.LastWriteTimeUtc); }
+            set { FileInfoInstance.LastWriteTimeUtc = value.DateTimeInstance; }
+        }
+
         public long Length
         {
             get { return FileInfoInstance.Length; }
         }
 
-        public override string Name
+        public string Name
         {
             get { return FileInfoInstance.Name; }
         }
@@ -73,7 +125,7 @@ namespace SystemWrapper.IO
             FileInfoInstance.Decrypt();
         }
 
-        public override void Delete()
+        public void Delete()
         {
             FileInfoInstance.Delete();
         }
@@ -146,6 +198,11 @@ namespace SystemWrapper.IO
         public IFileStreamWrap OpenWrite()
         {
             return new FileStreamWrap(FileInfoInstance.OpenWrite());
+        }
+
+        public void Refresh()
+        {
+            FileInfoInstance.Refresh();
         }
 
         public IFileInfoWrap Replace(string destinationFileName, string destinationBackupFileName)

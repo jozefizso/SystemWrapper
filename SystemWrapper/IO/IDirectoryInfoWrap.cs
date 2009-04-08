@@ -20,11 +20,11 @@ namespace SystemWrapper.IO
         /// <summary>
         /// Gets or sets the creation time of the current <see cref="T:System.IO.FileSystemInfo"/> object.
         /// </summary>
-        DateTime CreationTime { get; set; }
+        IDateTimeWrap CreationTime { get; set; }
         /// <summary>
         /// Gets or sets the creation time, in coordinated universal time (UTC), of the current <see cref="T:System.IO.FileSystemInfo"/> object. 
         /// </summary>
-        DateTime CreationTimeUtc { get; set; }
+        IDateTimeWrap CreationTimeUtc { get; set; }
         /// <summary>
         /// Gets <see cref="T:System.IO.DirectoryInfo"/> object.
         /// </summary>
@@ -44,19 +44,19 @@ namespace SystemWrapper.IO
         /// <summary>
         /// Gets or sets the time the current file or directory was last accessed. 
         /// </summary>
-        DateTime LastAccessTime { get; set; }
+        IDateTimeWrap LastAccessTime { get; set; }
         /// <summary>
         /// Gets or sets the time, in coordinated universal time (UTC), that the current file or directory was last accessed.
         /// </summary>
-        DateTime LastAccessTimeUtc { get; set; }
+        IDateTimeWrap LastAccessTimeUtc { get; set; }
         /// <summary>
         /// Gets or sets the time when the current file or directory was last written to.
         /// </summary>
-        DateTime LastWriteTime { get; set; }
+        IDateTimeWrap LastWriteTime { get; set; }
         /// <summary>
         /// Gets or sets the time, in coordinated universal time (UTC), when the current file or directory was last written to.
         /// </summary>
-        DateTime LastWriteTimeUtc { get; set; }
+        IDateTimeWrap LastWriteTimeUtc { get; set; }
         /// <summary>
         /// Gets the name of this <see cref="T:System.IO.DirectoryInfo"/> instance. 
         /// </summary>
