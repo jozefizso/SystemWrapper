@@ -59,7 +59,9 @@
     <Compile Include="Data\SqlClient\SqlConnectionWrap.cs">
     </Compile>
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="DateTimeWrap.cs" />
     <Compile Include="IAppDomainWrap.cs" />
+    <Compile Include="IDateTimeWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
@@ -102,9 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CurrentCoverage.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IO\Compression" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

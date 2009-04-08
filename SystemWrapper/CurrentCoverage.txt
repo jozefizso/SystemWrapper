@@ -9,6 +9,7 @@
 System
 	* Complete
 	--------------------------
+	- DateTime
 	- Version
 	
 	* Partial
@@ -31,9 +32,17 @@ System.IO
 	
 	* Partial
 	--------------------------
-	- BinaryReader
-	- BinaryWriter
-	
+	- MemoryStream
+	- TextReader
+
+System.IO.Compression
+	* Complete
+	--------------------------
+
+	* Partial
+	--------------------------
+	- DeflateStream
+
 System.Reflection
 	* Complete
 	--------------------------

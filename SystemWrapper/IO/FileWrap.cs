@@ -98,34 +98,34 @@ namespace SystemWrapper.IO
             return File.GetAttributes(path);
         }
 
-        public DateTime GetCreationTime(string path)
+        public IDateTimeWrap GetCreationTime(string path)
         {
-            return File.GetCreationTime(path);
+            return new DateTimeWrap(File.GetCreationTime(path));
         }
 
-        public DateTime GetCreationTimeUtc(string path)
+        public IDateTimeWrap GetCreationTimeUtc(string path)
         {
-            return File.GetCreationTimeUtc(path);
+            return new DateTimeWrap(File.GetCreationTimeUtc(path));
         }
 
-        public DateTime GetLastAccessTime(string path)
+        public IDateTimeWrap GetLastAccessTime(string path)
         {
-            return File.GetLastAccessTime(path);
+            return new DateTimeWrap(File.GetLastAccessTime(path));
         }
 
-        public DateTime GetLastAccessTimeUtc(string path)
+        public IDateTimeWrap GetLastAccessTimeUtc(string path)
         {
-            return File.GetLastAccessTimeUtc(path);
+            return new DateTimeWrap(File.GetLastAccessTimeUtc(path));
         }
 
-        public DateTime GetLastWriteTime(string path)
+        public IDateTimeWrap GetLastWriteTime(string path)
         {
-            return GetLastWriteTime(path);
+            return new DateTimeWrap(File.GetLastWriteTime(path));
         }
 
-        public DateTime GetLastWriteTimeUtc(string path)
+        public IDateTimeWrap GetLastWriteTimeUtc(string path)
         {
-            return File.GetLastWriteTimeUtc(path);
+            return new DateTimeWrap(File.GetLastWriteTimeUtc(path));
         }
 
         public void Move(string sourceFileName, string destFileName)
@@ -208,34 +208,34 @@ namespace SystemWrapper.IO
             File.SetAttributes(path, fileAttributes);
         }
 
-        public void SetCreationTime(string path, DateTime creationTime)
+        public void SetCreationTime(string path, IDateTimeWrap creationTime)
         {
-            File.SetCreationTime(path, creationTime);
+            File.SetCreationTime(path, creationTime.DateTimeInstance);
         }
 
-        public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
+        public void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc)
         {
-            File.SetCreationTimeUtc(path, creationTimeUtc);
+            File.SetCreationTimeUtc(path, creationTimeUtc.DateTimeInstance);
         }
 
-        public void SetLastAccessTime(string path, DateTime lastAccessTime)
+        public void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime)
         {
-            File.SetLastAccessTime(path, lastAccessTime);
+            File.SetLastAccessTime(path, lastAccessTime.DateTimeInstance);
         }
 
-        public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
+        public void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc)
         {
-            File.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
+            File.SetLastAccessTimeUtc(path, lastAccessTimeUtc.DateTimeInstance);
         }
 
-        public void SetLastWriteTime(string path, DateTime lastWriteTime)
+        public void SetLastWriteTime(string path, IDateTimeWrap lastWriteTime)
         {
-            File.SetLastWriteTime(path, lastWriteTime);
+            File.SetLastWriteTime(path, lastWriteTime.DateTimeInstance);
         }
 
-        public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
+        public void SetLastWriteTimeUtc(string path, IDateTimeWrap lastWriteTimeUtc)
         {
-            File.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
+            File.SetLastWriteTimeUtc(path, lastWriteTimeUtc.DateTimeInstance);
         }
 
         public void WriteAllBytes(string path, byte[] bytes)
