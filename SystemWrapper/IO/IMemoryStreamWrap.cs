@@ -10,48 +10,31 @@ namespace SystemWrapper.IO
         // Properties
 
         /// <summary>
+        /// Gets or sets the number of bytes allocated for this stream. 
+        /// </summary>
+        int Capacity { get; set; }
+        /// <summary>
         /// Gets <see cref="T:System.IO.MemoryStream"/> object.
         /// </summary>
         MemoryStream MemoryStreamInstance { get; }
 
+        // Methods
+
+        /// <summary>
+        /// Returns the array of unsigned bytes from which this stream was created. 
+        /// </summary>
+        /// <returns>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the MemoryStream constructor during construction of the current instance.</returns>
+        byte[] GetBuffer();
+        /// <summary>
+        /// Writes the stream contents to a byte array, regardless of the Position property. 
+        /// </summary>
+        /// <returns>A new byte array.</returns>
         byte[] ToArray();
-		//TODO
-
-          // Methods
-/*
-    public MemoryStream();
-    public MemoryStream(int capacity);
-    public MemoryStream(byte[] buffer);
-    public MemoryStream(byte[] buffer, bool writable);
-    public MemoryStream(byte[] buffer, int index, int count);
-    public MemoryStream(byte[] buffer, int index, int count, bool writable);
-    public MemoryStream(byte[] buffer, int index, int count, bool writable, bool publiclyVisible);
-    protected override void Dispose(bool disposing);
-    private bool EnsureCapacity(int value);
-    public override void Flush();
-    public virtual byte[] GetBuffer();
-    internal int InternalEmulateRead(int count);
-    internal byte[] InternalGetBuffer();
-    internal void InternalGetOriginAndLength(out int origin, out int length);
-    internal int InternalGetPosition();
-    internal int InternalReadInt32();
-    public override int Read([In, Out] byte[] buffer, int offset, int count);
-    public override int ReadByte();
-    public override long Seek(long offset, SeekOrigin loc);
-    public override void SetLength(long value);
-    public virtual byte[] ToArray();
-    public override void Write(byte[] buffer, int offset, int count);
-    public override void WriteByte(byte value);
-    public virtual void WriteTo(Stream stream);
-
-    // Properties
-    public override bool CanRead { get; }
-    public override bool CanSeek { get; }
-    public override bool CanWrite { get; }
-    public virtual int Capacity { get; set; }
-    public override long Length { get; }
-    public override long Position { get; set; }
-*/
+        /// <summary>
+        /// Writes the entire contents of this memory stream to another stream. 
+        /// </summary>
+        /// <param name="stream">The stream to write this memory stream to.</param>
+        void WriteTo(IStreamWrap stream);
 
 	}
 }

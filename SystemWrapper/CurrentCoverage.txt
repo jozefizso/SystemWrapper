@@ -26,13 +26,13 @@ System.IO
 	- File
 	- FileInfo
 	- FileStream
+	- MemoryStream
 	- Path
 	- StreamReader
 	- StreamWriter
 	
 	* Partial
 	--------------------------
-	- MemoryStream
 	- TextReader
 
 System.IO.Compression
