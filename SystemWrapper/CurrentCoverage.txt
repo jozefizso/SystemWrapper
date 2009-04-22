@@ -33,7 +33,6 @@ System.IO
 	
 	* Partial
 	--------------------------
-	- TextReader
 
 System.IO.Compression
 	* Complete

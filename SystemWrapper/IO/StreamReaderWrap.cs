@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace SystemWrapper.IO
@@ -6,8 +8,18 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.StreamReader"/> class.
     /// </summary>
-    public class StreamReaderWrap : TextReader, IStreamReaderWrap
+    [Serializable, ComVisible(true)]
+    public class StreamReaderWrap : IStreamReaderWrap
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
+        /// </summary>
+        /// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
+        public StreamReaderWrap(TextReader textReader)
+        {
+            StreamReaderInstance = textReader as StreamReader;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
         /// </summary>
@@ -137,9 +149,10 @@ namespace SystemWrapper.IO
         }
 
         public StreamReader StreamReaderInstance { get; private set; }
+
         public TextReader TextReaderInstance{ get{ return StreamReaderInstance; } }
 
-        public override void Close()
+        public void Close()
         {
             StreamReaderInstance.Close();
         }
@@ -149,29 +162,54 @@ namespace SystemWrapper.IO
             StreamReaderInstance.DiscardBufferedData();
         }
 
-        public override int Peek()
+        /// <summary>
+        /// Returns the next available character but does not consume it. 
+        /// </summary>
+        /// <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
+        public int Peek()
         {
             return StreamReaderInstance.Peek();
         }
 
-        public override int Read()
+        public int Read()
         {
             return StreamReaderInstance.Read();
         }
 
-        public override int Read(char[] buffer, int index, int count)
+        /// <summary>
+        /// Reads a maximum of count characters from the current stream into buffer, beginning at index. 
+        /// </summary>
+        /// <param name="buffer">When this method returns, contains the specified character array with the values between index and (index + count - 1) replaced by the characters read from the current source.</param>
+        /// <param name="index">The index of buffer at which to begin writing.</param>
+        /// <param name="count">The maximum number of characters to read. </param>
+        /// <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
+        public int Read(char[] buffer, int index, int count)
         {
             return StreamReaderInstance.Read(buffer, index, count);
         }
 
-        public override string ReadLine()
+        public int ReadBlock(char[] buffer, int index, int count)
+        {
+            return StreamReaderInstance.ReadBlock(buffer, index, count);
+        }
+
+        public string ReadLine()
         {
             return StreamReaderInstance.ReadLine();
         }
 
-        public override string ReadToEnd()
+        /// <summary>
+        /// Reads the stream from the current position to the end of the stream.
+        /// </summary>
+        /// <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
+        public string ReadToEnd()
         {
             return StreamReaderInstance.ReadToEnd();
+        }
+
+        public ITextReaderWrap Synchronized(ITextReaderWrap reader)
+        {
+            return new StreamReaderWrap(TextReader.Synchronized(reader.TextReaderInstance));
         }
     }
 }
