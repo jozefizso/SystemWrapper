@@ -182,7 +182,7 @@ namespace SystemWrapper.IO
             return MemoryStreamInstance.BeginWrite(buffer, offset, count, callback, state);
         }
 
-        public void Close()
+        public virtual void Close()
         {
             MemoryStreamInstance.Close();
         }

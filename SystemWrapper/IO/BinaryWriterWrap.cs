@@ -9,7 +9,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class BinaryWriterWrap : IBinaryWriterWrap
+    public class BinaryWriterWrap :IBinaryWriterWrap
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
@@ -172,6 +172,11 @@ namespace SystemWrapper.IO
         public void Write(char[] chars, int index, int count)
         {
             BinaryWriterInstance.Write(chars, index, count);
+        }
+
+        public void Dispose()
+        {
+            BinaryWriterInstance.Close();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace SystemWrapper.IO
@@ -5,7 +6,7 @@ namespace SystemWrapper.IO
 	/// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
 	/// </summary>
-	public interface IBinaryReaderWrap
+	public interface IBinaryReaderWrap : IDisposable
 	{
         // Properties
 

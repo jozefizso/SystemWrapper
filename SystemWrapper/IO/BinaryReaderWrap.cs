@@ -65,7 +65,7 @@ namespace SystemWrapper.IO
 
 		public BinaryReader BinaryReaderInstance{ get; private set; }
 
-        public void Close()
+        public virtual void Close()
         {
             BinaryReaderInstance.Close();
         }
@@ -135,7 +135,7 @@ namespace SystemWrapper.IO
 	        return BinaryReaderInstance.ReadByte();
 	    }
 
-	    public byte[] ReadBytes(int count )
+	    public virtual byte[] ReadBytes(int count )
 		{
 			return BinaryReaderInstance.ReadBytes( count );
 		}
@@ -173,5 +173,10 @@ namespace SystemWrapper.IO
 	    {
 	        return BinaryReaderInstance.ReadUInt64();
         }
+
+	    public void Dispose()
+	    {
+	        BinaryReaderInstance.Close();
+	    }
 	}
 }

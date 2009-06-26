@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace SystemWrapper.IO
@@ -5,7 +6,7 @@ namespace SystemWrapper.IO
 	/// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
 	/// </summary>
-	public interface IBinaryWriterWrap
+	public interface IBinaryWriterWrap : IDisposable
 	{
         // Properties
 
