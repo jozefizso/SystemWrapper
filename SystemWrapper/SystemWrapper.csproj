@@ -89,6 +89,10 @@
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="IVersionWrap.cs" />
+    <Compile Include="Microsoft.Win32\IRegistryKeyWrap.cs" />
+    <Compile Include="Microsoft.Win32\IRegistryWrap.cs" />
+    <Compile Include="Microsoft.Win32\RegistryKeyWrap.cs" />
+    <Compile Include="Microsoft.Win32\RegistryWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\ISafeFileHandleWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
