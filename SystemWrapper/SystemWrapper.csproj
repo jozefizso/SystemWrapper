@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -52,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDomainWrap.cs" />
+    <Compile Include="Configuration\ConfigurationManagerWrap.cs" />
+    <Compile Include="Configuration\IConfigurationManagerWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlCommandWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlConnectionWrap.cs" />
     <Compile Include="Data\SqlClient\ISqlDataReaderWrap.cs" />
@@ -60,6 +63,10 @@
     </Compile>
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="DateTimeWrap.cs" />
+    <Compile Include="Diagnostics\IProcessStartInfoWrap.cs" />
+    <Compile Include="Diagnostics\IProcessWrap.cs" />
+    <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
+    <Compile Include="Diagnostics\ProcessWrap.cs" />
     <Compile Include="IAppDomainWrap.cs" />
     <Compile Include="IDateTimeWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
