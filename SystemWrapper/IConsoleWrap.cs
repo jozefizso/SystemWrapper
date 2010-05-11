@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Security;
 using System.Security.Permissions;
@@ -12,18 +13,44 @@ namespace SystemWrapper
         // Properties
 
         /// <summary>
+        /// Gets or sets the foreground color of the console.
+        /// </summary>
+        ConsoleColor ForegroundColor { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
+        /// <summary>
         /// Gets the standard output stream.
         /// </summary>
         TextWriter Out { [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)] get; }
 
         // Methods
 
+        /// <summary>
+        /// Sets the foreground and background console colors to their defaults.
+        /// </summary>
+        [SecuritySafeCritical]
+        void ResetColor();
         ///<summary>
         /// Sets the Out  property to the specified TextWriter  object.
         ///</summary>
         ///<param name="newOut">A TextWriter  stream that is the new standard output.</param>
         [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
         void SetOut(TextWriter newOut);
+        /// <summary>
+        /// Writes the specified Unicode character value to the standard output stream.
+        /// </summary>
+        /// <param name="value">The value to write.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void Write(char value);
+        /// <summary>
+        /// Writes the specified string value to the standard output stream.
+        /// </summary>
+        /// <param name="value">The value to write.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void Write(string value);
+        /// <summary>
+        /// Writes the current line terminator to the standard output stream.
+        /// </summary>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void WriteLine();
         /// <summary>
         /// Writes the specified string value, followed by the current line terminator, to the standard output stream.
         /// </summary>
@@ -39,30 +66,8 @@ namespace SystemWrapper
                 public static void Beep();
                 [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Beep(int frequency, int duration);
-                private static bool BreakEvent(int controlType);
                 [SecuritySafeCritical]
                 public static void Clear();
-                [SecurityCritical]
-                private static ConsoleColor ColorAttributeToConsoleColor(Win32Native.Color c);
-                [SecurityCritical]
-                private static Win32Native.Color ConsoleColorToColorAttribute(ConsoleColor color, bool isBackground);
-                [SecuritySafeCritical]
-                private static bool ConsoleHandleIsValid(SafeFileHandle handle);
-                private static void ControlCDelegate(object data);
-                [SecurityCritical]
-                private static Win32Native.CONSOLE_SCREEN_BUFFER_INFO GetBufferInfo();
-                [SecuritySafeCritical]
-                private static Win32Native.CONSOLE_SCREEN_BUFFER_INFO GetBufferInfo(bool throwOnNoConsole, out bool succeeded);
-                [SecuritySafeCritical]
-                private static Stream GetStandardFile(int stdHandleName, FileAccess access, int bufferSize);
-                [SecuritySafeCritical]
-                private static void InitializeStdOutError(bool stdout);
-                [SecurityCritical]
-                private static bool IsAltKeyDown(Win32Native.InputRecord ir);
-                [SecurityCritical]
-                private static bool IsKeyDownEvent(Win32Native.InputRecord ir);
-                [SecurityCritical]
-                private static bool IsModKey(Win32Native.InputRecord ir);
                 [SecuritySafeCritical]
                 public static void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop);
                 [SecuritySafeCritical]
@@ -88,8 +93,6 @@ namespace SystemWrapper
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static string ReadLine();
                 [SecuritySafeCritical]
-                public static void ResetColor();
-                [SecuritySafeCritical]
                 public static void SetBufferSize(int width, int height);
                 [SecuritySafeCritical]
                 public static void SetCursorPosition(int left, int top);
@@ -104,8 +107,6 @@ namespace SystemWrapper
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(bool value);
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void Write(char value);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(decimal value);
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(double value);
@@ -117,8 +118,6 @@ namespace SystemWrapper
                 public static void Write(object value);
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(float value);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void Write(string value);
                 [CLSCompliant(false), HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(uint value);
                 [CLSCompliant(false), HostProtection(SecurityAction.LinkDemand, UI = true)]
@@ -137,8 +136,6 @@ namespace SystemWrapper
                 public static void Write(string format, object arg0, object arg1, object arg2);
                 [SecuritySafeCritical, CLSCompliant(false), HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Write(string format, object arg0, object arg1, object arg2, object arg3, __arglist);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void WriteLine();
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void WriteLine(char value);
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
@@ -181,17 +178,13 @@ namespace SystemWrapper
                 public static int BufferHeight { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int BufferWidth { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static bool CapsLock { [SecuritySafeCritical] get; }
-                private static IntPtr ConsoleInputHandle { [SecurityCritical] get; }
-                private static IntPtr ConsoleOutputHandle { [SecurityCritical] get; }
                 public static int CursorLeft { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int CursorSize { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int CursorTop { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static bool CursorVisible { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static TextWriter Error { [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)] get; }
-                public static ConsoleColor ForegroundColor { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static TextReader In { [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)] get; }
                 public static Encoding InputEncoding { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
-                private static object InternalSyncObject { get; }
                 public static bool KeyAvailable { [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)] get; }
                 public static int LargestWindowHeight { [SecuritySafeCritical] get; }
                 public static int LargestWindowWidth { [SecuritySafeCritical] get; }
