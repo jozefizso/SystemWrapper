@@ -1,4 +1,5 @@
 using System.Collections.Specialized;
+using System.Configuration;
 
 namespace SystemWrapper.Configuration
 {
@@ -8,10 +9,16 @@ namespace SystemWrapper.Configuration
     public interface IConfigurationManagerWrap
     {
         // Properties
+
         /// <summary>
         /// Gets the AppSettingsSection  data for the current application's default configuration.
         /// </summary>
         NameValueCollection AppSettings { get; }
+
+        /// <summary>
+        /// Gets the ConnectionStringsSection  data for the current application's default configuration.
+        /// </summary>
+        ConnectionStringSettingsCollection ConnectionStrings { get; }
 
         /*
                 // Methods
@@ -27,9 +34,6 @@ namespace SystemWrapper.Configuration
             [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
             public static System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap fileMap);
             public static void RefreshSection(string sectionName);
-
-            // Properties
-            public static ConnectionStringSettingsCollection ConnectionStrings { get; }
         */
     }
 }
