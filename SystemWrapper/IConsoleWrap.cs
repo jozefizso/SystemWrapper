@@ -57,6 +57,38 @@ namespace SystemWrapper
         /// <param name="value">The value to write.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string value);
+        /// <summary>
+        /// Writes the text representation of the specified object, followed by the current line terminator, to the standard output stream using the specified format information.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="arg0">An object to write using format.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void WriteLine(string format, object arg0);
+        /// <summary>
+        /// Writes the text representation of the specified array of objects, followed by the current line terminator, to the standard output stream using the specified format information.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="arg">An array of objects to write using format.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void WriteLine(string format, params object[] arg);
+        /// <summary>
+        /// Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="arg0">The first object to write using format.</param>
+        /// <param name="arg1">The second object to write using format.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void WriteLine(string format, object arg0, object arg1);
+        /// <summary>
+        /// Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
+        /// </summary>
+        /// <param name="format">A composite format string.</param>
+        /// <param name="arg0">The first object to write using format.</param>
+        /// <param name="arg1">The second object to write using format.</param>
+        /// <param name="arg2">The third object to write using format.</param>
+        [HostProtection(SecurityAction.LinkDemand, UI = true)]
+        void WriteLine(string format, object arg0, object arg1, object arg2);
+
         /*
                 // Events
                 public static event ConsoleCancelEventHandler CancelKeyPress;
@@ -161,15 +193,7 @@ namespace SystemWrapper
                 [CLSCompliant(false), HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void WriteLine(ulong value);
                 [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void WriteLine(string format, object arg0);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void WriteLine(string format, params object[] arg);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void WriteLine(string format, object arg0, object arg1);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void WriteLine(char[] buffer, int index, int count);
-                [HostProtection(SecurityAction.LinkDemand, UI = true)]
-                public static void WriteLine(string format, object arg0, object arg1, object arg2);
                 [CLSCompliant(false), SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void WriteLine(string format, object arg0, object arg1, object arg2, object arg3, __arglist);
 

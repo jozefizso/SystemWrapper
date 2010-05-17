@@ -56,5 +56,29 @@ namespace SystemWrapper
         {
             Console.WriteLine(value);
         }
+
+        /// <inheritdoc />
+        public void WriteLine(string format, object arg0)
+        {
+            Console.WriteLine(format, arg0);
+        }
+
+        /// <inheritdoc />
+        public void WriteLine(string format, params object[] arg)
+        {
+            Console.WriteLine(format, arg);
+        }
+
+        /// <inheritdoc />
+        public void WriteLine(string format, object arg0, object arg1)
+        {
+            Console.WriteLine(format, arg0, arg1);
+        }
+
+        /// <inheritdoc />
+        public void WriteLine(string format, object arg0, object arg1, object arg2)
+        {
+            Console.WriteLine(format, arg0, arg1, arg2);
+        }
     }
 }
