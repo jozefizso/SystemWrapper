@@ -52,7 +52,7 @@ namespace SystemWrapper.IO
 
         public string GetFileName(string path)
         {
-            throw new System.NotImplementedException();
+            return Path.GetFileName(path);
         }
 
         public string GetFileNameWithoutExtension(string path)

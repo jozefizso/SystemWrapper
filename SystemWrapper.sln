@@ -1,7 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-# SharpDevelop 3.0.0.3800
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper", "SystemWrapper\SystemWrapper.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper.Tests", "SystemWrapper.Tests\SystemWrapper.Tests.csproj", "{977D8BEB-334E-4938-BAE0-CB75698B1255}"
@@ -21,11 +20,11 @@ Global
 		{977D8BEB-334E-4938-BAE0-CB75698B1255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{977D8BEB-334E-4938-BAE0-CB75698B1255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977D8BEB-334E-4938-BAE0-CB75698B1255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977D8BEB-334E-4938-BAE0-CB75698B1255}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{977D8BEB-334E-4938-BAE0-CB75698B1255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
