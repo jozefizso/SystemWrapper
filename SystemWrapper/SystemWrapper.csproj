@@ -134,6 +134,8 @@
     <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="Security\AccessControl\IDirectorySecurityWrap.cs" />
     <Compile Include="Security\AccessControl\IFileSecurityWrap.cs" />
+    <Compile Include="Threading\IThreadWrap.cs" />
+    <Compile Include="Threading\ThreadWrap.cs" />
     <Compile Include="VersionWrap.cs" />
   </ItemGroup>
   <ItemGroup>
