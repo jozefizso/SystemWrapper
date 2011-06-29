@@ -7,7 +7,7 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Description of IStreamWrap.
     /// </summary>
-    public interface IStreamWrap
+    public interface IStreamWrap : IDisposable
     {
         /// <summary>
         /// When overridden in a derived class, gets a value indicating whether the current stream supports reading. 
@@ -34,7 +34,7 @@ namespace SystemWrapper.IO
         /// </summary>
         long Position { get; set; }
         /// <summary>
-        /// Gets or sets a value, in miliseconds, that determines how long the stream will attempt to read before timing out. 
+        /// Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out. 
         /// </summary>
         int ReadTimeout { get; set; }
         /// <summary>
@@ -42,7 +42,7 @@ namespace SystemWrapper.IO
         /// </summary>
         Stream StreamInstance { get; }
         /// <summary>
-        /// Gets or sets a value, in miliseconds, that determines how long the stream will attempt to write before timing out. 
+        /// Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out. 
         /// </summary>
         int WriteTimeout { get; set; }
 

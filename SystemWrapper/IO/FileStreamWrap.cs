@@ -381,6 +381,11 @@ namespace SystemWrapper.IO
             return FileStreamInstance.ToString();
         }
 
+        public void Dispose()
+        {
+            FileStreamInstance.Dispose();
+        }
+
         public void Unlock(long position, long length)
         {
             FileStreamInstance.Unlock(position, length);

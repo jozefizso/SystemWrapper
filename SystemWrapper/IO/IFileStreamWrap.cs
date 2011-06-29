@@ -37,7 +37,11 @@ namespace SystemWrapper.IO
         /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
         /// </summary>
 //        void Close();
-
+        /// <summary>
+        /// Releases the unmanaged resources used by the FileStream and optionally releases the managed resources. 
+        /// </summary>
+        /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+//        void Dispose(bool disposing);
         /// <summary>
         /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
         /// </summary>

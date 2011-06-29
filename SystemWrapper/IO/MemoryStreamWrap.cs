@@ -286,5 +286,10 @@ namespace SystemWrapper.IO
         {
             MemoryStreamInstance.WriteTo(stream.StreamInstance);
         }
+
+        public void Dispose()
+        {
+            MemoryStreamInstance.Dispose();
+        }
     }
 }

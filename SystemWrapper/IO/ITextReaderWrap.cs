@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
@@ -7,7 +8,7 @@ namespace SystemWrapper.IO
 	/// <summary>
 	/// Description of ITextReaderWrap.
 	/// </summary>
-	public interface ITextReaderWrap
+	public interface ITextReaderWrap : IDisposable
 	{
         /// <summary>
         /// Gets <see cref="T:System.IO.TextReader"/> object.

@@ -39,6 +39,15 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
+        /// </summary>
+        /// <param name="stream">The stream wrapper to write to.</param>
+        public StreamReaderWrap(IStreamWrap stream)
+        {
+            StreamReaderInstance = new StreamReader(stream.StreamInstance);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the StreamReader class for the specified file name.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
@@ -210,6 +219,11 @@ namespace SystemWrapper.IO
         public ITextReaderWrap Synchronized(ITextReaderWrap reader)
         {
             return new StreamReaderWrap(TextReader.Synchronized(reader.TextReaderInstance));
+        }
+
+        public void Dispose()
+        {
+            StreamReaderInstance.Dispose();
         }
     }
 }
