@@ -9,6 +9,24 @@ namespace SystemWrapper.Data.SqlClient
     /// </summary>
     public interface ISqlConnectionWrap
     {
+
+    	/// <summary>
+    	/// Initializes a new instance of the SqlConnectionWrap class. 
+    	/// </summary>
+    	void Initialize();
+
+    	/// <summary>
+    	/// Initializes a new instance of the SqlConnectionWrap class. 
+    	/// </summary>
+    	/// <param name="connection">SqlConnection object.</param>
+    	void Initialize(SqlConnection connection);
+
+    	/// <summary>
+    	/// Initializes a new instance of the SqlConnection class when given a string that contains the connection string. 
+    	/// </summary>
+    	/// <param name="connectionString">The connection used to open the SQL Server database.</param>
+    	void Initialize(string connectionString);
+
         // Properties
 
         /// <summary>

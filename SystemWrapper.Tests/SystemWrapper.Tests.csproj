@@ -58,6 +58,7 @@
     <Reference Include="MbUnit, Version=3.2.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
       <HintPath>libs\MbUnit\MbUnit.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -72,6 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\SqlClient\SqlDataReaderWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="Reflection\AssemblyWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="IO\DirectoryWrapTests.cs" />
