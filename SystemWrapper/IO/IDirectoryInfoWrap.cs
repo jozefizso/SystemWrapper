@@ -11,6 +11,20 @@ namespace SystemWrapper.IO
     /// </summary>
     public interface IDirectoryInfoWrap
     {
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+    	/// </summary>
+    	/// <param name="directoryInfo">A <see cref="T:System.IO.DirectoryInfo"/> object.</param>
+    	void Initialize(DirectoryInfo directoryInfo);
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+    	/// </summary>
+    	/// <param name="path">A string specifying the path on which to create the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/>. </param>
+    	void Initialize(string path);
+
+
         // Properties
 
         /// <summary>

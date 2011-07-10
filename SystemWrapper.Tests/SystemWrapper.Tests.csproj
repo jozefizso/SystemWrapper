@@ -63,6 +63,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -76,6 +77,8 @@
     <Compile Include="Data\SqlClient\SqlDataReaderWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlConnectionWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
+    <Compile Include="Diagnostics\ProcessWrapTests.cs" />
+    <Compile Include="Diagnostics\ProcessStartInfoWrapTests.cs" />
     <Compile Include="Reflection\AssemblyWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="IO\DirectoryWrapTests.cs" />

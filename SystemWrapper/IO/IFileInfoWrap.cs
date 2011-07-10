@@ -10,6 +10,20 @@ namespace SystemWrapper.IO
     /// </summary>
     public interface IFileInfoWrap
     {
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+    	/// </summary>
+    	/// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
+    	void Initialize(FileInfo fileInfo);
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+    	/// </summary>
+    	/// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
+    	void Initialize(string fileName);
+
+
         // Properties
 
         /// <summary>

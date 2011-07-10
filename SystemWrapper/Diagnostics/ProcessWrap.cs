@@ -3,57 +3,69 @@ using System.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
 {
-    ///<summary>
-    /// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
-    ///</summary>
-    public class ProcessWrap : IProcessWrap
-    {
-        private IProcessStartInfoWrap startInfo;
+	///<summary>
+	/// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
+	///</summary>
+	public class ProcessWrap : IProcessWrap
+	{
+		private IProcessStartInfoWrap startInfo;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
-        /// </summary>
-        public ProcessWrap()
-        {
-            ProcessInstance = new Process();
-        }
+		#region Constructors and Initializers
 
-        public int ExitCode
-        {
-            get { return ProcessInstance.ExitCode; }
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
+		/// </summary>
+		public ProcessWrap()
+		{
+			Initialize();
+		}
 
-        public void Close()
-        {
-            ProcessInstance.Close();
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
+		/// </summary>
+		public void Initialize()
+		{
+			ProcessInstance = new Process();
+		}
 
-        public Process ProcessInstance { get; private set; }
+		#endregion
+		
+		public int ExitCode
+		{
+			get { return ProcessInstance.ExitCode; }
+		}
 
-        public bool Start()
-        {
-            return ProcessInstance.Start();
-        }
+		public void Close()
+		{
+			ProcessInstance.Close();
+		}
 
-        public IProcessStartInfoWrap StartInfo
-        {
-            get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
-            set { startInfo = value; }
-        }
+		public Process ProcessInstance { get; private set; }
 
-        public void WaitForExit()
-        {
-            ProcessInstance.WaitForExit();
-        }
+		public bool Start()
+		{
+			return ProcessInstance.Start();
+		}
 
-        public bool WaitForExit(int milliseconds)
-        {
-            return ProcessInstance.WaitForExit(milliseconds);
-        }
+		public IProcessStartInfoWrap StartInfo
+		{
+			get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
+			set { startInfo = value; }
+		}
 
-        public bool WaitForInputIdle()
-        {
-            return ProcessInstance.WaitForInputIdle();
-        }
-    }
+		public void WaitForExit()
+		{
+			ProcessInstance.WaitForExit();
+		}
+
+		public bool WaitForExit(int milliseconds)
+		{
+			return ProcessInstance.WaitForExit(milliseconds);
+		}
+
+		public bool WaitForInputIdle()
+		{
+			return ProcessInstance.WaitForInputIdle();
+		}
+	}
 }

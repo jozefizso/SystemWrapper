@@ -5,178 +5,229 @@ using System.Text;
 
 namespace SystemWrapper.IO
 {
-    /// <summary>
-    /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
-    /// </summary>
-    [Serializable, ComVisible(true)]
-    public class BinaryWriterWrap :IBinaryWriterWrap
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
-        /// </summary>
-        /// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
-        public BinaryWriterWrap(BinaryWriter writer)
-        {
-            BinaryWriterInstance = writer;
-        }
+	/// <summary>
+	/// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
+	/// </summary>
+	[Serializable, ComVisible(true)]
+	public class BinaryWriterWrap :IBinaryWriterWrap
+	{
+		#region Constructors and Initializers
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-        /// </summary>
-        /// <param name="output">The output stream.</param>
-        public BinaryWriterWrap(Stream output)
-        {
-            BinaryWriterInstance = new BinaryWriter(output);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
+		/// </summary>
+		/// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
+		public BinaryWriterWrap(BinaryWriter writer)
+		{
+			Initialize(writer);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-        /// </summary>
-        /// <param name="output">The output stream.</param>
-        public BinaryWriterWrap(IStreamWrap output)
-        {
-            BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
+		/// </summary>
+		/// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
+		public void Initialize(BinaryWriter writer)
+		{
+			BinaryWriterInstance = writer;
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-        /// </summary>
-        /// <param name="output">The supplied stream.</param>
-        /// <param name="encoding">The character encoding.</param>
-        public BinaryWriterWrap(Stream output, Encoding encoding)
-        {
-            BinaryWriterInstance = new BinaryWriter(output, encoding);
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
+		/// </summary>
+		/// <param name="output">The output stream.</param>
+		public BinaryWriterWrap(Stream output)
+		{
+			Initialize(output);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-        /// </summary>
-        /// <param name="output">The supplied stream.</param>
-        /// <param name="encoding">The character encoding.</param>
-        public BinaryWriterWrap(IStreamWrap output, Encoding encoding)
-        {
-            BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
+		/// </summary>
+		/// <param name="output">The output stream.</param>
+		public void Initialize(Stream output)
+		{
+			BinaryWriterInstance = new BinaryWriter(output);
+		}
 
-        public Stream BaseStream
-        {
-            get { return BinaryWriterInstance.BaseStream; }
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
+		/// </summary>
+		/// <param name="output">The output stream.</param>
+		public BinaryWriterWrap(IStreamWrap output)
+		{
+			Initialize(output.StreamInstance);
+		}
 
-        public BinaryWriter BinaryWriterInstance { get; private set; }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
+		/// </summary>
+		/// <param name="output">The output stream.</param>
+		public void Initialize(IStreamWrap output)
+		{
+			BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
+		}
 
-        public void Close()
-        {
-            BinaryWriterInstance.Close();
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
+		/// </summary>
+		/// <param name="output">The supplied stream.</param>
+		/// <param name="encoding">The character encoding.</param>
+		public BinaryWriterWrap(Stream output, Encoding encoding)
+		{
+			Initialize(output, encoding);
+		}
 
-        public void Flush()
-        {
-            BinaryWriterInstance.Flush();
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
+		/// </summary>
+		/// <param name="output">The supplied stream.</param>
+		/// <param name="encoding">The character encoding.</param>
+		public void Initialize(Stream output, Encoding encoding)
+		{
+			BinaryWriterInstance = new BinaryWriter(output, encoding);
+		}
 
-        public long Seek(int offset, SeekOrigin origin)
-        {
-            return BinaryWriterInstance.Seek(offset, origin);
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
+		/// </summary>
+		/// <param name="output">The supplied stream.</param>
+		/// <param name="encoding">The character encoding.</param>
+		public BinaryWriterWrap(IStreamWrap output, Encoding encoding)
+		{
+			Initialize(output.StreamInstance, encoding);
+		}
 
-        public void Write(bool value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		/// <summary>
+		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
+		/// </summary>
+		/// <param name="output">The supplied stream.</param>
+		/// <param name="encoding">The character encoding.</param>
+		public void Initialize(IStreamWrap output, Encoding encoding)
+		{
+			BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
+		}
 
-        public void Write(byte value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		#endregion
 
-        public void Write(byte[] buffer)
-        {
-            BinaryWriterInstance.Write(buffer);
-        }
+		public Stream BaseStream
+		{
+			get { return BinaryWriterInstance.BaseStream; }
+		}
 
-        public void Write(char ch)
-        {
-            BinaryWriterInstance.Write(ch);
-        }
+		public BinaryWriter BinaryWriterInstance { get; private set; }
 
-        public void Write(char[] chars)
-        {
-            BinaryWriterInstance.Write(chars);
-        }
+		public void Close()
+		{
+			BinaryWriterInstance.Close();
+		}
 
-        public void Write(decimal value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Flush()
+		{
+			BinaryWriterInstance.Flush();
+		}
 
-        public void Write(double value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public long Seek(int offset, SeekOrigin origin)
+		{
+			return BinaryWriterInstance.Seek(offset, origin);
+		}
 
-        public void Write(short value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(bool value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        public void Write(int value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(byte value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        public void Write(long value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(byte[] buffer)
+		{
+			BinaryWriterInstance.Write(buffer);
+		}
 
-        [CLSCompliant(false)]
-        public void Write(sbyte value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(char ch)
+		{
+			BinaryWriterInstance.Write(ch);
+		}
 
-        public void Write(float value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(char[] chars)
+		{
+			BinaryWriterInstance.Write(chars);
+		}
 
-        public void Write(string value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(decimal value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        [CLSCompliant(false)]
-        public void Write(ushort value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(double value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        [CLSCompliant(false)]
-        public void Write(uint value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(short value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        [CLSCompliant(false)]
-        public void Write(ulong value)
-        {
-            BinaryWriterInstance.Write(value);
-        }
+		public void Write(int value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        public void Write(byte[] buffer, int index, int count)
-        {
-            BinaryWriterInstance.Write(buffer, index, count);
-        }
+		public void Write(long value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        public void Write(char[] chars, int index, int count)
-        {
-            BinaryWriterInstance.Write(chars, index, count);
-        }
+		[CLSCompliant(false)]
+		public void Write(sbyte value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
 
-        public void Dispose()
-        {
-            BinaryWriterInstance.Close();
-        }
-    }
+		public void Write(float value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
+
+		public void Write(string value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
+
+		[CLSCompliant(false)]
+		public void Write(ushort value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
+
+		[CLSCompliant(false)]
+		public void Write(uint value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
+
+		[CLSCompliant(false)]
+		public void Write(ulong value)
+		{
+			BinaryWriterInstance.Write(value);
+		}
+
+		public void Write(byte[] buffer, int index, int count)
+		{
+			BinaryWriterInstance.Write(buffer, index, count);
+		}
+
+		public void Write(char[] chars, int index, int count)
+		{
+			BinaryWriterInstance.Write(chars, index, count);
+		}
+
+		public void Dispose()
+		{
+			BinaryWriterInstance.Close();
+		}
+	}
 }
