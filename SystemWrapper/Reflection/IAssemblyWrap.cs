@@ -14,6 +14,13 @@ namespace SystemWrapper.Reflection
     /// </summary>
     public interface IAssemblyWrap : IEvidenceFactory, ICustomAttributeProvider, ISerializable
     {
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
+    	/// </summary>
+    	/// <param name="assembly">Assembly object.</param>
+    	void Initialize(Assembly assembly);
+
         // Properties
 
         /// <summary>

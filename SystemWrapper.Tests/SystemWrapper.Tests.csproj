@@ -79,6 +79,8 @@
     <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrapTests.cs" />
+    <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
+    <Compile Include="IO\BinaryReaderWrapTests.cs" />
     <Compile Include="Reflection\AssemblyWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="IO\DirectoryWrapTests.cs" />

@@ -8,175 +8,346 @@ namespace SystemWrapper
     /// </summary>
     [Serializable]
     public class DateTimeWrap : IDateTimeWrap
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
-        /// </summary>
-        public DateTimeWrap()
-        {
-            DateTimeInstance = new DateTime();
-        }
+	{
+		#region Constructors and Initializers
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
-        /// </summary>
-        /// <param name="dateTime">A DateTime object.</param>
-        public DateTimeWrap(DateTime dateTime)
-        {
-            DateTimeInstance = dateTime;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+		/// </summary>
+		public DateTimeWrap()
+		{
+			Initialize();
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to a specified number of ticks.
-        /// </summary>
-        /// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
-        public DateTimeWrap(long ticks)
-        {
-            DateTimeInstance = new DateTime(ticks);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+		/// </summary>
+		public void Initialize()
+		{
+			DateTimeInstance = new DateTime();
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to a specified number of ticks and to Coordinated Universal Time (UTC) or local time.
-        /// </summary>
-        /// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
-        /// <param name="kind">One of the DateTimeKind values that indicates whether ticks specifies a local time, Coordinated Universal Time (UTC), or neither.</param>
-        public DateTimeWrap(long ticks, DateTimeKind kind)
-        {
-            DateTimeInstance = new DateTime(ticks, kind);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+		/// </summary>
+		/// <param name="dateTime">A DateTime object.</param>
+		public DateTimeWrap(DateTime dateTime)
+		{
+			Initialize(dateTime);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        public DateTimeWrap(int year, int month, int day)
-        {
-            DateTimeInstance = new DateTime(year, month, day);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+		/// </summary>
+		/// <param name="dateTime">A DateTime object.</param>
+		public void Initialize(DateTime dateTime)
+		{
+			DateTimeInstance = dateTime;
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day for the specified calendar.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
-        public DateTimeWrap(int year, int month, int day, Calendar calendar)
-        {
-            DateTimeInstance = new DateTime(year, month, day, calendar);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to a specified number of ticks.
+		/// </summary>
+		/// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
+		public DateTimeWrap(long ticks)
+		{
+			Initialize(ticks);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to a specified number of ticks.
+		/// </summary>
+		/// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
+		public void Initialize(long ticks)
+		{
+			DateTimeInstance = new DateTime(ticks);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and Coordinated Universal Time (UTC) or local time.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute and second specify a local time, Coordinated Universal Time (UTC), or neither.</param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, kind);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to a specified number of ticks and to Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether ticks specifies a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public DateTimeWrap(long ticks, DateTimeKind kind)
+		{
+			Initialize(ticks, kind);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second for the specified calendar.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, Calendar calendar)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, calendar);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to a specified number of ticks and to Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="ticks">A date and time expressed in 100-nanosecond units. </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether ticks specifies a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public void Initialize(long ticks, DateTimeKind kind)
+		{
+			DateTimeInstance = new DateTime(ticks, kind);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and millisecond.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="millisecond">The milliseconds (0 through 999). </param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		public DateTimeWrap(int year, int month, int day)
+		{
+			Initialize(year, month, day);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="millisecond">The milliseconds (0 through 999). </param>
-        /// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, kind);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		public void Initialize(int year, int month, int day)
+		{
+			DateTimeInstance = new DateTime(year, month, day);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond for the specified calendar.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="millisecond">The milliseconds (0 through 999). </param>
-        /// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, calendar);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
+		public DateTimeWrap(int year, int month, int day, Calendar calendar)
+		{
+			Initialize(year, month, day, calendar);
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time for the specified calendar.
-        /// </summary>
-        /// <param name="year">The year (1 through 9999). </param>
-        /// <param name="month">The month (1 through 12). </param>
-        /// <param name="day">The day (1 through the number of days in month). </param>
-        /// <param name="hour">The hours (0 through 23). </param>
-        /// <param name="minute">The minutes (0 through 59). </param>
-        /// <param name="second">The seconds (0 through 59). </param>
-        /// <param name="millisecond">The milliseconds (0 through 999). </param>
-        /// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
-        /// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
-        public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar, DateTimeKind kind)
-        {
-            DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, calendar, kind);
-        }
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, and day for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
+		public void Initialize(int year, int month, int day, Calendar calendar)
+		{
+			DateTimeInstance = new DateTime(year, month, day, calendar);
+		}
 
-        public IDateTimeWrap Date
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second)
+		{
+			Initialize(year, month, day, hour, minute, second);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute and second specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
+		{
+			Initialize(year, month, day, hour, minute, second, kind);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute and second specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, kind);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, Calendar calendar)
+		{
+			Initialize(year, month, day, hour, minute, second, calendar);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, and second for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap. </param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, Calendar calendar)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, calendar);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and millisecond.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond)
+		{
+			Initialize(year, month, day, hour, minute, second, millisecond);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, and millisecond.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, int millisecond)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind)
+		{
+			Initialize(year, month, day, hour, minute, second, millisecond, kind);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, int millisecond, DateTimeKind kind)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, kind);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar)
+		{
+			Initialize(year, month, day, hour, minute, second, millisecond, calendar);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, calendar);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public DateTimeWrap(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar, DateTimeKind kind)
+		{
+			Initialize(year, month, day, hour, minute, second, millisecond, calendar, kind);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the DateTimeWrap class to the specified year, month, day, hour, minute, second, millisecond, and Coordinated Universal Time (UTC) or local time for the specified calendar.
+		/// </summary>
+		/// <param name="year">The year (1 through 9999). </param>
+		/// <param name="month">The month (1 through 12). </param>
+		/// <param name="day">The day (1 through the number of days in month). </param>
+		/// <param name="hour">The hours (0 through 23). </param>
+		/// <param name="minute">The minutes (0 through 59). </param>
+		/// <param name="second">The seconds (0 through 59). </param>
+		/// <param name="millisecond">The milliseconds (0 through 999). </param>
+		/// <param name="calendar">The Calendar that applies to this DateTimeWrap.</param>
+		/// <param name="kind">One of the DateTimeKind values that indicates whether year, month, day, hour, minute, second, and millisecond specify a local time, Coordinated Universal Time (UTC), or neither.</param>
+		public void Initialize(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar, DateTimeKind kind)
+		{
+			DateTimeInstance = new DateTime(year, month, day, hour, minute, second, millisecond, calendar, kind);
+		}
+
+		#endregion Constructors and Initializers
+		
+		public IDateTimeWrap Date
         {
             get { return new DateTimeWrap(DateTimeInstance.Date);}
         }

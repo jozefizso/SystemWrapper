@@ -8,14 +8,23 @@ namespace SystemWrapper.Microsoft.Win32
     /// </summary>
     public class RegistryKeyWrap : IRegistryKeyWrap
     {
-        private readonly RegistryKey _registryKeyInstance;
+        private RegistryKey _registryKeyInstance;
 
-        public RegistryKeyWrap(RegistryKey registryKey)
-        {
-            _registryKeyInstance = registryKey;
-        }
+		#region Constructors and Initializers
 
-        public void Close()
+		public RegistryKeyWrap(RegistryKey registryKey)
+		{
+			Initialize(registryKey);
+		}
+
+		public void Initialize(RegistryKey registryKey)
+		{
+			_registryKeyInstance = registryKey;
+		}
+
+		#endregion Constructors and Initializers
+		
+		public void Close()
         {
             throw new NotImplementedException();
         }

@@ -7,6 +7,50 @@ namespace SystemWrapper
     /// </summary>
     public interface IVersionWrap: ICloneable, IComparable, IComparable<IVersionWrap>, IEquatable<IVersionWrap>
     {
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+    	/// </summary>
+    	void Initialize(Version version);
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+    	/// </summary>
+    	void Initialize();
+
+    	/// <summary>
+    	/// Initializes a new instance of the Version class using the specified string.
+    	/// </summary>
+    	/// <param name="version">A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').</param>
+    	void Initialize(string version);
+
+    	/// <summary>
+    	/// Initializes a new instance of the Version class using the specified major and minor values. 
+    	/// </summary>
+    	/// <param name="major">The major version number.</param>
+    	/// <param name="minor">The minor version number.</param>
+    	void Initialize(int major, int minor);
+
+    	/// <summary>
+    	/// Initializes a new instance of the Version class using the specified major and minor values. 
+    	/// </summary>
+    	/// <param name="major">The major version number.</param>
+    	/// <param name="minor">The minor version number.</param>
+    	/// <param name="build">The build number.</param>
+    	void Initialize(int major, int minor, int build);
+
+    	/// <summary>
+    	/// Initializes a new instance of the Version class using the specified major and minor values. 
+    	/// </summary>
+    	/// <param name="major">The major version number.</param>
+    	/// <param name="minor">The minor version number.</param>
+    	/// <param name="build">The build number.</param>
+    	/// <param name="revision">The revision number.</param>
+    	void Initialize(int major, int minor, int build, int revision);
+
+
+
+
         // Properties
         /// <summary>
         /// Gets <see cref="T:System.Version"/> object.

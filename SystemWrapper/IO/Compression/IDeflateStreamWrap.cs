@@ -8,6 +8,8 @@ namespace SystemWrapper.IO.Compression
 	/// </summary>
 	public interface IDeflateStreamWrap
 	{
+		void Initialize(IStreamWrap stream, CompressionMode mode);
+
 		int Read( byte[] array, int offset, int count );
 		void Write( byte[] array, int offset, int count );
 		void Flush();

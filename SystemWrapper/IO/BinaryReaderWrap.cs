@@ -14,12 +14,19 @@ namespace SystemWrapper.IO
 		#region Constructors and Initializers
 
 		/// <summary>
+		/// Creates an uninitialized instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
+		/// </summary>
+		public BinaryReaderWrap()
+		{
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
 		/// </summary>
 		/// <param name="reader">The <see cref="T:System.IO.BinaryReader"/> object.</param>
 		public BinaryReaderWrap(BinaryReader reader)
 		{
-			Initialize( reader);
+			Initialize(reader);
 		}
 
 		/// <summary>

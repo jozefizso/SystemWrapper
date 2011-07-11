@@ -13,34 +13,64 @@ namespace SystemWrapper.Reflection
     [Serializable]
     [ComVisible(true)]
     public class AssemblyNameWrap : IAssemblyNameWrap
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-        /// </summary>
-        public AssemblyNameWrap()
-        {
-            AssemblyNameInstance = new AssemblyName();
-        }
+	{
+		#region Constructors and Initializers
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-        /// </summary>
-        /// <param name="assemblyName">AssemblyName object.</param>
-        public AssemblyNameWrap(AssemblyName assemblyName)
-        {
-            AssemblyNameInstance = assemblyName;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		public AssemblyNameWrap()
+		{
+			Initialize();
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-        /// </summary>
-        /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
-        public AssemblyNameWrap(string assemblyName)
-        {
-            AssemblyNameInstance = new AssemblyName(assemblyName);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		public void Initialize()
+		{
+			AssemblyNameInstance = new AssemblyName();
+		}
 
-        public AssemblyName AssemblyNameInstance { get; private set; }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		/// <param name="assemblyName">AssemblyName object.</param>
+		public AssemblyNameWrap(AssemblyName assemblyName)
+		{
+			Initialize(assemblyName);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		/// <param name="assemblyName">AssemblyName object.</param>
+		public void Initialize(AssemblyName assemblyName)
+		{
+			AssemblyNameInstance = assemblyName;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		/// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
+		public AssemblyNameWrap(string assemblyName)
+		{
+			Initialize(assemblyName);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+		/// </summary>
+		/// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
+		public void Initialize(string assemblyName)
+		{
+			AssemblyNameInstance = new AssemblyName(assemblyName);
+		}
+
+		#endregion Constructors and Initializers
+		
+		public AssemblyName AssemblyNameInstance { get; private set; }
 
         public string CodeBase
         {

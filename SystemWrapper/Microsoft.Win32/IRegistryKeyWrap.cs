@@ -7,6 +7,9 @@ namespace SystemWrapper.Microsoft.Win32
 {
     public interface IRegistryKeyWrap
     {
+
+    	void Initialize(RegistryKey registryKey);
+
         // Methods
 
         /// <summary>

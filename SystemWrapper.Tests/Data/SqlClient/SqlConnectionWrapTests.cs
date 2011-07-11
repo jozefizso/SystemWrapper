@@ -18,14 +18,14 @@ namespace SystemWrapper.Tests.IO
 			}
 
 			[Test]
-			public void Constructor_1_Sets_Connection_Instance()
+			public void Constructor_1_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
 				Assert.IsNotNull(instance.SqlConnectionInstance);
 			}
 
 			[Test]
-			public void Constructor_2_Sets_Connection_Instance()
+			public void Constructor_2_Sets_SqlConnectionInstance()
 			{
 				var newConn = new SqlConnection();
 				var instance = new SqlConnectionWrap(newConn);
@@ -33,7 +33,7 @@ namespace SystemWrapper.Tests.IO
 			}
 
 			[Test]
-			public void Constructor_3_Sets_Connection_Instance()
+			public void Constructor_3_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");
 				Assert.IsNotNull(instance.SqlConnectionInstance);
@@ -41,7 +41,7 @@ namespace SystemWrapper.Tests.IO
 
 
 			[Test]
-			public void Initialize_1_Sets_Command_Instance()
+			public void Initialize_1_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
 				instance.Initialize();
@@ -49,7 +49,7 @@ namespace SystemWrapper.Tests.IO
 			}
 
 			[Test]
-			public void Initialize_2_Sets_Command_Instance()
+			public void Initialize_2_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
 				var newCmd = new SqlConnection();
@@ -58,7 +58,7 @@ namespace SystemWrapper.Tests.IO
 			}
 
 			[Test]
-			public void Initialize_3_Sets_Command_Instance()
+			public void Initialize_3_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
 				instance.Initialize("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");

@@ -10,25 +10,48 @@ namespace SystemWrapper
     [ComVisible(true)] 
     [Serializable]
     public class AppDomainWrap : IAppDomainWrap
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
-        /// </summary>
-        /// <param name="appDomain">AppDomain object.</param>
-        public AppDomainWrap(AppDomain appDomain)
-        {
-            AppDomainInstance = appDomain;
-        }
+	{
+		#region Constructors and Initializers
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
-        /// </summary>
-        /// <param name="friendlyName">The friendly name of the domain.</param>
-        public AppDomainWrap(string friendlyName)
-            : this(AppDomain.CreateDomain(friendlyName))
-        {}
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
+		/// </summary>
+		/// <param name="appDomain">AppDomain object.</param>
+		public AppDomainWrap(AppDomain appDomain)
+		{
+			Initialize(appDomain);
+		}
 
-        public AppDomain AppDomainInstance { get; private set; }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
+		/// </summary>
+		/// <param name="appDomain">AppDomain object.</param>
+		public void Initialize(AppDomain appDomain)
+		{
+			AppDomainInstance = appDomain;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
+		/// </summary>
+		/// <param name="friendlyName">The friendly name of the domain.</param>
+		public AppDomainWrap(string friendlyName)
+		{
+			Initialize(friendlyName);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
+		/// </summary>
+		/// <param name="friendlyName">The friendly name of the domain.</param>
+		public void Initialize(string friendlyName)
+		{
+			AppDomainInstance = AppDomain.CreateDomain(friendlyName);
+		}
+
+    	#endregion Constructors and Initializers
+		
+		public AppDomain AppDomainInstance { get; private set; }
 
         public IAppDomainWrap CurrentDomain
         {

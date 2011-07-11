@@ -10,37 +10,35 @@ namespace SystemWrapper.Tests.IO
 	[Author("Brad Irby", "Brad@BradIrby.com")]
 	public class ProcessStartInfoWrapTests
 	{
-			private MockRepository _mockRepository;
 
 			[SetUp]
 			public void Setup()
 			{
-				_mockRepository = new MockRepository();
 			}
 
 			[Test]
-			public void Constructor_1_Sets_Command_Instance()
+			public void Constructor_1_Sets_ProcessStartInfoInstance()
 			{
 				var instance = new ProcessStartInfoWrap();
 				Assert.IsNotNull(instance.ProcessStartInfoInstance);
 			}
 
 			[Test]
-			public void Constructor_2_Sets_Command_Instance()
+			public void Constructor_2_Sets_ProcessStartInfoInstance()
 			{
 				var instance = new ProcessStartInfoWrap("filename");
 				Assert.IsNotNull(instance.ProcessStartInfoInstance);
 			}
 
 			[Test]
-			public void Constructor_3_Sets_Command_Instance()
+			public void Constructor_3_Sets_ProcessStartInfoInstance()
 			{
 				var instance = new ProcessStartInfoWrap("filename", "arguments");
 				Assert.IsNotNull(instance.ProcessStartInfoInstance);
 			}
 
 			[Test]
-			public void Constructor_4_Sets_Command_Instance()
+			public void Constructor_4_Sets_ProcessStartInfoInstance()
 			{
 				var info = new ProcessStartInfo(Application.ExecutablePath);
 				var instance = new ProcessStartInfoWrap(info);

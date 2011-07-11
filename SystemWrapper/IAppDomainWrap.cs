@@ -8,6 +8,19 @@ namespace SystemWrapper
     /// </summary>
     public interface IAppDomainWrap
     {
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
+    	/// </summary>
+    	/// <param name="appDomain">AppDomain object.</param>
+    	void Initialize(AppDomain appDomain);
+
+    	/// <summary>
+    	/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
+    	/// </summary>
+    	/// <param name="friendlyName">The friendly name of the domain.</param>
+    	void Initialize(string friendlyName);
+
+
         // Properties
 
         /// <summary>

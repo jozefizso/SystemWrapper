@@ -15,24 +15,37 @@ namespace SystemWrapper.Reflection
     [ComVisible(true)]
     public class AssemblyWrap : IAssemblyWrap
     {
-        private readonly Assembly _assembly;
+        private Assembly _assembly;
 
-        /// <summary>
+		#region Constructors and Initializers
+
+		/// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
         /// </summary>
         public AssemblyWrap()
         {}
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-        /// </summary>
-        /// <param name="assembly">Assembly object.</param>
-        public AssemblyWrap(Assembly assembly)
-        {
-            _assembly = assembly;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
+		/// </summary>
+		/// <param name="assembly">Assembly object.</param>
+		public AssemblyWrap(Assembly assembly)
+		{
+			Initialize(assembly);
+		}
 
-        public Assembly AssemblyInstance
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
+		/// </summary>
+		/// <param name="assembly">Assembly object.</param>
+		public void Initialize(Assembly assembly)
+		{
+			_assembly = assembly;
+		}
+
+		#endregion Constructors and Initializers
+		
+		public Assembly AssemblyInstance
         {
             get
             {
