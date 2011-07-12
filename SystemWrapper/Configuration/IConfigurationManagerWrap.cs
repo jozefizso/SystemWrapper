@@ -20,6 +20,14 @@ namespace SystemWrapper.Configuration
         /// </summary>
         ConnectionStringSettingsCollection ConnectionStrings { get; }
 
+		object GetSection(string pSectionName);
+		System.Configuration.Configuration OpenExeConfiguration(string pExePath);
+		System.Configuration.Configuration OpenExeConfiguration(ConfigurationUserLevel pConfigurationUserLevel);
+		System.Configuration.Configuration OpenMachineConfiguration();
+		System.Configuration.Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap pExeConfigurationFileMap, ConfigurationUserLevel pConfigurationUserLevel);
+		System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap pConfigurationFileMap);
+		void RefreshSection(string pSectionName);
+
         /*
                 // Methods
             public static object GetSection(string sectionName);
