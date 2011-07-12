@@ -96,6 +96,12 @@
   <ItemGroup>
     <Content Include="libs\Rhino.Mocks.dll" />
     <Content Include="libs\Rhino.Mocks.xml" />
+    <Content Include="TestData\BinaryReaderWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\DeflateStreamWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

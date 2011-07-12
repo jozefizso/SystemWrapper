@@ -12,15 +12,19 @@ namespace SystemWrapper.Tests.IO
         {
             string path = new DirectoryWrap().GetCurrentDirectory();
             IDirectoryInfoWrap directoryInfoWrap = new DirectoryInfoWrap(path);
+			IDirectoryInfoWrap[] directoriesBefore = directoryInfoWrap.GetDirectories();
+
             directoryInfoWrap.CreateSubdirectory("Dir1");
             directoryInfoWrap.CreateSubdirectory("Dir2");
-            IDirectoryInfoWrap[] directories = directoryInfoWrap.GetDirectories();
-            Assert.AreEqual("Dir1", directories[0].Name);
-            Assert.AreEqual("Dir2", directories[1].Name);
-            directories[0].Delete();
-            directories[1].Delete();
-            directories = directoryInfoWrap.GetDirectories();
-            Assert.AreEqual(0, directories.Length);
+            IDirectoryInfoWrap[] directoriesAfterCreate = directoryInfoWrap.GetDirectories();
+
+			Assert.AreEqual("Dir1", directoriesAfterCreate[0].Name);
+			Assert.AreEqual("Dir2", directoriesAfterCreate[1].Name);
+			directoriesAfterCreate[0].Delete();
+			directoriesAfterCreate[1].Delete();
+
+			var directoriesAfterDelete = directoryInfoWrap.GetDirectories();
+			Assert.AreEqual(directoriesBefore.Length, directoriesAfterDelete.Length);
         }
 
         [Test]
