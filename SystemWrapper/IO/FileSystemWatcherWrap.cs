@@ -4,7 +4,10 @@ using System.IO;
 
 namespace SystemWrapper.IO
 {
-    internal class FileSystemWatcherWrap : IFileSystemWatcherWrap
+    /// <summary>
+    /// Wrapper for <see cref="FileSystemWatcher"/> class.
+    /// </summary>
+    public class FileSystemWatcherWrap : IFileSystemWatcherWrap
     {
         #region Constructors and Initializers
 

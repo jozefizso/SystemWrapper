@@ -138,13 +138,6 @@ namespace SystemWrapper
     	void Initialize(int year, int month, int day, int hour, int minute, int second, int millisecond, Calendar calendar,
     	                DateTimeKind kind);
 
-
-
-
-
-
-
-
 		// Properties
 
         /// <summary>
