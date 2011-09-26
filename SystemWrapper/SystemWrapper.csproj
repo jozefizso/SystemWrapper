@@ -100,6 +100,7 @@
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
     <Compile Include="IO\FileStreamWrap.cs" />
+    <Compile Include="IO\FileSystemWatcherWrap.cs" />
     <Compile Include="IO\FileWrap.cs" />
     <Compile Include="IO\IBinaryReaderWrap.cs" />
     <Compile Include="IO\IBinaryWriterWrap.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="IO\IDirectoryWrap.cs" />
     <Compile Include="IO\IFileInfoWrap.cs" />
     <Compile Include="IO\IFileStreamWrap.cs" />
+    <Compile Include="IO\IFileSystemWatcherWrap.cs" />
     <Compile Include="IO\IFileWrap.cs" />
     <Compile Include="IO\IMemoryStreamWrap.cs" />
     <Compile Include="IO\IPathWrap.cs" />
