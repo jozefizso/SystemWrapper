@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
@@ -29,41 +28,49 @@ namespace SystemWrapper.Diagnostics
 		}
 
 		#endregion
-		
-		public int ExitCode
+
+        /// <inheritdoc />
+        public int ExitCode
 		{
 			get { return ProcessInstance.ExitCode; }
 		}
 
-		public void Close()
+        /// <inheritdoc />
+        public void Close()
 		{
 			ProcessInstance.Close();
 		}
 
-		public Process ProcessInstance { get; private set; }
+        /// <inheritdoc />
+        public Process ProcessInstance { get; private set; }
 
-		public bool Start()
+        /// <inheritdoc />
+        public bool Start()
 		{
 			return ProcessInstance.Start();
 		}
 
-		public IProcessStartInfoWrap StartInfo
+        /// <inheritdoc />
+        public IProcessStartInfoWrap StartInfo
 		{
 			get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
 			set { startInfo = value; }
 		}
 
-		public void WaitForExit()
+        /// <inheritdoc />
+        public void WaitForExit()
 		{
 			ProcessInstance.WaitForExit();
 		}
 
-		public bool WaitForExit(int milliseconds)
+        /// <inheritdoc />
+        public bool WaitForExit(int milliseconds)
 		{
 			return ProcessInstance.WaitForExit(milliseconds);
 		}
 
-		public bool WaitForInputIdle()
+        /// <inheritdoc />
+        public bool WaitForInputIdle()
 		{
 			return ProcessInstance.WaitForInputIdle();
 		}

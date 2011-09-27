@@ -52,198 +52,235 @@ namespace SystemWrapper.IO
 		}
 
 		#endregion
-		
-		public FileAttributes Attributes
+
+        /// <inheritdoc />
+        public FileAttributes Attributes
 		{
 			get { return DirectoryInfo.Attributes; }
 			set { DirectoryInfo.Attributes = value; }
 		}
 
-		public IDateTimeWrap CreationTime
+        /// <inheritdoc />
+        public IDateTimeWrap CreationTime
 		{
 			get { return new DateTimeWrap(DirectoryInfo.CreationTime); }
 			set { DirectoryInfo.CreationTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap CreationTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap CreationTimeUtc
 		{
 			get { return new DateTimeWrap(DirectoryInfo.CreationTimeUtc); }
 			set { DirectoryInfo.CreationTimeUtc = value.DateTimeInstance; }
 		}
 
-		public DirectoryInfo DirectoryInfo { get; private set; }
+        /// <inheritdoc />
+        public DirectoryInfo DirectoryInfo { get; private set; }
 
-		public bool Exists
+        /// <inheritdoc />
+        public bool Exists
 		{
 			get { return DirectoryInfo.Exists; }
 		}
 
-		public string Extension
+        /// <inheritdoc />
+        public string Extension
 		{
 			get { return DirectoryInfo.Extension; }
 		}
 
-		public string FullName
+        /// <inheritdoc />
+        public string FullName
 		{
 			get { return DirectoryInfo.FullName; }
 		}
 
-		public IDateTimeWrap LastAccessTime
+        /// <inheritdoc />
+        public IDateTimeWrap LastAccessTime
 		{
 			get { return new DateTimeWrap(DirectoryInfo.LastAccessTime); }
 			set { DirectoryInfo.LastAccessTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastAccessTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap LastAccessTimeUtc
 		{
 			get { return new DateTimeWrap(DirectoryInfo.LastAccessTimeUtc); }
 			set { DirectoryInfo.LastAccessTimeUtc = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastWriteTime
+        /// <inheritdoc />
+        public IDateTimeWrap LastWriteTime
 		{
 			get { return new DateTimeWrap(DirectoryInfo.LastWriteTime); }
 			set { DirectoryInfo.LastWriteTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastWriteTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap LastWriteTimeUtc
 		{
 			get { return new DateTimeWrap(DirectoryInfo.LastWriteTimeUtc); }
 			set { DirectoryInfo.LastWriteTimeUtc = value.DateTimeInstance; }
 		}
 
-		public string Name
+        /// <inheritdoc />
+        public string Name
 		{
 			get { return DirectoryInfo.Name; }
 		}
 
-		public IDirectoryInfoWrap Parent
+        /// <inheritdoc />
+        public IDirectoryInfoWrap Parent
 		{
 			get { return new DirectoryInfoWrap(DirectoryInfo.Parent); }
 		}
 
-		public IDirectoryInfoWrap Root
+        /// <inheritdoc />
+        public IDirectoryInfoWrap Root
 		{
 			get { return new DirectoryInfoWrap(DirectoryInfo.Root); }
 		}
 
-		public void Create()
+        /// <inheritdoc />
+        public void Create()
 		{
 			DirectoryInfo.Create();
 		}
 
-		public void Create(IDirectorySecurityWrap directorySecurity)
+        /// <inheritdoc />
+        public void Create(IDirectorySecurityWrap directorySecurity)
 		{
 			DirectoryInfo.Create(directorySecurity.DirectorySecurityInstance);
 		}
 
-		public ObjRef CreateObjRef(Type requestedType)
+        /// <inheritdoc />
+        public ObjRef CreateObjRef(Type requestedType)
 		{
 			return DirectoryInfo.CreateObjRef(requestedType);
 		}
 
-		public IDirectoryInfoWrap CreateSubdirectory(string path)
+        /// <inheritdoc />
+        public IDirectoryInfoWrap CreateSubdirectory(string path)
 		{
 			return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path));
 		}
 
-		public IDirectoryInfoWrap CreateSubdirectory(string path, IDirectorySecurityWrap directorySecurity)
+        /// <inheritdoc />
+        public IDirectoryInfoWrap CreateSubdirectory(string path, IDirectorySecurityWrap directorySecurity)
 		{
 			return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path, directorySecurity.DirectorySecurityInstance));
 		}
 
-		public void Delete()
+        /// <inheritdoc />
+        public void Delete()
 		{
 			DirectoryInfo.Delete();
 		}
 
-		public void Delete(bool recursive)
+        /// <inheritdoc />
+        public void Delete(bool recursive)
 		{
 			DirectoryInfo.Delete(recursive);
 		}
 
-		public IDirectorySecurityWrap GetAccessControl()
+        /// <inheritdoc />
+        public IDirectorySecurityWrap GetAccessControl()
 		{
 			return new DirectorySecurityWrap(DirectoryInfo.GetAccessControl());
 		}
 
-		public IDirectorySecurityWrap GetAccessControl(AccessControlSections includeSections)
+        /// <inheritdoc />
+        public IDirectorySecurityWrap GetAccessControl(AccessControlSections includeSections)
 		{
 			return new DirectorySecurityWrap(DirectoryInfo.GetAccessControl(includeSections));
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories()
+        /// <inheritdoc />
+        public IDirectoryInfoWrap[] GetDirectories()
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories();
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories(string searchPattern)
+        /// <inheritdoc />
+        public IDirectoryInfoWrap[] GetDirectories(string searchPattern)
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories(searchPattern);
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories(string searchPattern, SearchOption searchOption)
+        /// <inheritdoc />
+        public IDirectoryInfoWrap[] GetDirectories(string searchPattern, SearchOption searchOption)
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories(searchPattern, searchOption);
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles()
+        /// <inheritdoc />
+        public IFileInfoWrap[] GetFiles()
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles();
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles(string searchPattern)
+        /// <inheritdoc />
+        public IFileInfoWrap[] GetFiles(string searchPattern)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern);
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles(string searchPattern, SearchOption searchOption)
+        /// <inheritdoc />
+        public IFileInfoWrap[] GetFiles(string searchPattern, SearchOption searchOption)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern, searchOption);
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
 		}
 
-		public FileSystemInfo[] GetFileSystemInfos()
+        /// <inheritdoc />
+        public FileSystemInfo[] GetFileSystemInfos()
 		{
 			return DirectoryInfo.GetFileSystemInfos();
 		}
 
-		public FileSystemInfo[] GetFileSystemInfos(string searchPattern)
+        /// <inheritdoc />
+        public FileSystemInfo[] GetFileSystemInfos(string searchPattern)
 		{
 			return DirectoryInfo.GetFileSystemInfos(searchPattern);
 		}
 
-		public object GetLifetimeService()
+        /// <inheritdoc />
+        public object GetLifetimeService()
 		{
 			return DirectoryInfo.GetLifetimeService();
 		}
 
-		public object InitializeLifetimeService()
+        /// <inheritdoc />
+        public object InitializeLifetimeService()
 		{
 			return DirectoryInfo.InitializeLifetimeService();
 		}
 
-		public void MoveTo(string destDirName)
+        /// <inheritdoc />
+        public void MoveTo(string destDirName)
 		{
 			DirectoryInfo.MoveTo(destDirName);
 		}
 
-		public void Refresh()
+        /// <inheritdoc />
+        public void Refresh()
 		{
 			DirectoryInfo.Refresh();
 		}
 
-		public void SetAccessControl(IDirectorySecurityWrap directorySecurity)
+        /// <inheritdoc />
+        public void SetAccessControl(IDirectorySecurityWrap directorySecurity)
 		{
 			DirectoryInfo.SetAccessControl(directorySecurity.DirectorySecurityInstance);
 		}
 
-		public override string ToString()
+        /// <inheritdoc />
+        public override string ToString()
 		{
 			return DirectoryInfo.ToString();
 		}

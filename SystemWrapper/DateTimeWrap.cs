@@ -346,314 +346,377 @@ namespace SystemWrapper
 		}
 
 		#endregion Constructors and Initializers
-		
-		public IDateTimeWrap Date
+
+        /// <inheritdoc />
+        public IDateTimeWrap Date
         {
             get { return new DateTimeWrap(DateTimeInstance.Date);}
         }
 
+        /// <inheritdoc />
         public DateTime DateTimeInstance { get; private set; }
 
+        /// <inheritdoc />
         public int Day
         {
             get { return DateTimeInstance.Day; }
         }
 
+        /// <inheritdoc />
         public DayOfWeek DayOfWeek
         {
             get { return DateTimeInstance.DayOfWeek; }
         }
 
+        /// <inheritdoc />
         public int DayOfYear
         {
             get { return DateTimeInstance.DayOfYear; }
         }
 
+        /// <inheritdoc />
         public int Hour
         {
             get { return DateTimeInstance.Hour; }
         }
 
+        /// <inheritdoc />
         public DateTimeKind Kind
         {
             get { return DateTimeInstance.Kind; }
         }
 
+        /// <inheritdoc />
         public int Millisecond
         {
             get { return DateTimeInstance.Millisecond; }
         }
 
+        /// <inheritdoc />
         public int Minute
         {
             get { return DateTimeInstance.Minute; }
         }
 
+        /// <inheritdoc />
         public int Month
         {
             get { return DateTimeInstance.Month; }
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Now
         {
             get { return new DateTimeWrap(DateTime.Now);  }
         }
 
+        /// <inheritdoc />
         public int Second
         {
             get { return DateTimeInstance.Second; }
         }
 
+        /// <inheritdoc />
         public long Ticks
         {
             get { return DateTimeInstance.Ticks; }
         }
 
+        /// <inheritdoc />
         public TimeSpan TimeOfDay
         {
             get { return DateTimeInstance.TimeOfDay; }
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Today
         {
             get { return new DateTimeWrap(DateTime.Today); }
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap UtcNow
         {
             get { return new DateTimeWrap(DateTime.UtcNow); }
         }
 
+        /// <inheritdoc />
         public int Year
         {
             get { return DateTimeInstance.Year; }
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Add(TimeSpan value)
         {
             return new DateTimeWrap(DateTimeInstance.Add(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddDays(double value)
         {
             return new DateTimeWrap(DateTimeInstance.AddDays(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddHours(double value)
         {
             return new DateTimeWrap(DateTimeInstance.AddHours(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddMilliseconds(double value)
         {
             return new DateTimeWrap(DateTimeInstance.AddMilliseconds(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddMinutes(double value)
         {
             return new DateTimeWrap(DateTimeInstance.AddMinutes(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddMonths(int months)
         {
             return new DateTimeWrap(DateTimeInstance.AddMonths(months));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddSeconds(double value)
         {
             return new DateTimeWrap(DateTimeInstance.AddSeconds(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddTicks(long value)
         {
             return new DateTimeWrap(DateTimeInstance.AddTicks(value));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap AddYears(int value)
         {
             return new DateTimeWrap(DateTimeInstance.AddYears(value));
         }
 
+        /// <inheritdoc />
         public int Compare(IDateTimeWrap t1, IDateTimeWrap t2)
         {
             return DateTime.Compare(t1.DateTimeInstance, t2.DateTimeInstance);
         }
 
+        /// <inheritdoc />
         public int CompareTo(IDateTimeWrap value)
         {
             return DateTimeInstance.CompareTo(value.DateTimeInstance);
         }
 
+        /// <inheritdoc />
         public int CompareTo(object value)
         {
             return DateTimeInstance.CompareTo(value);
         }
 
+        /// <inheritdoc />
         public int DaysInMonth(int year, int month)
         {
             return DateTime.DaysInMonth(year, month);
         }
 
+        /// <inheritdoc />
         public bool Equals(IDateTimeWrap value)
         {
             return DateTimeInstance.Equals(value);
         }
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             return DateTimeInstance.Equals(obj);
         }
 
+        /// <inheritdoc />
         public bool Equals(IDateTimeWrap t1, IDateTimeWrap t2)
         {
             return DateTime.Equals(t1.DateTimeInstance, t2.DateTimeInstance);
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap FromBinary(long dateData)
         {
             return new DateTimeWrap(DateTime.FromBinary(dateData));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap FromFileTime(long fileTime)
         {
             return new DateTimeWrap(DateTime.FromFileTime(fileTime));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap FromFileTimeUtc(long fileTime)
         {
             return new DateTimeWrap(DateTime.FromFileTimeUtc(fileTime));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap FromOADate(double d)
         {
             return new DateTimeWrap(DateTime.FromOADate(d));
         }
 
+        /// <inheritdoc />
         public string[] GetDateTimeFormats()
         {
             return DateTimeInstance.GetDateTimeFormats();
         }
 
+        /// <inheritdoc />
         public string[] GetDateTimeFormats(char format)
         {
             return DateTimeInstance.GetDateTimeFormats(format);
         }
 
+        /// <inheritdoc />
         public string[] GetDateTimeFormats(IFormatProvider provider)
         {
             return DateTimeInstance.GetDateTimeFormats(provider);
         }
 
+        /// <inheritdoc />
         public string[] GetDateTimeFormats(char format, IFormatProvider provider)
         {
             return DateTimeInstance.GetDateTimeFormats(format, provider);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             return DateTimeInstance.GetHashCode();
         }
 
+        /// <inheritdoc />
         public TypeCode GetTypeCode()
         {
             return DateTimeInstance.GetTypeCode();
         }
 
+        /// <inheritdoc />
         public bool IsDaylightSavingTime()
         {
             return DateTimeInstance.IsDaylightSavingTime();
         }
 
+        /// <inheritdoc />
         public bool IsLeapYear(int year)
         {
             return DateTime.IsLeapYear(year);
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Parse(string s)
         {
             return new DateTimeWrap(DateTime.Parse(s));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Parse(string s, IFormatProvider provider)
         {
             return new DateTimeWrap(DateTime.Parse(s, provider));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Parse(string s, IFormatProvider provider, DateTimeStyles styles)
         {
             return new DateTimeWrap(DateTime.Parse(s, provider, styles));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap ParseExact(string s, string format, IFormatProvider provider)
         {
             return new DateTimeWrap(DateTime.ParseExact(s, format, provider));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap ParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style)
         {
             return new DateTimeWrap(DateTime.ParseExact(s, format, provider, style));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap ParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style)
         {
             return new DateTimeWrap(DateTime.ParseExact(s, formats, provider, style));
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap SpecifyKind(IDateTimeWrap value, DateTimeKind kind)
         {
             return new DateTimeWrap(DateTime.SpecifyKind(value.DateTimeInstance, kind));
         }
 
+        /// <inheritdoc />
         public TimeSpan Subtract(IDateTimeWrap value)
         {
             return DateTimeInstance.Subtract(value.DateTimeInstance);
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap Subtract(TimeSpan value)
         {
             return new DateTimeWrap(DateTimeInstance.Subtract(value));
         }
 
+        /// <inheritdoc />
         public long ToBinary()
         {
             return DateTimeInstance.ToBinary();
         }
 
+        /// <inheritdoc />
         public long ToFileTime()
         {
             return DateTimeInstance.ToFileTime();
         }
 
+        /// <inheritdoc />
         public long ToFileTimeUtc()
         {
             return DateTimeInstance.ToFileTimeUtc();
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap ToLocalTime()
         {
             return new DateTimeWrap(DateTimeInstance.ToLocalTime());
         }
 
+        /// <inheritdoc />
         public string ToLongDateString()
         {
             return DateTimeInstance.ToLongDateString();
         }
 
+        /// <inheritdoc />
         public string ToLongTimeString()
         {
             return DateTimeInstance.ToLongTimeString();
         }
 
+        /// <inheritdoc />
         public double ToOADate()
         {
             return DateTimeInstance.ToOADate();
         }
 
+        /// <inheritdoc />
         public string ToShortDateString()
         {
             return DateTimeInstance.ToShortDateString();
         }
 
+        /// <inheritdoc />
         public string ToShortTimeString()
         {
             return DateTimeInstance.ToShortTimeString();
@@ -668,26 +731,31 @@ namespace SystemWrapper
             return DateTimeInstance.ToString();
         }
 
+        /// <inheritdoc />
         public string ToString(IFormatProvider provider)
         {
             return DateTimeInstance.ToString(provider);
         }
 
+        /// <inheritdoc />
         public string ToString(string format)
         {
             return DateTimeInstance.ToString(format);
         }
 
+        /// <inheritdoc />
         public string ToString(string format, IFormatProvider provider)
         {
             return DateTimeInstance.ToString(format, provider);
         }
 
+        /// <inheritdoc />
         public IDateTimeWrap ToUniversalTime()
         {
             return new DateTimeWrap(DateTimeInstance.ToUniversalTime());
         }
 
+        /// <inheritdoc />
         public bool TryParse(string s, out IDateTimeWrap result)
         {
             DateTime dtResult;
@@ -696,6 +764,7 @@ namespace SystemWrapper
             return returnValue;
         }
 
+        /// <inheritdoc />
         public bool TryParse(string s, IFormatProvider provider, DateTimeStyles styles, out IDateTimeWrap result)
         {
             DateTime dtResult;
@@ -704,6 +773,7 @@ namespace SystemWrapper
             return returnValue;
         }
 
+        /// <inheritdoc />
         public bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style, out IDateTimeWrap result)
         {
             DateTime dtResult;
@@ -712,6 +782,7 @@ namespace SystemWrapper
             return returnValue;
         }
 
+        /// <inheritdoc />
         public bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style, out IDateTimeWrap result)
         {
             DateTime dtResult;

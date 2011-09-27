@@ -116,123 +116,147 @@ namespace SystemWrapper.IO
 
 		#endregion
 
-		public Stream BaseStream
+        /// <inheritdoc />
+        public Stream BaseStream
 		{
 			get { return BinaryReaderInstance.BaseStream; }
 		}
 
-		public BinaryReader BinaryReaderInstance{ get; private set; }
+        /// <inheritdoc />
+        public BinaryReader BinaryReaderInstance { get; private set; }
 
-		public virtual void Close()
+        /// <inheritdoc />
+        public virtual void Close()
 		{
 			BinaryReaderInstance.Close();
 		}
 
-		public char[] ReadChars(int count)
+        /// <inheritdoc />
+        public char[] ReadChars(int count)
 		{
 			return BinaryReaderInstance.ReadChars(count);
 		}
 
-		public decimal ReadDecimal()
+        /// <inheritdoc />
+        public decimal ReadDecimal()
 		{
 			return BinaryReaderInstance.ReadDecimal();
 		}
 
-		public double ReadDouble()
+        /// <inheritdoc />
+        public double ReadDouble()
 		{
 			return BinaryReaderInstance.ReadDouble();
 		}
 
-		public short ReadInt16()
+        /// <inheritdoc />
+        public short ReadInt16()
 		{
 			return BinaryReaderInstance.ReadInt16();
 		}
 
-		public int ReadInt32()
+        /// <inheritdoc />
+        public int ReadInt32()
 		{
 			return BinaryReaderInstance.ReadInt32();
 		}
 
-		public long ReadInt64()
+        /// <inheritdoc />
+        public long ReadInt64()
 		{
 			return BinaryReaderInstance.ReadInt64();
 		}
 
-		public char ReadChar()
+        /// <inheritdoc />
+        public char ReadChar()
 		{
 			return BinaryReaderInstance.ReadChar();
 		}
 
-		public int PeekChar()
+        /// <inheritdoc />
+        public int PeekChar()
 		{
 			return BinaryReaderInstance.PeekChar();
 		}
 
-		public int Read()
+        /// <inheritdoc />
+        public int Read()
 		{
 			return BinaryReaderInstance.Read();
 		}
 
-		public int Read(byte[] buffer, int index, int count)
+        /// <inheritdoc />
+        public int Read(byte[] buffer, int index, int count)
 		{
 			return BinaryReaderInstance.Read(buffer, index, count);
 		}
 
-		public int Read(char[] buffer, int index, int count)
+        /// <inheritdoc />
+        public int Read(char[] buffer, int index, int count)
 		{
 			return BinaryReaderInstance.Read(buffer, index, count);
 		}
 
-		public bool ReadBoolean()
+        /// <inheritdoc />
+        public bool ReadBoolean()
 		{
 			return BinaryReaderInstance.ReadBoolean();
 		}
 
-		public byte ReadByte()
+        /// <inheritdoc />
+        public byte ReadByte()
 		{
 			return BinaryReaderInstance.ReadByte();
 		}
 
-		public virtual byte[] ReadBytes(int count )
+        /// <inheritdoc />
+        public virtual byte[] ReadBytes(int count)
 		{
 			return BinaryReaderInstance.ReadBytes( count );
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public sbyte ReadSByte()
 		{
 			return BinaryReaderInstance.ReadSByte();
 		}
 
-		public float ReadSingle()
+        /// <inheritdoc />
+        public float ReadSingle()
 		{
 			return BinaryReaderInstance.ReadSingle();
 		}
 
-		public string ReadString()
+        /// <inheritdoc />
+        public string ReadString()
 		{
 			return BinaryReaderInstance.ReadString();
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public ushort ReadUInt16()
 		{
 			return BinaryReaderInstance.ReadUInt16();
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public uint ReadUInt32()
 		{
 			return BinaryReaderInstance.ReadUInt32();
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public ulong ReadUInt64()
 		{
 			return BinaryReaderInstance.ReadUInt64();
 		}
 
-		public void Dispose()
+        /// <inheritdoc />
+        public void Dispose()
 		{
 			BinaryReaderInstance.Close();
 		}

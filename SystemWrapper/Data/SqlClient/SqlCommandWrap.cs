@@ -6,10 +6,10 @@ namespace SystemWrapper.Data.SqlClient
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlCommand"/> class.
     /// </summary>
     public class SqlCommandWrap : ISqlCommandWrap
-		{
-			#region Constructors
+    {
+        #region Constructors
 
-				/// <summary>
+        /// <summary>
         /// Initializes a new instance of the SqlCommandWrap class. 
         /// </summary>
         public SqlCommandWrap()
@@ -17,16 +17,16 @@ namespace SystemWrapper.Data.SqlClient
             Initialize();
         }
 
-				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class. 
-				/// </summary>
-				public void Initialize()
-				{
-					SqlCommandInstance = new SqlCommand();
-				}
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// </summary>
+        public void Initialize()
+        {
+            SqlCommandInstance = new SqlCommand();
+        }
 
-				
-				/// <summary>
+
+        /// <summary>
         /// Initializes a new instance of the SqlCommandWrap class. 
         /// </summary>
         /// <param name="command">SqlCommand object.</param>
@@ -35,60 +35,61 @@ namespace SystemWrapper.Data.SqlClient
             Initialize(command);
         }
 
-				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class. 
-				/// </summary>
-				/// <param name="command">SqlCommand object.</param>
-				public void Initialize(SqlCommand command)
-				{
-					SqlCommandInstance = command;
-				}
-				
-				
-				/// <summary>
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// </summary>
+        /// <param name="command">SqlCommand object.</param>
+        public void Initialize(SqlCommand command)
+        {
+            SqlCommandInstance = command;
+        }
+
+
+        /// <summary>
         /// Initializes a new instance of the SqlCommandWrap class with the text of the query.
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         public SqlCommandWrap(string cmdText)
         {
-					Initialize(cmdText);
+            Initialize(cmdText);
         }
 
-				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class with the text of the query.
-				/// </summary>
-				/// <param name="cmdText">The text of the query.</param>
-				public void Initialize(string cmdText)
-				{
-					SqlCommandInstance = new SqlCommand(cmdText);
-				}
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query.
+        /// </summary>
+        /// <param name="cmdText">The text of the query.</param>
+        public void Initialize(string cmdText)
+        {
+            SqlCommandInstance = new SqlCommand(cmdText);
+        }
 
-				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
-				/// </summary>
-				/// <param name="cmdText">The text of the query.</param>
-				/// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-				public SqlCommandWrap(string cmdText, ISqlConnectionWrap connection)
-				{
-					Initialize(cmdText, connection);
-				}
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// </summary>
+        /// <param name="cmdText">The text of the query.</param>
+        /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
+        public SqlCommandWrap(string cmdText, ISqlConnectionWrap connection)
+        {
+            Initialize(cmdText, connection);
+        }
 
-				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
-				/// </summary>
-				/// <param name="cmdText">The text of the query.</param>
-				/// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-				public void Initialize(string cmdText, ISqlConnectionWrap connection)
-				{
-					SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
-				}
-
-
-			#endregion
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// </summary>
+        /// <param name="cmdText">The text of the query.</param>
+        /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
+        public void Initialize(string cmdText, ISqlConnectionWrap connection)
+        {
+            SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
+        }
 
 
-				public SqlCommand SqlCommandInstance { get; private set; }
+        #endregion
 
+        /// <inheritdoc />
+        public SqlCommand SqlCommandInstance { get; private set; }
+
+        /// <inheritdoc />
         public ISqlDataReaderWrap ExecuteReader()
         {
             return new SqlDataReaderWrap(SqlCommandInstance.ExecuteReader());

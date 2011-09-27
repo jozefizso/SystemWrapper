@@ -175,49 +175,59 @@ namespace SystemWrapper.IO
 
 		#endregion Constructors and Initializers
 
-		public bool AutoFlush
+        /// <inheritdoc />
+        public bool AutoFlush
         {
             get { return StreamWriterInstance.AutoFlush; }
             set { StreamWriterInstance.AutoFlush = value; }
         }
 
+        /// <inheritdoc />
         public Stream BaseStream
         {
             get { return StreamWriterInstance.BaseStream; }
         }
 
+        /// <inheritdoc />
         public override Encoding Encoding
         {
             get { return StreamWriterInstance.Encoding; }
         }
 
+        /// <inheritdoc />
         public StreamWriter StreamWriterInstance { get; private set; }
 
+        /// <inheritdoc />
         public override void Close()
         {
             StreamWriterInstance.Close();
         }
 
+        /// <inheritdoc />
         public override void Flush()
         {
             StreamWriterInstance.Flush();
         }
 
+        /// <inheritdoc />
         public override void Write(char value)
         {
             StreamWriterInstance.Write(value);
         }
 
+        /// <inheritdoc />
         public override void Write(char[] buffer)
         {
             StreamWriterInstance.Write(buffer);
         }
 
+        /// <inheritdoc />
         public override void Write(string value)
         {
             StreamWriterInstance.Write(value);
         }
 
+        /// <inheritdoc />
         public override void Write(char[] buffer, int index, int count)
         {
             StreamWriterInstance.Write(buffer, index, count);

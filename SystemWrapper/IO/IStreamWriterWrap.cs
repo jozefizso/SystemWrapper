@@ -69,13 +69,6 @@ namespace SystemWrapper.IO
     	/// <param name="bufferSize">Sets the buffer size.</param>
     	void Initialize(string path, bool append, Encoding encoding, int bufferSize);
 
-
-
-
-
-
-
-
         // Properties
 
         /// <summary>

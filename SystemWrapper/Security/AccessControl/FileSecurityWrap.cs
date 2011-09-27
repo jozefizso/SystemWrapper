@@ -43,7 +43,8 @@ namespace SystemWrapper.Security.AccessControl
 			_fileSecurity = new FileSecurity();
 		}
 
-		public FileSecurity FileSecurityInstance
+        /// <inheritdoc />
+        public FileSecurity FileSecurityInstance
         {
             get { return _fileSecurity; }
         }

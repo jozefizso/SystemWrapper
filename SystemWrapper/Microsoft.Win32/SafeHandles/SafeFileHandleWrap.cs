@@ -52,38 +52,46 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
 
 		#endregion Constructors and Initializers
 
-		public bool IsClosed
+        /// <inheritdoc />
+        public bool IsClosed
         {
             get { return SafeFileHandleInstance.IsClosed; }
         }
 
+        /// <inheritdoc />
         public bool IsInvalid
         {
             get { return SafeFileHandleInstance.IsInvalid; }
         }
 
+        /// <inheritdoc />
         public SafeFileHandle SafeFileHandleInstance { get; private set; }
 
+        /// <inheritdoc />
         public void Close()
         {
             SafeFileHandleInstance.Close();
         }
 
+        /// <inheritdoc />
         public void DangerousAddRef(ref bool success)
         {
             SafeFileHandleInstance.DangerousAddRef(ref success);
         }
 
+        /// <inheritdoc />
         public IntPtr DangerousGetHandle()
         {
             return SafeFileHandleInstance.DangerousGetHandle();
         }
 
+        /// <inheritdoc />
         public void DangerousRelease()
         {
             SafeFileHandleInstance.DangerousRelease();
         }
 
+        /// <inheritdoc />
         public void SetHandleAsInvalid()
         {
             SafeFileHandleInstance.SetHandleAsInvalid();

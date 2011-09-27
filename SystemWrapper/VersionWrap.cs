@@ -126,74 +126,89 @@ namespace SystemWrapper
 		}
 
 		#endregion Constructors and Initializers
-		
-		public Version VersionInstance { get; private set; }
 
+        /// <inheritdoc />
+        public Version VersionInstance { get; private set; }
+
+        /// <inheritdoc />
         public int Build
         {
             get { return VersionInstance.Build; }
         }
 
+        /// <inheritdoc />
         public int Major
         {
             get { return VersionInstance.Major; }
         }
 
+        /// <inheritdoc />
         public short MajorRevision
         {
             get { return VersionInstance.MajorRevision; }
         }
 
+        /// <inheritdoc />
         public int Minor
         {
             get { return VersionInstance.Minor; }
         }
 
+        /// <inheritdoc />
         public short MinorRevision
         {
             get { return VersionInstance.MinorRevision; }
         }
 
+        /// <inheritdoc />
         public int Revision
         {
             get { return VersionInstance.Revision; }
         }
 
+        /// <inheritdoc />
         public object Clone()
         {
             return VersionInstance.Clone();
         }
 
+        /// <inheritdoc />
         public int CompareTo(object version)
         {
             return VersionInstance.CompareTo(version);
         }
 
+        /// <inheritdoc />
         public int CompareTo(IVersionWrap value)
         {
             return VersionInstance.CompareTo(value.VersionInstance);
         }
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             return VersionInstance.Equals(obj);
         }
 
+        /// <inheritdoc />
         public bool Equals(IVersionWrap obj)
         {
             return VersionInstance.Equals(obj.VersionInstance);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             return VersionInstance.GetHashCode();
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return VersionInstance.ToString();
         }
 
+        /// <inheritdoc />
         public string ToString(int fieldCount)
         {
             return VersionInstance.ToString(fieldCount);

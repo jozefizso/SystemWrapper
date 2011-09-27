@@ -1,57 +1,67 @@
-using System;
 using Microsoft.Win32;
 
 namespace SystemWrapper.Microsoft.Win32
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class RegistryKeyWrap : IRegistryKeyWrap
-    {
-        private RegistryKey _registryKeyInstance;
+	/// <summary>
+	/// 
+	/// </summary>
+	public class RegistryKeyWrap : IRegistryKeyWrap
+	{
+		private RegistryKey registryKeyInstance;
 
 		#region Constructors and Initializers
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.RegistryKeyWrap"/> class. 
+		/// </summary>
+		/// <param name="registryKey"></param>
 		public RegistryKeyWrap(RegistryKey registryKey)
 		{
 			Initialize(registryKey);
 		}
 
+		/// <inheritdoc />
 		public void Initialize(RegistryKey registryKey)
 		{
-			_registryKeyInstance = registryKey;
+			registryKeyInstance = registryKey;
 		}
 
 		#endregion Constructors and Initializers
-		
+
+		/// <inheritdoc />
 		public void Close()
-        {
-            throw new NotImplementedException();
-        }
+		{
+			registryKeyInstance.Close();
+		}
 
-        public object GetValue(string name)
-        {
-            return _registryKeyInstance.GetValue(name);
-        }
+		/// <inheritdoc />
+		public object GetValue(string name)
+		{
+			return registryKeyInstance.GetValue(name);
+		}
 
-        public IRegistryKeyWrap OpenSubKey(string name)
-        {
-            return new RegistryKeyWrap(_registryKeyInstance.OpenSubKey(name));
-        }
+		/// <inheritdoc />
+		public IRegistryKeyWrap OpenSubKey(string name)
+		{
+			return new RegistryKeyWrap(registryKeyInstance.OpenSubKey(name));
+		}
 
-        public IRegistryKeyWrap OpenSubKey(string name, bool writable)
-        {
-            return new RegistryKeyWrap(_registryKeyInstance.OpenSubKey(name, writable));
-        }
+		/// <inheritdoc />
+		public IRegistryKeyWrap OpenSubKey(string name, bool writable)
+		{
+			return new RegistryKeyWrap(registryKeyInstance.OpenSubKey(name, writable));
+		}
 
-        public void SetValue(string name, object value)
-        {
-            _registryKeyInstance.SetValue(name, value);
-        }
+		/// <inheritdoc />
+		public void SetValue(string name, object value)
+		{
+			registryKeyInstance.SetValue(name, value);
+		}
 
-        public RegistryKey RegistryKeyInstance
-        {
-            get { return _registryKeyInstance; }
-        }
-    }
+		/// <inheritdoc />
+		public RegistryKey RegistryKeyInstance
+		{
+			get { return registryKeyInstance; }
+		}
+	}
 }

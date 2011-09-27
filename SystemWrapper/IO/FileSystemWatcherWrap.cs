@@ -38,11 +38,13 @@ namespace SystemWrapper.IO
             Initialize(path, filter);
         }
 
+        /// <inheritdoc />
         public void Initialize()
         {
             FileSystemWatcherInstance = new FileSystemWatcher();
         }
 
+        /// <inheritdoc />
         public void Initialize(string path, string filter)
         {
             FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
@@ -52,6 +54,7 @@ namespace SystemWrapper.IO
 
         #region IFileSystemWatcherWrap Members
 
+        /// <inheritdoc />
         public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
 
 
@@ -218,6 +221,7 @@ namespace SystemWrapper.IO
             return FileSystemWatcherInstance.WaitForChanged(changeType, timeout);
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             Dispose(true);
@@ -226,6 +230,7 @@ namespace SystemWrapper.IO
 
         #endregion
 
+        /// <inheritdoc />
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
@@ -239,6 +244,7 @@ namespace SystemWrapper.IO
             } // get rid of unmanaged resources  
         }
 
+        /// <inheritdoc />
         ~FileSystemWatcherWrap()
         {
             Dispose(false);

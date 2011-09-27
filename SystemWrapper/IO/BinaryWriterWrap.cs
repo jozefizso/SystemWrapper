@@ -109,123 +109,147 @@ namespace SystemWrapper.IO
 
 		#endregion
 
-		public Stream BaseStream
+        /// <inheritdoc />
+        public Stream BaseStream
 		{
 			get { return BinaryWriterInstance.BaseStream; }
 		}
 
-		public BinaryWriter BinaryWriterInstance { get; private set; }
+        /// <inheritdoc />
+        public BinaryWriter BinaryWriterInstance { get; private set; }
 
-		public void Close()
+        /// <inheritdoc />
+        public void Close()
 		{
 			BinaryWriterInstance.Close();
 		}
 
-		public void Flush()
+        /// <inheritdoc />
+        public void Flush()
 		{
 			BinaryWriterInstance.Flush();
 		}
 
-		public long Seek(int offset, SeekOrigin origin)
+        /// <inheritdoc />
+        public long Seek(int offset, SeekOrigin origin)
 		{
 			return BinaryWriterInstance.Seek(offset, origin);
 		}
 
-		public void Write(bool value)
+        /// <inheritdoc />
+        public void Write(bool value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(byte value)
+        /// <inheritdoc />
+        public void Write(byte value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(byte[] buffer)
+        /// <inheritdoc />
+        public void Write(byte[] buffer)
 		{
 			BinaryWriterInstance.Write(buffer);
 		}
 
-		public void Write(char ch)
+        /// <inheritdoc />
+        public void Write(char ch)
 		{
 			BinaryWriterInstance.Write(ch);
 		}
 
-		public void Write(char[] chars)
+        /// <inheritdoc />
+        public void Write(char[] chars)
 		{
 			BinaryWriterInstance.Write(chars);
 		}
 
-		public void Write(decimal value)
+        /// <inheritdoc />
+        public void Write(decimal value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(double value)
+        /// <inheritdoc />
+        public void Write(double value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(short value)
+        /// <inheritdoc />
+        public void Write(short value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(int value)
+        /// <inheritdoc />
+        public void Write(int value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(long value)
+        /// <inheritdoc />
+        public void Write(long value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public void Write(sbyte value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(float value)
+        /// <inheritdoc />
+        public void Write(float value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(string value)
+        /// <inheritdoc />
+        public void Write(string value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public void Write(ushort value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public void Write(uint value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		[CLSCompliant(false)]
+        /// <inheritdoc />
+        [CLSCompliant(false)]
 		public void Write(ulong value)
 		{
 			BinaryWriterInstance.Write(value);
 		}
 
-		public void Write(byte[] buffer, int index, int count)
+        /// <inheritdoc />
+        public void Write(byte[] buffer, int index, int count)
 		{
 			BinaryWriterInstance.Write(buffer, index, count);
 		}
 
-		public void Write(char[] chars, int index, int count)
+        /// <inheritdoc />
+        public void Write(char[] chars, int index, int count)
 		{
 			BinaryWriterInstance.Write(chars, index, count);
 		}
 
-		public void Dispose()
+        /// <inheritdoc />
+        public void Dispose()
 		{
 			BinaryWriterInstance.Close();
 		}

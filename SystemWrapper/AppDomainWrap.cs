@@ -50,34 +50,41 @@ namespace SystemWrapper
 		}
 
     	#endregion Constructors and Initializers
-		
-		public AppDomain AppDomainInstance { get; private set; }
 
+        /// <inheritdoc />
+        public AppDomain AppDomainInstance { get; private set; }
+
+        /// <inheritdoc />
         public IAppDomainWrap CurrentDomain
         {
             get { return new AppDomainWrap(AppDomain.CurrentDomain); }
         }
 
+        /// <inheritdoc />
         public object GetData(string name)
         {
             return AppDomainInstance.GetData(name);
         }
 
+        /// <inheritdoc />
         public IAssemblyWrap Load(IAssemblyNameWrap assemblyRef)
         {
             return new AssemblyWrap(AppDomainInstance.Load(assemblyRef.AssemblyNameInstance));
         }
 
+        /// <inheritdoc />
         public void SetData(string name, object data)
         {
             AppDomainInstance.SetData(name, data);
         }
 
+        /// <inheritdoc />
         public void Unload(IAppDomainWrap domain)
         {
             AppDomain.Unload(domain.AppDomainInstance);
         }
 
+        /// <inheritdoc />
         event ResolveEventHandler IAppDomainWrap.AssemblyResolve
         {
             add { AppDomainInstance.AssemblyResolve += value; }

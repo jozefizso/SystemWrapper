@@ -69,118 +69,140 @@ namespace SystemWrapper.Reflection
 		}
 
 		#endregion Constructors and Initializers
-		
-		public AssemblyName AssemblyNameInstance { get; private set; }
 
+        /// <inheritdoc />
+        public AssemblyName AssemblyNameInstance { get; private set; }
+
+        /// <inheritdoc />
         public string CodeBase
         {
             get { return AssemblyNameInstance.CodeBase; }
             set { AssemblyNameInstance.CodeBase = value; }
         }
 
+        /// <inheritdoc />
         public CultureInfo CultureInfo
         {
             get { return AssemblyNameInstance.CultureInfo; }
             set { AssemblyNameInstance.CultureInfo = value; }
         }
 
+        /// <inheritdoc />
         public string EscapedCodeBase
         {
             get { return AssemblyNameInstance.EscapedCodeBase; }
         }
 
+        /// <inheritdoc />
         public AssemblyNameFlags Flags
         {
             get { return AssemblyNameInstance.Flags; }
             set { AssemblyNameInstance.Flags = value; }
         }
 
+        /// <inheritdoc />
         public string FullName
         {
             get { return AssemblyNameInstance.FullName; }
         }
 
+        /// <inheritdoc />
         public AssemblyHashAlgorithm HashAlgorithm
         {
             get { return AssemblyNameInstance.HashAlgorithm; }
             set { AssemblyNameInstance.HashAlgorithm = value; }
         }
 
+        /// <inheritdoc />
         public StrongNameKeyPair KeyPair
         {
             get { return AssemblyNameInstance.KeyPair; }
             set { AssemblyNameInstance.KeyPair = value; }
         }
 
+        /// <inheritdoc />
         public string Name
         {
             get { return AssemblyNameInstance.Name; }
             set { AssemblyNameInstance.Name = value; }
         }
 
+        /// <inheritdoc />
         public ProcessorArchitecture ProcessorArchitecture
         {
             get { return AssemblyNameInstance.ProcessorArchitecture; }
             set { AssemblyNameInstance.ProcessorArchitecture = value; }
         }
 
+        /// <inheritdoc />
         public IVersionWrap Version
         {
             get { return new VersionWrap(AssemblyNameInstance.Version); }
             set { AssemblyNameInstance.Version = value.VersionInstance; }
         }
 
+        /// <inheritdoc />
         public AssemblyVersionCompatibility VersionCompatibility
         {
             get { return AssemblyNameInstance.VersionCompatibility; }
             set { AssemblyNameInstance.VersionCompatibility = value; }
         }
 
+        /// <inheritdoc />
         public object Clone()
         {
             return AssemblyNameInstance.Clone();
         }
 
+        /// <inheritdoc />
         public IAssemblyNameWrap GetAssemblyName(string assemblyFile)
         {
             return new AssemblyNameWrap(AssemblyName.GetAssemblyName(assemblyFile));
         }
 
+        /// <inheritdoc />
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             AssemblyNameInstance.GetObjectData(info, context);
         }
 
+        /// <inheritdoc />
         public byte[] GetPublicKey()
         {
             return AssemblyNameInstance.GetPublicKey();
         }
 
+        /// <inheritdoc />
         public byte[] GetPublicKeyToken()
         {
             return AssemblyNameInstance.GetPublicKeyToken();
         }
 
+        /// <inheritdoc />
         public void OnDeserialization(object sender)
         {
             AssemblyNameInstance.OnDeserialization(sender);
         }
 
+        /// <inheritdoc />
         public bool ReferenceMatchesDefinition(IAssemblyNameWrap reference, IAssemblyNameWrap definition)
         {
             return AssemblyName.ReferenceMatchesDefinition(reference.AssemblyNameInstance, definition.AssemblyNameInstance);
         }
 
+        /// <inheritdoc />
         public void SetPublicKey(byte[] publicKey)
         {
             AssemblyNameInstance.SetPublicKey(publicKey);
         }
 
+        /// <inheritdoc />
         public void SetPublicKeyToken(byte[] publicKeyToken)
         {
             AssemblyNameInstance.SetPublicKeyToken(publicKeyToken);
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return AssemblyNameInstance.ToString();

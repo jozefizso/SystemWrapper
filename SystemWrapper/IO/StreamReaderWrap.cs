@@ -276,31 +276,38 @@ namespace SystemWrapper.IO
 		}
 
 		#endregion Constructors and Initializers
-		
-		public Stream BaseStream
+
+        /// <inheritdoc />
+        public Stream BaseStream
         {
             get { return StreamReaderInstance.BaseStream; }
         }
 
+        /// <inheritdoc />
         public Encoding CurrentEncoding
         {
             get { return StreamReaderInstance.CurrentEncoding; }
         }
 
+        /// <inheritdoc />
         public bool EndOfStream
         {
             get { return StreamReaderInstance.EndOfStream; }
         }
 
+        /// <inheritdoc />
         public StreamReader StreamReaderInstance { get; private set; }
 
-        public TextReader TextReaderInstance{ get{ return StreamReaderInstance; } }
+        /// <inheritdoc />
+        public TextReader TextReaderInstance { get { return StreamReaderInstance; } }
 
+        /// <inheritdoc />
         public void Close()
         {
             StreamReaderInstance.Close();
         }
 
+        /// <inheritdoc />
         public void DiscardBufferedData()
         {
             StreamReaderInstance.DiscardBufferedData();
@@ -315,6 +322,7 @@ namespace SystemWrapper.IO
             return StreamReaderInstance.Peek();
         }
 
+        /// <inheritdoc />
         public int Read()
         {
             return StreamReaderInstance.Read();
@@ -332,11 +340,13 @@ namespace SystemWrapper.IO
             return StreamReaderInstance.Read(buffer, index, count);
         }
 
+        /// <inheritdoc />
         public int ReadBlock(char[] buffer, int index, int count)
         {
             return StreamReaderInstance.ReadBlock(buffer, index, count);
         }
 
+        /// <inheritdoc />
         public string ReadLine()
         {
             return StreamReaderInstance.ReadLine();
@@ -351,11 +361,13 @@ namespace SystemWrapper.IO
             return StreamReaderInstance.ReadToEnd();
         }
 
+        /// <inheritdoc />
         public ITextReaderWrap Synchronized(ITextReaderWrap reader)
         {
             return new StreamReaderWrap(TextReader.Synchronized(reader.TextReaderInstance));
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             StreamReaderInstance.Dispose();

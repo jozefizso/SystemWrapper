@@ -76,22 +76,26 @@ namespace SystemWrapper.Diagnostics
 		}
 
 		#endregion
-		
-		public string Arguments
+
+        /// <inheritdoc />
+        public string Arguments
 		{
 			get { return ProcessStartInfoInstance.Arguments; }
 			set { ProcessStartInfoInstance.Arguments = value; }
 		}
 
-		public string FileName
+        /// <inheritdoc />
+        public string FileName
 		{
 			get { return ProcessStartInfoInstance.FileName; }
 			set { ProcessStartInfoInstance.FileName = value; }
 		}
 
-		public ProcessStartInfo ProcessStartInfoInstance { get; internal set; }
+        /// <inheritdoc />
+        public ProcessStartInfo ProcessStartInfoInstance { get; internal set; }
 
-		public bool UseShellExecute
+        /// <inheritdoc />
+        public bool UseShellExecute
 		{
 			get { return ProcessStartInfoInstance.UseShellExecute; }
 			set { ProcessStartInfoInstance.UseShellExecute = value; }

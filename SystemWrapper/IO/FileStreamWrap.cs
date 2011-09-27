@@ -346,7 +346,8 @@ namespace SystemWrapper.IO
 			get { return FileStreamInstance.CanSeek; }
 		}
 
-		public bool CanTimeout
+        /// <inheritdoc />
+        public bool CanTimeout
 		{
 			get { return FileStreamInstance.CanTimeout; }
 		}
@@ -359,7 +360,8 @@ namespace SystemWrapper.IO
 			get { return FileStreamInstance.CanWrite; }
 		}
 
-		public int ReadTimeout
+        /// <inheritdoc />
+        public int ReadTimeout
 		{
 			get { return FileStreamInstance.ReadTimeout; }
 			set { FileStreamInstance.ReadTimeout = value; }
@@ -370,15 +372,18 @@ namespace SystemWrapper.IO
 		/// </summary>
 		public Stream StreamInstance { get { return FileStreamInstance; } }
 
-		public int WriteTimeout
+        /// <inheritdoc />
+        public int WriteTimeout
 		{
 			get { return FileStreamInstance.WriteTimeout; }
 			set { FileStreamInstance.WriteTimeout = value; }
 		}
 
-		public FileStream FileStreamInstance { get; private set; }
+        /// <inheritdoc />
+        public FileStream FileStreamInstance { get; private set; }
 
-		public bool IsAsync
+        /// <inheritdoc />
+        public bool IsAsync
 		{
 			get { return FileStreamInstance.IsAsync; }
 		}
@@ -391,7 +396,8 @@ namespace SystemWrapper.IO
 			get { return FileStreamInstance.Length; }
 		}
 
-		public string Name
+        /// <inheritdoc />
+        public string Name
 		{
 			get { return FileStreamInstance.Name; }
 		}
@@ -405,11 +411,13 @@ namespace SystemWrapper.IO
 			set { FileStreamInstance.Position = value; }
 		}
 
-		public ISafeFileHandleWrap SafeFileHandle
+        /// <inheritdoc />
+        public ISafeFileHandleWrap SafeFileHandle
 		{
 			get { return new SafeFileHandleWrap(FileStreamInstance.SafeFileHandle); }
 		}
 
+        /// <summary>
 		/// Begins an asynchronous read.
 		/// </summary>
 		/// <param name="array">The buffer to read data into.</param>
@@ -474,12 +482,14 @@ namespace SystemWrapper.IO
 			FileStreamInstance.Flush();
 		}
 
-		public IFileSecurityWrap GetAccessControl()
+        /// <inheritdoc />
+        public IFileSecurityWrap GetAccessControl()
 		{
 			return new FileSecurityWrap(FileStreamInstance.GetAccessControl());
 		}
 
-		public virtual void Lock(long position, long length)
+        /// <inheritdoc />
+        public virtual void Lock(long position, long length)
 		{
 			FileStreamInstance.Lock(position, length);
 		}
@@ -516,7 +526,8 @@ namespace SystemWrapper.IO
 			return FileStreamInstance.Seek(offset, origin);
 		}
 
-		public void SetAccessControl(IFileSecurityWrap fileSecurity)
+        /// <inheritdoc />
+        public void SetAccessControl(IFileSecurityWrap fileSecurity)
 		{
 			FileStreamInstance.SetAccessControl(fileSecurity.FileSecurityInstance);
 		}
@@ -530,23 +541,27 @@ namespace SystemWrapper.IO
 			FileStreamInstance.SetLength(value);
 		}
 
-		[HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
+        /// <inheritdoc />
+        [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
 		public IStreamWrap Synchronized(IStreamWrap stream)
 		{
 			return new FileStreamWrap(Stream.Synchronized(stream.StreamInstance));
 		}
 
-		public override string ToString()
+        /// <inheritdoc />
+        public override string ToString()
 		{
 			return FileStreamInstance.ToString();
 		}
 
-		public void Dispose()
+        /// <inheritdoc />
+        public void Dispose()
 		{
 			FileStreamInstance.Dispose();
 		}
 
-		public void Unlock(long position, long length)
+        /// <inheritdoc />
+        public void Unlock(long position, long length)
 		{
 			FileStreamInstance.Unlock(position, length);
 		}

@@ -209,6 +209,7 @@ namespace SystemWrapper.IO
             get { return MemoryStreamInstance.CanSeek; }
         }
 
+        /// <inheritdoc />
         [ComVisible(false)]
         public bool CanTimeout
         {
@@ -223,6 +224,7 @@ namespace SystemWrapper.IO
             get { return MemoryStreamInstance.CanWrite; }
         }
 
+        /// <inheritdoc />
         public int Capacity
         {
             get { return MemoryStreamInstance.Capacity; }
@@ -237,6 +239,7 @@ namespace SystemWrapper.IO
             get { return MemoryStreamInstance.Length; }
         }
 
+        /// <inheritdoc />
         public MemoryStream MemoryStreamInstance { get; private set; }
 
         /// <summary>
@@ -248,6 +251,7 @@ namespace SystemWrapper.IO
             set { MemoryStreamInstance.Position = value; }
         }
 
+        /// <inheritdoc />
         [ComVisible(false)]
         public int ReadTimeout
         {
@@ -255,8 +259,10 @@ namespace SystemWrapper.IO
             set { MemoryStreamInstance.ReadTimeout = value; }
         }
 
+        /// <inheritdoc />
         public Stream StreamInstance { get { return MemoryStreamInstance; } }
 
+        /// <inheritdoc />
         [ComVisible(false)]
         public int WriteTimeout
         {
@@ -264,28 +270,33 @@ namespace SystemWrapper.IO
             set { MemoryStreamInstance.WriteTimeout = value; }
         }
 
+        /// <inheritdoc />
         [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
         public IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
         {
             return MemoryStreamInstance.BeginRead(buffer, offset, count, callback, state);
         }
 
+        /// <inheritdoc />
         [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
         public IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
         {
             return MemoryStreamInstance.BeginWrite(buffer, offset, count, callback, state);
         }
 
+        /// <inheritdoc />
         public virtual void Close()
         {
             MemoryStreamInstance.Close();
         }
 
+        /// <inheritdoc />
         public int EndRead(IAsyncResult asyncResult)
         {
             return MemoryStreamInstance.EndRead(asyncResult);
         }
 
+        /// <inheritdoc />
         public void EndWrite(IAsyncResult asyncResult)
         {
             MemoryStreamInstance.EndWrite(asyncResult);
@@ -340,6 +351,7 @@ namespace SystemWrapper.IO
             MemoryStreamInstance.SetLength(value);
         }
 
+        /// <inheritdoc />
         [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
         public IStreamWrap Synchronized(IStreamWrap stream)
         {
@@ -366,21 +378,25 @@ namespace SystemWrapper.IO
             MemoryStreamInstance.WriteByte(value);
         }
 
+        /// <inheritdoc />
         public byte[] GetBuffer()
         {
             return MemoryStreamInstance.GetBuffer();
         }
 
+        /// <inheritdoc />
         public byte[] ToArray()
         {
             return MemoryStreamInstance.ToArray();
         }
 
+        /// <inheritdoc />
         public void WriteTo(IStreamWrap stream)
         {
             MemoryStreamInstance.WriteTo(stream.StreamInstance);
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             MemoryStreamInstance.Dispose();

@@ -52,204 +52,242 @@ namespace SystemWrapper.IO
 
 		#endregion
 
-		public FileAttributes Attributes
+        /// <inheritdoc />
+        public FileAttributes Attributes
 		{
 			get { return FileInfoInstance.Attributes; }
 			set { FileInfoInstance.Attributes = value; }
 		}
 
-		public IDateTimeWrap CreationTime
+        /// <inheritdoc />
+        public IDateTimeWrap CreationTime
 		{
 			get { return new DateTimeWrap(FileInfoInstance.CreationTime); }
 			set { FileInfoInstance.CreationTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap CreationTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap CreationTimeUtc
 		{
 			get { return new DateTimeWrap(FileInfoInstance.CreationTimeUtc); }
 			set { FileInfoInstance.CreationTimeUtc = value.DateTimeInstance; }
 		}
 
-		public IDirectoryInfoWrap Directory
+        /// <inheritdoc />
+        public IDirectoryInfoWrap Directory
 		{
 			get { return new DirectoryInfoWrap(FileInfoInstance.Directory); }
 		}
 
-		public string DirectoryName
+        /// <inheritdoc />
+        public string DirectoryName
 		{
 			get { return FileInfoInstance.DirectoryName; }
 		}
 
-		public bool Exists
+        /// <inheritdoc />
+        public bool Exists
 		{
 			get { return FileInfoInstance.Exists; }
 		}
 
-		public string Extension
+        /// <inheritdoc />
+        public string Extension
 		{
 			get { return FileInfoInstance.Extension; }
 		}
 
-		public FileInfo FileInfoInstance { get; private set; }
+        /// <inheritdoc />
+        public FileInfo FileInfoInstance { get; private set; }
 
-		public string FullName
+        /// <inheritdoc />
+        public string FullName
 		{
 			get { return FileInfoInstance.FullName; }
 		}
 
-		public bool IsReadOnly
+        /// <inheritdoc />
+        public bool IsReadOnly
 		{
 			get { return FileInfoInstance.IsReadOnly; }
 			set { FileInfoInstance.IsReadOnly = value; }
 		}
 
-		public IDateTimeWrap LastAccessTime
+        /// <inheritdoc />
+        public IDateTimeWrap LastAccessTime
 		{
 			get { return new DateTimeWrap(FileInfoInstance.LastAccessTime); }
 			set { FileInfoInstance.LastAccessTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastAccessTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap LastAccessTimeUtc
 		{
 			get { return new DateTimeWrap(FileInfoInstance.LastAccessTimeUtc); }
 			set { FileInfoInstance.LastAccessTimeUtc = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastWriteTime
+        /// <inheritdoc />
+        public IDateTimeWrap LastWriteTime
 		{
 			get { return new DateTimeWrap(FileInfoInstance.LastWriteTime); }
 			set { FileInfoInstance.LastWriteTime = value.DateTimeInstance; }
 		}
 
-		public IDateTimeWrap LastWriteTimeUtc
+        /// <inheritdoc />
+        public IDateTimeWrap LastWriteTimeUtc
 		{
 			get { return new DateTimeWrap(FileInfoInstance.LastWriteTimeUtc); }
 			set { FileInfoInstance.LastWriteTimeUtc = value.DateTimeInstance; }
 		}
 
-		public long Length
+        /// <inheritdoc />
+        public long Length
 		{
 			get { return FileInfoInstance.Length; }
 		}
 
-		public string Name
+        /// <inheritdoc />
+        public string Name
 		{
 			get { return FileInfoInstance.Name; }
 		}
 
-		public IStreamWriterWrap AppendText()
+        /// <inheritdoc />
+        public IStreamWriterWrap AppendText()
 		{
 			return new StreamWriterWrap(FileInfoInstance.AppendText());
 		}
 
-		public void Decrypt()
+        /// <inheritdoc />
+        public void Decrypt()
 		{
 			FileInfoInstance.Decrypt();
 		}
 
-		public void Delete()
+        /// <inheritdoc />
+        public void Delete()
 		{
 			FileInfoInstance.Delete();
 		}
 
-		public void Encrypt()
+        /// <inheritdoc />
+        public void Encrypt()
 		{
 			FileInfoInstance.Encrypt();
 		}
 
-		public IFileInfoWrap CopyTo(string destFileName)
+        /// <inheritdoc />
+        public IFileInfoWrap CopyTo(string destFileName)
 		{
 			return new FileInfoWrap(FileInfoInstance.CopyTo(destFileName));
 		}
 
-		public IFileInfoWrap CopyTo(string destFileName, bool overwrite)
+        /// <inheritdoc />
+        public IFileInfoWrap CopyTo(string destFileName, bool overwrite)
 		{
 			return new FileInfoWrap(FileInfoInstance.CopyTo(destFileName, overwrite));
 		}
 
-		public IFileStreamWrap Create()
+        /// <inheritdoc />
+        public IFileStreamWrap Create()
 		{
 			return new FileStreamWrap(FileInfoInstance.Create());
 		}
 
-		public IStreamWriterWrap CreateText()
+        /// <inheritdoc />
+        public IStreamWriterWrap CreateText()
 		{
 			return new StreamWriterWrap(FileInfoInstance.CreateText());
 		}
 
-		public IFileSecurityWrap GetAccessControl()
+        /// <inheritdoc />
+        public IFileSecurityWrap GetAccessControl()
 		{
 			return new FileSecurityWrap(FileInfoInstance.GetAccessControl());
 		}
 
-		public IFileSecurityWrap GetAccessControl(AccessControlSections includeSections)
+        /// <inheritdoc />
+        public IFileSecurityWrap GetAccessControl(AccessControlSections includeSections)
 		{
 			return new FileSecurityWrap(FileInfoInstance.GetAccessControl(includeSections));
 		}
 
-		public void MoveTo(string destFileName)
+        /// <inheritdoc />
+        public void MoveTo(string destFileName)
 		{
 			FileInfoInstance.MoveTo(destFileName);
 		}
 
-		public IFileStreamWrap Open(FileMode mode)
+        /// <inheritdoc />
+        public IFileStreamWrap Open(FileMode mode)
 		{
 			return new FileStreamWrap(FileInfoInstance.Open(mode));
 		}
 
-		public IFileStreamWrap Open(FileMode mode, FileAccess access)
+        /// <inheritdoc />
+        public IFileStreamWrap Open(FileMode mode, FileAccess access)
 		{
 			return new FileStreamWrap(FileInfoInstance.Open(mode, access));
 		}
 
-		public IFileStreamWrap Open(FileMode mode, FileAccess access, FileShare share)
+        /// <inheritdoc />
+        public IFileStreamWrap Open(FileMode mode, FileAccess access, FileShare share)
 		{
 			return new FileStreamWrap(FileInfoInstance.Open(mode, access, share));
 		}
 
-		public IFileStreamWrap OpenRead()
+        /// <inheritdoc />
+        public IFileStreamWrap OpenRead()
 		{
 			return new FileStreamWrap(FileInfoInstance.OpenRead());
 		}
 
-		public IStreamReaderWrap OpenText()
+        /// <inheritdoc />
+        public IStreamReaderWrap OpenText()
 		{
 			return new StreamReaderWrap(FileInfoInstance.OpenText());
 		}
 
-		public IFileStreamWrap OpenWrite()
+        /// <inheritdoc />
+        public IFileStreamWrap OpenWrite()
 		{
 			return new FileStreamWrap(FileInfoInstance.OpenWrite());
 		}
 
-		public void Refresh()
+        /// <inheritdoc />
+        public void Refresh()
 		{
 			FileInfoInstance.Refresh();
 		}
 
-		public IFileInfoWrap Replace(string destinationFileName, string destinationBackupFileName)
+        /// <inheritdoc />
+        public IFileInfoWrap Replace(string destinationFileName, string destinationBackupFileName)
 		{
 			return new FileInfoWrap(FileInfoInstance.Replace(destinationFileName, destinationBackupFileName));
 		}
 
-		public IFileInfoWrap Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
+        /// <inheritdoc />
+        public IFileInfoWrap Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
 		{
 			return new FileInfoWrap(FileInfoInstance.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors));
 		}
 
-		public void SetAccessControl(IFileSecurityWrap fileSecurity)
+        /// <inheritdoc />
+        public void SetAccessControl(IFileSecurityWrap fileSecurity)
 		{
 			FileInfoInstance.SetAccessControl(fileSecurity.FileSecurityInstance);
 		}
 
-		public override string ToString()
+        /// <inheritdoc />
+        public override string ToString()
 		{
 			return FileInfoInstance.ToString();
 		}
 
 		internal static IFileInfoWrap[] ConvertFileInfoArrayIntoIFileInfoWrapArray(FileInfo[] fileInfos)
 		{
-			FileInfoWrap[] fileInfoWraps = new FileInfoWrap[fileInfos.Length];
+			var fileInfoWraps = new FileInfoWrap[fileInfos.Length];
 			for (int i = 0; i < fileInfos.Length; i++)
 				fileInfoWraps[i] = new FileInfoWrap(fileInfos[i]);
 			return fileInfoWraps;

@@ -60,13 +60,13 @@ namespace SystemWrapper.IO
         /// Determines whether the given path refers to an existing directory on disk. 
         /// </summary>
         /// <param name="path">The path to test. </param>
-        /// <returns>true if <param name="path"> refers to an existing directory; otherwise, false.</returns>
+        /// <returns>true if (param name="path") refers to an existing directory; otherwise, false.</returns>
         bool Exists(string path);
         /// <summary>
         /// Gets a <see cref="T:SystemWrapper.Security.AccessControl.IDirectorySecurityWrap"/> object that encapsulates the access control list (ACL) entries for a specified directory. 
         /// </summary>
         /// <param name="path">The path to a directory containing a <see cref="DirectorySecurity"/> object that describes the file's access control list (ACL) information. </param>
-        /// <returns>A <see cref="T:SystemWrapper.Security.AccessControl.IDirectorySecurityWrap"/> object that encapsulates the access control rules for the file described by the <param name="path"> parameter. </returns>
+        /// <returns>A <see cref="T:SystemWrapper.Security.AccessControl.IDirectorySecurityWrap"/> object that encapsulates the access control rules for the file described by the (param name="path") parameter. </returns>
         IDirectorySecurityWrap GetAccessControl(string path);
         /// <summary>
         /// Gets a <see cref="T:SystemWrapper.Security.AccessControl.IDirectorySecurityWrap"/> object that encapsulates the access control list (ACL) entries for a specified directory. 
@@ -96,7 +96,7 @@ namespace SystemWrapper.IO
         /// Gets the names of subdirectories in the specified directory. 
         /// </summary>
         /// <param name="path">The path for which an array of subdirectory names is returned.</param>
-        /// <returns>An array of type String containing the names of subdirectories in <param name="path">.</returns>
+        /// <returns>An array of type String containing the names of subdirectories in (param name="path").</returns>
         string[] GetDirectories(string path);
         /// <summary>
         /// Gets an array of directories matching the specified search pattern from the current directory. 
@@ -178,7 +178,7 @@ namespace SystemWrapper.IO
         /// <returns>A IDateTimeWrap set to the date and time the specified file or directory was last written to. This value is expressed in UTC time.</returns>
         IDateTimeWrap GetLastWriteTimeUtc(string path);
         /// <summary>
-        /// Retrieves the names of the logical drives on this computer in the form "<drive letter>:\". 
+        /// Retrieves the names of the logical drives on this computer in the form "(drive letter):\". 
         /// </summary>
         /// <returns>The logical drives on this computer.</returns>
         string[] GetLogicalDrives();
