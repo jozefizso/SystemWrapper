@@ -1,13 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using SystemInterface.IO;
 
 namespace SystemWrapper.IO
 {
     /// <summary>
     /// Wrapper for <see cref="FileSystemWatcher"/> class.
     /// </summary>
-    public class FileSystemWatcherWrap : IFileSystemWatcherWrap
+    public class FileSystemWatcherWrap : IFileSystemWatcher
     {
         #region Constructors and Initializers
 

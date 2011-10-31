@@ -1,12 +1,13 @@
 using System.Data;
 using System.Data.SqlClient;
+using SystemInterface.Data.SqlClient;
 
 namespace SystemWrapper.Data.SqlClient
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlConnection"/> class.
     /// </summary>
-    public class SqlConnectionWrap : ISqlConnectionWrap
+    public class SqlConnectionWrap : ISqlConnection
     {
         #region Constructors
 

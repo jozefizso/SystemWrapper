@@ -1,14 +1,15 @@
 ﻿using SystemWrapper.Reflection;
 using MbUnit.Framework;
 using Rhino.Mocks;
+using SystemInterface.Reflection;
 
 namespace SystemWrapper.Samples
 {
     public class AssemblySample
     {
-        private IAssemblyWrap _assembly;
+        private IAssembly _assembly;
 
-        public AssemblySample(IAssemblyWrap assemblyWrap)
+        public AssemblySample(IAssembly assemblyWrap)
         {
             _assembly = assemblyWrap;
         }
@@ -25,8 +26,8 @@ namespace SystemWrapper.Samples
         [Test]
         public void GetAssemblyVersion_test()
         {
-            IAssemblyWrap assemblyStub = MockRepository.GenerateStub<IAssemblyWrap>();
-            IAssemblyNameWrap assemblyNameStub = MockRepository.GenerateStub<IAssemblyNameWrap>();
+            IAssembly assemblyStub = MockRepository.GenerateStub<IAssembly>();
+            IAssemblyName assemblyNameStub = MockRepository.GenerateStub<IAssemblyName>();
 
             assemblyStub.Stub(x => x.GetExecutingAssembly()).Return(assemblyStub);
             assemblyStub.Stub(x => x.GetName()).Return(assemblyNameStub);

@@ -1,5 +1,6 @@
 using SystemWrapper.IO;
 using MbUnit.Framework;
+using SystemInterface.IO;
 
 namespace SystemWrapper.Tests.IO
 {
@@ -11,27 +12,27 @@ namespace SystemWrapper.Tests.IO
         public void Create_two_directories_and_then_delete_them()
         {
             string path = new DirectoryWrap().GetCurrentDirectory();
-            IDirectoryInfoWrap directoryInfoWrap = new DirectoryInfoWrap(path);
-			IDirectoryInfoWrap[] directoriesBefore = directoryInfoWrap.GetDirectories();
+            IDirectoryInfo directoryInfoWrap = new DirectoryInfoWrap(path);
+            IDirectoryInfo[] directoriesBefore = directoryInfoWrap.GetDirectories();
 
             directoryInfoWrap.CreateSubdirectory("Dir1");
             directoryInfoWrap.CreateSubdirectory("Dir2");
-            IDirectoryInfoWrap[] directoriesAfterCreate = directoryInfoWrap.GetDirectories();
+            IDirectoryInfo[] directoriesAfterCreate = directoryInfoWrap.GetDirectories();
 
-			Assert.AreEqual("Dir1", directoriesAfterCreate[0].Name);
-			Assert.AreEqual("Dir2", directoriesAfterCreate[1].Name);
-			directoriesAfterCreate[0].Delete();
-			directoriesAfterCreate[1].Delete();
+            Assert.AreEqual("Dir1", directoriesAfterCreate[0].Name);
+            Assert.AreEqual("Dir2", directoriesAfterCreate[1].Name);
+            directoriesAfterCreate[0].Delete();
+            directoriesAfterCreate[1].Delete();
 
-			var directoriesAfterDelete = directoryInfoWrap.GetDirectories();
-			Assert.AreEqual(directoriesBefore.Length, directoriesAfterDelete.Length);
+            var directoriesAfterDelete = directoryInfoWrap.GetDirectories();
+            Assert.AreEqual(directoriesBefore.Length, directoriesAfterDelete.Length);
         }
 
         [Test]
         public void GetFiles_must_have_files_in_Debug_folder()
         {
-            IDirectoryInfoWrap directoryWrap = new DirectoryInfoWrap(new DirectoryWrap().GetCurrentDirectory());
-            IFileInfoWrap[] fileInfoWraps = directoryWrap.GetFiles();
+            IDirectoryInfo directoryWrap = new DirectoryInfoWrap(new DirectoryWrap().GetCurrentDirectory());
+            IFileInfo[] fileInfoWraps = directoryWrap.GetFiles();
             Assert.IsTrue(fileInfoWraps.Length > 0);
         }
 

@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
+using SystemInterface;
+using SystemInterface.Reflection;
 
 namespace SystemWrapper.Reflection
 {
@@ -12,63 +14,63 @@ namespace SystemWrapper.Reflection
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class AssemblyNameWrap : IAssemblyNameWrap
-	{
-		#region Constructors and Initializers
+    public class AssemblyNameWrap : IAssemblyName
+    {
+        #region Constructors and Initializers
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		public AssemblyNameWrap()
-		{
-			Initialize();
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        public AssemblyNameWrap()
+        {
+            Initialize();
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		public void Initialize()
-		{
-			AssemblyNameInstance = new AssemblyName();
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        public void Initialize()
+        {
+            AssemblyNameInstance = new AssemblyName();
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		/// <param name="assemblyName">AssemblyName object.</param>
-		public AssemblyNameWrap(AssemblyName assemblyName)
-		{
-			Initialize(assemblyName);
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        /// <param name="assemblyName">AssemblyName object.</param>
+        public AssemblyNameWrap(AssemblyName assemblyName)
+        {
+            Initialize(assemblyName);
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		/// <param name="assemblyName">AssemblyName object.</param>
-		public void Initialize(AssemblyName assemblyName)
-		{
-			AssemblyNameInstance = assemblyName;
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        /// <param name="assemblyName">AssemblyName object.</param>
+        public void Initialize(AssemblyName assemblyName)
+        {
+            AssemblyNameInstance = assemblyName;
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		/// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
-		public AssemblyNameWrap(string assemblyName)
-		{
-			Initialize(assemblyName);
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
+        public AssemblyNameWrap(string assemblyName)
+        {
+            Initialize(assemblyName);
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-		/// </summary>
-		/// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
-		public void Initialize(string assemblyName)
-		{
-			AssemblyNameInstance = new AssemblyName(assemblyName);
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// </summary>
+        /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
+        public void Initialize(string assemblyName)
+        {
+            AssemblyNameInstance = new AssemblyName(assemblyName);
+        }
 
-		#endregion Constructors and Initializers
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public AssemblyName AssemblyNameInstance { get; private set; }
@@ -135,7 +137,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IVersionWrap Version
+        public IVersion Version
         {
             get { return new VersionWrap(AssemblyNameInstance.Version); }
             set { AssemblyNameInstance.Version = value.VersionInstance; }
@@ -155,7 +157,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyNameWrap GetAssemblyName(string assemblyFile)
+        public IAssemblyName GetAssemblyName(string assemblyFile)
         {
             return new AssemblyNameWrap(AssemblyName.GetAssemblyName(assemblyFile));
         }
@@ -185,7 +187,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public bool ReferenceMatchesDefinition(IAssemblyNameWrap reference, IAssemblyNameWrap definition)
+        public bool ReferenceMatchesDefinition(IAssemblyName reference, IAssemblyName definition)
         {
             return AssemblyName.ReferenceMatchesDefinition(reference.AssemblyNameInstance, definition.AssemblyNameInstance);
         }
@@ -208,7 +210,7 @@ namespace SystemWrapper.Reflection
             return AssemblyNameInstance.ToString();
         }
 
-        internal static IAssemblyNameWrap[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)
+        internal static IAssemblyName[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)
         {
             AssemblyNameWrap[] wrapAssemblyNames = new AssemblyNameWrap[assemblyNames.Length];
             for (int i = 0; i < assemblyNames.Length; i++)

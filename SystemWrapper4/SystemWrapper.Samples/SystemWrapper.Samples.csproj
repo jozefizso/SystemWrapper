@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SystemWrapper.Samples</RootNamespace>
     <AssemblyName>SystemWrapper.Samples</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,6 +31,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,6 +85,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
+      <Project>{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}</Project>
+      <Name>SystemInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SystemWrapper\SystemWrapper.csproj">
       <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
       <Name>SystemWrapper</Name>

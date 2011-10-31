@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using SystemWrapper.Data.SqlClient;
 using MbUnit.Framework;
 using Rhino.Mocks;
+using SystemInterface.Data.SqlClient;
 
 namespace SystemWrapper.Samples.Data.SqlClient
 {
     public class SqlDataReaderSample
     {
-        public List<string> ReadData(ISqlDataReaderWrap reader)
+        public List<string> ReadData(ISqlDataReader reader)
         {
             List<string> result = new List<string>();
             try
@@ -29,7 +30,7 @@ namespace SystemWrapper.Samples.Data.SqlClient
         [Test]
         public void ReadData_test()
         {
-            ISqlDataReaderWrap readerStub = MockRepository.GenerateStub<ISqlDataReaderWrap>();
+            ISqlDataReader readerStub = MockRepository.GenerateStub<ISqlDataReader>();
 
             List<string> result = new SqlDataReaderSample().ReadData(readerStub);
             Assert.AreEqual(2, result.Count);

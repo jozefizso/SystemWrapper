@@ -2,6 +2,8 @@ using System.Security.AccessControl;
 using SystemWrapper.IO;
 using SystemWrapper.Security.AccessControl;
 using MbUnit.Framework;
+using SystemInterface.IO;
+using SystemInterface.Security.AccessControl;
 
 namespace SystemWrapper.Tests.IO
 {
@@ -11,8 +13,8 @@ namespace SystemWrapper.Tests.IO
     {
         const string path = "TempTest";
 
-        private IDirectoryWrap _directoryWrap;
-        private IDirectoryInfoWrap _directoryInfoWrap;
+        private IDirectory _directoryWrap;
+        private IDirectoryInfo _directoryInfoWrap;
 
         [SetUp]
         public void StartTest()
@@ -53,14 +55,14 @@ namespace SystemWrapper.Tests.IO
         [Test]
         public void GetAccessControl_test()
         {
-            IDirectorySecurityWrap directorySecurityWrap = _directoryWrap.GetAccessControl(path);
+            IDirectorySecurity directorySecurityWrap = _directoryWrap.GetAccessControl(path);
             Assert.IsNotNull(directorySecurityWrap.DirectorySecurityInstance);
         }
 
         [Test]
         public void GetParent_test()
         {
-            IDirectoryInfoWrap di = _directoryWrap.GetParent(path);
+            IDirectoryInfo di = _directoryWrap.GetParent(path);
             Assert.AreEqual("Debug", di.Name);
         }
     }

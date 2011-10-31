@@ -1,11 +1,12 @@
 using System.Data.SqlClient;
+using SystemInterface.Data.SqlClient;
 
 namespace SystemWrapper.Data.SqlClient
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlCommand"/> class.
     /// </summary>
-    public class SqlCommandWrap : ISqlCommandWrap
+    public class SqlCommandWrap : ISqlCommand
     {
         #region Constructors
 
@@ -68,7 +69,7 @@ namespace SystemWrapper.Data.SqlClient
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-        public SqlCommandWrap(string cmdText, ISqlConnectionWrap connection)
+        public SqlCommandWrap(string cmdText, ISqlConnection connection)
         {
             Initialize(cmdText, connection);
         }
@@ -78,7 +79,7 @@ namespace SystemWrapper.Data.SqlClient
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-        public void Initialize(string cmdText, ISqlConnectionWrap connection)
+        public void Initialize(string cmdText, ISqlConnection connection)
         {
             SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
         }
@@ -90,7 +91,7 @@ namespace SystemWrapper.Data.SqlClient
         public SqlCommand SqlCommandInstance { get; private set; }
 
         /// <inheritdoc />
-        public ISqlDataReaderWrap ExecuteReader()
+        public ISqlDataReader ExecuteReader()
         {
             return new SqlDataReaderWrap(SqlCommandInstance.ExecuteReader());
         }

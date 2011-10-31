@@ -3,6 +3,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using SystemWrapper.Security.AccessControl;
+using SystemInterface.Security.AccessControl;
+using SystemInterface.IO;
+using SystemInterface;
 
 namespace SystemWrapper.IO
 {
@@ -10,17 +13,18 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.Directory"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class DirectoryWrap : IDirectoryWrap
+    [CLSCompliant(false)]
+    public class DirectoryWrap : IDirectory
     {
         /// <inheritdoc />
-        public IDirectoryInfoWrap CreateDirectory(string path)
+        public IDirectoryInfo CreateDirectory(string path)
         {
             DirectoryInfo di = Directory.CreateDirectory(path);
             return new DirectoryInfoWrap(di);
         }
 
         /// <inheritdoc />
-        public IDirectoryInfoWrap CreateDirectory(string path, IDirectorySecurityWrap directorySecurity)
+        public IDirectoryInfo CreateDirectory(string path, IDirectorySecurity directorySecurity)
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
@@ -47,25 +51,25 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IDirectorySecurityWrap GetAccessControl(string path)
+        public IDirectorySecurity GetAccessControl(string path)
         {
             return new DirectorySecurityWrap(Directory.GetAccessControl(path));
         }
 
         /// <inheritdoc />
-        public IDirectorySecurityWrap GetAccessControl(string path, AccessControlSections includeSections)
+        public IDirectorySecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new DirectorySecurityWrap(Directory.GetAccessControl(path, includeSections));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetCreationTime(string path)
+        public IDateTime GetCreationTime(string path)
         {
             return new DateTimeWrap(Directory.GetCreationTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetCreationTimeUtc(string path)
+        public IDateTime GetCreationTimeUtc(string path)
         {
             return new DateTimeWrap(Directory.GetCreationTimeUtc(path));
         }
@@ -131,25 +135,25 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastAccessTime(string path)
+        public IDateTime GetLastAccessTime(string path)
         {
             return new DateTimeWrap(Directory.GetLastAccessTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastAccessTimeUtc(string path)
+        public IDateTime GetLastAccessTimeUtc(string path)
         {
             return new DateTimeWrap(Directory.GetLastAccessTimeUtc(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastWriteTime(string path)
+        public IDateTime GetLastWriteTime(string path)
         {
             return new DateTimeWrap(Directory.GetLastWriteTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastWriteTimeUtc(string path)
+        public IDateTime GetLastWriteTimeUtc(string path)
         {
             return new DateTimeWrap(Directory.GetLastWriteTimeUtc(path));
         }
@@ -161,7 +165,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IDirectoryInfoWrap GetParent(string path)
+        public IDirectoryInfo GetParent(string path)
         {
             DirectoryInfo di = Directory.GetParent(path);
             return new DirectoryInfoWrap(di);
@@ -174,7 +178,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public void SetAccessControl(string path, IDirectorySecurityWrap directorySecurity)
+        public void SetAccessControl(string path, IDirectorySecurity directorySecurity)
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
@@ -182,13 +186,13 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public void SetCreationTime(string path, IDateTimeWrap creationTime)
+        public void SetCreationTime(string path, IDateTime creationTime)
         {
             Directory.SetCreationTime(path, creationTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc)
+        public void SetCreationTimeUtc(string path, IDateTime creationTimeUtc)
         {
             Directory.SetCreationTimeUtc(path, creationTimeUtc.DateTimeInstance);
         }
@@ -200,25 +204,25 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime)
+        public void SetLastAccessTime(string path, IDateTime lastAccessTime)
         {
             Directory.SetLastAccessTime(path, lastAccessTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc)
+        public void SetLastAccessTimeUtc(string path, IDateTime lastAccessTimeUtc)
         {
             Directory.SetLastAccessTimeUtc(path, lastAccessTimeUtc.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastWriteTime(string path, IDateTimeWrap lastWriteTime)
+        public void SetLastWriteTime(string path, IDateTime lastWriteTime)
         {
             Directory.SetLastWriteTime(path, lastWriteTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastWriteTimeUtc(string path, IDateTimeWrap lastWriteTimeUtc)
+        public void SetLastWriteTimeUtc(string path, IDateTime lastWriteTimeUtc)
         {
             Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc.DateTimeInstance);
         }

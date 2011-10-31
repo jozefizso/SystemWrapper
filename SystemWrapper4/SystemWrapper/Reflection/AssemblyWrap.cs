@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Security.Policy;
 using SystemWrapper.IO;
+using SystemInterface.IO;
+using SystemInterface.Reflection;
 
 namespace SystemWrapper.Reflection
 {
@@ -13,37 +15,37 @@ namespace SystemWrapper.Reflection
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class AssemblyWrap : IAssemblyWrap
+    public class AssemblyWrap : IAssembly
     {
         private Assembly _assembly;
 
-		#region Constructors and Initializers
+        #region Constructors and Initializers
 
-		/// <summary>
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
         /// </summary>
         public AssemblyWrap()
-        {}
+        { }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-		/// </summary>
-		/// <param name="assembly">Assembly object.</param>
-		public AssemblyWrap(Assembly assembly)
-		{
-			Initialize(assembly);
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
+        /// </summary>
+        /// <param name="assembly">Assembly object.</param>
+        public AssemblyWrap(Assembly assembly)
+        {
+            Initialize(assembly);
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-		/// </summary>
-		/// <param name="assembly">Assembly object.</param>
-		public void Initialize(Assembly assembly)
-		{
-			_assembly = assembly;
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
+        /// </summary>
+        /// <param name="assembly">Assembly object.</param>
+        public void Initialize(Assembly assembly)
+        {
+            _assembly = assembly;
+        }
 
-		#endregion Constructors and Initializers
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public Assembly AssemblyInstance
@@ -153,13 +155,13 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyWrap GetAssembly(Type type)
+        public IAssembly GetAssembly(Type type)
         {
             return new AssemblyWrap(Assembly.GetAssembly(type));
         }
 
         /// <inheritdoc />
-        public IAssemblyWrap GetCallingAssembly()
+        public IAssembly GetCallingAssembly()
         {
             return new AssemblyWrap(Assembly.GetCallingAssembly());
         }
@@ -177,13 +179,13 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyWrap GetEntryAssembly()
+        public IAssembly GetEntryAssembly()
         {
             return new AssemblyWrap(Assembly.GetEntryAssembly());
         }
 
         /// <inheritdoc />
-        public IAssemblyWrap GetExecutingAssembly()
+        public IAssembly GetExecutingAssembly()
         {
             return new AssemblyWrap(Assembly.GetExecutingAssembly());
         }
@@ -195,19 +197,19 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap GetFile(string name)
+        public IFileStream GetFile(string name)
         {
             return new FileStreamWrap(AssemblyInstance.GetFile(name));
         }
 
         /// <inheritdoc />
-        public virtual IFileStreamWrap[] GetFiles()
+        public virtual IFileStream[] GetFiles()
         {
             return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles());
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap[] GetFiles(bool getResourceModules)
+        public IFileStream[] GetFiles(bool getResourceModules)
         {
             return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles(getResourceModules));
         }
@@ -219,7 +221,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyNameWrap GetName()
+        public IAssemblyName GetName()
         {
             return new AssemblyNameWrap(AssemblyInstance.GetName());
         }
@@ -231,7 +233,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyNameWrap[] GetReferencedAssemblies()
+        public IAssemblyName[] GetReferencedAssemblies()
         {
             AssemblyName[] assemblyNames = AssemblyInstance.GetReferencedAssemblies();
             return AssemblyNameWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(assemblyNames);
@@ -244,7 +246,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
-        public IAssemblyWrap LoadFrom(string assemblyFile)
+        public IAssembly LoadFrom(string assemblyFile)
         {
             return new AssemblyWrap(Assembly.LoadFrom(assemblyFile));
         }

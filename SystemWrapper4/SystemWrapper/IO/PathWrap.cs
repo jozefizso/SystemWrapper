@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using SystemInterface.IO;
 
 namespace SystemWrapper.IO
 {
@@ -8,7 +9,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.Path"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class PathWrap : IPathWrap
+    public class PathWrap : IPath
     {
         /// <inheritdoc />
         public char AltDirectorySeparatorChar
@@ -41,11 +42,27 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
+        public string Combine(params string[] paths)
+        {
+            return Path.Combine(paths);
+        }
+        /// <inheritdoc />
         public string Combine(string path1, string path2)
         {
             return Path.Combine(path1, path2);
         }
 
+        /// <inheritdoc />
+        public string Combine(string path1, string path2, string path3)
+        {
+            return Path.Combine(path1, path2, path3);
+        }
+
+        /// <inheritdoc />
+        public string Combine(string path1, string path2, string path3, string path4)
+        {
+            return Path.Combine(path1, path2, path3, path4);
+        }
         /// <inheritdoc />
         public string GetDirectoryName(string path)
         {

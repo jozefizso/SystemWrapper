@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SystemWrapper</RootNamespace>
     <AssemblyName>SystemWrapper</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ispro\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
     <SignAssembly>true</SignAssembly>
@@ -35,108 +35,68 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SystemWrapper.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Debug\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\SystemWrapper.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Release\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDomainWrap.cs" />
     <Compile Include="Configuration\ConfigurationManagerWrap.cs" />
-    <Compile Include="Configuration\IConfigurationManagerWrap.cs" />
     <Compile Include="ConsoleWrap.cs" />
-    <Compile Include="Data\SqlClient\ISqlCommandWrap.cs" />
-    <Compile Include="Data\SqlClient\ISqlConnectionWrap.cs" />
-    <Compile Include="Data\SqlClient\ISqlDataReaderWrap.cs" />
     <Compile Include="Data\SqlClient\SqlCommandWrap.cs" />
     <Compile Include="Data\SqlClient\SqlConnectionWrap.cs">
     </Compile>
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="DateTimeWrap.cs" />
-    <Compile Include="Diagnostics\IProcessStartInfoWrap.cs" />
-    <Compile Include="Diagnostics\IProcessWrap.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
-    <Compile Include="IAppDomainWrap.cs" />
-    <Compile Include="IConsoleWrap.cs" />
-    <Compile Include="IDateTimeWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
-    <Compile Include="IO\Compression\IDeflateStreamWrap.cs" />
     <Compile Include="IO\DirectoryInfoWrap.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
     <Compile Include="IO\FileStreamWrap.cs" />
     <Compile Include="IO\FileSystemWatcherWrap.cs" />
     <Compile Include="IO\FileWrap.cs" />
-    <Compile Include="IO\IBinaryReaderWrap.cs" />
-    <Compile Include="IO\IBinaryWriterWrap.cs" />
-    <Compile Include="IO\IDirectoryInfoWrap.cs" />
-    <Compile Include="IO\IDirectoryWrap.cs" />
-    <Compile Include="IO\IFileInfoWrap.cs" />
-    <Compile Include="IO\IFileStreamWrap.cs" />
-    <Compile Include="IO\IFileSystemWatcherWrap.cs" />
-    <Compile Include="IO\IFileWrap.cs" />
-    <Compile Include="IO\IMemoryStreamWrap.cs" />
-    <Compile Include="IO\IPathWrap.cs" />
-    <Compile Include="IO\IStreamReaderWrap.cs" />
-    <Compile Include="IO\IStreamWrap.cs" />
-    <Compile Include="IO\IStreamWriterWrap.cs" />
-    <Compile Include="IO\ITextReaderWrap.cs" />
     <Compile Include="IO\MemoryStreamWrap.cs" />
     <Compile Include="IO\PathWrap.cs" />
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
-    <Compile Include="IVersionWrap.cs" />
-    <Compile Include="Microsoft.Win32\IRegistryKeyWrap.cs" />
-    <Compile Include="Microsoft.Win32\IRegistryWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryWrap.cs" />
-    <Compile Include="Microsoft.Win32\SafeHandles\ISafeFileHandleWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="Microsoft.Win32\SafeHandles\SafeRegistryHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\AssemblyNameWrap.cs" />
     <Compile Include="Reflection\AssemblyWrap.cs" />
-    <Compile Include="Reflection\IAssemblyNameWrap.cs" />
-    <Compile Include="Reflection\IAssemblyWrap.cs" />
     <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
-    <Compile Include="Security\AccessControl\IDirectorySecurityWrap.cs" />
-    <Compile Include="Security\AccessControl\IFileSecurityWrap.cs" />
-    <Compile Include="Threading\IThreadWrap.cs" />
+    <Compile Include="Security\AccessControl\RegistrySecurityWrap.cs" />
     <Compile Include="Threading\ThreadWrap.cs" />
     <Compile Include="VersionWrap.cs" />
   </ItemGroup>
@@ -159,6 +119,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
+      <Project>{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}</Project>
+      <Name>SystemInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

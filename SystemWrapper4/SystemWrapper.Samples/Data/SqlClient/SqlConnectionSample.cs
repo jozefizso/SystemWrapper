@@ -2,12 +2,13 @@ using System.Data;
 using SystemWrapper.Data.SqlClient;
 using MbUnit.Framework;
 using Rhino.Mocks;
+using SystemInterface.Data.SqlClient;
 
 namespace SystemWrapper.Samples.Data.SqlClient
 {
     public class SqlConnectionSample
     {
-        public ConnectionState OpenSqlConnection(ISqlConnectionWrap connection)
+        public ConnectionState OpenSqlConnection(ISqlConnection connection)
         {
             connection.Open();
             ConnectionState connectionState = connection.State;
@@ -21,7 +22,7 @@ namespace SystemWrapper.Samples.Data.SqlClient
         [Test]
         public void OpenSqlConnection_test()
         {
-            ISqlConnectionWrap connectionStub = MockRepository.GenerateStub<ISqlConnectionWrap>();
+            ISqlConnection connectionStub = MockRepository.GenerateStub<ISqlConnection>();
             connectionStub.Stub(x => x.State).Return(ConnectionState.Open);
             Assert.AreEqual(ConnectionState.Open, new SqlConnectionSample().OpenSqlConnection(connectionStub));
             connectionStub.AssertWasCalled(x => x.Open());

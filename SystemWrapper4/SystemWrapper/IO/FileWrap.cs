@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
 using SystemWrapper.Security.AccessControl;
+using SystemInterface.IO;
+using SystemInterface.Security.AccessControl;
+using SystemInterface;
 
 namespace SystemWrapper.IO
 {
@@ -11,7 +14,8 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.File"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class FileWrap : IFileWrap
+    [CLSCompliant(false)]
+    public class FileWrap : IFile
     {
         /// <inheritdoc />
         public void AppendAllText(string path, string contents)
@@ -26,7 +30,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IStreamWriterWrap AppendText(string path)
+        public IStreamWriter AppendText(string path)
         {
             return new StreamWriterWrap(File.AppendText(path));
         }
@@ -44,31 +48,31 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Create(string path)
+        public IFileStream Create(string path)
         {
             return new FileStreamWrap(File.Create(path));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Create(string path, int bufferSize)
+        public IFileStream Create(string path, int bufferSize)
         {
             return new FileStreamWrap(File.Create(path, bufferSize));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Create(string path, int bufferSize, FileOptions options)
+        public IFileStream Create(string path, int bufferSize, FileOptions options)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Create(string path, int bufferSize, FileOptions options, IFileSecurityWrap fileSecurity)
+        public IFileStream Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options, fileSecurity.FileSecurityInstance));
         }
 
         /// <inheritdoc />
-        public IStreamWriterWrap CreateText(string path)
+        public IStreamWriter CreateText(string path)
         {
             return new StreamWriterWrap(File.CreateText(path));
         }
@@ -98,13 +102,13 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IFileSecurityWrap GetAccessControl(string path)
+        public IFileSecurity GetAccessControl(string path)
         {
             return new FileSecurityWrap(File.GetAccessControl(path));
         }
 
         /// <inheritdoc />
-        public IFileSecurityWrap GetAccessControl(string path, AccessControlSections includeSections)
+        public IFileSecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new FileSecurityWrap(File.GetAccessControl(path, includeSections));
         }
@@ -116,37 +120,37 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetCreationTime(string path)
+        public IDateTime GetCreationTime(string path)
         {
             return new DateTimeWrap(File.GetCreationTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetCreationTimeUtc(string path)
+        public IDateTime GetCreationTimeUtc(string path)
         {
             return new DateTimeWrap(File.GetCreationTimeUtc(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastAccessTime(string path)
+        public IDateTime GetLastAccessTime(string path)
         {
             return new DateTimeWrap(File.GetLastAccessTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastAccessTimeUtc(string path)
+        public IDateTime GetLastAccessTimeUtc(string path)
         {
             return new DateTimeWrap(File.GetLastAccessTimeUtc(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastWriteTime(string path)
+        public IDateTime GetLastWriteTime(string path)
         {
             return new DateTimeWrap(File.GetLastWriteTime(path));
         }
 
         /// <inheritdoc />
-        public IDateTimeWrap GetLastWriteTimeUtc(string path)
+        public IDateTime GetLastWriteTimeUtc(string path)
         {
             return new DateTimeWrap(File.GetLastWriteTimeUtc(path));
         }
@@ -158,37 +162,37 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Open(string path, FileMode mode)
+        public IFileStream Open(string path, FileMode mode)
         {
             return new FileStreamWrap(File.Open(path, mode));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Open(string path, FileMode mode, FileAccess access)
+        public IFileStream Open(string path, FileMode mode, FileAccess access)
         {
             return new FileStreamWrap(File.Open(path, mode, access));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap Open(string path, FileMode mode, FileAccess access, FileShare share)
+        public IFileStream Open(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new FileStreamWrap(File.Open(path, mode, access, share));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap OpenRead(string path)
+        public IFileStream OpenRead(string path)
         {
             return new FileStreamWrap(File.OpenRead(path));
         }
 
         /// <inheritdoc />
-        public IStreamReaderWrap OpenText(string path)
+        public IStreamReader OpenText(string path)
         {
             return new StreamReaderWrap(File.OpenText(path));
         }
 
         /// <inheritdoc />
-        public IFileStreamWrap OpenWrite(string path)
+        public IFileStream OpenWrite(string path)
         {
             return new FileStreamWrap(File.OpenWrite(path));
         }
@@ -236,7 +240,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public void SetAccessControl(string path, IFileSecurityWrap fileSecurity)
+        public void SetAccessControl(string path, IFileSecurity fileSecurity)
         {
             File.SetAccessControl(path, fileSecurity.FileSecurityInstance);
         }
@@ -248,37 +252,37 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public void SetCreationTime(string path, IDateTimeWrap creationTime)
+        public void SetCreationTime(string path, IDateTime creationTime)
         {
             File.SetCreationTime(path, creationTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc)
+        public void SetCreationTimeUtc(string path, IDateTime creationTimeUtc)
         {
             File.SetCreationTimeUtc(path, creationTimeUtc.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime)
+        public void SetLastAccessTime(string path, IDateTime lastAccessTime)
         {
             File.SetLastAccessTime(path, lastAccessTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc)
+        public void SetLastAccessTimeUtc(string path, IDateTime lastAccessTimeUtc)
         {
             File.SetLastAccessTimeUtc(path, lastAccessTimeUtc.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastWriteTime(string path, IDateTimeWrap lastWriteTime)
+        public void SetLastWriteTime(string path, IDateTime lastWriteTime)
         {
             File.SetLastWriteTime(path, lastWriteTime.DateTimeInstance);
         }
 
         /// <inheritdoc />
-        public void SetLastWriteTimeUtc(string path, IDateTimeWrap lastWriteTimeUtc)
+        public void SetLastWriteTimeUtc(string path, IDateTime lastWriteTimeUtc)
         {
             File.SetLastWriteTimeUtc(path, lastWriteTimeUtc.DateTimeInstance);
         }
