@@ -18,7 +18,7 @@
         ///    get
         ///    { 
         ///        if (null == _BaseKey)
-        ///            _BaseKey = new new RegistryWrap().LocalMachine;
+        ///            _BaseKey = new RegistryWrap().LocalMachine;
         ///        return _BaseKey;
         ///    }
         /// } private IRegistryKey _BaseKey;
