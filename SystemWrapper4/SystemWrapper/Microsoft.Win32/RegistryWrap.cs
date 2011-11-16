@@ -15,7 +15,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey ClassesRoot
         {
-            get { return new RegistryKeyWrap(Registry.ClassesRoot); }
+            get
+            {
+                RegistryKey key = Registry.ClassesRoot;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>
@@ -23,7 +30,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey CurrentConfig
         {
-            get { return new RegistryKeyWrap(Registry.CurrentConfig); }
+            get
+            {
+                RegistryKey key = Registry.CurrentConfig;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>
@@ -31,7 +45,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey CurrentUser
         {
-            get { return new RegistryKeyWrap(Registry.CurrentUser); }
+            get
+            {
+                RegistryKey key = Registry.CurrentUser;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>
@@ -39,7 +60,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey LocalMachine
         {
-            get { return new RegistryKeyWrap(Registry.LocalMachine); }
+            get
+            {
+                RegistryKey key = Registry.LocalMachine;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>
@@ -47,7 +75,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey PerformanceData
         {
-            get { return new RegistryKeyWrap(Registry.PerformanceData); }
+            get
+            {
+                RegistryKey key = Registry.PerformanceData;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>
@@ -55,7 +90,14 @@ namespace SystemWrapper.Microsoft.Win32
         /// </summary>
         public IRegistryKey Users
         {
-            get { return new RegistryKeyWrap(Registry.Users); }
+            get
+            {
+                RegistryKey key = Registry.Users;
+                if (null == key)
+                    return null;
+                else
+                    return new RegistryKeyWrap(key);
+            }
         }
 
         /// <summary>

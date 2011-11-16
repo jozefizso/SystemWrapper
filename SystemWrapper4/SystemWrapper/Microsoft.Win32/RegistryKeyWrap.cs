@@ -111,7 +111,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.CreateSubKey(subkey));
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -122,7 +126,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.CreateSubKey(subkey, permissionCheck));
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck);
+            if (null == key)
+                return null;
+            else
+            return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -134,7 +142,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck, RegistryOptions options)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options));
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options); ;
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -146,7 +158,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck, IRegistrySecurity registrySecurity)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, registrySecurity.RegistrySecurityInstance));
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, registrySecurity.RegistrySecurityInstance);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -159,7 +175,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck, RegistryOptions registryOptions, IRegistrySecurity registrySecurity)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, registryOptions, registrySecurity.RegistrySecurityInstance));
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, registryOptions, registrySecurity.RegistrySecurityInstance);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -234,7 +254,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey FromHandle(ISafeRegistryHandle handle)
         {
-            return new RegistryKeyWrap(RegistryKey.FromHandle(handle.SafeRegistryHandleInstance));
+            RegistryKey key = RegistryKey.FromHandle(handle.SafeRegistryHandleInstance);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -245,7 +269,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey FromHandle(ISafeRegistryHandle handle, RegistryView view)
         {
-            return new RegistryKeyWrap(RegistryKey.FromHandle(handle.SafeRegistryHandleInstance, view));
+            RegistryKey key = RegistryKey.FromHandle(handle.SafeRegistryHandleInstance, view);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -254,7 +282,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistrySecurity GetAccessControl()
         {
-            return new RegistrySecurityWrap(RegistryKeyInstance.GetAccessControl());
+            RegistrySecurity rs = RegistryKeyInstance.GetAccessControl();
+            if (null == rs)
+                return null;
+            else
+                return new RegistrySecurityWrap(rs);
         }
 
         /// <summary>
@@ -264,7 +296,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistrySecurity GetAccessControl(AccessControlSections includeSections)
         {
-            return new RegistrySecurityWrap(RegistryKeyInstance.GetAccessControl(includeSections));
+            RegistrySecurity rs = RegistryKeyInstance.GetAccessControl(includeSections);
+            if (null == rs)
+                return null;
+            else
+                return new RegistrySecurityWrap(rs);
         }
 
         /// <summary>
@@ -336,7 +372,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenBaseKey(RegistryHive hKey, RegistryView view)
         {
-            return new RegistryKeyWrap(RegistryKey.OpenBaseKey(hKey, view));
+            RegistryKey key = RegistryKey.OpenBaseKey(hKey, view);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -347,7 +387,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenRemoteBaseKey(RegistryHive hKey, string machineName)
         {
-            return new RegistryKeyWrap(RegistryKey.OpenRemoteBaseKey(hKey, machineName));
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey(hKey, machineName);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -359,7 +403,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenRemoteBaseKey(RegistryHive hKey, string machineName, RegistryView view)
         {
-            return new RegistryKeyWrap(RegistryKey.OpenRemoteBaseKey(hKey, machineName, view));
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey(hKey, machineName, view);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
 
         }
 
@@ -370,7 +418,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenSubKey(string name)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.OpenSubKey(name));
+            RegistryKey key = RegistryKeyInstance.OpenSubKey(name);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -381,7 +433,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenSubKey(string name, RegistryKeyPermissionCheck permissionCheck)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.OpenSubKey(name, permissionCheck));
+            RegistryKey key = RegistryKeyInstance.OpenSubKey(name, permissionCheck);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -392,7 +448,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenSubKey(string name, bool writable)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.OpenSubKey(name, writable));
+            RegistryKey key = RegistryKeyInstance.OpenSubKey(name, writable);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -404,7 +464,11 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey OpenSubKey(string name, RegistryKeyPermissionCheck permissionCheck, RegistryRights rights)
         {
-            return new RegistryKeyWrap(RegistryKeyInstance.OpenSubKey(name, permissionCheck, rights));
+            RegistryKey key = RegistryKeyInstance.OpenSubKey(name, permissionCheck, rights);
+            if (null == key)
+                return null;
+            else
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
