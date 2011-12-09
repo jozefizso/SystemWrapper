@@ -3,10 +3,10 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Security.AccessControl;
-using SystemWrapper.Security.AccessControl;
+using SystemInterface;
 using SystemInterface.IO;
 using SystemInterface.Security.AccessControl;
-using SystemInterface;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
@@ -14,7 +14,6 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    [CLSCompliant(false)]
     public class DirectoryInfoWrap : IDirectoryInfo
     {
         #region Constructors and Initializers

@@ -13,7 +13,7 @@
         /// 
         /// Example Usage:
         ///        
-        /// IRegistryKey BaseKey
+        /// IRegistryKey BaseKey 
         /// {
         ///    get
         ///    { 

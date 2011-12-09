@@ -14,7 +14,6 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.File"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    [CLSCompliant(false)]
     public class FileWrap : IFile
     {
         /// <inheritdoc />

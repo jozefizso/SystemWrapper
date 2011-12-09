@@ -10,7 +10,6 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    [CLSCompliant(false)]
     public class BinaryWriterWrap :IBinaryWriter
     {
         #region Constructors and Initializers

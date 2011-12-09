@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,7 +9,6 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
     /// </summary>
     [ComVisible(true)]
-    [CLSCompliant(false)]
     public class BinaryReaderWrap : IBinaryReader
     {
         #region Constructors and Initializers

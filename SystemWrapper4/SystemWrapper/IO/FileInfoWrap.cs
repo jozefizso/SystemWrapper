@@ -13,7 +13,6 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    [CLSCompliant(false)]
     public class FileInfoWrap : IFileInfo
     {
         #region Constructors and Initializers
