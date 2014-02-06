@@ -78,6 +78,7 @@
     <Compile Include="DateTimeWrap.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
+    <Compile Include="Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />

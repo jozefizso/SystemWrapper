@@ -54,6 +54,7 @@
     <Compile Include="Data\SqlClient\ISqlDataReader.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\IProcessStartInfo.cs" />
+    <Compile Include="Diagnostics\ITraceSource.cs" />
     <Compile Include="IAppDomain.cs" />
     <Compile Include="IConsole.cs" />
     <Compile Include="IDateTime.cs" />
