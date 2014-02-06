@@ -91,8 +91,10 @@
     <Compile Include="DateTimeWrap.cs" />
     <Compile Include="Diagnostics\IProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\IProcessWrap.cs" />
+    <Compile Include="Diagnostics\ITraceSource.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
+    <Compile Include="Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="IAppDomainWrap.cs" />
     <Compile Include="IConsoleWrap.cs" />
     <Compile Include="IDateTimeWrap.cs" />

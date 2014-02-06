@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Runtime;
-using SystemInterface.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
 {
@@ -16,7 +14,6 @@ namespace SystemWrapper.Diagnostics
         public TraceSource TraceSourceInstance { get; internal set; }
 
         /// <inheritdoc />
-        [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
         public TraceSourceWrap(string name)
         {
             TraceSourceInstance = new TraceSource(name);
@@ -99,14 +96,12 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <inheritdoc />
-        [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
         public void TraceInformation(string message)
         {
             TraceSourceInstance.TraceInformation(message);
         }
 
         /// <inheritdoc />
-        [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
         public void TraceInformation(string format, params object[] args)
         {
             TraceSourceInstance.TraceInformation(format, args);

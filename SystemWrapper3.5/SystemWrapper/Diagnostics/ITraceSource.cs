@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Runtime;
 
-namespace SystemInterface.Diagnostics
+namespace SystemWrapper.Diagnostics
 {
     /// <summary>
     ///     Provides a set of methods and properties that enable applications to trace
