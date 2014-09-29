@@ -1,6 +1,6 @@
 using System.IO;
 using SystemWrapper.IO;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace SystemWrapper.Tests.IO
@@ -11,7 +11,7 @@ namespace SystemWrapper.Tests.IO
     {
 		private FileStream _fileStream;
 
-		[FixtureSetUp]
+		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			var assembly = System.Reflection.Assembly.GetAssembly(typeof(BinaryReaderWrap));

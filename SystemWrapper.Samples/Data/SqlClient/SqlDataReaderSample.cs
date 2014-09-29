@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using SystemWrapper.Data.SqlClient;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Rhino.Mocks;
 using SystemInterface.Data.SqlClient;
 
@@ -33,7 +32,7 @@ namespace SystemWrapper.Samples.Data.SqlClient
             ISqlDataReader readerStub = MockRepository.GenerateStub<ISqlDataReader>();
 
             List<string> result = new SqlDataReaderSample().ReadData(readerStub);
-            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(0, result.Count);
         }
     }
 }

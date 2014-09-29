@@ -3,7 +3,7 @@ using System.IO.Compression;
 using System.Net.Mime;
 using SystemWrapper.IO;
 using SystemWrapper.IO.Compression;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Rhino.Mocks;
 using System.Windows.Forms;
 using SystemInterface.IO;
@@ -16,7 +16,7 @@ namespace SystemWrapper.Tests.IO
     {
         private FileStream _fileStream;
 
-        [FixtureSetUp]
+        [TestFixtureSetUp]
         public void FixtureSetup()
         {
             var assembly = System.Reflection.Assembly.GetAssembly(typeof(DeflateStreamWrap));

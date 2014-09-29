@@ -1,4 +1,4 @@
-using MbUnit.Framework;
+using NUnit.Framework;
 using Microsoft.Win32;
 using SystemWrapper.Microsoft.Win32;
 
@@ -13,7 +13,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.ClassesRoot;
             var keyWrap = new RegistryWrap().ClassesRoot.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
 
         [Test]
@@ -21,7 +21,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.CurrentConfig;
             var keyWrap = new RegistryWrap().CurrentConfig.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.CurrentUser;
             var keyWrap = new RegistryWrap().CurrentUser.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.LocalMachine;
             var keyWrap = new RegistryWrap().LocalMachine.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.PerformanceData;
             var keyWrap = new RegistryWrap().PerformanceData.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace SystemWrapper.Tests.Microsoft.Win32
         {
             var key = Registry.Users;
             var keyWrap = new RegistryWrap().Users.RegistryKeyInstance;
-            Assert.AreSame<RegistryKey>(key, keyWrap);
+            Assert.AreSame(key, keyWrap);
         }
     }
 }

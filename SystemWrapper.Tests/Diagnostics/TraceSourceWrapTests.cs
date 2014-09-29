@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using SystemWrapper.Diagnostics;
-using MbUnit.Framework;
+using NUnit.Framework;
 
 namespace SystemWrapper.Tests.Diagnostics
 {

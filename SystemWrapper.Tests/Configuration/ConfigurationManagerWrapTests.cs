@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 using SystemWrapper.Configuration;
-using MbUnit.Framework;
+using NUnit.Framework;
 
 namespace SystemWrapper.Tests.IO
 {

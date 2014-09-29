@@ -1,7 +1,7 @@
 using System;
 using SystemWrapper.IO;
 using SystemWrapper.Reflection;
-using MbUnit.Framework;
+using NUnit.Framework;
 using SystemInterface.IO;
 using SystemInterface.Reflection;
 
@@ -17,7 +17,7 @@ namespace SystemWrapper.Tests.Reflection
             sampleAssembly = sampleAssembly.GetAssembly(new Int32().GetType());
             IFileStream[] fileStreams = sampleAssembly.GetFiles();
             Assert.AreEqual(1, fileStreams.Length);
-            Assert.EndsWith(fileStreams[0].Name, "mscorlib.dll");
+            StringAssert.EndsWith("mscorlib.dll", fileStreams[0].Name);
         }
     }
 }

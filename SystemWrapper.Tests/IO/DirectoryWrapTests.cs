@@ -1,7 +1,8 @@
+using System;
 using System.Security.AccessControl;
 using SystemWrapper.IO;
 using SystemWrapper.Security.AccessControl;
-using MbUnit.Framework;
+using NUnit.Framework;
 using SystemInterface.IO;
 using SystemInterface.Security.AccessControl;
 
@@ -39,7 +40,7 @@ namespace SystemWrapper.Tests.IO
         }
 
         [Test]
-        [ExpectedArgumentNullException]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ArgumentNullException_is_thrown_if_directorySecurity_is_null()
         {
             _directoryWrap.CreateDirectory(path, null);

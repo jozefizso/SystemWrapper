@@ -1,5 +1,5 @@
 using SystemWrapper.Diagnostics;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace SystemWrapper.Tests.IO

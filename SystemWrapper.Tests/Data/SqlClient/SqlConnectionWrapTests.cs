@@ -1,6 +1,6 @@
 using System.Data.SqlClient;
 using SystemWrapper.Data.SqlClient;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace SystemWrapper.Tests.IO
