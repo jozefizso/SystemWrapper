@@ -52,6 +52,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Build\AssemblySharedInfo.cs">
+      <Link>Properties\AssemblySharedInfo.cs</Link>
+    </Compile>
     <Compile Include="AuthorAttribute.cs" />
     <Compile Include="Configuration\ConfigurationManagerWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />

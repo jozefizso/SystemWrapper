@@ -35,7 +35,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SystemInterface.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Build\SystemWrapper.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,6 +43,9 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Build\AssemblySharedInfo.cs">
+      <Link>Properties\AssemblySharedInfo.cs</Link>
+    </Compile>
     <Compile Include="Configuration\IConfigurationManager.cs" />
     <Compile Include="Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Data\SqlClient\ISqlConnection.cs" />
@@ -83,7 +86,9 @@
     <Compile Include="Threading\IThread.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SystemInterface.snk" />
+    <None Include="..\Build\SystemWrapper.snk">
+      <Link>SystemWrapper.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
