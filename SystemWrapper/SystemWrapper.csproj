@@ -23,14 +23,26 @@
     <DocumentationFile>..\bin\Debug\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 4.0|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\net40</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\Release\SystemWrapper.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Release\net40\SystemWrapper.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 4.5|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\net45</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\Release\net45\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
@@ -103,7 +115,18 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Target Name="AfterBuild">
+    <!-- Load up the information from the assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
+      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
+    </GetAssemblyIdentity>
+    <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
+  </Target>
+
+  <Target Name="Package">
+    <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
+    <!-- Package the project -->
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="$(MSBuildThisFileDirectory)..\.nuget\NuGet.exe pack &quot;$(MSBuildProjectName).nuspec&quot; -Verbosity detailed -Symbols -OutputDir &quot;$(MSBuildThisFileDirectory)..\publish&quot; -Version %(OutputAssemblyInfo.Version) -Properties &quot;Configuration=Release&quot;" />
+  </Target>
 </Project>

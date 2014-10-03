@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SystemWrapper.Wrappers</id>
+    <version>$Version$</version>
+    <authors>Jozef Izso</authors>
+    <owners>Jozef Izso</owners>
+    <licenseUrl>https://github.com/jozefizso/SystemWrapper/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Implementation of SystemWrapper.Interfaces using standard .NET Framework objects.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright (c) 2014 Jozef Izso</copyright>
+    <tags>SystemWrapper mocks unit tests registry filesystem</tags>
+    <dependencies>
+      <dependency id="SystemWrapper.Interfaces" version="[$Version$]" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\bin\$Configuration$\net45\SystemWrapper.*" target="lib\net45\" />
+    <file src="..\bin\$Configuration$\net40\SystemWrapper.*" target="lib\net40\" />
+    <file src="..\Build\*.cs" target="src\Build\" />
+    <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" />
+  </files>
+</package>
