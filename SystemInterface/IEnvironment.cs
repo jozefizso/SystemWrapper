@@ -144,5 +144,23 @@ namespace SystemInterface
         /// For read access to the COMPUTERNAME environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
         /// </permission>
         string MachineName { get; }
+
+        /// <summary>
+        /// Gets the newline string defined for this environment.
+        /// </summary>
+        /// <value>
+        /// A string containing "\r\n" for non-Unix platforms, or a string containing "\n" for Unix platforms.
+        /// </value>
+        /// <remarks>
+        /// <para>The property value of NewLine is a constant customized specifically for the current platform
+        ///   and implementation of the .NET Framework. For more information about the escape characters
+        ///   in the property value, see Character Escapes in Regular Expressions.</para>
+        /// <para>The functionality provided by NewLine is often what is meant by the terms newline,
+        ///   line feed, line break, carriage return, CRLF, and end of line.</para>
+        /// <para>NewLine can be used in conjunction with language-specific newline support such as the
+        ///   escape characters '\r' and '\n' in Microsoft C# and C/C++, or vbCrLf in Microsoft Visual Basic.</para>
+        /// <para>NewLine is automatically appended to text processed by the Console.WriteLine and StringBuilder.AppendLine methods.</para>
+        /// </remarks>
+        string NewLine { get; }
     }
 }
