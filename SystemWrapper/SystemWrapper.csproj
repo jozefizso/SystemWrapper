@@ -103,6 +103,7 @@
     <None Include="..\Build\SystemWrapper.snk">
       <Link>SystemWrapper.snk</Link>
     </None>
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
