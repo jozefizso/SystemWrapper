@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Security;
 using System.Security.Permissions;
 
 namespace SystemInterface
@@ -31,6 +33,31 @@ namespace SystemInterface
         /// For read access to the PATH environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
         /// </permission>
         string CommandLine { get; }
+
+        /// <summary>
+        /// Gets or sets the fully qualified path of the current working directory.
+        /// </summary>
+        /// <value>
+        /// A string containing a directory path.
+        /// </value>
+        /// <remarks>
+        /// By definition, if this process starts in the root directory of a local or network drive,
+        /// the value of this property is the drive name followed by a trailing slash
+        /// (for example, "C:\"). If this process starts in a subdirectory, the value of this property
+        /// is the drive and subdirectory path, without a trailing slash (for example, "C:\mySubDirectory").
+        /// </remarks>
+        /// <exception cref="ArgumentException">Attempted to set to an empty string ("").</exception>
+        /// <exception cref="ArgumentNullException">Attempted to set to null.</exception>
+        /// <exception cref="IOException">An I/O error occurred.</exception>
+        /// <exception cref="DirectoryNotFoundException">Attempted to set a local path that cannot be found.</exception>
+        /// <exception cref="SecurityException">The caller does not have the appropriate permission.</exception>
+        /// <permission cref="SecurityPermission">
+        /// For writing to files or directories in a set operation. Associated enumeration: <see cref="SecurityPermissionFlag.UnmanagedCode"/>.
+        /// </permission>
+        /// <permission cref="FileIOPermission">
+        /// For access to the information in the path itself in a get operation. Associated enumeration: <see cref="FileIOPermissionAccess.PathDiscovery"/>.
+        /// </permission>
+        string CurrentDirectory { get; set; }
 
         /// <summary>
         /// Determines whether the current operating system is a 64-bit operating system.
