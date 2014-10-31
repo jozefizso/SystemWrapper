@@ -67,6 +67,7 @@
     <Compile Include="IAppDomain.cs" />
     <Compile Include="IConsole.cs" />
     <Compile Include="IDateTime.cs" />
+    <Compile Include="IEnvironment.cs" />
     <Compile Include="IO\Compression\IDeflateStream.cs" />
     <Compile Include="IO\IBinaryReader.cs" />
     <Compile Include="IO\IBinaryWriter.cs" />
@@ -115,7 +116,6 @@
     </GetAssemblyIdentity>
     <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
   </Target>
-
   <Target Name="Package">
     <!-- Ensure the Package directory exists for this project -->
     <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
