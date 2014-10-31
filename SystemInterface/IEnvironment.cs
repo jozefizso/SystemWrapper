@@ -68,6 +68,28 @@ namespace SystemInterface
         int CurrentManagedThreadId { get; }
 
         /// <summary>
+        /// Gets or sets the exit code of the process.
+        /// </summary>
+        /// <value>
+        /// A 32-bit signed integer containing the exit code. The default value
+        /// is 0 (zero), which indicates that the process completed successfully.
+        /// </value>
+        /// <remarks>
+        /// <para>If the Main method returns void, you can use this property to set the exit
+        ///   code that will be returned to the calling environment. If Main does not
+        ///   return void, this property is ignored. The initial value of this
+        ///   property is zero.</para>
+        /// <para>Use a non-zero number to indicate an error. In your application,
+        ///   you can define your own error codes in an enumeration, and return
+        ///   the appropriate error code based on the scenario. For example, return
+        ///   a value of 1 to indicate that the required file is not present and
+        ///   a value of 2 to indicate that the file is in the wrong format.
+        ///   For a list of exit codes used by the Windows operating system,
+        ///   see System Error Codes in the Windows documentation.</para>
+        /// </remarks>
+        int ExitCode { get; set; }
+
+        /// <summary>
         /// Determines whether the current operating system is a 64-bit operating system.
         /// </summary>
         /// <returns>
