@@ -92,17 +92,17 @@ namespace SystemInterface
         /// <summary>
         /// Determines whether the current operating system is a 64-bit operating system.
         /// </summary>
-        /// <returns>
+        /// <value>
         /// true if the operating system is 64-bit; otherwise, false.
-        /// </returns>
+        /// </value>
         bool Is64BitOperatingSystem { get; }
 
         /// <summary>
         /// Determines whether the current process is a 64-bit process.
         /// </summary>
-        /// <returns>
+        /// <value>
         /// true if the process is 64-bit; otherwise, false.
-        /// </returns>
+        /// </value>
         bool Is64BitProcess { get; }
     }
 }
