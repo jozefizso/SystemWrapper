@@ -90,6 +90,31 @@ namespace SystemInterface
         int ExitCode { get; set; }
 
         /// <summary>
+        /// Gets a value that indicates whether the current application
+        /// domain is being unloaded or the common language runtime
+        /// (CLR) is shutting down.
+        /// </summary>
+        /// <value>
+        /// true if the current application domain is being unloaded or the CLR is shutting down; otherwise, false.
+        /// </value>
+        /// <remarks>
+        /// <para>When the CLR unloads an application domain, it runs the finalizers on all objects
+        ///   that have a finalizer method in that application domain. When the CLR shuts down, it starts
+        ///   the finalizer thread on all objects that have a finalizer method. The HasShutdownStarted
+        ///   property returns true only after the finalizer thread has been started. When the property
+        ///   returns true, you can determine whether an application domain is being unloaded or the CLR
+        ///   itself is shutting down by calling the <see cref="AppDomain.IsFinalizingForUnload"/> method.
+        ///   This method returns true if finalizers are called because the application domain is unloading
+        ///   or false if the CLR is shutting down.</para>
+        /// <para>The HasShutdownStarted property returns false if the finalizer thread has not been started.</para>
+        /// <para>By using this property, you can determine whether to access static variables in your
+        ///   finalization code. If either an application domain or the CLR is shutting down, you
+        ///   cannot reliably access any object that has a finalization method and that is referenced
+        ///   by a static field. This is because these objects may have already been finalized.</para>
+        /// </remarks>
+        bool HasShutdownStarted { get; }
+
+        /// <summary>
         /// Determines whether the current operating system is a 64-bit operating system.
         /// </summary>
         /// <value>
