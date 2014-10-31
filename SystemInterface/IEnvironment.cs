@@ -60,6 +60,14 @@ namespace SystemInterface
         string CurrentDirectory { get; set; }
 
         /// <summary>
+        /// Gets a unique identifier for the current managed thread.
+        /// </summary>
+        /// <value>
+        /// An integer that represents a unique identifier for this managed thread.
+        /// </value>
+        int CurrentManagedThreadId { get; }
+
+        /// <summary>
         /// Determines whether the current operating system is a 64-bit operating system.
         /// </summary>
         /// <returns>
