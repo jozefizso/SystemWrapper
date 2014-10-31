@@ -129,5 +129,20 @@ namespace SystemInterface
         /// true if the process is 64-bit; otherwise, false.
         /// </value>
         bool Is64BitProcess { get; }
+
+        /// <summary>
+        /// Gets the NetBIOS name of this local computer.
+        /// </summary>
+        /// <value>
+        /// A string containing the name of this computer.
+        /// </value>
+        /// <exception cref="InvalidOperationException">The name of this computer cannot be obtained.</exception>
+        /// <remarks>
+        /// The name of this computer is established at system startup when the name is read from the registry. If this computer is a node in a cluster, the name of the node is returned.
+        /// </remarks>
+        /// <permission cref="EnvironmentPermission">
+        /// For read access to the COMPUTERNAME environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
+        /// </permission>
+        string MachineName { get; }
     }
 }
