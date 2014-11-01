@@ -10,7 +10,7 @@ namespace SystemInterface.Data.SqlClient
 
 
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// Initializes a new instance of the SqlDataReaderWrap class.
         /// </summary>
         /// <param name="dataReader">SqlDataReader object.</param>
         void Initialize(SqlDataReader dataReader);
@@ -38,15 +38,15 @@ namespace SystemInterface.Data.SqlClient
         // Methods
 
         /// <summary>
-        /// Closes the SqlDataReader object. 
+        /// Closes the SqlDataReader object.
         /// </summary>
         void Close();
         /// <summary>
-        /// Advances the SqlDataReader to the next record. 
+        /// Advances the SqlDataReader to the next record.
         /// </summary>
         /// <returns> true if there are more rows; otherwise false.</returns>
         bool Read();
-        
+
         /*
                  // Methods
             public override bool GetBoolean(int i);

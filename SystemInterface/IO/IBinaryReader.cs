@@ -7,24 +7,24 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
-    /// </summary>           
+    /// </summary>
      [CLSCompliant(false)]
     public interface IBinaryReader : IDisposable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.BinaryReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.BinaryReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="reader">The <see cref="T:System.IO.BinaryReader"/> object.</param>
         void Initialize(BinaryReader reader);
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         void Initialize(Stream input);
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         void Initialize(IStream input);
@@ -59,7 +59,7 @@ namespace SystemInterface.IO
         // Methods
 
         /// <summary>
-        /// Closes the current reader and the underlying stream. 
+        /// Closes the current reader and the underlying stream.
         /// </summary>
         void Close();
         /// <summary>
@@ -99,13 +99,13 @@ namespace SystemInterface.IO
         /// <returns>The next byte read from the current stream.</returns>
         byte ReadByte();
         /// <summary>
-        /// Reads count bytes from the current stream into a byte array and advances the current position by count bytes. 
+        /// Reads count bytes from the current stream into a byte array and advances the current position by count bytes.
         /// </summary>
         /// <param name="count">The number of bytes to read.</param>
         /// <returns>A byte array containing data read from the underlying stream. This might be less than the number of bytes requested if the end of the stream is reached.</returns>
         byte[] ReadBytes(int count);
         /// <summary>
-        /// Reads the next character from the current stream and advances the current position of the stream in accordance with the Encoding used and the specific character being read from the stream. 
+        /// Reads the next character from the current stream and advances the current position of the stream in accordance with the Encoding used and the specific character being read from the stream.
         /// </summary>
         /// <returns>A character read from the current stream.</returns>
         char ReadChar();
@@ -171,7 +171,7 @@ namespace SystemInterface.IO
         /// <summary>
         /// Reads an 8-byte unsigned integer from the current stream and advances the position of the stream by eight bytes.
         /// </summary>
-        /// <returns>An 8-byte unsigned integer read from this stream.</returns>        
+        /// <returns>An 8-byte unsigned integer read from this stream.</returns>
         ulong ReadUInt64();
     }
 

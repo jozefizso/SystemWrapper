@@ -11,18 +11,18 @@ namespace SystemInterface.Data.SqlClient
     {
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         /// <param name="connection">SqlConnection object.</param>
         void Initialize(SqlConnection connection);
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string. 
+        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string.
         /// </summary>
         /// <param name="connectionString">The connection used to open the SQL Server database.</param>
         void Initialize(string connectionString);
@@ -30,7 +30,7 @@ namespace SystemInterface.Data.SqlClient
         // Properties
 
         /// <summary>
-        /// Gets or sets the string used to open a SQL Server database. 
+        /// Gets or sets the string used to open a SQL Server database.
         /// </summary>
         string ConnectionString { get; set; }
         /// <summary>
@@ -42,7 +42,7 @@ namespace SystemInterface.Data.SqlClient
         /// </summary>
         string Database { get; }
         /// <summary>
-        /// Gets the name of the instance of SQL Server to which to connect. 
+        /// Gets the name of the instance of SQL Server to which to connect.
         /// </summary>
         [Browsable(true)]
         string DataSource { get; }
@@ -84,12 +84,12 @@ namespace SystemInterface.Data.SqlClient
         /// </summary>
         void Close();
         /// <summary>
-        /// Opens a database connection with the property settings specified by the ConnectionString. 
+        /// Opens a database connection with the property settings specified by the ConnectionString.
         /// </summary>
         void Open();
 
         /*
-         * 
+         *
              // Events
             [ResCategory("DataCategory_InfoMessage"), ResDescription("DbConnection_InfoMessage")]
             public event SqlInfoMessageEventHandler InfoMessage;

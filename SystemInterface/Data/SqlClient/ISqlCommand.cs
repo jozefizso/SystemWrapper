@@ -23,12 +23,12 @@ namespace SystemInterface.Data.SqlClient
         ISqlDataReader ExecuteReader();
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         /// <param name="command">SqlCommand object.</param>
         void Initialize(SqlCommand command);
@@ -41,7 +41,7 @@ namespace SystemInterface.Data.SqlClient
 
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap.
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>

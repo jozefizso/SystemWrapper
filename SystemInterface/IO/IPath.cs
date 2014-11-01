@@ -16,7 +16,7 @@ namespace SystemInterface.IO
         /// </summary>
         char DirectorySeparatorChar { get; }
         /// <summary>
-        /// A platform-specific separator character used to separate path strings in environment variables. 
+        /// A platform-specific separator character used to separate path strings in environment variables.
         /// </summary>
         char PathSeparator { get; }
         /// <summary>
@@ -77,7 +77,7 @@ namespace SystemInterface.IO
         /// <returns>A String containing directory information for path, or null if path denotes a root directory, is the empty string (""), or is null. Returns String.Empty if path does not contain directory information.</returns>
         string GetDirectoryName(string path);
         /// <summary>
-        /// Returns the extension of the specified path string. 
+        /// Returns the extension of the specified path string.
         /// </summary>
         /// <param name="path">The path string from which to get the extension. </param>
         /// <returns>A String containing the extension of the specified path (including the "."), null , or Empty. If path is null , GetExtension returns null. If path does not have extension information, GetExtension returns Empty.</returns>
@@ -101,28 +101,28 @@ namespace SystemInterface.IO
         /// <returns>A string containing the fully qualified location of path, such as "C:\MyFile.txt".</returns>
         string GetFullPath(string path);
         /// <summary>
-        /// Gets an array containing the characters that are not allowed in file names. 
+        /// Gets an array containing the characters that are not allowed in file names.
         /// </summary>
         /// <returns>An array containing the characters that are not allowed in file names.</returns>
         char[] GetInvalidFileNameChars();
         /// <summary>
-        /// Gets an array containing the characters that are not allowed in path names. 
+        /// Gets an array containing the characters that are not allowed in path names.
         /// </summary>
         /// <returns>An array containing the characters that are not allowed in path names.</returns>
         char[] GetInvalidPathChars();
         /// <summary>
-        /// Gets the root directory information of the specified path. 
+        /// Gets the root directory information of the specified path.
         /// </summary>
         /// <param name="path">The path from which to obtain root directory information. </param>
         /// <returns>A string containing the root directory of path, such as "C:\", or null if path is null, or an empty string if path does not contain root directory information.</returns>
         string GetPathRoot(string path);
         /// <summary>
-        /// Returns a random folder name or file name. 
+        /// Returns a random folder name or file name.
         /// </summary>
         /// <returns>A random folder name or file name. </returns>
         string GetRandomFileName();
         /// <summary>
-        /// Creates a uniquely named, zero-byte temporary file on disk and returns the full path of that file. 
+        /// Creates a uniquely named, zero-byte temporary file on disk and returns the full path of that file.
         /// </summary>
         /// <returns>A String containing the full path of the temporary file.</returns>
         string GetTempFileName();

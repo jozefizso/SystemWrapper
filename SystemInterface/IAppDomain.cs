@@ -9,7 +9,7 @@ namespace SystemInterface
     public interface IAppDomain
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class.
         /// </summary>
         /// <param name="appDomain">AppDomain object.</param>
         void Initialize(AppDomain appDomain);
@@ -41,7 +41,7 @@ namespace SystemInterface
         /// <returns>The value of the name property. </returns>
         object GetData(string name);
         /// <summary>
-        /// Loads an Assembly given its IAssemblyNameWrap. 
+        /// Loads an Assembly given its IAssemblyNameWrap.
         /// </summary>
         /// <param name="assemblyRef">An object that describes the assembly to load.</param>
         /// <returns>The loaded assembly.</returns>

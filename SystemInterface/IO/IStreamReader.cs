@@ -10,13 +10,13 @@ namespace SystemInterface.IO
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
         void Initialize(TextReader textReader);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
         void Initialize(StreamReader streamReader);
@@ -76,7 +76,7 @@ namespace SystemInterface.IO
         void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks);
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -93,7 +93,7 @@ namespace SystemInterface.IO
         void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize);
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -115,17 +115,17 @@ namespace SystemInterface.IO
         // Properties
 
         /// <summary>
-        /// Returns the underlying stream. 
+        /// Returns the underlying stream.
         /// </summary>
         /// <value>The underlying stream.</value>
         Stream BaseStream { get; }
         /// <summary>
-        /// Gets the current character encoding that the current IStreamReaderWrap object is using. 
+        /// Gets the current character encoding that the current IStreamReaderWrap object is using.
         /// </summary>
         /// <value>The current character encoding used by the current reader. The value can be different after the first call to any Read method of IStreamReaderWrap, since encoding autodetection is not done until the first call to a Read method. </value>
         Encoding CurrentEncoding { get; }
         /// <summary>
-        /// Gets a value that indicates whether the current stream position is at the end of the stream. 
+        /// Gets a value that indicates whether the current stream position is at the end of the stream.
         /// </summary>
         /// <value> true if the current stream position is at the end of the stream; otherwise false. </value>
         bool EndOfStream { get; }
@@ -135,9 +135,9 @@ namespace SystemInterface.IO
         StreamReader StreamReaderInstance { get; }
 
         // Methods
-        
+
         /// <summary>
-        /// Allows a IStreamReaderWrap object to discard its current data. 
+        /// Allows a IStreamReaderWrap object to discard its current data.
         /// </summary>
         void DiscardBufferedData();
     }

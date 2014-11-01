@@ -40,7 +40,7 @@ namespace SystemInterface.Diagnostics
         ///
         ///<exception cref="System.ArgumentNullException">
         ///    System.Diagnostics.TraceSource.Switch is set to null.
-        /// </exception>   
+        /// </exception>
         SourceSwitch Switch { get; set; }
 
         ///<summary>
@@ -58,7 +58,7 @@ namespace SystemInterface.Diagnostics
         ///    Writes trace data to the trace listeners in the System.Diagnostics.TraceSource.Listeners
         ///    collection using the specified event type, event identifier, and trace data.
         /// </summary>
-        /// 
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -74,7 +74,7 @@ namespace SystemInterface.Diagnostics
         ///    collection using the specified event type, event identifier, and trace data
         ///    array.
         /// </summary>
-        /// 
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -105,7 +105,7 @@ namespace SystemInterface.Diagnostics
         ///     Writes a trace event message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
         ///     collection using the specified event type, event identifier, and message.
         ///  </summary>
-        ///  
+        ///
         ///  <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///     type of the trace data.
         ///  </param>
@@ -122,7 +122,7 @@ namespace SystemInterface.Diagnostics
         ///    collection using the specified event type, event identifier, and argument
         ///    array and format.
         /// </summary>
-        ///  
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -136,7 +136,7 @@ namespace SystemInterface.Diagnostics
         ///    format is invalid.-or- The number that indicates an argument to format is
         ///    less than zero, or greater than or equal to the number of specified objects
         ///    to format.
-        /// </exception> 
+        /// </exception>
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>
@@ -165,7 +165,7 @@ namespace SystemInterface.Diagnostics
         ///    format is invalid.-or- The number that indicates an argument to format is
         ///    less than zero, or greater than or equal to the number of specified objects
         ///    to format.
-        /// </exception> 
+        /// </exception>
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>

@@ -13,33 +13,33 @@ namespace SystemInterface.IO
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="stream">A <see cref="T:System.IO.Stream"/> object.</param>
         void Initialize(Stream stream);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileStream">A <see cref="T:System.IO.FileStream"/> object.</param>
         void Initialize(FileStream fileStream);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         void Initialize(ISafeFileHandle handle, FileAccess access);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
         void Initialize(string path, FileMode mode);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -47,7 +47,7 @@ namespace SystemInterface.IO
         void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
@@ -55,7 +55,7 @@ namespace SystemInterface.IO
         void Initialize(string path, FileMode mode, FileAccess access);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -153,30 +153,30 @@ namespace SystemInterface.IO
         /// </summary>
         string Name { get; }
         /// <summary>
-        /// Gets a ISafeFileHandleWrap object that represents the operating system file handle for the file that the current FileStream object encapsulates. 
+        /// Gets a ISafeFileHandleWrap object that represents the operating system file handle for the file that the current FileStream object encapsulates.
         /// </summary>
         ISafeFileHandle SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
 
          // Methods
 
         /// <summary>
-        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
+        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object.
         /// </summary>
         /// <returns>A IFileSecurityWrap object that encapsulates the access control settings for the file described by the current FileStream object. </returns>
         IFileSecurity GetAccessControl();
         /// <summary>
-        /// Prevents other processes from changing the FileStream while permitting read access. 
+        /// Prevents other processes from changing the FileStream while permitting read access.
         /// </summary>
         /// <param name="position">The beginning of the range to lock. The value of this parameter must be equal to or greater than zero (0). </param>
         /// <param name="length">The range to be locked. </param>
         void Lock(long position, long length);
         /// <summary>
-        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the file described by the current FileStream object. 
+        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the file described by the current FileStream object.
         /// </summary>
         /// <param name="fileSecurity">A IFileSecurityWrap object that describes an ACL entry to apply to the current file.</param>
         void SetAccessControl(IFileSecurity fileSecurity);
         /// <summary>
-        /// Returns a String that represents the current Object. 
+        /// Returns a String that represents the current Object.
         /// </summary>
         /// <returns>A String that represents the current Object. </returns>
         string ToString();

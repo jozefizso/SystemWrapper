@@ -8,13 +8,13 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
-    /// </summary>           
+    /// </summary>
     [CLSCompliant(false)]
     public interface IStreamWriter
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamWriter">A <see cref="T:System.IO.StreamWriter"/> object.</param>
         void Initialize(StreamWriter streamWriter);
@@ -32,7 +32,7 @@ namespace SystemInterface.IO
         void Initialize(string path);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -46,7 +46,7 @@ namespace SystemInterface.IO
         void Initialize(string path, bool append);
 
         /// <summary>
-        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size. 
+        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -73,7 +73,7 @@ namespace SystemInterface.IO
         // Properties
 
         /// <summary>
-        /// Gets or sets a value indicating whether the IStreamWriterWrap will flush its buffer to the underlying stream after every call to IStreamWriterWrap.Write. 
+        /// Gets or sets a value indicating whether the IStreamWriterWrap will flush its buffer to the underlying stream after every call to IStreamWriterWrap.Write.
         /// </summary>
         bool AutoFlush { get; set; }
         /// <summary>
@@ -85,7 +85,7 @@ namespace SystemInterface.IO
         /// </summary>
         Encoding Encoding { get; }
         /// <summary>
-        /// Gets an object that controls formatting. 
+        /// Gets an object that controls formatting.
         /// </summary>
         IFormatProvider FormatProvider { get; }
         /// <summary>
@@ -100,7 +100,7 @@ namespace SystemInterface.IO
         // Methods
 
         /// <summary>
-        /// Implements a TextWriter for writing characters to a stream in a particular encoding. 
+        /// Implements a TextWriter for writing characters to a stream in a particular encoding.
         /// </summary>
         void Close();
         /// <summary>
@@ -135,12 +135,12 @@ namespace SystemInterface.IO
         /// <param name="value">The Boolean to write.</param>
         void Write(bool value);
         /// <summary>
-        /// Writes the text representation of a decimal value to the text stream. 
+        /// Writes the text representation of a decimal value to the text stream.
         /// </summary>
         /// <param name="value">The decimal value to write.</param>
         void Write(decimal value);
         /// <summary>
-        /// Writes the text representation of an 8-byte floating-point value to the text stream. 
+        /// Writes the text representation of an 8-byte floating-point value to the text stream.
         /// </summary>
         /// <param name="value">The 8-byte floating-point value to write.</param>
         void Write(double value);
@@ -150,40 +150,40 @@ namespace SystemInterface.IO
         /// <param name="value">The 4-byte signed integer to write.</param>
         void Write(int value);
         /// <summary>
-        /// Writes the text representation of an 8-byte signed integer to the text stream. 
+        /// Writes the text representation of an 8-byte signed integer to the text stream.
         /// </summary>
         /// <param name="value">The 8-byte signed integer to write.</param>
         void Write(long value);
         /// <summary>
-        /// Writes the text representation of an object to the text stream by calling ToString on that object. 
+        /// Writes the text representation of an object to the text stream by calling ToString on that object.
         /// </summary>
         /// <param name="value">The object to write. </param>
         void Write(Object value);
         /// <summary>
-        /// Writes the text representation of a 4-byte floating-point value to the text stream. 
+        /// Writes the text representation of a 4-byte floating-point value to the text stream.
         /// </summary>
         /// <param name="value">The 4-byte floating-point value to write.</param>
         void Write(float value);
         /// <summary>
-        /// Writes the text representation of a 4-byte unsigned integer to the text stream. 
+        /// Writes the text representation of a 4-byte unsigned integer to the text stream.
         /// </summary>
-        /// <param name="value">The 4-byte unsigned integer to write.</param>           
+        /// <param name="value">The 4-byte unsigned integer to write.</param>
 
         void Write(uint value);
         /// <summary>
         /// Writes the text representation of an 8-byte unsigned integer to the text stream.
         /// </summary>
-        /// <param name="value">The 8-byte unsigned integer to write.</param>           
+        /// <param name="value">The 8-byte unsigned integer to write.</param>
 
         void Write(ulong value);
         /// <summary>
-        /// Writes out a formatted string, using the same semantics as String.Format. 
+        /// Writes out a formatted string, using the same semantics as String.Format.
         /// </summary>
         /// <param name="format">The formatting string. </param>
         /// <param name="arg0">An object to write into the formatted string.</param>
         void Write(string format, Object arg0);
         /// <summary>
-        /// Writes out a formatted string, using the same semantics as String.Format. 
+        /// Writes out a formatted string, using the same semantics as String.Format.
         /// </summary>
         /// <param name="format">The formatting string. </param>
         /// <param name="arg">The object array to write into the formatted string. </param>
@@ -196,14 +196,14 @@ namespace SystemInterface.IO
         /// <param name="count">The number of characters to read from buffer. </param>
         void Write(char[] buffer, int index, int count);
         /// <summary>
-        /// Writes out a formatted string, using the same semantics as String.Format. 
+        /// Writes out a formatted string, using the same semantics as String.Format.
         /// </summary>
         /// <param name="format">The formatting string. </param>
         /// <param name="arg0">An object to write into the formatted string.</param>
         /// <param name="arg1">An object to write into the formatted string.</param>
         void Write(string format, Object arg0, Object arg1);
         /// <summary>
-        /// Writes out a formatted string, using the same semantics as String.Format. 
+        /// Writes out a formatted string, using the same semantics as String.Format.
         /// </summary>
         /// <param name="format">The formatting string. </param>
         /// <param name="arg0">An object to write into the formatted string.</param>

@@ -16,7 +16,7 @@ namespace SystemInterface.Reflection
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.Reflection.AssemblyWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Reflection.AssemblyWrap"/> class.
         /// </summary>
         /// <param name="assembly">Assembly object.</param>
         void Initialize(Assembly assembly);
@@ -32,7 +32,7 @@ namespace SystemInterface.Reflection
         /// </summary>
         string CodeBase { get; }
         /// <summary>
-        /// Gets the entry point of this assembly. 
+        /// Gets the entry point of this assembly.
         /// </summary>
         MethodInfo EntryPoint { get; }
         /// <summary>
@@ -40,34 +40,34 @@ namespace SystemInterface.Reflection
         /// </summary>
         string EscapedCodeBase { get; }
         /// <summary>
-        /// Gets the display name of the assembly. 
+        /// Gets the display name of the assembly.
         /// </summary>
         string FullName { get; }
         /// <summary>
-        /// Gets a value indicating whether the assembly was loaded from the global assembly cache. 
+        /// Gets a value indicating whether the assembly was loaded from the global assembly cache.
         /// </summary>
         bool GlobalAssemblyCache { get; }
         /// <summary>
-        /// Gets the host context with which the assembly was loaded. 
+        /// Gets the host context with which the assembly was loaded.
         /// </summary>
         [ComVisible(false)]
         long HostContext { get; }
         /// <summary>
-        /// Gets a string representing the version of the common language runtime (CLR) saved in the file containing the manifest. 
+        /// Gets a string representing the version of the common language runtime (CLR) saved in the file containing the manifest.
         /// </summary>
         [ComVisible(false)]
         string ImageRuntimeVersion { get; }
         /// <summary>
-        /// Gets the path or UNC location of the loaded file that contains the manifest. 
+        /// Gets the path or UNC location of the loaded file that contains the manifest.
         /// </summary>
         string Location { get; }
         /// <summary>
-        /// Gets the module that contains the manifest for the current assembly. 
+        /// Gets the module that contains the manifest for the current assembly.
         /// </summary>
         [ComVisible(false)]
         Module ManifestModule { get; }
         /// <summary>
-        /// Gets a <see cref="T:System.Boolean"/> value indicating whether this assembly was loaded into the reflection-only context. 
+        /// Gets a <see cref="T:System.Boolean"/> value indicating whether this assembly was loaded into the reflection-only context.
         /// </summary>
         [ComVisible(false)]
         bool ReflectionOnly { get; }
@@ -114,13 +114,13 @@ namespace SystemInterface.Reflection
         /// <returns> true if o is equal to this instance; otherwise, false.</returns>
         bool Equals(object o);
         /// <summary>
-        /// Gets the currently loaded assembly in which the specified class is defined. 
+        /// Gets the currently loaded assembly in which the specified class is defined.
         /// </summary>
         /// <param name="type">A Type object representing a class in the assembly that will be returned.</param>
         /// <returns>The assembly in which the specified class is defined.</returns>
         IAssembly GetAssembly(Type type);
         /// <summary>
-        /// Returns the IAssemblyWrap of the method that invoked the currently executing method. 
+        /// Returns the IAssemblyWrap of the method that invoked the currently executing method.
         /// </summary>
         /// <returns>The Assembly object of the method that invoked the currently executing method.</returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
@@ -159,22 +159,22 @@ namespace SystemInterface.Reflection
         /// <returns>An array of IFileStreamWrap objects.</returns>
         IFileStream[] GetFiles(bool getResourceModules);
         /// <summary>
-        /// Returns the hash code for this instance. 
+        /// Returns the hash code for this instance.
         /// </summary>
         /// <returns>A 32-bit signed integer hash code.</returns>
         int GetHashCode();
         /// <summary>
-        /// Gets an <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> for this assembly. 
+        /// Gets an <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> for this assembly.
         /// </summary>
         /// <returns>An <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> for this assembly. </returns>
         IAssemblyName GetName();
         /// <summary>
-        /// Gets the <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> objects for all the assemblies referenced by this assembly. 
+        /// Gets the <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> objects for all the assemblies referenced by this assembly.
         /// </summary>
         /// <returns>An array of type <see cref="T:SystemInterface.Reflection.IAssemblyNameWrap"/> containing all the assemblies referenced by this assembly.</returns>
         IAssemblyName[] GetReferencedAssemblies();
         /// <summary>
-        /// Loads an assembly given its file name or path. 
+        /// Loads an assembly given its file name or path.
         /// </summary>
         /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
         /// <returns>The loaded assembly. </returns>
@@ -236,7 +236,7 @@ namespace SystemInterface.Reflection
             public static Assembly ReflectionOnlyLoadFrom(string assemblyFile);
             Type _Assembly.GetType();
             public override string ToString();
-          
+
          * // Events
             public event ModuleResolveEventHandler ModuleResolve;
 

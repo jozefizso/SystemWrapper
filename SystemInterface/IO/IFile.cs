@@ -8,7 +8,7 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.File"/> class.
-    /// </summary>           
+    /// </summary>
      [CLSCompliant(false)]
     public interface IFile
     {
@@ -28,11 +28,11 @@ namespace SystemInterface.IO
         /// <param name="encoding">The character encoding to use.</param>
         void AppendAllText(string path, string contents, Encoding encoding);
         /// <summary>
-        /// Creates a IStreamWriterWrap that appends UTF-8 encoded text to an existing file. 
+        /// Creates a IStreamWriterWrap that appends UTF-8 encoded text to an existing file.
         /// </summary>
         /// <param name="path">The path to the file to append to.</param>
-        /// <returns>A IStreamWriterWrap that appends UTF-8 encoded text to an existing file.</returns>           
-        
+        /// <returns>A IStreamWriterWrap that appends UTF-8 encoded text to an existing file.</returns>
+
         IStreamWriter AppendText(string path);
         /// <summary>
         /// Copies an existing file to a new file. Overwriting a file of the same name is not allowed.
@@ -41,7 +41,7 @@ namespace SystemInterface.IO
         /// <param name="destFileName">The name of the destination file. This cannot be a directory or an existing file.</param>
         void Copy(string sourceFileName, string destFileName);
         /// <summary>
-        /// Copies an existing file to a new file. Overwriting a file of the same name is allowed. 
+        /// Copies an existing file to a new file. Overwriting a file of the same name is allowed.
         /// </summary>
         /// <param name="sourceFileName">The file to copy.</param>
         /// <param name="destFileName">The name of the destination file. This cannot be a directory.</param>
@@ -61,7 +61,7 @@ namespace SystemInterface.IO
         /// <returns>A IFileStreamWrap with the specified buffer size that provides read/write access to the file specified in path. </returns>
         IFileStream Create(string path, int bufferSize);
         /// <summary>
-        /// Creates or overwrites the specified file, specifying a buffer size and a FileOptions value that describes how to create or overwrite the file. 
+        /// Creates or overwrites the specified file, specifying a buffer size and a FileOptions value that describes how to create or overwrite the file.
         /// </summary>
         /// <param name="path">The name of the file. </param>
         /// <param name="bufferSize">The number of bytes buffered for reads and writes to the file. </param>
@@ -78,13 +78,13 @@ namespace SystemInterface.IO
         /// <returns>A new file with the specified buffer size, file options, and file security. </returns>
         IFileStream Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity);
         /// <summary>
-        /// Creates or opens a file for writing UTF-8 encoded text. 
+        /// Creates or opens a file for writing UTF-8 encoded text.
         /// </summary>
         /// <param name="path">The file to be opened for writing. </param>
-        /// <returns>A IStreamWriterWrap that writes to the specified file using UTF-8 encoding. </returns>        
+        /// <returns>A IStreamWriterWrap that writes to the specified file using UTF-8 encoding. </returns>
         IStreamWriter CreateText(string path);
         /// <summary>
-        /// Decrypts a file that was encrypted by the current account using the Encrypt method. 
+        /// Decrypts a file that was encrypted by the current account using the Encrypt method.
         /// </summary>
         /// <param name="path">A path that describes a file to decrypt.</param>
         void Decrypt(string path);
@@ -99,7 +99,7 @@ namespace SystemInterface.IO
         /// <param name="path">A path that describes a file to encrypt.</param>
         void Encrypt(string path);
         /// <summary>
-        /// Determines whether the specified file exists. 
+        /// Determines whether the specified file exists.
         /// </summary>
         /// <param name="path">The file to check.</param>
         /// <returns> true if the caller has the required permissions and path contains the name of an existing file; otherwise, false. This method also returns false if path is nullNothingnullptra null reference (Nothing in Visual Basic), an invalid path, or a zero-length string. If the caller does not have sufficient permissions to read the specified file, no exception is thrown and the method returns false regardless of the existence of path.</returns>
@@ -118,7 +118,7 @@ namespace SystemInterface.IO
         /// <returns>A IFileSecurityWrap object that encapsulates the access control rules for the file described by the path parameter.</returns>
         IFileSecurity GetAccessControl(string path, AccessControlSections includeSections);
         /// <summary>
-        /// Gets the FileAttributes of the file on the path. 
+        /// Gets the FileAttributes of the file on the path.
         /// </summary>
         /// <param name="path">The path to the file.</param>
         /// <returns>The FileAttributes of the file on the path. </returns>
@@ -136,7 +136,7 @@ namespace SystemInterface.IO
         /// <returns>A IDateTimeWrap set to the creation date and time for the specified file or directory. This value is expressed in UTC time.</returns>
         IDateTime GetCreationTimeUtc(string path);
         /// <summary>
-        /// Returns the date and time the specified file or directory was last accessed. 
+        /// Returns the date and time the specified file or directory was last accessed.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain access date and time information.</param>
         /// <returns>A IDateTimeWrap set to the date and time that the specified file or directory was last accessed. This value is expressed in local time.</returns>
@@ -148,13 +148,13 @@ namespace SystemInterface.IO
         /// <returns>A IDateTimeWrap set to the date and time that the specified file or directory was last accessed. This value is expressed in UTC time.</returns>
         IDateTime GetLastAccessTimeUtc(string path);
         /// <summary>
-        /// Returns the date and time the specified file or directory was last written to. 
+        /// Returns the date and time the specified file or directory was last written to.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain write date and time information.</param>
         /// <returns>A IDateTimeWrap set to the date and time that the specified file or directory was last written to. This value is expressed in local time.</returns>
         IDateTime GetLastWriteTime(string path);
         /// <summary>
-        /// Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last written to. 
+        /// Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last written to.
         /// </summary>
         /// <param name="path">The file or directory for which to obtain write date and time information.</param>
         /// <returns>A IDateTimeWrap set to the date and time that the specified file or directory was last written to. This value is expressed in UTC time. </returns>
@@ -166,7 +166,7 @@ namespace SystemInterface.IO
         /// <param name="destFileName">The new path for the file.</param>
         void Move(string sourceFileName, string destFileName);
         /// <summary>
-        /// Opens a FileStream on the specified path with read/write access. 
+        /// Opens a FileStream on the specified path with read/write access.
         /// </summary>
         /// <param name="path">The file to open. </param>
         /// <param name="mode">A FileMode value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten. </param>
@@ -181,7 +181,7 @@ namespace SystemInterface.IO
         /// <returns>An unshared FileStream that provides access to the specified file, with the specified mode and access.</returns>
         IFileStream Open(string path, FileMode mode, FileAccess access);
         /// <summary>
-        /// Opens a FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option. 
+        /// Opens a FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option.
         /// </summary>
         /// <param name="path">The file to open. </param>
         /// <param name="mode">A FileMode value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten. </param>
@@ -190,19 +190,19 @@ namespace SystemInterface.IO
         /// <returns>A FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option. </returns>
         IFileStream Open(string path, FileMode mode, FileAccess access, FileShare share);
         /// <summary>
-        /// Opens an existing file for reading. 
+        /// Opens an existing file for reading.
         /// </summary>
         /// <param name="path">The file to be opened for reading.</param>
         /// <returns>A read-only FileStream on the specified path. </returns>
         IFileStream OpenRead(string path);
         /// <summary>
-        /// Opens an existing UTF-8 encoded text file for reading. 
+        /// Opens an existing UTF-8 encoded text file for reading.
         /// </summary>
         /// <param name="path">The file to be opened for reading. </param>
         /// <returns>A StreamReader on the specified path. </returns>
         IStreamReader OpenText(string path);
         /// <summary>
-        /// Opens an existing file for writing. 
+        /// Opens an existing file for writing.
         /// </summary>
         /// <param name="path">The file to be opened for writing. </param>
         /// <returns>An unshared FileStream object on the specified path with Write access. </returns>
@@ -214,26 +214,26 @@ namespace SystemInterface.IO
         /// <returns>A byte array containing the contents of the file.</returns>
         byte[] ReadAllBytes(string path);
         /// <summary>
-        /// Opens a text file, reads all lines of the file, and then closes the file. 
+        /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
         /// <param name="path">The file to open for reading. </param>
         /// <returns>A string array containing all lines of the file. </returns>
         string[] ReadAllLines(string path);
         /// <summary>
-        /// Opens a text file, reads all lines of the file, and then closes the file. 
+        /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
         /// <param name="path">The file to open for reading. </param>
         /// <param name="encoding">The encoding applied to the contents of the file. </param>
         /// <returns>A string array containing all lines of the file. </returns>
         string[] ReadAllLines(string path, Encoding encoding);
         /// <summary>
-        /// Opens a text file, reads all lines of the file, and then closes the file. 
+        /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
         /// <param name="path">The file to open for reading. </param>
         /// <returns>A string containing all lines of the file. </returns>
         string ReadAllText(string path);
         /// <summary>
-        /// Opens a text file, reads all lines of the file, and then closes the file. 
+        /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
         /// <param name="path">The file to open for reading. </param>
         /// <param name="encoding">The encoding applied to the contents of the file. </param>
@@ -255,49 +255,49 @@ namespace SystemInterface.IO
         /// <param name="ignoreMetadataErrors">true to ignore merge errors (such as attributes and access control lists (ACLs)) from the replaced file to the replacement file; otherwise, false</param>
         void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors);
         /// <summary>
-        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the specified file. 
+        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the specified file.
         /// </summary>
         /// <param name="path">A file to add or remove access control list (ACL) entries from. </param>
         /// <param name="fileSecurity">A IFileSecurityWrap object that describes an ACL entry to apply to the file described by the path parameter. </param>
         void SetAccessControl(string path, IFileSecurity fileSecurity);
         /// <summary>
-        /// Sets the specified FileAttributes of the file on the specified path. 
+        /// Sets the specified FileAttributes of the file on the specified path.
         /// </summary>
         /// <param name="path">The path to the file. </param>
         /// <param name="fileAttributes">The desired FileAttributes, such as Hidden, ReadOnly, Normal, and Archive. </param>
         void SetAttributes(string path, FileAttributes fileAttributes);
         /// <summary>
-        /// Sets the date and time the file was created. 
+        /// Sets the date and time the file was created.
         /// </summary>
         /// <param name="path">The file for which to set the creation date and time information. </param>
         /// <param name="creationTime">A IDateTimeWrap containing the value to set for the creation date and time of path. This value is expressed in local time. </param>
         void SetCreationTime(string path, IDateTime creationTime);
         /// <summary>
-        /// Sets the date and time, in coordinated universal time (UTC), that the file was created. 
+        /// Sets the date and time, in coordinated universal time (UTC), that the file was created.
         /// </summary>
         /// <param name="path">The file for which to set the creation date and time information. </param>
         /// <param name="creationTimeUtc">A IDateTimeWrap containing the value to set for the creation date and time of path. This value is expressed in UTC time.</param>
         void SetCreationTimeUtc(string path, IDateTime creationTimeUtc);
         /// <summary>
-        /// Sets the date and time the specified file was last accessed. 
+        /// Sets the date and time the specified file was last accessed.
         /// </summary>
         /// <param name="path">The file for which to set the access date and time information. </param>
         /// <param name="lastAccessTime">A IDateTimeWrap containing the value to set for the last access date and time of path. This value is expressed in local time. </param>
         void SetLastAccessTime(string path, IDateTime lastAccessTime);
         /// <summary>
-        /// Sets the date and time, in coordinated universal time (UTC), that the specified file was last accessed. 
+        /// Sets the date and time, in coordinated universal time (UTC), that the specified file was last accessed.
         /// </summary>
         /// <param name="path">The file for which to set the access date and time information. </param>
         /// <param name="lastAccessTimeUtc">A IDateTimeWrap containing the value to set for the last access date and time of path. This value is expressed in UTC time. </param>
         void SetLastAccessTimeUtc(string path, IDateTime lastAccessTimeUtc);
         /// <summary>
-        /// Sets the date and time that the specified file was last written to. 
+        /// Sets the date and time that the specified file was last written to.
         /// </summary>
         /// <param name="path">The file for which to set the date and time information. </param>
         /// <param name="lastWriteTime">A IDateTimeWrap containing the value to set for the last write date and time of path. This value is expressed in local time. </param>
         void SetLastWriteTime(string path, IDateTime lastWriteTime);
         /// <summary>
-        /// Sets the date and time, in coordinated universal time (UTC), that the specified file was last written to. 
+        /// Sets the date and time, in coordinated universal time (UTC), that the specified file was last written to.
         /// </summary>
         /// <param name="path">The file for which to set the date and time information. </param>
         /// <param name="lastWriteTimeUtc">A IDateTimeWrap containing the value to set for the last write date and time of path. This value is expressed in UTC time. </param>

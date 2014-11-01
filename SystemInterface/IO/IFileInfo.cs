@@ -8,18 +8,18 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
-    /// </summary> 
+    /// </summary>
      [CLSCompliant(false)]
     public interface IFileInfo
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
         void Initialize(FileInfo fileInfo);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
         void Initialize(string fileName);
@@ -28,7 +28,7 @@ namespace SystemInterface.IO
         // Properties
 
         /// <summary>
-        ///  Gets or sets the <see cref="System.IO.FileAttributes"/> of the current Gets or sets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object. . 
+        ///  Gets or sets the <see cref="System.IO.FileAttributes"/> of the current Gets or sets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object. .
         /// </summary>
         FileAttributes Attributes { get; set; }
         /// <summary>
@@ -36,7 +36,7 @@ namespace SystemInterface.IO
         /// </summary>
         IDateTime CreationTime { get; set; }
         /// <summary>
-        /// Gets or sets the creation time, in coordinated universal time (UTC), of the current <see cref="T:System.IO.FileSystemInfo"/> object. 
+        /// Gets or sets the creation time, in coordinated universal time (UTC), of the current <see cref="T:System.IO.FileSystemInfo"/> object.
         /// </summary>
         IDateTime CreationTimeUtc { get; set; }
         /// <summary>
@@ -48,7 +48,7 @@ namespace SystemInterface.IO
         /// </summary>
         string DirectoryName { get; }
         /// <summary>
-        /// Gets a value indicating whether a file exists. 
+        /// Gets a value indicating whether a file exists.
         /// </summary>
         bool Exists { get; }
         /// <summary>
@@ -68,7 +68,7 @@ namespace SystemInterface.IO
         /// </summary>
         bool IsReadOnly { get; set; }
         /// <summary>
-        /// Gets or sets the time the current file or directory was last accessed. 
+        /// Gets or sets the time the current file or directory was last accessed.
         /// </summary>
         IDateTime LastAccessTime { get; set; }
         /// <summary>
@@ -88,7 +88,7 @@ namespace SystemInterface.IO
         /// </summary>
         long Length { get; }
         /// <summary>
-        /// Gets the name of the file. 
+        /// Gets the name of the file.
         /// </summary>
         string Name { get; }
 
@@ -106,7 +106,7 @@ namespace SystemInterface.IO
         /// <returns>A new file with a fully qualified path.</returns>
         IFileInfo CopyTo(string destFileName);
         /// <summary>
-        /// Copies an existing file to a new file, allowing the overwriting of an existing file. 
+        /// Copies an existing file to a new file, allowing the overwriting of an existing file.
         /// </summary>
         /// <param name="destFileName">The name of the new file to copy to.</param>
         /// <param name="overwrite"> true to allow an existing file to be overwritten; otherwise, false. </param>
@@ -123,7 +123,7 @@ namespace SystemInterface.IO
         /// <returns>A new IStreamWriterWrap.</returns>
         IStreamWriter CreateText();
         /// <summary>
-        /// Decrypts a file that was encrypted by the current account using the Encrypt method. 
+        /// Decrypts a file that was encrypted by the current account using the Encrypt method.
         /// </summary>
         [ComVisible(false)]
         void Decrypt();
@@ -132,23 +132,23 @@ namespace SystemInterface.IO
         /// </summary>
         void Delete();
         /// <summary>
-        /// Encrypts a file so that only the account used to encrypt the file can decrypt it. 
+        /// Encrypts a file so that only the account used to encrypt the file can decrypt it.
         /// </summary>
         [ComVisible(false)]
         void Encrypt();
         /// <summary>
-        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current IFileInfoWrap object. 
+        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current IFileInfoWrap object.
         /// </summary>
         /// <returns>A IFileSecurityWrap object that encapsulates the access control rules for the current file. </returns>
         IFileSecurity GetAccessControl();
         /// <summary>
-        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current IFileInfoWrap object. 
+        /// Gets a IFileSecurityWrap object that encapsulates the access control list (ACL) entries for the file described by the current IFileInfoWrap object.
         /// </summary>
         /// <param name="includeSections">One of the AccessControlSections values that specifies which group of access control entries to retrieve. </param>
         /// <returns>A IFileSecurityWrap object that encapsulates the access control rules for the current file. </returns>
         IFileSecurity GetAccessControl(AccessControlSections includeSections);
         /// <summary>
-        /// Moves a specified file to a new location, providing the option to specify a new file name. 
+        /// Moves a specified file to a new location, providing the option to specify a new file name.
         /// </summary>
         /// <param name="destFileName">The path to move the file to, which can specify a different file name.</param>
         void MoveTo(string destFileName);
@@ -174,7 +174,7 @@ namespace SystemInterface.IO
         /// <returns>A file opened in the specified mode, with read/write access and unshared. </returns>
         IFileStream Open(FileMode mode, FileAccess access, FileShare share);
         /// <summary>
-        /// Creates a read-only IFileStreamWrap. 
+        /// Creates a read-only IFileStreamWrap.
         /// </summary>
         /// <returns>A new read-only IFileStreamWrap object. </returns>
         IFileStream OpenRead();
@@ -184,7 +184,7 @@ namespace SystemInterface.IO
         /// <returns>A new IStreamReaderWrap with UTF8 encoding. </returns>
         IStreamReader OpenText();
         /// <summary>
-        /// Creates a write-only IFileStreamWrap. 
+        /// Creates a write-only IFileStreamWrap.
         /// </summary>
         /// <returns>A new write-only unshared IFileStreamWrap object.</returns>
         IFileStream OpenWrite();
@@ -210,7 +210,7 @@ namespace SystemInterface.IO
         [ComVisible(false)]
         IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors);
         /// <summary>
-        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the file described by the current IFileInfoWrap object. 
+        /// Applies access control list (ACL) entries described by a IFileSecurityWrap object to the file described by the current IFileInfoWrap object.
         /// </summary>
         /// <param name="fileSecurity">A IFileSecurityWrap object that describes an access control list (ACL) entry to apply to the current file.</param>
         void SetAccessControl(IFileSecurity fileSecurity);

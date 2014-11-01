@@ -6,12 +6,12 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
-    /// </summary> 
+    /// </summary>
     [CLSCompliant(false)]
     public interface IBinaryWriter : IDisposable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.BinaryWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.BinaryWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
         void Initialize(BinaryWriter writer);
@@ -57,7 +57,7 @@ namespace SystemInterface.IO
         // Methods
 
         /// <summary>
-        /// Closes the current BinaryWriter and the underlying stream. 
+        /// Closes the current BinaryWriter and the underlying stream.
         /// </summary>
         void Close();
         /// <summary>
@@ -82,7 +82,7 @@ namespace SystemInterface.IO
         /// <param name="value">The unsigned byte to write.</param>
         void Write(byte value);
         /// <summary>
-        /// Writes a byte array to the underlying stream. 
+        /// Writes a byte array to the underlying stream.
         /// </summary>
         /// <param name="buffer">A byte array containing the data to write. </param>
         void Write(byte[] buffer);
@@ -112,7 +112,7 @@ namespace SystemInterface.IO
         /// <param name="value">The two-byte signed integer to write.</param>
         void Write(short value);
         /// <summary>
-        /// Writes a four-byte signed integer to the current stream and advances the stream position by four bytes. 
+        /// Writes a four-byte signed integer to the current stream and advances the stream position by four bytes.
         /// </summary>
         /// <param name="value">The four-byte signed integer to write.</param>
         void Write(int value);
@@ -124,7 +124,7 @@ namespace SystemInterface.IO
         /// <summary>
         /// Writes a signed byte to the current stream and advances the stream position by one byte.
         /// </summary>
-        /// <param name="value">The signed byte to write.</param>           
+        /// <param name="value">The signed byte to write.</param>
 
         void Write(sbyte value);
         /// <summary>
@@ -140,19 +140,19 @@ namespace SystemInterface.IO
         /// <summary>
         /// Writes a two-byte unsigned integer to the current stream and advances the stream position by two bytes.
         /// </summary>
-        /// <param name="value">The two-byte unsigned integer to write.</param>           
+        /// <param name="value">The two-byte unsigned integer to write.</param>
 
         void Write(ushort value);
         /// <summary>
         /// Writes a four-byte unsigned integer to the current stream and advances the stream position by four bytes.
         /// </summary>
-        /// <param name="value">The four-byte unsigned integer to write.</param>           
+        /// <param name="value">The four-byte unsigned integer to write.</param>
 
         void Write(uint value);
         /// <summary>
         /// Writes an eight-byte unsigned integer to the current stream and advances the stream position by eight bytes.
         /// </summary>
-        /// <param name="value">The eight-byte unsigned integer to write.</param>           
+        /// <param name="value">The eight-byte unsigned integer to write.</param>
 
         void Write(ulong value);
         /// <summary>

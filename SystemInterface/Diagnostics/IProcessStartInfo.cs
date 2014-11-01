@@ -9,7 +9,7 @@ namespace SystemInterface.Diagnostics
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process.
         /// </summary>
         void Initialize();
 
@@ -24,7 +24,7 @@ namespace SystemInterface.Diagnostics
         void Initialize(string fileName, string arguments);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
         /// <param name="processStartInfo">ProcessStartInfo instance</param>
         void Initialize(ProcessStartInfo processStartInfo);

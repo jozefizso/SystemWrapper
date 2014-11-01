@@ -10,12 +10,12 @@ namespace SystemInterface
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class.
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class.
         /// </summary>
         /// <param name="dateTime">A DateTime object.</param>
         void Initialize(DateTime dateTime);
@@ -165,7 +165,7 @@ namespace SystemInterface
         /// </summary>
         int Hour { get; }
         /// <summary>
-        /// Specifies whether a DateTime object represents a local time, a Coordinated Universal Time (UTC), or is not specified as either local time or UTC. 
+        /// Specifies whether a DateTime object represents a local time, a Coordinated Universal Time (UTC), or is not specified as either local time or UTC.
         /// </summary>
         DateTimeKind Kind { get; }
         /// <summary>
@@ -201,7 +201,7 @@ namespace SystemInterface
         /// </summary>
         IDateTime Today { get; }
         /// <summary>
-        /// Gets a DateTime object that is set to the current date and time on this computer, expressed as the Coordinated 
+        /// Gets a DateTime object that is set to the current date and time on this computer, expressed as the Coordinated
         /// </summary>
         IDateTime UtcNow { get; }
         /// <summary>
