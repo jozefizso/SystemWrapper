@@ -258,5 +258,28 @@ namespace SystemInterface
         /// <para>Use the DateTime.Now property to obtain the current local date and time on this computer.</para>
         /// </remarks>
         int TickCount { get; }
+
+        /// <summary>
+        /// Gets the network domain name associated with the current user.
+        /// </summary>
+        /// <value>
+        /// The network domain name associated with the current user.
+        /// </value>
+        /// <exception cref="PlatformNotSupportedException">The operating system does not support retrieving the network domain name.</exception>
+        /// <exception cref="InvalidOperationException">The network domain name cannot be retrieved.</exception>
+        /// <remarks>
+        /// <para>The domain account credentials for a user are formatted as the user's domain name, the '\' character,
+        ///   and user name. Use the UserDomainName property to obtain the user's domain name without the user name,
+        ///   and the UserName property to obtain the user name without the domain name. For example, if a user's domain
+        ///   name and user name are CORPORATENETWORK\john, the UserDomainName property returns "CORPORATENETWORK".</para>
+        /// <para>The UserDomainName property first attempts to get the domain name component of the Windows account
+        ///   name for the current user. If that attempt fails, this property attempts to get the domain name associated
+        ///   with the user name provided by the UserName property. If that attempt fails because the host computer is not
+        ///   joined to a domain, then the host computer name is returned.</para>
+        /// </remarks>
+        /// <permission cref="EnvironmentPermission">
+        /// For read access to the USERDOMAIN environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
+        /// </permission>
+        string UserDomainName { get; }
     }
 }
