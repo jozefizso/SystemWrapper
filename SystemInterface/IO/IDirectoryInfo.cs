@@ -8,7 +8,7 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
-    /// </summary>	  
+    /// </summary>      
     [CLSCompliant(false)]
     public interface IDirectoryInfo
     {
@@ -161,7 +161,7 @@ namespace SystemInterface.IO
         /// Returns a file list from the current directory matching the given <paramref name="searchPattern"/>. 
         /// </summary>
         /// <param name="searchPattern">The search string, such as "*.txt".</param>
-        /// <returns>An array of type <see cref="T:SystemInterface.IO.IFileInfoWrap"/>.</returns>	       
+        /// <returns>An array of type <see cref="T:SystemInterface.IO.IFileInfoWrap"/>.</returns>           
 
         IFileInfo[] GetFiles(string searchPattern);
         /// <summary>
@@ -169,7 +169,7 @@ namespace SystemInterface.IO
         /// </summary>
         /// <param name="searchPattern">The search string, such as "System*", used to search for all directories beginning with the word "System".</param>
         /// <param name="searchOption">One of the values of the <see cref="T:System.IO.SearchOption"/> enumeration that specifies whether the search operation should include only the current directory or should include all subdirectories.</param>
-        /// <returns>An array of type <see cref="T:SystemInterface.IO.IFileInfoWrap"/>.</returns>	       
+        /// <returns>An array of type <see cref="T:SystemInterface.IO.IFileInfoWrap"/>.</returns>           
 
         IFileInfo[] GetFiles(string searchPattern, SearchOption searchOption);
         /// <summary>

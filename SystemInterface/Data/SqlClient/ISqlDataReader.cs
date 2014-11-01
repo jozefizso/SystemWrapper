@@ -9,11 +9,11 @@ namespace SystemInterface.Data.SqlClient
     {
 
 
-    	/// <summary>
-    	/// Initializes a new instance of the SqlDataReaderWrap class. 
-    	/// </summary>
-    	/// <param name="dataReader">SqlDataReader object.</param>
-    	void Initialize(SqlDataReader dataReader);
+        /// <summary>
+        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// </summary>
+        /// <param name="dataReader">SqlDataReader object.</param>
+        void Initialize(SqlDataReader dataReader);
 
 
         // Properties

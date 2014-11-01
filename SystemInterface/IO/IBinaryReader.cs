@@ -7,7 +7,7 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
-    /// </summary>	       
+    /// </summary>           
      [CLSCompliant(false)]
     public interface IBinaryReader : IDisposable
     {

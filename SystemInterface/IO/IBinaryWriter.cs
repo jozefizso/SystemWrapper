@@ -124,7 +124,7 @@ namespace SystemInterface.IO
         /// <summary>
         /// Writes a signed byte to the current stream and advances the stream position by one byte.
         /// </summary>
-        /// <param name="value">The signed byte to write.</param>	       
+        /// <param name="value">The signed byte to write.</param>           
 
         void Write(sbyte value);
         /// <summary>
@@ -140,19 +140,19 @@ namespace SystemInterface.IO
         /// <summary>
         /// Writes a two-byte unsigned integer to the current stream and advances the stream position by two bytes.
         /// </summary>
-        /// <param name="value">The two-byte unsigned integer to write.</param>	       
+        /// <param name="value">The two-byte unsigned integer to write.</param>           
 
         void Write(ushort value);
         /// <summary>
         /// Writes a four-byte unsigned integer to the current stream and advances the stream position by four bytes.
         /// </summary>
-        /// <param name="value">The four-byte unsigned integer to write.</param>	       
+        /// <param name="value">The four-byte unsigned integer to write.</param>           
 
         void Write(uint value);
         /// <summary>
         /// Writes an eight-byte unsigned integer to the current stream and advances the stream position by eight bytes.
         /// </summary>
-        /// <param name="value">The eight-byte unsigned integer to write.</param>	       
+        /// <param name="value">The eight-byte unsigned integer to write.</param>           
 
         void Write(ulong value);
         /// <summary>

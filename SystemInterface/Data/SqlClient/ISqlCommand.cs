@@ -22,30 +22,30 @@ namespace SystemInterface.Data.SqlClient
         /// <returns>A ISqlDataReaderWrap object. </returns>
         ISqlDataReader ExecuteReader();
 
-    	/// <summary>
-    	/// Initializes a new instance of the SqlCommandWrap class. 
-    	/// </summary>
-    	void Initialize();
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// </summary>
+        void Initialize();
 
-    	/// <summary>
-    	/// Initializes a new instance of the SqlCommandWrap class. 
-    	/// </summary>
-    	/// <param name="command">SqlCommand object.</param>
-    	void Initialize(SqlCommand command);
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// </summary>
+        /// <param name="command">SqlCommand object.</param>
+        void Initialize(SqlCommand command);
 
-    	/// <summary>
-    	/// Initializes a new instance of the SqlCommandWrap class with the text of the query.
-    	/// </summary>
-    	/// <param name="cmdText">The text of the query.</param>
-    	void Initialize(string cmdText);
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query.
+        /// </summary>
+        /// <param name="cmdText">The text of the query.</param>
+        void Initialize(string cmdText);
 
 
-    	/// <summary>
-    	/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
-    	/// </summary>
-    	/// <param name="cmdText">The text of the query.</param>
-    	/// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-    	void Initialize(string cmdText, ISqlConnection connection);
+        /// <summary>
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// </summary>
+        /// <param name="cmdText">The text of the query.</param>
+        /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
+        void Initialize(string cmdText, ISqlConnection connection);
 
 
 

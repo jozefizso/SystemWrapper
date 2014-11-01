@@ -9,10 +9,10 @@ namespace SystemInterface.Diagnostics
     public interface IProcess
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessWrap"/> class.
-    	/// </summary>
-    	void Initialize();
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessWrap"/> class.
+        /// </summary>
+        void Initialize();
 
         // Properties
 

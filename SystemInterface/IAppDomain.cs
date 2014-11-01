@@ -8,17 +8,17 @@ namespace SystemInterface
     /// </summary>
     public interface IAppDomain
     {
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class. 
-    	/// </summary>
-    	/// <param name="appDomain">AppDomain object.</param>
-    	void Initialize(AppDomain appDomain);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class. 
+        /// </summary>
+        /// <param name="appDomain">AppDomain object.</param>
+        void Initialize(AppDomain appDomain);
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class and creates a new application domain with the specified name.
-    	/// </summary>
-    	/// <param name="friendlyName">The friendly name of the domain.</param>
-    	void Initialize(string friendlyName);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.AppDomainWrap"/> class and creates a new application domain with the specified name.
+        /// </summary>
+        /// <param name="friendlyName">The friendly name of the domain.</param>
+        void Initialize(string friendlyName);
 
 
         // Properties

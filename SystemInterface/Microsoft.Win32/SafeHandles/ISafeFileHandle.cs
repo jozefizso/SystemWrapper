@@ -9,18 +9,18 @@ namespace SystemInterface.Microsoft.Win32.SafeHandles
     public interface ISafeFileHandle
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
-    	/// </summary>
-    	/// <param name="safeFileHandle">A <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.</param>
-    	void Initialize(SafeFileHandle safeFileHandle);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
+        /// </summary>
+        /// <param name="safeFileHandle">A <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.</param>
+        void Initialize(SafeFileHandle safeFileHandle);
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
-    	/// </summary>
-    	/// <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
-    	/// <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
-    	void Initialize(IntPtr preexistingHandle, bool ownsHandle);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
+        /// </summary>
+        /// <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
+        /// <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
+        void Initialize(IntPtr preexistingHandle, bool ownsHandle);
 
 
         // Properties

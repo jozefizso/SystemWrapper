@@ -5,11 +5,11 @@ using System.Security.Permissions;
 
 namespace SystemInterface.IO
 {
-	/// <summary>
-	/// Description of ITextReaderWrap.
-	/// </summary>
-	public interface ITextReader : IDisposable
-	{
+    /// <summary>
+    /// Description of ITextReaderWrap.
+    /// </summary>
+    public interface ITextReader : IDisposable
+    {
         /// <summary>
         /// Gets <see cref="T:System.IO.TextReader"/> object.
         /// </summary>
@@ -63,5 +63,5 @@ namespace SystemInterface.IO
         /// <returns>A thread-safe ITextReaderWrap.</returns>
         [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
         ITextReader Synchronized(ITextReader reader);
-	}
+    }
 }

@@ -8,7 +8,7 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.File"/> class.
-    /// </summary>	       
+    /// </summary>           
      [CLSCompliant(false)]
     public interface IFile
     {
@@ -31,7 +31,7 @@ namespace SystemInterface.IO
         /// Creates a IStreamWriterWrap that appends UTF-8 encoded text to an existing file. 
         /// </summary>
         /// <param name="path">The path to the file to append to.</param>
-        /// <returns>A IStreamWriterWrap that appends UTF-8 encoded text to an existing file.</returns>	       
+        /// <returns>A IStreamWriterWrap that appends UTF-8 encoded text to an existing file.</returns>           
         
         IStreamWriter AppendText(string path);
         /// <summary>

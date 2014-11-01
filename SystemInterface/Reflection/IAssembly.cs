@@ -15,11 +15,11 @@ namespace SystemInterface.Reflection
     public interface IAssembly : IEvidenceFactory, ICustomAttributeProvider, ISerializable
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemInterface.Reflection.AssemblyWrap"/> class. 
-    	/// </summary>
-    	/// <param name="assembly">Assembly object.</param>
-    	void Initialize(Assembly assembly);
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemInterface.Reflection.AssemblyWrap"/> class. 
+        /// </summary>
+        /// <param name="assembly">Assembly object.</param>
+        void Initialize(Assembly assembly);
 
         // Properties
 

@@ -8,7 +8,7 @@ namespace SystemInterface.IO
 {
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
-    /// </summary>	       
+    /// </summary>           
     [CLSCompliant(false)]
     public interface IStreamWriter
     {
@@ -167,13 +167,13 @@ namespace SystemInterface.IO
         /// <summary>
         /// Writes the text representation of a 4-byte unsigned integer to the text stream. 
         /// </summary>
-        /// <param name="value">The 4-byte unsigned integer to write.</param>	       
+        /// <param name="value">The 4-byte unsigned integer to write.</param>           
 
         void Write(uint value);
         /// <summary>
         /// Writes the text representation of an 8-byte unsigned integer to the text stream.
         /// </summary>
-        /// <param name="value">The 8-byte unsigned integer to write.</param>	       
+        /// <param name="value">The 8-byte unsigned integer to write.</param>           
 
         void Write(ulong value);
         /// <summary>
