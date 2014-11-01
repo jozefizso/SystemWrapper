@@ -294,5 +294,28 @@ namespace SystemInterface
         /// because there is no graphical user interface for the user to interact with.
         /// </remarks>
         bool UserInteractive { get; }
+
+        /// <summary>
+        /// Gets the user name of the person who is currently logged on to the Windows operating system.
+        /// </summary>
+        /// <value>
+        /// The user name of the person who is logged on to Windows.
+        /// </value>
+        /// <remarks>
+        /// <para>You can use the UserName property to identify the user on the current thread, to the system
+        ///   and application for security or access purposes. It can also be used to customize a particular
+        ///   application for each user.</para>
+        /// <para>The UserName property wraps a call to the Windows GetUserName function. The domain account
+        ///   credentials for a user are formatted as the user's domain name, the '\' character, and user name.
+        ///   Use the UserDomainName property to obtain the user's domain name and the UserName property to
+        ///   obtain the user name.</para>
+        /// <para>If an ASP.NET application runs in a development environment, the UserName property returns
+        ///   the name of the current user. In a published ASP.NET application, this property returns the name
+        ///   of the application pool account (such as Default AppPool).</para>
+        /// </remarks>
+        /// <permission cref="EnvironmentPermission">
+        /// For read access to the USERNAME environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
+        /// </permission>
+        string UserName { get; }
     }
 }
