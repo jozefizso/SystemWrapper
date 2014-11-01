@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;NET40;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\Debug\SystemWrapper.XML</DocumentationFile>
@@ -28,7 +28,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\Release\net40</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\Release\net40\SystemWrapper.XML</DocumentationFile>
@@ -39,7 +39,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\Release\net45</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NET40;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\Release\net45\SystemWrapper.XML</DocumentationFile>
@@ -70,6 +70,7 @@
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
     <Compile Include="Diagnostics\TraceSourceWrap.cs" />
+    <Compile Include="EnvironmentWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
@@ -103,6 +104,7 @@
     <None Include="..\Build\SystemWrapper.snk">
       <Link>SystemWrapper.snk</Link>
     </None>
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
@@ -123,7 +125,6 @@
     </GetAssemblyIdentity>
     <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
   </Target>
-
   <Target Name="Package">
     <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
     <!-- Package the project -->
