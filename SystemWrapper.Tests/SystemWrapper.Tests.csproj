@@ -63,6 +63,7 @@
     <Compile Include="Diagnostics\ProcessStartInfoWrapTests.cs" />
     <Compile Include="Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="Diagnostics\TraceSourceWrapTests.cs" />
+    <Compile Include="EnvironmentWrapTests.cs" />
     <Compile Include="IO\BinaryReaderWrapTests.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
@@ -92,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
