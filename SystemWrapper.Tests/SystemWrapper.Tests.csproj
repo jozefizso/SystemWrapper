@@ -68,7 +68,6 @@
     <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
     <Compile Include="IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="IO\DirectoryWrapTests.cs" />
-    <Compile Include="IO\FileInfoWrapTests.cs" />
     <Compile Include="Microsoft.Win32\RegistryWrapTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\AssemblyWrapTests.cs" />
