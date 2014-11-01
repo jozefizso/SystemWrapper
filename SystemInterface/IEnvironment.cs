@@ -200,5 +200,14 @@ namespace SystemInterface
         /// For more information about processor groups and logical processors, see Processor Groups.
         /// </remarks>
         int ProcessorCount { get; }
+
+        /// <summary>
+        /// Gets current stack trace information.
+        /// </summary>
+        /// <value>
+        /// A string containing stack trace information. This value can be <see cref="String.Empty"/>.
+        /// </value>
+        /// <exception cref="ArgumentOutOfRangeException">The requested stack trace information is out of range.</exception>
+        string StackTrace { get; }
     }
 }
