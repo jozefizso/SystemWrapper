@@ -330,5 +330,16 @@ namespace SystemInterface
         /// each version of the .NET Framework, see .NET Framework Versions and Dependencies.
         /// </remarks>
         IVersion Version { get; }
+
+        /// <summary>
+        /// Gets the amount of physical memory mapped to the process context.
+        /// </summary>
+        /// <value>
+        /// A 64-bit signed integer containing the number of bytes of physical memory mapped to the process context.
+        /// </value>
+        /// <permission cref="EnvironmentPermission">
+        /// For full access to the resource protected by this permission. Associated enumeration: <see cref="PermissionState.Unrestricted"/>.
+        /// </permission>
+        long WorkingSet { get; }
     }
 }
