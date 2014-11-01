@@ -1,0 +1,33 @@
+#
+# SystemMock solution
+# AppVeyor configuration
+#
+
+version: 0.7.0.{build}
+
+branches:
+  except:
+    - gh-pages
+
+os: Windows Server 2012
+
+platform: Any CPU
+configuration: Release
+
+build:
+  project: SystemWrapper.sln
+  verbosity: detailed
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "1.0.0.0"
+  assembly_informational_version: "{version}"
+
+test:
+  assemblies:
+    - SystemWrapper.Tests.dll
+
+cache:
+  - packages
