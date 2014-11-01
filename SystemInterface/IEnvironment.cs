@@ -5,6 +5,8 @@ using System.Security.Permissions;
 
 namespace SystemInterface
 {
+    using System.IO.MemoryMappedFiles;
+
     /// <summary>
     /// Provides information about, and means to manipulate, the current environment and platform.
     /// </summary>
@@ -223,5 +225,21 @@ namespace SystemInterface
         /// For access to the information in the path itself. Associated enumeration: <see cref="FileIOPermissionAccess.PathDiscovery"/>.
         /// </permission>
         string SystemDirectory { get; }
+
+        /// <summary>
+        /// Gets the number of bytes in the operating system's memory page.
+        /// </summary>
+        /// <value>
+        /// The number of bytes in the system memory page.
+        /// </value>
+        /// <remarks>
+        /// <para>This information can be useful when determining whether to use the
+        ///   <see cref="MemoryMappedFileOptions.DelayAllocatePages"/> option when you work with memory-mapped files.</para>
+        /// <para>In Windows, this value is the dwPageSize member in the SYSTEM_INFO structure.</para>
+        /// </remarks>
+        /// <permission cref="EnvironmentPermission">
+        /// for access to system and user environment variables. Associated exception: <see cref="SecurityException.PermissionState"/>.
+        /// </permission>
+        int SystemPageSize { get; }
     }
 }
