@@ -61,6 +61,7 @@ namespace SystemInterface
         /// </permission>
         string CurrentDirectory { get; set; }
 
+#if NET45
         /// <summary>
         /// Gets a unique identifier for the current managed thread.
         /// </summary>
@@ -68,6 +69,7 @@ namespace SystemInterface
         /// An integer that represents a unique identifier for this managed thread.
         /// </value>
         int CurrentManagedThreadId { get; }
+#endif
 
         /// <summary>
         /// Gets or sets the exit code of the process.
