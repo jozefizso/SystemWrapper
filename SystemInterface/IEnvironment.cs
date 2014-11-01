@@ -162,5 +162,29 @@ namespace SystemInterface
         /// <para>NewLine is automatically appended to text processed by the Console.WriteLine and StringBuilder.AppendLine methods.</para>
         /// </remarks>
         string NewLine { get; }
+
+        /// <summary>
+        /// Gets an <see cref="OperatingSystem"/> object that contains the current platform identifier and version number.
+        /// </summary>
+        /// <value>
+        /// An object that contains the platform identifier and version number.
+        /// </value>
+        /// <exception cref="InvalidOperationException">
+        /// This property was unable to obtain the system version.
+        /// -or-
+        /// The obtained platform identifier is not a member of <see cref="PlatformID"/>.
+        /// </exception>
+        /// <remarks>
+        /// <para>Typically, the OSVersion property is used to ensure that an app is running on some base version
+        ///   of an operating system in which a particular feature was introduced. When this is the case,
+        ///   you should perform a version check by testing whether the current operating system version
+        ///   returned by the OSVersion property is the same as, or greater than, the base operating system
+        ///   version. For more information, see the Version class topic.</para>
+        /// <para>The OSVersion property returns the version reported by the Windows GetVersionEx function.</para>
+        /// <para>The OSVersion property reports the same version number (6.2.0.0) for both Windows 8 and Windows 8.1.</para>
+        /// <para>In some cases, the OSVersion property may not return the operating system version that
+        ///   matches the version specified for the Windows Program Compatibility mode feature.</para>
+        /// </remarks>
+        OperatingSystem OSVersion { get; }
     }
 }

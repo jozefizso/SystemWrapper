@@ -345,6 +345,7 @@
       </Rules>
       <AnalyzerSettings>
         <StringProperty Name="SP2001_Mode">Both:False</StringProperty>
+        <StringProperty Name="AdvancedNaming_Words">3D FxCop OS StyleCop</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
   </Analyzers>
