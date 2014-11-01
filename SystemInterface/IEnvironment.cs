@@ -241,5 +241,22 @@ namespace SystemInterface
         /// for access to system and user environment variables. Associated exception: <see cref="SecurityException.PermissionState"/>.
         /// </permission>
         int SystemPageSize { get; }
+
+        /// <summary>
+        /// Gets the number of milliseconds elapsed since the system started.
+        /// </summary>
+        /// <value>
+        /// A 32-bit signed integer containing the amount of time in milliseconds that has passed since the last time the computer was started.
+        /// </value>
+        /// <remarks>
+        /// <para>The value of this property is derived from the system timer and is stored as a 32-bit signed integer.
+        ///   Consequently, if the system runs continuously, TickCount will increment from zero to Int32.MaxValue for
+        ///   approximately 24.9 days, then jump to Int32.MinValue, which is a negative number, then increment back
+        ///   to zero during the next 24.9 days.</para>
+        /// <para>TickCount is different from the Ticks property, which is the number of 100-nanosecond intervals that
+        ///   have elapsed since 1/1/0001, 12:00am.</para>
+        /// <para>Use the DateTime.Now property to obtain the current local date and time on this computer.</para>
+        /// </remarks>
+        int TickCount { get; }
     }
 }
