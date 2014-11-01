@@ -63,8 +63,14 @@ namespace SystemWrapper.Tests.IO
         [Test]
         public void GetParent_test()
         {
+#if DEBUG
+            var expectedName = "Debug";
+#else
+            var expectedName = "Release";
+#endif
+
             IDirectoryInfo di = _directoryWrap.GetParent(path);
-            Assert.AreEqual("Debug", di.Name);
+            Assert.AreEqual(expectedName, di.Name);
         }
     }
 }
