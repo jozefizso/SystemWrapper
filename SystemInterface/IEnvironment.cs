@@ -281,5 +281,18 @@ namespace SystemInterface
         /// For read access to the USERDOMAIN environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
         /// </permission>
         string UserDomainName { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether the current process is running in user interactive mode.
+        /// </summary>
+        /// <value>
+        /// true if the current process is running in user interactive mode; otherwise, false.
+        /// </value>
+        /// <remarks>
+        /// The UserInteractive property reports false for a Windows process or a service like IIS that runs
+        /// without a user interface. If this property is false, do not display modal dialogs or message boxes
+        /// because there is no graphical user interface for the user to interact with.
+        /// </remarks>
+        bool UserInteractive { get; }
     }
 }
