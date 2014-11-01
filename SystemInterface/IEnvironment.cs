@@ -317,5 +317,18 @@ namespace SystemInterface
         /// For read access to the USERNAME environment variable. Associated enumeration: <see cref="EnvironmentPermissionAccess.Read"/>.
         /// </permission>
         string UserName { get; }
+
+        /// <summary>
+        /// Gets a <see cref="Version"/> object that describes the major, minor, build, and revision numbers
+        /// of the common language runtime.
+        /// </summary>
+        /// <value>
+        /// An object that displays the version of the common language runtime.
+        /// </value>
+        /// <remarks>
+        /// For more information about the version of the common language runtime that is installed with
+        /// each version of the .NET Framework, see .NET Framework Versions and Dependencies.
+        /// </remarks>
+        IVersion Version { get; }
     }
 }
