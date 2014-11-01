@@ -186,5 +186,19 @@ namespace SystemInterface
         ///   matches the version specified for the Windows Program Compatibility mode feature.</para>
         /// </remarks>
         OperatingSystem OSVersion { get; }
+
+        /// <summary>
+        /// Gets the number of processors on the current machine.
+        /// </summary>
+        /// <value>
+        /// The 32-bit signed integer that specifies the number of processors on the
+        /// current machine. There is no default. If the current machine contains multiple
+        /// processor groups, this property returns the number of logical processors that are
+        /// available for use by the common language runtime (CLR).
+        /// </value>
+        /// <remarks>
+        /// For more information about processor groups and logical processors, see Processor Groups.
+        /// </remarks>
+        int ProcessorCount { get; }
     }
 }
