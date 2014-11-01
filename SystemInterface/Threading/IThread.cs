@@ -22,6 +22,7 @@ namespace SystemInterface.Threading
         void Sleep(TimeSpan timeout);
 
         /*
+
                 // Methods
             public Thread(ParameterizedThreadStart start);
             public Thread(ThreadStart start);
@@ -150,5 +151,4 @@ namespace SystemInterface.Threading
             public ThreadState ThreadState { get; }
         */
     }
-
 }

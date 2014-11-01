@@ -9,7 +9,6 @@ namespace SystemInterface.Data.SqlClient
     /// </summary>
     public interface ISqlConnection
     {
-
         /// <summary>
         /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
@@ -33,45 +32,55 @@ namespace SystemInterface.Data.SqlClient
         /// Gets or sets the string used to open a SQL Server database.
         /// </summary>
         string ConnectionString { get; set; }
+
         /// <summary>
         /// Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
         /// </summary>
         int ConnectionTimeout { get; }
+
         /// <summary>
         /// Gets the name of the current database or the database to be used after a connection is opened.
         /// </summary>
         string Database { get; }
+
         /// <summary>
         /// Gets the name of the instance of SQL Server to which to connect.
         /// </summary>
         [Browsable(true)]
         string DataSource { get; }
+
         /// <summary>
         /// Gets or sets the FireInfoMessageEventOnUserErrors property.
         /// </summary>
         bool FireInfoMessageEventOnUserErrors { get; set; }
+
         /// <summary>
         /// Gets the size (in bytes) of network packets used to communicate with an instance of SQL Server.
         /// </summary>
         int PacketSize { get; }
+
         /// <summary>
         /// Gets a string that contains the version of the instance of SQL Server to which the client is connected.
         /// </summary>
         [Browsable(false)]
         string ServerVersion { get; }
+
         /// <summary>
         /// Gets <see cref="T:System.Data.SqlClient.SqlConnection"/> object.
         /// </summary>
         SqlConnection SqlConnectionInstance { get; }
+
         /// <summary>
         /// Indicates the state of the SqlConnection.
         /// </summary>
         [Browsable(false)]
         ConnectionState State { get; }
+
         /// <summary>
         /// When set to true, enables statistics gathering for the current connection.
         /// </summary>
         bool StatisticsEnabled { get; set; }
+
         /// <summary>
         /// Gets a string that identifies the database client.
         /// </summary>
@@ -83,6 +92,7 @@ namespace SystemInterface.Data.SqlClient
         /// Closes the connection to the database. This is the preferred method of closing any open connection.
         /// </summary>
         void Close();
+
         /// <summary>
         /// Opens a database connection with the property settings specified by the ConnectionString.
         /// </summary>
@@ -90,6 +100,7 @@ namespace SystemInterface.Data.SqlClient
 
         /*
          *
+
              // Events
             [ResCategory("DataCategory_InfoMessage"), ResDescription("DbConnection_InfoMessage")]
             public event SqlInfoMessageEventHandler InfoMessage;
@@ -113,6 +124,5 @@ namespace SystemInterface.Data.SqlClient
             public void ResetStatistics();
             public IDictionary RetrieveStatistics();
         */
-
     }
 }

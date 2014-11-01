@@ -3,11 +3,10 @@ using System.Diagnostics;
 namespace SystemInterface.Diagnostics
 {
     /// <summary>
-    /// Description of IProcessStartInfoWrap
+    /// Wrapper for <see cref="ProcessStartInfo"/> class.
     /// </summary>
     public interface IProcessStartInfo
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process.
         /// </summary>
@@ -26,9 +25,8 @@ namespace SystemInterface.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemInterface.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
-        /// <param name="processStartInfo">ProcessStartInfo instance</param>
+        /// <param name="processStartInfo">ProcessStartInfo instance.</param>
         void Initialize(ProcessStartInfo processStartInfo);
-
 
         // Properties
 
@@ -36,20 +34,24 @@ namespace SystemInterface.Diagnostics
         /// Gets or sets the set of command-line arguments to use when starting the application.
         /// </summary>
         string Arguments { get; set; }
+
         /// <summary>
         /// Gets or sets the application or document to start.
         /// </summary>
         string FileName { get; set; }
+
         /// <summary>
         /// Gets <see cref="T:System.Diagnostics.ProcessStartInfo"/> object.
         /// </summary>
         ProcessStartInfo ProcessStartInfoInstance { get; }
+
         /// <summary>
         /// Gets or sets a value indicating whether to use the operating system shell to start the process.
         /// </summary>
         bool UseShellExecute { get; set; }
 
         /*
+
             // Properties
             public bool CreateNoWindow { get; set; }
             public string Domain { get; set; }
@@ -69,6 +71,5 @@ namespace SystemInterface.Diagnostics
             public ProcessWindowStyle WindowStyle { get; set; }
             public string WorkingDirectory { get; set; }
         */
-
     }
 }

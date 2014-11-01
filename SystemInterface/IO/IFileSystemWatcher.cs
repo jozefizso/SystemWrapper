@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.IO;
 
-
 namespace SystemInterface.IO
 {
     /// <summary>

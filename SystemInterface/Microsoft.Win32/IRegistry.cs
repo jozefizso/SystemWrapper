@@ -1,4 +1,5 @@
 using Microsoft.Win32;
+
 namespace SystemInterface.Microsoft.Win32
 {
     /// <summary>
@@ -7,6 +8,7 @@ namespace SystemInterface.Microsoft.Win32
     public interface IRegistry
     {
         #region Properties
+
         /// <inheritdoc />
         IRegistryKey ClassesRoot { get; }
 
@@ -24,7 +26,8 @@ namespace SystemInterface.Microsoft.Win32
 
         /// <inheritdoc />
         IRegistryKey Users { get; }
-        #endregion
+
+        #endregion Properties
 
         #region Functions
 
@@ -36,6 +39,7 @@ namespace SystemInterface.Microsoft.Win32
 
         /// <inheritdoc />
         void SetValue(string keyName, string valueName, object value, RegistryValueKind valueKind);
-        #endregion
+
+        #endregion Functions
     }
 }

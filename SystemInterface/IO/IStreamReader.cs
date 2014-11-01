@@ -8,7 +8,6 @@ namespace SystemInterface.IO
     /// </summary>
     public interface IStreamReader : ITextReader
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemInterface.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
@@ -101,17 +100,6 @@ namespace SystemInterface.IO
         /// <param name="bufferSize">The minimum buffer size, in number of 16-bit characters.</param>
         void Initialize(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize);
 
-
-
-
-
-
-
-
-
-
-
-
         // Properties
 
         /// <summary>
@@ -119,16 +107,19 @@ namespace SystemInterface.IO
         /// </summary>
         /// <value>The underlying stream.</value>
         Stream BaseStream { get; }
+
         /// <summary>
         /// Gets the current character encoding that the current IStreamReaderWrap object is using.
         /// </summary>
         /// <value>The current character encoding used by the current reader. The value can be different after the first call to any Read method of IStreamReaderWrap, since encoding autodetection is not done until the first call to a Read method. </value>
         Encoding CurrentEncoding { get; }
+
         /// <summary>
         /// Gets a value that indicates whether the current stream position is at the end of the stream.
         /// </summary>
-        /// <value> true if the current stream position is at the end of the stream; otherwise false. </value>
+        /// <value> <c>true</c> if the current stream position is at the end of the stream; otherwise <c>false</c>. </value>
         bool EndOfStream { get; }
+
         /// <summary>
         /// Gets <see cref="T:System.IO.StreamReader"/> object.
         /// </summary>

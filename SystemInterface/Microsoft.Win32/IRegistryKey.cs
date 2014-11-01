@@ -1,6 +1,6 @@
-using Microsoft.Win32;
-using System.Security.AccessControl;
 using System;
+using System.Security.AccessControl;
+using Microsoft.Win32;
 using SystemInterface.Microsoft.Win32.SafeHandles;
 using SystemInterface.Security.AccessControl;
 
@@ -12,6 +12,7 @@ namespace SystemInterface.Microsoft.Win32
     public interface IRegistryKey : IDisposable
     {
         #region Properties
+
         /// <inheritdoc />
         ISafeRegistryHandle Handle { get; }
 
@@ -37,8 +38,8 @@ namespace SystemInterface.Microsoft.Win32
 
         /// <inheritdoc />
         RegistryView View { get; }
-        #endregion
 
+        #endregion Properties
 
         /// <summary>
         /// Closes the key and flushes it to disk if its contents have been modified.

@@ -18,7 +18,6 @@ namespace SystemInterface.Security.AccessControl
         /// </summary>
         void Initialize();
 
-
         /// <summary>
         /// Gets <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.
         /// </summary>

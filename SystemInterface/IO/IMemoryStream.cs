@@ -7,7 +7,6 @@ namespace SystemInterface.IO
     /// </summary>
     public interface IMemoryStream : IStream
     {
-
         /// <summary>
         /// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero.
         /// </summary>
@@ -67,12 +66,8 @@ namespace SystemInterface.IO
         /// <param name="index">The index into buffer at which the stream begins.</param>
         /// <param name="count">The length of the stream in bytes.</param>
         /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-        /// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
+        /// <param name="publiclyVisible"> <c>true</c> to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, <c>false</c>. </param>
         void Initialize(byte[] buffer, int index, int count, bool writable, bool publiclyVisible);
-
-
-
-
 
         // Properties
 
@@ -80,6 +75,7 @@ namespace SystemInterface.IO
         /// Gets or sets the number of bytes allocated for this stream.
         /// </summary>
         int Capacity { get; set; }
+
         /// <summary>
         /// Gets <see cref="T:System.IO.MemoryStream"/> object.
         /// </summary>
@@ -92,16 +88,17 @@ namespace SystemInterface.IO
         /// </summary>
         /// <returns>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the MemoryStream constructor during construction of the current instance.</returns>
         byte[] GetBuffer();
+
         /// <summary>
         /// Writes the stream contents to a byte array, regardless of the Position property.
         /// </summary>
         /// <returns>A new byte array.</returns>
         byte[] ToArray();
+
         /// <summary>
         /// Writes the entire contents of this memory stream to another stream.
         /// </summary>
         /// <param name="stream">The stream to write this memory stream to.</param>
         void WriteTo(IStream stream);
-
     }
 }

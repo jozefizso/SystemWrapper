@@ -62,6 +62,7 @@ namespace SystemInterface
         string CurrentDirectory { get; set; }
 
 #if NET45
+
         /// <summary>
         /// Gets a unique identifier for the current managed thread.
         /// </summary>
@@ -69,6 +70,7 @@ namespace SystemInterface
         /// An integer that represents a unique identifier for this managed thread.
         /// </value>
         int CurrentManagedThreadId { get; }
+
 #endif
 
         /// <summary>
@@ -99,7 +101,7 @@ namespace SystemInterface
         /// (CLR) is shutting down.
         /// </summary>
         /// <value>
-        /// true if the current application domain is being unloaded or the CLR is shutting down; otherwise, false.
+        /// <c>true</c> if the current application domain is being unloaded or the CLR is shutting down; otherwise, false.
         /// </value>
         /// <remarks>
         /// <para>When the CLR unloads an application domain, it runs the finalizers on all objects
@@ -122,7 +124,7 @@ namespace SystemInterface
         /// Determines whether the current operating system is a 64-bit operating system.
         /// </summary>
         /// <value>
-        /// true if the operating system is 64-bit; otherwise, false.
+        /// <c>true</c> if the operating system is 64-bit; otherwise, false.
         /// </value>
         bool Is64BitOperatingSystem { get; }
 
@@ -130,7 +132,7 @@ namespace SystemInterface
         /// Determines whether the current process is a 64-bit process.
         /// </summary>
         /// <value>
-        /// true if the process is 64-bit; otherwise, false.
+        /// <c>true</c> if the process is 64-bit; otherwise, <c>false</c>.
         /// </value>
         bool Is64BitProcess { get; }
 
@@ -240,7 +242,7 @@ namespace SystemInterface
         /// <para>In Windows, this value is the dwPageSize member in the SYSTEM_INFO structure.</para>
         /// </remarks>
         /// <permission cref="EnvironmentPermission">
-        /// for access to system and user environment variables. Associated exception: <see cref="SecurityException.PermissionState"/>.
+        /// For access to system and user environment variables. Associated exception: <see cref="SecurityException.PermissionState"/>.
         /// </permission>
         int SystemPageSize { get; }
 
@@ -288,7 +290,7 @@ namespace SystemInterface
         /// Gets a value indicating whether the current process is running in user interactive mode.
         /// </summary>
         /// <value>
-        /// true if the current process is running in user interactive mode; otherwise, false.
+        /// <c>true</c> if the current process is running in user interactive mode; otherwise, <c>false</c>.
         /// </value>
         /// <remarks>
         /// The UserInteractive property reports false for a Windows process or a service like IIS that runs

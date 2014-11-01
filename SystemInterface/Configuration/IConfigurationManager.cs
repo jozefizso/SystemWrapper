@@ -28,23 +28,27 @@ namespace SystemInterface.Configuration
         /// <param name="exePath">The configuration section path and name.</param>
         /// <returns>The specified ConfigurationSection object, or a null reference if the section does not exist.</returns>
         object GetSection(string exePath);
+
         /// <summary>
         /// Opens the specified client configuration file as a Configuration object.
         /// </summary>
         /// <param name="pExePath">The path to the configuration file associated with the executable file.</param>
         /// <returns>A Configuration object.</returns>
         System.Configuration.Configuration OpenExeConfiguration(string pExePath);
+
         /// <summary>
         /// Opens the configuration file for the current application as a Configuration object.
         /// </summary>
         /// <param name="userLevel">The ConfigurationUserLevel for which you are opening the configuration.</param>
         /// <returns>A Configuration object.</returns>
         System.Configuration.Configuration OpenExeConfiguration(ConfigurationUserLevel userLevel);
+
         /// <summary>
         /// Opens the machine configuration file on the current computer as a Configuration object.
         /// </summary>
         /// <returns>A Configuration object.</returns>
         System.Configuration.Configuration OpenMachineConfiguration();
+
         /// <summary>
         /// Opens the specified client configuration file as a Configuration object using the specified file mapping and user level.
         /// </summary>
@@ -52,12 +56,14 @@ namespace SystemInterface.Configuration
         /// <param name="userLevel"></param>
         /// <returns>A Configuration object.</returns>
         System.Configuration.Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap fileMap, ConfigurationUserLevel userLevel);
+
         /// <summary>
         /// Opens the machine configuration file as a Configuration object using the specified file mapping.
         /// </summary>
         /// <param name="fileMap">An ExeConfigurationFileMap object that references configuration file to use instead of the application default configuration file.</param>
         /// <returns>A Configuration object.</returns>
         System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap fileMap);
+
         /// <summary>
         /// Refreshes the named section so the next time it is retrieved it will be re-read from disk.
         /// </summary>
@@ -65,6 +71,7 @@ namespace SystemInterface.Configuration
         void RefreshSection(string sectionName);
 
         /*
+
                 // Methods
             public static object GetSection(string sectionName);
             [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
