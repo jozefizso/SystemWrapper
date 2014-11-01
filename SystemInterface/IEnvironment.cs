@@ -209,5 +209,19 @@ namespace SystemInterface
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">The requested stack trace information is out of range.</exception>
         string StackTrace { get; }
+
+        /// <summary>
+        /// Gets the fully qualified path of the system directory.
+        /// </summary>
+        /// <value>
+        /// A string containing a directory path.
+        /// </value>
+        /// <remarks>
+        /// An example of the value returned is the string "C:\WinNT\System32".
+        /// </remarks>
+        /// <permission cref="FileIOPermission ">
+        /// For access to the information in the path itself. Associated enumeration: <see cref="FileIOPermissionAccess.PathDiscovery"/>.
+        /// </permission>
+        string SystemDirectory { get; }
     }
 }
