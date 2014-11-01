@@ -9,7 +9,7 @@ using SystemInterface.Security.AccessControl;
 namespace SystemWrapper.Microsoft.Win32
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class RegistryKeyWrap : IRegistryKey
     {
@@ -27,7 +27,7 @@ namespace SystemWrapper.Microsoft.Win32
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.RegistryKeyWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.RegistryKeyWrap"/> class.
         /// </summary>
         /// <param name="registryKey"></param>
         public RegistryKeyWrap(RegistryKey registryKey)
@@ -57,7 +57,7 @@ namespace SystemWrapper.Microsoft.Win32
         } private RegistryKey _RegistryKeyInstance;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ISafeRegistryHandle Handle
         {

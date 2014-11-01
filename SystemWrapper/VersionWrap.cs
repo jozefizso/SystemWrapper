@@ -11,7 +11,7 @@ namespace SystemWrapper
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class.
         /// </summary>
         public VersionWrap(Version version)
         {
@@ -19,7 +19,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class.
         /// </summary>
         public void Initialize(Version version)
         {
@@ -27,7 +27,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class.
         /// </summary>
         public VersionWrap()
         {
@@ -35,7 +35,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.VersionWrap"/> class.
         /// </summary>
         public void Initialize()
         {
@@ -61,7 +61,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>
@@ -71,7 +71,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>
@@ -81,7 +81,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>
@@ -92,7 +92,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>
@@ -103,7 +103,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>
@@ -115,7 +115,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the Version class using the specified major and minor values. 
+        /// Initializes a new instance of the Version class using the specified major and minor values.
         /// </summary>
         /// <param name="major">The major version number.</param>
         /// <param name="minor">The minor version number.</param>

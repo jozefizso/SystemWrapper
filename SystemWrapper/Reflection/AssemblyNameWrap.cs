@@ -19,7 +19,7 @@ namespace SystemWrapper.Reflection
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         public AssemblyNameWrap()
         {
@@ -27,7 +27,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         public void Initialize()
         {
@@ -35,7 +35,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         /// <param name="assemblyName">AssemblyName object.</param>
         public AssemblyNameWrap(AssemblyName assemblyName)
@@ -44,7 +44,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         /// <param name="assemblyName">AssemblyName object.</param>
         public void Initialize(AssemblyName assemblyName)
@@ -53,7 +53,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
         public AssemblyNameWrap(string assemblyName)
@@ -62,7 +62,7 @@ namespace SystemWrapper.Reflection
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class.
         /// </summary>
         /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
         public void Initialize(string assemblyName)

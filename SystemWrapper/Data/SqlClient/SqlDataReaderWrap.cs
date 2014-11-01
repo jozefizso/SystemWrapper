@@ -10,7 +10,7 @@ namespace SystemWrapper.Data.SqlClient
     {
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class (requires a subsequent call to Initialize). 
+        /// Initializes a new instance of the SqlDataReaderWrap class (requires a subsequent call to Initialize).
         /// </summary>
         public SqlDataReaderWrap()
         {
@@ -18,7 +18,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// Initializes a new instance of the SqlDataReaderWrap class.
         /// </summary>
         /// <param name="dataReader">SqlDataReader object.</param>
         public SqlDataReaderWrap(SqlDataReader dataReader)
@@ -27,7 +27,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// Initializes a new instance of the SqlDataReaderWrap class.
         /// </summary>
         /// <param name="dataReader">SqlDataReader object.</param>
         public void Initialize(SqlDataReader dataReader)

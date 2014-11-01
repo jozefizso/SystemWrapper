@@ -11,7 +11,7 @@ namespace SystemWrapper.Data.SqlClient
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         public SqlCommandWrap()
         {
@@ -19,7 +19,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         public void Initialize()
         {
@@ -28,7 +28,7 @@ namespace SystemWrapper.Data.SqlClient
 
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         /// <param name="command">SqlCommand object.</param>
         public SqlCommandWrap(SqlCommand command)
@@ -37,7 +37,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class. 
+        /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
         /// <param name="command">SqlCommand object.</param>
         public void Initialize(SqlCommand command)
@@ -65,7 +65,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap.
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
@@ -75,7 +75,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+        /// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap.
         /// </summary>
         /// <param name="cmdText">The text of the query.</param>
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>

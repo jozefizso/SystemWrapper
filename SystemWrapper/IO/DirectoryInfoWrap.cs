@@ -19,7 +19,7 @@ namespace SystemWrapper.IO
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="directoryInfo">A <see cref="T:System.IO.DirectoryInfo"/> object.</param>
         public DirectoryInfoWrap(DirectoryInfo directoryInfo)
@@ -28,7 +28,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="directoryInfo">A <see cref="T:System.IO.DirectoryInfo"/> object.</param>
         public void Initialize(DirectoryInfo directoryInfo)
@@ -37,7 +37,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="path">A string specifying the path on which to create the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/>. </param>
         public DirectoryInfoWrap(string path)
@@ -46,7 +46,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="path">A string specifying the path on which to create the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/>. </param>
         public void Initialize(string path)
@@ -138,7 +138,7 @@ namespace SystemWrapper.IO
             get { return new DirectoryInfoWrap(DirectoryInfo.Parent); }
         }
 
-        /// <inheritdoc />	
+        /// <inheritdoc />
         public IDirectoryInfo Root
         {
             get { return new DirectoryInfoWrap(DirectoryInfo.Root); }

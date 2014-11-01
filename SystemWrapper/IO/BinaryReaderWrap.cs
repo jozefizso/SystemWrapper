@@ -14,14 +14,14 @@ namespace SystemWrapper.IO
         #region Constructors and Initializers
 
         /// <summary>
-        /// Creates an uninitialized instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
+        /// Creates an uninitialized instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path.
         /// </summary>
         public BinaryReaderWrap()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="reader">The <see cref="T:System.IO.BinaryReader"/> object.</param>
         public BinaryReaderWrap(BinaryReader reader)
@@ -30,7 +30,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="reader">The <see cref="T:System.IO.BinaryReader"/> object.</param>
         public void Initialize(BinaryReader reader)
@@ -39,7 +39,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         public BinaryReaderWrap(Stream input)
@@ -48,7 +48,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         public void Initialize(Stream input)
@@ -57,7 +57,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         public BinaryReaderWrap(IStream input)
@@ -66,7 +66,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
+        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding.
         /// </summary>
         /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
         public void Initialize(IStream input)
@@ -216,7 +216,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        
+
         public sbyte ReadSByte()
         {
             return BinaryReaderInstance.ReadSByte();
@@ -234,19 +234,19 @@ namespace SystemWrapper.IO
             return BinaryReaderInstance.ReadString();
         }
 
-        /// <inheritdoc />        
+        /// <inheritdoc />
         public ushort ReadUInt16()
         {
             return BinaryReaderInstance.ReadUInt16();
         }
 
-        /// <inheritdoc />        
+        /// <inheritdoc />
         public uint ReadUInt32()
         {
             return BinaryReaderInstance.ReadUInt32();
         }
 
-        /// <inheritdoc />        
+        /// <inheritdoc />
         public ulong ReadUInt64()
         {
             return BinaryReaderInstance.ReadUInt64();

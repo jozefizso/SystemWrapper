@@ -5,7 +5,7 @@ namespace SystemWrapper.Microsoft.Win32
 {
     /// <summary>
     /// Wrapper for <see cref="T:Microsoft.Win32.Registry"/> class.
-    /// </summary>    
+    /// </summary>
     public class RegistryWrap : IRegistry
     {
         #region Implementation of IRegistry

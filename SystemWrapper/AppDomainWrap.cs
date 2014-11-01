@@ -16,7 +16,7 @@ namespace SystemWrapper
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class.
         /// </summary>
         /// <param name="appDomain">AppDomain object.</param>
         public AppDomainWrap(AppDomain appDomain)
@@ -25,7 +25,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class.
         /// </summary>
         /// <param name="appDomain">AppDomain object.</param>
         public void Initialize(AppDomain appDomain)

@@ -32,28 +32,28 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
 
         #region Implementation of ISafeHandle
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool IsClosed
         {
             get { return SafeRegistryHandleInstance.IsClosed; }
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool IsInvalid
         {
             get { return SafeRegistryHandleInstance.IsInvalid; }
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Close()
         {
             SafeRegistryHandleInstance.Close();
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="success"></param>
         public void DangerousAddRef(ref bool success)
@@ -61,7 +61,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
             SafeRegistryHandleInstance.DangerousAddRef(ref success);
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public IntPtr DangerousGetHandle()
@@ -69,7 +69,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
             return SafeRegistryHandleInstance.DangerousGetHandle();
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void DangerousRelease()
         {
@@ -77,7 +77,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void SetHandleAsInvalid()
         {
@@ -88,7 +88,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
 
         #region Implementation of ISafeRegistryHandle
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SafeRegistryHandle SafeRegistryHandleInstance { get; private set; }
 
