@@ -114,7 +114,7 @@ namespace SystemWrapper.IO
             BinaryReaderInstance = new BinaryReader(stream.StreamInstance, encoding);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public Stream BaseStream
@@ -212,7 +212,7 @@ namespace SystemWrapper.IO
         /// <inheritdoc />
         public virtual byte[] ReadBytes(int count)
         {
-            return BinaryReaderInstance.ReadBytes( count );
+            return BinaryReaderInstance.ReadBytes(count);
         }
 
         /// <inheritdoc />

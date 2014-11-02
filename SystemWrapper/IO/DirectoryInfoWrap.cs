@@ -54,7 +54,7 @@ namespace SystemWrapper.IO
             DirectoryInfo = new DirectoryInfo(path);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public FileAttributes Attributes

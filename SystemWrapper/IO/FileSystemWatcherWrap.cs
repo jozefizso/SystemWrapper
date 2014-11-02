@@ -29,7 +29,6 @@ namespace SystemWrapper.IO
         {
         }
 
-
         /// <summary>
         ///       Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class,
         ///       given the specified directory and type of files to monitor.
@@ -51,13 +50,12 @@ namespace SystemWrapper.IO
             FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         #region IFileSystemWatcherWrap Members
 
         /// <inheritdoc />
         public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
-
 
         /// <summary>
         ///       Gets or sets the type of changes to watch for.
@@ -111,7 +109,6 @@ namespace SystemWrapper.IO
             set { FileSystemWatcherInstance.InternalBufferSize = value; }
         }
 
-
         /// <summary>
         ///    Gets or sets the path of the directory to watch.
         /// </summary>
@@ -150,7 +147,6 @@ namespace SystemWrapper.IO
         {
             FileSystemWatcherInstance.EndInit();
         }
-
 
         /// <summary>
         ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
@@ -201,7 +197,6 @@ namespace SystemWrapper.IO
             remove { FileSystemWatcherInstance.Renamed -= value; }
         }
 
-
         /// <summary>
         ///       A synchronous method that returns a structure that
         ///       contains specific information on the change that occurred, given the type
@@ -229,7 +224,7 @@ namespace SystemWrapper.IO
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion IFileSystemWatcherWrap Members
 
         /// <inheritdoc />
         protected virtual void Dispose(bool disposing)
@@ -241,6 +236,7 @@ namespace SystemWrapper.IO
                     FileSystemWatcherInstance.Dispose();
                     FileSystemWatcherInstance = null;
                 }
+
                 // get rid of managed resources
             } // get rid of unmanaged resources
         }

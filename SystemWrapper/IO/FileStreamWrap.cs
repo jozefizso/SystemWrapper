@@ -3,11 +3,11 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Permissions;
-using SystemWrapper.Microsoft.Win32.SafeHandles;
-using SystemWrapper.Security.AccessControl;
 using SystemInterface.IO;
 using SystemInterface.Microsoft.Win32.SafeHandles;
 using SystemInterface.Security.AccessControl;
+using SystemWrapper.Microsoft.Win32.SafeHandles;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
@@ -258,7 +258,6 @@ namespace SystemWrapper.IO
             Initialize(path, mode, access, share, bufferSize, options);
         }
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write and sharing permission, the access other FileStreams can have to the same file, the buffer size, and additional file options.
         /// </summary>
@@ -331,7 +330,7 @@ namespace SystemWrapper.IO
             FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options, fileSecurity);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <summary>
         /// Gets a value indicating whether the current stream supports reading.
@@ -596,6 +595,5 @@ namespace SystemWrapper.IO
                 fileStreamWraps[i] = new FileStreamWrap(fileStreams[i]);
             return fileStreamWraps;
         }
-
     }
 }

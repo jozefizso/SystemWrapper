@@ -2,9 +2,9 @@ using System.Security.AccessControl;
 using Microsoft.Win32;
 using SystemInterface.Microsoft.Win32;
 using SystemInterface.Microsoft.Win32.SafeHandles;
+using SystemInterface.Security.AccessControl;
 using SystemWrapper.Microsoft.Win32.SafeHandles;
 using SystemWrapper.Security.AccessControl;
-using SystemInterface.Security.AccessControl;
 
 namespace SystemWrapper.Microsoft.Win32
 {
@@ -14,6 +14,7 @@ namespace SystemWrapper.Microsoft.Win32
     public class RegistryKeyWrap : IRegistryKey
     {
         #region Implementation of IDisposable
+
         /// <summary>
         /// Implementation of the Dispose
         /// </summary>
@@ -22,7 +23,7 @@ namespace SystemWrapper.Microsoft.Win32
             RegistryKeyInstance.Dispose();
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
 
         #region Constructors and Initializers
 
@@ -130,7 +131,7 @@ namespace SystemWrapper.Microsoft.Win32
             if (null == key)
                 return null;
             else
-            return new RegistryKeyWrap(key);
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -408,7 +409,6 @@ namespace SystemWrapper.Microsoft.Win32
                 return null;
             else
                 return new RegistryKeyWrap(key);
-
         }
 
         /// <summary>
@@ -501,6 +501,6 @@ namespace SystemWrapper.Microsoft.Win32
             RegistryKeyInstance.SetValue(name, value, valueKind);
         }
 
-        #endregion
+        #endregion Implementation of IRegistryKey
     }
 }

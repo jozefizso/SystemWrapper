@@ -135,6 +135,6 @@ namespace SystemWrapper.Microsoft.Win32
             Registry.SetValue(keyName, valueName, value, valueKind);
         }
 
-        #endregion
+        #endregion Implementation of IRegistry
     }
 }

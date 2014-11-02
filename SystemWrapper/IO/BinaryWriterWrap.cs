@@ -10,7 +10,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class BinaryWriterWrap :IBinaryWriter
+    public class BinaryWriterWrap : IBinaryWriter
     {
         #region Constructors and Initializers
 
@@ -108,7 +108,7 @@ namespace SystemWrapper.IO
             BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public Stream BaseStream

@@ -217,6 +217,5 @@ namespace SystemWrapper.Reflection
                 wrapAssemblyNames[i] = new AssemblyNameWrap(assemblyNames[i]);
             return wrapAssemblyNames;
         }
-
     }
 }

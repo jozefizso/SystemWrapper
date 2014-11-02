@@ -2,10 +2,10 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using SystemWrapper.Security.AccessControl;
+using SystemInterface;
 using SystemInterface.IO;
 using SystemInterface.Security.AccessControl;
-using SystemInterface;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
@@ -53,7 +53,7 @@ namespace SystemWrapper.IO
             FileInfoInstance = new FileInfo(fileName);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public FileAttributes Attributes

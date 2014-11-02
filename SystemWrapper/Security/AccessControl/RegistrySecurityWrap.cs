@@ -1,5 +1,4 @@
 ﻿using System.Security.AccessControl;
-using Microsoft.Win32;
 using SystemInterface.Security.AccessControl;
 
 namespace SystemWrapper.Security.AccessControl
@@ -25,6 +24,6 @@ namespace SystemWrapper.Security.AccessControl
         /// <inheritdoc />
         public RegistrySecurity RegistrySecurityInstance { get; private set; }
 
-        #endregion
+        #endregion Implementation of IRegistrySecurity
     }
 }

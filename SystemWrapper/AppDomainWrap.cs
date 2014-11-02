@@ -1,8 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
-using SystemWrapper.Reflection;
-using SystemInterface.Reflection;
 using SystemInterface;
+using SystemInterface.Reflection;
+using SystemWrapper.Reflection;
 
 namespace SystemWrapper
 {

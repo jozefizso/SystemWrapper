@@ -11,7 +11,6 @@ namespace SystemWrapper.IO
     /// </summary>
     public class MemoryStreamWrap : IMemoryStream
     {
-
         #region Constructors and Initializers
 
         /// <summary>
@@ -35,7 +34,7 @@ namespace SystemWrapper.IO
         /// </summary>
         public MemoryStreamWrap(Stream stream)
         {
-            Initialize(stream );
+            Initialize(stream);
         }
 
         /// <summary>

@@ -4,9 +4,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Security.Policy;
-using SystemWrapper.IO;
 using SystemInterface.IO;
 using SystemInterface.Reflection;
+using SystemWrapper.IO;
 
 namespace SystemWrapper.Reflection
 {

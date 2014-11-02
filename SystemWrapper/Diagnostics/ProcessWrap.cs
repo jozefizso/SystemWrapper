@@ -28,7 +28,7 @@ namespace SystemWrapper.Diagnostics
             ProcessInstance = new Process();
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public int ExitCode

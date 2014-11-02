@@ -20,6 +20,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         }
 
         #region Implementation of IDisposable
+
         /// <summary>
         /// The dispose method
         /// </summary>
@@ -28,9 +29,10 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
             SafeRegistryHandleInstance.Dispose();
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
 
         #region Implementation of ISafeHandle
+
         /// <summary>
         ///
         /// </summary>
@@ -38,6 +40,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         {
             get { return SafeRegistryHandleInstance.IsClosed; }
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -45,6 +48,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         {
             get { return SafeRegistryHandleInstance.IsInvalid; }
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -52,6 +56,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         {
             SafeRegistryHandleInstance.Close();
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -60,6 +65,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         {
             SafeRegistryHandleInstance.DangerousAddRef(ref success);
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -68,6 +74,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         {
             return SafeRegistryHandleInstance.DangerousGetHandle();
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -84,14 +91,15 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
             SafeRegistryHandleInstance.SetHandleAsInvalid();
         }
 
-        #endregion
+        #endregion Implementation of ISafeHandle
 
         #region Implementation of ISafeRegistryHandle
+
         /// <summary>
         ///
         /// </summary>
         public SafeRegistryHandle SafeRegistryHandleInstance { get; private set; }
 
-        #endregion
+        #endregion Implementation of ISafeRegistryHandle
     }
 }

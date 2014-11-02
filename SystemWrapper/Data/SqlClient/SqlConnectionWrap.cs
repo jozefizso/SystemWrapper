@@ -63,7 +63,7 @@ namespace SystemWrapper.Data.SqlClient
             SqlConnectionInstance = new SqlConnection(connectionString);
         }
 
-        #endregion
+        #endregion Constructors
 
         /// <inheritdoc />
         public string ConnectionString

@@ -76,7 +76,7 @@ namespace SystemWrapper.Diagnostics
             ProcessStartInfoInstance = processStartInfo;
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public string Arguments

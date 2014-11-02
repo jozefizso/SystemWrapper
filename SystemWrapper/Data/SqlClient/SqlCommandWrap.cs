@@ -26,7 +26,6 @@ namespace SystemWrapper.Data.SqlClient
             SqlCommandInstance = new SqlCommand();
         }
 
-
         /// <summary>
         /// Initializes a new instance of the SqlCommandWrap class.
         /// </summary>
@@ -44,7 +43,6 @@ namespace SystemWrapper.Data.SqlClient
         {
             SqlCommandInstance = command;
         }
-
 
         /// <summary>
         /// Initializes a new instance of the SqlCommandWrap class with the text of the query.
@@ -84,8 +82,7 @@ namespace SystemWrapper.Data.SqlClient
             SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
         }
 
-
-        #endregion
+        #endregion Constructors
 
         /// <inheritdoc />
         public SqlCommand SqlCommandInstance { get; private set; }

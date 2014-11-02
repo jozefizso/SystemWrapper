@@ -9,7 +9,6 @@ namespace SystemWrapper.IO
     /// </summary>
     public class StreamWriterWrap : TextWriter, IStreamWriter
     {
-
         #region Constructors and Initializers
 
         /// <summary>
