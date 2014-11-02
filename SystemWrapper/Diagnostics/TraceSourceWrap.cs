@@ -12,7 +12,7 @@ namespace SystemWrapper.Diagnostics
         #region Instance & Constructors
 
         /// <summary>
-        /// Concrete Instance of TraceSource
+        /// Actual <see cref="TraceSource"/> instance.
         /// </summary>
         public TraceSource TraceSourceInstance { get; internal set; }
 

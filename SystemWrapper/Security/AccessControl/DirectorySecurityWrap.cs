@@ -8,7 +8,7 @@ namespace SystemWrapper.Security.AccessControl
     /// </summary>
     public class DirectorySecurityWrap : IDirectorySecurity
     {
-        private DirectorySecurity directorySecurity;
+        private DirectorySecurity _directorySecurity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.DirectorySecurityWrap"/> class on the specified path.
@@ -25,13 +25,13 @@ namespace SystemWrapper.Security.AccessControl
         /// <param name="dirSecurity">A <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.</param>
         public void Initialize(DirectorySecurity dirSecurity)
         {
-            this.directorySecurity = dirSecurity;
+            this._directorySecurity = dirSecurity;
         }
 
         /// <inheritdoc />
         public DirectorySecurity DirectorySecurityInstance
         {
-            get { return directorySecurity; }
+            get { return this._directorySecurity; }
         }
     }
 }

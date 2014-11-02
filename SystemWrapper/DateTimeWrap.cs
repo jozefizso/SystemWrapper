@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using SystemInterface;
 
@@ -562,6 +563,7 @@ namespace SystemWrapper
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public IDateTime FromOADate(double d)
         {
             return new DateTimeWrap(DateTime.FromOADate(d));
@@ -706,6 +708,7 @@ namespace SystemWrapper
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public double ToOADate()
         {
             return DateTimeInstance.ToOADate();

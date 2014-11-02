@@ -3,9 +3,9 @@ using SystemInterface.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
 {
-    ///<summary>
+    /// <summary>
     /// Wrapper for <see cref="T:System.Diagnostics.ProcessStartInfo"/> class.
-    ///</summary>
+    /// </summary>
     public class ProcessStartInfoWrap : IProcessStartInfo
     {
         #region Constructors and Initializers
@@ -61,7 +61,7 @@ namespace SystemWrapper.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
-        /// <param name="processStartInfo">ProcessStartInfo instance</param>
+        /// <param name="processStartInfo">ProcessStartInfo instance.</param>
         public ProcessStartInfoWrap(ProcessStartInfo processStartInfo)
         {
             Initialize(processStartInfo);
@@ -70,7 +70,7 @@ namespace SystemWrapper.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
-        /// <param name="processStartInfo">ProcessStartInfo instance</param>
+        /// <param name="processStartInfo">ProcessStartInfo instance.</param>
         public void Initialize(ProcessStartInfo processStartInfo)
         {
             ProcessStartInfoInstance = processStartInfo;

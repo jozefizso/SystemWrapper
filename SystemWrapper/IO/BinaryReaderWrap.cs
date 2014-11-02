@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -216,7 +217,7 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public sbyte ReadSByte()
         {
             return BinaryReaderInstance.ReadSByte();
@@ -235,18 +236,21 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public ushort ReadUInt16()
         {
             return BinaryReaderInstance.ReadUInt16();
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public uint ReadUInt32()
         {
             return BinaryReaderInstance.ReadUInt32();
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public ulong ReadUInt64()
         {
             return BinaryReaderInstance.ReadUInt64();

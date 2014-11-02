@@ -35,7 +35,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path.
         /// </summary>
         /// <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
-        /// <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
+        /// <param name="ownsHandle"> <c>true</c> to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
         public SafeFileHandleWrap(IntPtr preexistingHandle, bool ownsHandle)
         {
             Initialize(preexistingHandle, ownsHandle);
@@ -45,7 +45,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path.
         /// </summary>
         /// <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
-        /// <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
+        /// <param name="ownsHandle"> <c>true</c> to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
         public void Initialize(IntPtr preexistingHandle, bool ownsHandle)
         {
             SafeFileHandleInstance = new SafeFileHandle(preexistingHandle, ownsHandle);

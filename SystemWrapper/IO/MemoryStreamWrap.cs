@@ -172,7 +172,7 @@ namespace SystemWrapper.IO
         /// <param name="index">The index into buffer at which the stream begins.</param>
         /// <param name="count">The length of the stream in bytes.</param>
         /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-        /// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
+        /// <param name="publiclyVisible"> <c>true</c> to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
         public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
         {
             Initialize(buffer, index, count, writable, publiclyVisible);
@@ -185,7 +185,7 @@ namespace SystemWrapper.IO
         /// <param name="index">The index into buffer at which the stream begins.</param>
         /// <param name="count">The length of the stream in bytes.</param>
         /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-        /// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
+        /// <param name="publiclyVisible"> <c>true</c> to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
         public void Initialize(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
         {
             MemoryStreamInstance = new MemoryStream(buffer, index, count, writable, publiclyVisible);
@@ -260,7 +260,13 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        public Stream StreamInstance { get { return MemoryStreamInstance; } }
+        public Stream StreamInstance
+        {
+            get
+            {
+                return MemoryStreamInstance;
+            }
+        }
 
         /// <inheritdoc />
         [ComVisible(false)]

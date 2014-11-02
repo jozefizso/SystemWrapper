@@ -15,7 +15,7 @@ namespace SystemWrapper.Data.SqlClient
         /// </summary>
         public SqlDataReaderWrap()
         {
-            //this constructor assumes the caller will call the Initialize method before using
+            // this constructor assumes the caller will call the Initialize method before using
         }
 
         /// <summary>

@@ -198,7 +198,6 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-
         public void Write(sbyte value)
         {
             BinaryWriterInstance.Write(value);
@@ -223,14 +222,12 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-
         public void Write(uint value)
         {
             BinaryWriterInstance.Write(value);
         }
 
         /// <inheritdoc />
-
         public void Write(ulong value)
         {
             BinaryWriterInstance.Write(value);

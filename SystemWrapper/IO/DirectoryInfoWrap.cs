@@ -10,6 +10,8 @@ using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
     /// </summary>
@@ -288,6 +290,7 @@ namespace SystemWrapper.IO
             return DirectoryInfo.ToString();
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         private static IDirectoryInfo[] ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(DirectoryInfo[] directoryInfos)
         {
             IDirectoryInfo[] directoryInfoWraps = new DirectoryInfoWrap[directoryInfos.Length];

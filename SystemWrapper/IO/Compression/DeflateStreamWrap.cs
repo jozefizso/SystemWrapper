@@ -12,11 +12,11 @@ namespace SystemWrapper.IO.Compression
         #region Constructors and Initializers
 
         /// <summary>
-        /// Creates an uninitialized version of DeflateStreamWrap
+        /// Creates an uninitialized version of DeflateStreamWrap.
         /// </summary>
         public DeflateStreamWrap()
         {
-            //this constructor assumes caller will make a subsequent call to Initialize
+            // this constructor assumes caller will make a subsequent call to Initialize
         }
 
         /// <summary>

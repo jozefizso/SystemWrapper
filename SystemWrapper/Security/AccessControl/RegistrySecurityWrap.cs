@@ -6,12 +6,12 @@ namespace SystemWrapper.Security.AccessControl
     /// <summary>
     /// RegistrySecurityWrap is a wrapper for RegistrySecurity
     /// that implements IRegistrySecurity. Using this instead
-    /// of using RegistrySecurity directly
+    /// of using RegistrySecurity directly.
     /// </summary>
     public class RegistrySecurityWrap : IRegistrySecurity
     {
         /// <summary>
-        /// The Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="registrySecurity"></param>
         public RegistrySecurityWrap(RegistrySecurity registrySecurity)

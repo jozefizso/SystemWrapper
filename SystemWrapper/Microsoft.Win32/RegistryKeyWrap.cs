@@ -16,7 +16,7 @@ namespace SystemWrapper.Microsoft.Win32
         #region Implementation of IDisposable
 
         /// <summary>
-        /// Implementation of the Dispose
+        /// Implementation of the Dispose.
         /// </summary>
         public void Dispose()
         {
@@ -37,25 +37,27 @@ namespace SystemWrapper.Microsoft.Win32
         }
 
         /// <summary>
-        /// Initiatlized the RegistryKey instance
+        /// Initiatlized the RegistryKey instance.
         /// </summary>
         /// <param name="registryKey"></param>
         public void Initialize(RegistryKey registryKey)
         {
-            _RegistryKeyInstance = registryKey;
+            this._registryKeyInstance = registryKey;
         }
 
         #endregion Constructors and Initializers
 
         #region Implementation of IRegistryKey
 
+        private RegistryKey _registryKeyInstance;
+
         /// <summary>
         /// Gets <see cref="T:Microsoft.Win32.RegistryKey"/> object.
         /// </summary>
         public RegistryKey RegistryKeyInstance
         {
-            get { return _RegistryKeyInstance; }
-        } private RegistryKey _RegistryKeyInstance;
+            get { return this._registryKeyInstance; }
+        }
 
         /// <summary>
         ///
@@ -143,7 +145,7 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck, RegistryOptions options)
         {
-            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options); ;
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options);
             if (null == key)
                 return null;
             else

@@ -25,7 +25,8 @@ namespace SystemWrapper.Reflection
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class.
         /// </summary>
         public AssemblyWrap()
-        { }
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class.

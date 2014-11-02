@@ -11,6 +11,8 @@ using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileStream"/> class.
     /// </summary>
@@ -146,7 +148,7 @@ namespace SystemWrapper.IO
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-        /// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
+        /// <param name="isAsync"> <c>true</c> if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
@@ -159,7 +161,7 @@ namespace SystemWrapper.IO
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-        /// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
+        /// <param name="isAsync"> <c>true</c> if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
@@ -372,7 +374,13 @@ namespace SystemWrapper.IO
         /// <summary>
         /// Gets <see cref="T:System.IO.Stream"/> object.
         /// </summary>
-        public Stream StreamInstance { get { return FileStreamInstance; } }
+        public Stream StreamInstance
+        {
+            get
+            {
+                return FileStreamInstance;
+            }
+        }
 
         /// <inheritdoc />
         public int WriteTimeout
@@ -588,6 +596,7 @@ namespace SystemWrapper.IO
             FileStreamInstance.WriteByte(value);
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IFileStream[] ConvertFileStreamArrayIntoIFileStreamWrapArray(FileStream[] fileStreams)
         {
             var fileStreamWraps = new FileStreamWrap[fileStreams.Length];

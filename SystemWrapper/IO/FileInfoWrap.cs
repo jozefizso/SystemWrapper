@@ -9,6 +9,8 @@ using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
     /// </summary>
@@ -288,6 +290,7 @@ namespace SystemWrapper.IO
             return FileInfoInstance.ToString();
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IFileInfo[] ConvertFileInfoArrayIntoIFileInfoWrapArray(FileInfo[] fileInfos)
         {
             var fileInfoWraps = new FileInfoWrap[fileInfos.Length];

@@ -300,7 +300,13 @@ namespace SystemWrapper.IO
         public StreamReader StreamReaderInstance { get; private set; }
 
         /// <inheritdoc />
-        public TextReader TextReaderInstance { get { return StreamReaderInstance; } }
+        public TextReader TextReaderInstance
+        {
+            get
+            {
+                return StreamReaderInstance;
+            }
+        }
 
         /// <inheritdoc />
         public void Close()

@@ -8,7 +8,7 @@ namespace SystemWrapper.Security.AccessControl
     /// </summary>
     public class FileSecurityWrap : IFileSecurity
     {
-        internal FileSecurity _fileSecurity;
+        private FileSecurity _fileSecurity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path.
