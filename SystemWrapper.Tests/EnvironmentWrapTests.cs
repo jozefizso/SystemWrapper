@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Fakes;
 using System.Linq;
 using NUnit.Framework;
 
@@ -16,32 +17,62 @@ namespace SystemWrapper.Tests
             this.EnvironmentWrap = new EnvironmentWrap();
         }
 
-        public IEnvironment EnvironmentWrap { get; set; }
+        public EnvironmentWrap EnvironmentWrap { get; set; }
 
         [Test]
-        public void Is64BitOperatingSystem_CurrentEnvironment_ReturnsCorrectValue()
+        [UseShimsContext]
+        public void Is64BitOperatingSystem_EnvironmentIs64BitOperatingSystemIsFalse_ReturnsFalse()
         {
             // Arrange
-            var expectedValue = Environment.Is64BitOperatingSystem;
+            ShimEnvironment.Is64BitOperatingSystemGet = () => false;
 
             // Act
-            var actualValue = this.EnvironmentWrap.Is64BitOperatingSystem;
+            var actualValue = EnvironmentWrap.Is64BitOperatingSystem;
 
             // Assert
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.IsFalse(actualValue, "EnvironmentWrap.Is64BitOperatingSystem must return false when Environment.Is64BitOperatingSystem returns false.");
         }
 
         [Test]
-        public void Is64BitProcess_CurrentEnvironment_ReturnsCorrectValue()
+        [UseShimsContext]
+        public void Is64BitOperatingSystem_EnvironmentIs64BitOperatingSystemIsTrue_ReturnsTrue()
         {
             // Arrange
-            var expectedValue = Environment.Is64BitProcess;
+            ShimEnvironment.Is64BitOperatingSystemGet = () => true;
 
             // Act
-            var actualValue = this.EnvironmentWrap.Is64BitProcess;
+            var actualValue = EnvironmentWrap.Is64BitOperatingSystem;
 
             // Assert
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.IsTrue(actualValue, "EnvironmentWrap.Is64BitOperatingSystem must return true when Environment.Is64BitOperatingSystem returns true.");
+        }
+
+        [Test]
+        [UseShimsContext]
+        public void Is64BitProcess_EnvironmentIs64BitProcessIsFalse_ReturnsFalse()
+        {
+            // Arrange
+            ShimEnvironment.Is64BitProcessGet = () => false;
+
+            // Act
+            var actualValue = EnvironmentWrap.Is64BitProcess;
+
+            // Assert
+            Assert.IsFalse(actualValue, "EnvironmentWrap.Is64BitProcess must return false when Environment.Is64BitProcess returns false.");
+        }
+
+        [Test]
+        [UseShimsContext]
+        public void Is64BitProcess_EnvironmentIs64BitProcessIsFalseTrue_ReturnsTrue()
+        {
+            // Arrange
+            ShimEnvironment.Is64BitProcessGet = () => true;
+
+            // Act
+            var actualValue = EnvironmentWrap.Is64BitProcess;
+
+            // Assert
+            Assert.IsTrue(actualValue, "EnvironmentWrap.Is64BitProcess must return true when Environment.Is64BitProcess returns true.");
         }
     }
 }
