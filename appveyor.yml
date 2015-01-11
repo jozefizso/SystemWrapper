@@ -8,6 +8,7 @@ version: 0.7.0.{build}
 branches:
   except:
     - gh-pages
+    - testing_msfakes
 
 os: Windows Server 2012
 
