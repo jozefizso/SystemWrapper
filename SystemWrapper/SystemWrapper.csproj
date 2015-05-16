@@ -94,6 +94,7 @@
     <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="Security\AccessControl\RegistrySecurityWrap.cs" />
+    <Compile Include="SystemWrapperHelpers.cs" />
     <Compile Include="Threading\ThreadWrap.cs" />
     <Compile Include="VersionWrap.cs" />
   </ItemGroup>
