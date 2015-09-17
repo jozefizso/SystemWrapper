@@ -13,7 +13,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.Directory"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class DirectoryWrap : IDirectory
+    public partial class DirectoryWrap : IDirectory
     {
         /// <inheritdoc />
         public IDirectoryInfo CreateDirectory(string path)

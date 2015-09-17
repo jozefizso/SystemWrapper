@@ -9,7 +9,7 @@ namespace SystemInterface.IO
     /// Wrapper for <see cref="System.IO.Directory"/> class.
     /// </summary> 
     [CLSCompliant(false)]
-    public interface IDirectory
+    public partial interface IDirectory
     {
         /// <summary>
         /// Creates all directories and subdirectories as specified by path. 
