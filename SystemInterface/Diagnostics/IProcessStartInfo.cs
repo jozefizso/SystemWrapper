@@ -50,6 +50,16 @@ namespace SystemInterface.Diagnostics
         /// </summary>
         bool UseShellExecute { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value that indicates whether the output of an application is written to
+        /// the <see cref="IProcess.StandardOutput"/> stream.
+        /// </summary>
+        /// <value>
+        /// true if output should be written to <see cref="IProcess.StandardOutput"/>;
+        /// otherwise, false. The default is false.
+        /// </value>
+        bool RedirectStandardOutput { get; set; }
+
         /*
 
             // Properties
@@ -62,7 +72,6 @@ namespace SystemInterface.Diagnostics
             public SecureString Password { get; set; }
             public bool RedirectStandardError { get; set; }
             public bool RedirectStandardInput { get; set; }
-            public bool RedirectStandardOutput { get; set; }
             public Encoding StandardErrorEncoding { get; set; }
             public Encoding StandardOutputEncoding { get; set; }
             public string UserName { get; set; }
