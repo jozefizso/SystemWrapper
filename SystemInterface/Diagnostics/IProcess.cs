@@ -174,8 +174,6 @@ namespace SystemInterface.Diagnostics
             public StreamReader StandardError { get; }
             [MonitoringDescription("ProcessStandardInput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
             public StreamWriter StandardInput { get; }
-            [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
-            public StreamReader StandardOutput { get; }
             [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public DateTime StartTime { get; }
             [MonitoringDescription("ProcessSynchronizingObject"), Browsable(false), DefaultValue((string) null)]
