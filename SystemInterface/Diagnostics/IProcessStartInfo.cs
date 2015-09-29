@@ -60,6 +60,18 @@ namespace SystemInterface.Diagnostics
         /// </value>
         bool RedirectStandardOutput { get; set; }
 
+        /// <summary>
+        /// When the <see cref="UseShellExecute"/> property is false, gets or sets the working directory
+        /// for the process to be started. When <see cref="UseShellExecute"/> is true, gets or sets the
+        /// directory that contains the process to be started.
+        /// </summary>
+        /// <value>
+        /// When <see cref="UseShellExecute"/> is true, the fully qualified name of the directory that contains
+        /// the process to be started. When the <see cref="UseShellExecute"/> property is false, the working
+        /// directory for the process to be started. The default is an empty string ("").
+        /// </value>
+        string WorkingDirectory { get; set; }
+
         /*
 
             // Properties
@@ -78,7 +90,6 @@ namespace SystemInterface.Diagnostics
             public string Verb { get; set; }
             public string[] Verbs { get; }
             public ProcessWindowStyle WindowStyle { get; set; }
-            public string WorkingDirectory { get; set; }
         */
     }
 }

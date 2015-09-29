@@ -109,5 +109,12 @@ namespace SystemWrapper.Diagnostics
             get { return ProcessStartInfoInstance.RedirectStandardOutput; }
             set { ProcessStartInfoInstance.RedirectStandardOutput = value; }
         }
+
+        /// <inheritdoc />
+        public string WorkingDirectory
+        {
+            get { return ProcessStartInfoInstance.WorkingDirectory; }
+            set { ProcessStartInfoInstance.WorkingDirectory = value; }
+        }
     }
 }
