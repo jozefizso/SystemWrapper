@@ -17,9 +17,10 @@ configuration: Release
 before_build:
   nuget restore
 
-build:
-  project: SystemWrapper.sln
-  verbosity: normal
+build_script: nuget-package.bat
+
+artifacts:
+  - path: 'publish\*.nupkg'
 
 assembly_info:
   patch: true
@@ -34,3 +35,10 @@ test:
 
 cache:
   - packages -> **\packages.config
+
+deploy:
+  - provider: NuGet
+    api_key: 
+      secure: jINaEHhYh83PTuZYPwnkoTDUMB+pTz6UMmeqkWeRnqtZXIuX/Nd3Fyu197viK/vR
+    on:
+      appveyor_repo_tag: true
