@@ -19,8 +19,8 @@ before_build:
 
 build_script: nuget-package.bat
 
-artifacts:
-  - path: 'publish\*.nupkg'
+#artifacts:
+#  - path: 'publish\*.nupkg'
 
 assembly_info:
   patch: true
