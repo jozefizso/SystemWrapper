@@ -19,7 +19,7 @@ before_build:
 
 build:
   project: SystemWrapper.sln
-  verbosity: detailed
+  verbosity: normal
 
 assembly_info:
   patch: true
