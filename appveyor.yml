@@ -33,4 +33,4 @@ test:
     - SystemWrapper.Tests.dll
 
 cache:
-  - packages
+  - packages -> **\packages.config
