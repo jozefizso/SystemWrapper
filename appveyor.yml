@@ -26,9 +26,7 @@ assembly_info:
   assembly_file_version: "1.0.0.0"
   assembly_informational_version: "{version}"
 
-test:
-  assemblies:
-    - SystemWrapper.Tests.dll
+test: off
 
 cache:
   - packages -> **\packages.config
