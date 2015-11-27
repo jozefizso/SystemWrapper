@@ -50,6 +50,28 @@ namespace SystemInterface.Diagnostics
         /// </summary>
         bool UseShellExecute { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value that indicates whether the output of an application is written to
+        /// the <see cref="IProcess.StandardOutput"/> stream.
+        /// </summary>
+        /// <value>
+        /// true if output should be written to <see cref="IProcess.StandardOutput"/>;
+        /// otherwise, false. The default is false.
+        /// </value>
+        bool RedirectStandardOutput { get; set; }
+
+        /// <summary>
+        /// When the <see cref="UseShellExecute"/> property is false, gets or sets the working directory
+        /// for the process to be started. When <see cref="UseShellExecute"/> is true, gets or sets the
+        /// directory that contains the process to be started.
+        /// </summary>
+        /// <value>
+        /// When <see cref="UseShellExecute"/> is true, the fully qualified name of the directory that contains
+        /// the process to be started. When the <see cref="UseShellExecute"/> property is false, the working
+        /// directory for the process to be started. The default is an empty string ("").
+        /// </value>
+        string WorkingDirectory { get; set; }
+
         /*
 
             // Properties
@@ -62,14 +84,12 @@ namespace SystemInterface.Diagnostics
             public SecureString Password { get; set; }
             public bool RedirectStandardError { get; set; }
             public bool RedirectStandardInput { get; set; }
-            public bool RedirectStandardOutput { get; set; }
             public Encoding StandardErrorEncoding { get; set; }
             public Encoding StandardOutputEncoding { get; set; }
             public string UserName { get; set; }
             public string Verb { get; set; }
             public string[] Verbs { get; }
             public ProcessWindowStyle WindowStyle { get; set; }
-            public string WorkingDirectory { get; set; }
         */
     }
 }

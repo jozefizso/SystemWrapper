@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Diagnostics;
+using SystemInterface.IO;
 
 namespace SystemInterface.Diagnostics
 {
@@ -61,6 +62,16 @@ namespace SystemInterface.Diagnostics
         /// </summary>
         /// <returns>true if the associated process has reached an idle state.</returns>
         bool WaitForInputIdle();
+
+        /// <summary>
+        /// Gets a stream used to read the output of the application.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IStreamReader"/> implementation that can be used
+        /// to read the standard output stream of the application.
+        /// </value>
+        [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
+        IStreamReader StandardOutput { get; }
 
         /*
 
@@ -163,8 +174,6 @@ namespace SystemInterface.Diagnostics
             public StreamReader StandardError { get; }
             [MonitoringDescription("ProcessStandardInput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
             public StreamWriter StandardInput { get; }
-            [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
-            public StreamReader StandardOutput { get; }
             [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public DateTime StartTime { get; }
             [MonitoringDescription("ProcessSynchronizingObject"), Browsable(false), DefaultValue((string) null)]

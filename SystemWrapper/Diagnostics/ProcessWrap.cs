@@ -1,5 +1,7 @@
+using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
+using SystemInterface.IO;
 
 namespace SystemWrapper.Diagnostics
 {
@@ -56,6 +58,15 @@ namespace SystemWrapper.Diagnostics
         {
             get { return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
             set { this._startInfo = value; }
+        }
+
+        /// <inheritdoc />
+        public IStreamReader StandardOutput
+        {
+            get
+            {
+                return new IO.StreamReaderWrap(ProcessInstance.StandardOutput);
+            }
         }
 
         /// <inheritdoc />

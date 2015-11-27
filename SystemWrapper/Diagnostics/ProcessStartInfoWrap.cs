@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
 
@@ -100,6 +101,20 @@ namespace SystemWrapper.Diagnostics
         {
             get { return ProcessStartInfoInstance.UseShellExecute; }
             set { ProcessStartInfoInstance.UseShellExecute = value; }
+        }
+
+        /// <inheritdoc />
+        public bool RedirectStandardOutput
+        {
+            get { return ProcessStartInfoInstance.RedirectStandardOutput; }
+            set { ProcessStartInfoInstance.RedirectStandardOutput = value; }
+        }
+
+        /// <inheritdoc />
+        public string WorkingDirectory
+        {
+            get { return ProcessStartInfoInstance.WorkingDirectory; }
+            set { ProcessStartInfoInstance.WorkingDirectory = value; }
         }
     }
 }
