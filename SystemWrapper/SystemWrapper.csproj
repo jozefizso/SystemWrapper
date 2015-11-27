@@ -22,6 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\Debug\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 4.0|AnyCPU' ">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -75,6 +76,7 @@
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
     <Compile Include="IO\DirectoryInfoWrap.cs" />
+    <Compile Include="IO\DirectoryWrap.Net45.cs" />
     <Compile Include="IO\DirectoryWrap.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
     <Compile Include="IO\FileStreamWrap.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="Security\AccessControl\RegistrySecurityWrap.cs" />
+    <Compile Include="SystemWrapperHelpers.cs" />
     <Compile Include="Threading\ThreadWrap.cs" />
     <Compile Include="VersionWrap.cs" />
   </ItemGroup>

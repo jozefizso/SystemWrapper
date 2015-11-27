@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\bin\Debug\SystemInterface.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 4.0|AnyCPU' ">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -71,6 +72,7 @@
     <Compile Include="IO\Compression\IDeflateStream.cs" />
     <Compile Include="IO\IBinaryReader.cs" />
     <Compile Include="IO\IBinaryWriter.cs" />
+    <Compile Include="IO\IDirectory.Net45.cs" />
     <Compile Include="IO\IDirectory.cs" />
     <Compile Include="IO\IDirectoryInfo.cs" />
     <Compile Include="IO\IFile.cs" />

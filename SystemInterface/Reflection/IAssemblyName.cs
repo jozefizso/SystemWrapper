@@ -56,7 +56,7 @@ namespace SystemInterface.Reflection
         AssemblyNameFlags Flags { get; set; }
 
         /// <summary>
-        ///      Gets the full name of the assembly, also known as the display name.
+        /// Gets the full name of the assembly, also known as the display name.
         /// </summary>
         string FullName { get; }
 
