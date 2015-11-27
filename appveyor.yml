@@ -23,7 +23,7 @@ build:
 
 assembly_info:
   patch: true
-  file: AssemblySharedInfo.*
+  file: 'Build\AssemblySharedInfo.cs'
   assembly_version: "{version}"
   assembly_file_version: "1.0.0.0"
   assembly_informational_version: "{version}"
