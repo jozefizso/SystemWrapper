@@ -3,7 +3,7 @@
 # AppVeyor configuration
 #
 
-version: 0.9.0.{build}
+version: 0.9.1.{build}
 
 branches:
   except:
@@ -14,10 +14,7 @@ os: Visual Studio 2015
 platform: Any CPU
 configuration: Release
 
-before_build:
-  nuget restore
-
-build_script: nuget-package.bat
+build_script: build.bat
 
 #artifacts:
 #  - path: 'publish\*.nupkg'
