@@ -20,6 +20,6 @@
     <file src="..\bin\$Configuration$\net45\SystemWrapper.*" target="lib\net45\" />
     <file src="..\bin\$Configuration$\net40\SystemWrapper.*" target="lib\net40\" />
     <file src="..\Build\*.cs" target="src\Build\" />
-    <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" />
+    <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" exclude="..\SystemWrapper\obj\**;..\SystemWrapper\bin\**" />
   </files>
 </package>
