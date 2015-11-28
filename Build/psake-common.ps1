@@ -51,6 +51,8 @@ Task Build -Depends Restore -Description "Rebuild all the projects in a solution
 }
 
 Task RunTests -Depends Build -Description "Run unit tests for solution." {
+    Create-Directory $publish_dir
+
     Run-Tests "SystemWrapper.Tests"
 }
 
@@ -65,8 +67,46 @@ function Run-Tests($project) {
     if ($appVeyor) {
         Exec { nunit-console $assembly /framework:net-4.0 }
     } else {
-        Exec { .$nunit $assembly /framework:net-4.0 /result:"$publish_dir\$project_net40.xml" }
+        Exec { .$nunit $assembly /framework:net-4.0 /result:"$publish_dir\${project}_net40.xml" }
     }
+}
+
+### Pack functions
+
+function Create-Package($project, $version) {
+
+    Build-Project $project "Release 4.0"
+    Build-Project $project "Release 4.5"
+    Build-Project $project "Release 4.5" "Package"
+}
+
+function Build-Project($project, $config, $target = "Build") {
+
+    $extra = $null
+    if ($appVeyor) {
+        $extra = "/logger:C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    }
+
+    Exec { msbuild "$base_dir\$project\$project.csproj" /t:$target /p:Configuration=$config /p:Platform=AnyCPU /nologo /verbosity:normal $extra }
+}
+
+
+### Version functions
+
+function Get-BuildVersion {
+    $version = Get-SharedVersion
+    $buildNumber = $env:APPVEYOR_BUILD_NUMBER
+
+    if ($env:APPVEYOR_REPO_TAG -ne "True" -And $buildNumber -ne $null) {
+        $version += "-build-" + $buildNumber.ToString().PadLeft(5, '0')
+    }
+
+    return $version
+}
+
+function Get-SharedVersion {
+    $line = Get-Content "$sharedAssemblyInfo" | where {$_.Contains("AssemblyVersion")}
+    $line.Split('"')[1]
 }
 
 ### Common functions

@@ -208,7 +208,7 @@
     </GetAssemblyIdentity>
     <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
   </Target>
-  <Target Name="Package">
+  <Target Name="Package" DependsOnTargets="AfterBuild">
     <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
     <!-- Package the project -->
     <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="$(MSBuildThisFileDirectory)..\.nuget\NuGet.exe pack &quot;$(MSBuildProjectName).nuspec&quot; -Verbosity detailed -Symbols -OutputDir &quot;$(MSBuildThisFileDirectory)..\publish&quot; -Version %(OutputAssemblyInfo.Version) -Properties &quot;Configuration=Release&quot;" />

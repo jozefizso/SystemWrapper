@@ -14,10 +14,10 @@ os: Visual Studio 2015
 platform: Any CPU
 configuration: Release
 
-build_script: build.bat
+build_script: build.bat pack
 
-#artifacts:
-#  - path: 'publish\*.nupkg'
+artifacts:
+  - path: 'publish\*.nupkg'
 
 assembly_info:
   patch: true
