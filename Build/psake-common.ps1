@@ -87,7 +87,7 @@ function Build-Project($project, $config, $target = "Build") {
         $extra = "/logger:C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     }
 
-    Exec { msbuild "$base_dir\$project\$project.csproj" /t:$target /p:Configuration=$config /p:Platform=AnyCPU /nologo /verbosity:normal $extra }
+    Exec { msbuild "$base_dir\$project\$project.csproj" /t:$target /p:Configuration=$config /p:Platform=AnyCPU /nologo /verbosity:minimal $extra }
 }
 
 
