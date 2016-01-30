@@ -3,14 +3,14 @@
   <metadata>
     <id>SystemWrapper.Interfaces</id>
     <version>$Version$</version>
-    <authors>Jozef Izso</authors>
+    <authors>Jozef Izso, Yann Brulhart</authors>
     <owners>Jozef Izso</owners>
     <licenseUrl>https://github.com/jozefizso/SystemWrapper/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Set of interfaces of .NET system APIs that allows interaction mocking.</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright (c) 2014 Jozef Izso</copyright>
+    <copyright>Copyright (c) 2014-2016 Jozef Izso</copyright>
     <tags>SystemWrapper mocks unit tests registry filesystem</tags>
   </metadata>
   <files>
