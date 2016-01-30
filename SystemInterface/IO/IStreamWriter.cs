@@ -10,7 +10,7 @@ namespace SystemInterface.IO
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
     /// </summary>	       
     [CLSCompliant(false)]
-    public interface IStreamWriter
+    public interface IStreamWriter : IDisposable
     {
 
         /// <summary>
