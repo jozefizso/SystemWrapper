@@ -191,6 +191,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Settings.StyleCop" />
+    <None Include="SystemWrapper.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
