@@ -28,33 +28,33 @@ namespace SystemWrapper.Configuration
         }
 
         /// <inheritdoc />
-        public System.Configuration.Configuration OpenExeConfiguration(string pExePath)
+        public IConfiguration OpenExeConfiguration(string pExePath)
         {
-            return ConfigurationManager.OpenExeConfiguration(pExePath);
+            return new ConfigurationWrap(ConfigurationManager.OpenExeConfiguration(pExePath));
         }
 
         /// <inheritdoc />
-        public System.Configuration.Configuration OpenExeConfiguration(ConfigurationUserLevel pConfigurationUserLevel)
+        public IConfiguration OpenExeConfiguration(ConfigurationUserLevel pConfigurationUserLevel)
         {
-            return ConfigurationManager.OpenExeConfiguration(pConfigurationUserLevel);
+            return new ConfigurationWrap(ConfigurationManager.OpenExeConfiguration(pConfigurationUserLevel));
         }
 
         /// <inheritdoc />
-        public System.Configuration.Configuration OpenMachineConfiguration()
+        public IConfiguration OpenMachineConfiguration()
         {
-            return ConfigurationManager.OpenMachineConfiguration();
+            return new ConfigurationWrap(ConfigurationManager.OpenMachineConfiguration());
         }
 
         /// <inheritdoc />
-        public System.Configuration.Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap pExeConfigurationFileMap, ConfigurationUserLevel pConfigurationUserLevel)
+        public IConfiguration OpenMappedExeConfiguration(ExeConfigurationFileMap pExeConfigurationFileMap, ConfigurationUserLevel pConfigurationUserLevel)
         {
-            return ConfigurationManager.OpenMappedExeConfiguration(pExeConfigurationFileMap, pConfigurationUserLevel);
+            return new ConfigurationWrap(ConfigurationManager.OpenMappedExeConfiguration(pExeConfigurationFileMap, pConfigurationUserLevel));
         }
 
         /// <inheritdoc />
-        public System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap pConfigurationFileMap)
+        public IConfiguration OpenMappedMachineConfiguration(ConfigurationFileMap pConfigurationFileMap)
         {
-            return ConfigurationManager.OpenMappedMachineConfiguration(pConfigurationFileMap);
+            return new ConfigurationWrap(ConfigurationManager.OpenMappedMachineConfiguration(pConfigurationFileMap));
         }
 
         /// <inheritdoc />
