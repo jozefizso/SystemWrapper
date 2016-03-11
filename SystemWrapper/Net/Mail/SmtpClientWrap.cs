@@ -6,7 +6,7 @@
     using System.Net.Mail;
     using SystemInterface.Net.Mail;
 
-    public sealed class SmtpClientWrapper : ISmtpClient
+    public sealed class SmtpClientWrap : ISmtpClient
     {
         public event SendCompletedEventHandler SendCompleted;
 
@@ -17,20 +17,18 @@
         {
             get { return _Instance ?? (_Instance = new SmtpClient()); }
             set { _Instance = value; }
-        }
+        } private SmtpClient _Instance;
 
-        private SmtpClient _Instance;
-
-        public SmtpClientWrapper()
+        public SmtpClientWrap()
         {
         }
 
-        public SmtpClientWrapper(string host)
+        public SmtpClientWrap(string host)
         {
             Instance = new SmtpClient(host);
         }
 
-        public SmtpClientWrapper(SmtpClient smtpClient)
+        public SmtpClientWrap(SmtpClient smtpClient)
         {
             Instance = smtpClient;
         }
