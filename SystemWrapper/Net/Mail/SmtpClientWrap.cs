@@ -71,16 +71,11 @@
             set { Instance.Credentials = value; }
         }
 
-        public SendCompletedEventHandler OnSendCompletedHandler
-        {
-            get { return _Handler ?? (_Handler = OnSendCompleted); }
-        } private SendCompletedEventHandler _Handler;
-
         internal void AddHandler()
         {
             if (!HandlerAdded)
             {
-                Instance.SendCompleted += OnSendCompletedHandler;
+                Instance.SendCompleted += OnSendCompleted;
                 HandlerAdded = true;
             }
         }
