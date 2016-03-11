@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using SystemWrapper.Net.Mail;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SystemWrapper.Tests.Net.Mail
 {
@@ -6,8 +7,10 @@ namespace SystemWrapper.Tests.Net.Mail
     public class SmtpClientWrapTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceIsNotNull()
         {
+            var smtpClientWrap = new SmtpClientWrap();
+            Assert.IsNotNull(smtpClientWrap.Instance);
         }
     }
 }
