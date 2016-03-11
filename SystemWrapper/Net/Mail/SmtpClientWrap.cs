@@ -1,86 +1,109 @@
 ﻿namespace SystemWrapper.Net.Mail
 {
     using System;
+    using System.ComponentModel;
+    using System.Net;
     using System.Net.Mail;
-
     using SystemInterface.Net.Mail;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public class SmtpClientWrap : ISmtpClient
+    public sealed class SmtpClientWrapper : ISmtpClient
     {
-        #region Fields
+        public event SendCompletedEventHandler SendCompleted;
 
-        private readonly SmtpClient smtpClient;
+        internal bool HandlerAdded;
+        internal bool _Disposed;
 
-        #endregion
-
-        #region Constructors and Destructors
-
-        /// <summary>
-        /// 
-        /// </summary>        
-        public SmtpClientWrap(string smtp)
+        internal SmtpClient Instance
         {
-            this.smtpClient = new SmtpClient(smtp);
+            get { return _Instance ?? (_Instance = new SmtpClient()); }
+            set { _Instance = value; }
         }
 
-        #endregion
+        private SmtpClient _Instance;
 
-        #region Public Properties
-
-        /// <summary>
-        /// Gets or sets the name or IP address of the host used for SMTP transactions.
-        /// </summary>
-        public string Host
+        public SmtpClientWrapper()
         {
-            get
+        }
+
+        public SmtpClientWrapper(string host)
+        {
+            Instance = new SmtpClient(host);
+        }
+
+        public SmtpClientWrapper(SmtpClient smtpClient)
+        {
+            Instance = smtpClient;
+        }
+
+        public void Send(string from, string recipients, string subject, string body)
+        {
+            Instance.Send(from, recipients, subject, body);
+        }
+
+        public void Send(MailMessage message)
+        {
+            Instance.Send(message);
+        }
+
+        public void SendAsync(MailMessage message, object userToken)
+        {
+            AddHandler();
+            Instance.SendAsync(message, userToken);
+        }
+
+        public void SendAsync(string from, string recipients, string subject, string body, object userToken)
+        {
+            AddHandler();
+            Instance.SendAsync(from, recipients, subject, body, userToken);
+        }
+
+        internal void OnSendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            OnSendCompleted(e);
+        }
+
+        internal void OnSendCompleted(AsyncCompletedEventArgs e)
+        {
+            SendCompleted?.Invoke(this, e);
+        }
+
+        public ICredentialsByHost Credentials
+        {
+            get { return Instance.Credentials; }
+            set { Instance.Credentials = value; }
+        }
+
+        public SendCompletedEventHandler OnSendCompletedHandler
+        {
+            get { return _Handler ?? (_Handler = OnSendCompleted); }
+        } private SendCompletedEventHandler _Handler;
+
+        internal void AddHandler()
+        {
+            if (!HandlerAdded)
             {
-                return this.smtpClient.Host;
-            }
-            set
-            {
-                this.smtpClient.Host = value;
+                Instance.SendCompleted += OnSendCompletedHandler;
+                HandlerAdded = true;
             }
         }
 
-        #endregion
-
-        #region Public Methods and Operators
-
-        /// <summary>
-        /// Sends the specified message to an SMTP server for delivery.
-        /// </summary>
-        /// <param name="mailMessage">
-        /// A System.Net.Mail.MailMessage that contains the message to send.
-        /// </param>
-        /// <exception cref="InvalidOperationException">
-        /// This System.Net.Mail.SmtpClient has a Overload:System.Net.Mail.SmtpClient.SendAsync call in progress.-or- System.Net.Mail.MailMessage.From is null.-or- There are no recipients specified in System.Net.Mail.MailMessage.To, System.Net.Mail.MailMessage.CC, and System.Net.Mail.MailMessage.Bcc properties.-or- System.Net.Mail.SmtpClient.DeliveryMethod property is set to System.Net.Mail.SmtpDeliveryMethod.Network and System.Net.Mail.SmtpClient.Host is null.-or-System.Net.Mail.SmtpClient.DeliveryMethod property is set to System.Net.Mail.SmtpDeliveryMethod.Network and System.Net.Mail.SmtpClient.Host is equal to the empty string ("").-or- System.Net.Mail.SmtpClient.DeliveryMethod property is set to System.Net.Mail.SmtpDeliveryMethod.Network and System.Net.Mail.SmtpClient.Port is zero, a negative number, or greater than 65,535.
-        /// </exception>
-        /// <exception cref="ObjectDisposedException">
-        /// This object has been disposed.
-        /// </exception>
-        /// <exception cref="SmtpException">
-        /// The connection to the SMTP server failed.-or-Authentication failed.-or-The operation timed out.-or-System.Net.Mail.SmtpClient.EnableSsl is set to true but the System.Net.Mail.SmtpClient.DeliveryMethod property is set to System.Net.Mail.SmtpDeliveryMethod.SpecifiedPickupDirectory or System.Net.Mail.SmtpDeliveryMethod.PickupDirectoryFromIis.-or-System.Net.Mail.SmtpClient.EnableSsl is set to true, but the SMTP mail server did not advertise STARTTLS in the response to the EHLO command.
-        /// </exception>
-        /// /// <exception cref="SmtpFailedRecipientsException">
-        /// The message could not be delivered to one or more of the recipients in System.Net.Mail.MailMessage.To, System.Net.Mail.MailMessage.CC, or System.Net.Mail.MailMessage.Bcc.
-        /// </exception>        
-        public void Send(IMailMessage mailMessage)
+        public void Dispose()
         {
-            var message = new MailMessage();
-            foreach (var to in mailMessage.To)
-            {
-                message.To.Add(to.Address);
-            }
-            message.From = new MailAddress(mailMessage.From.Address);
-            message.Subject = mailMessage.Subject;
-            message.Body = mailMessage.Body;
-
-            this.smtpClient.Send(message);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        #endregion
+        internal void Dispose(bool disposing)
+        {
+            if (_Disposed)
+            {
+                return;
+            }
+            if (!disposing)
+            {
+                Instance.Dispose();
+            }
+            _Disposed = true;
+        }
     }
 }
