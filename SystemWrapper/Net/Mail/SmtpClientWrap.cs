@@ -162,12 +162,12 @@ namespace SystemWrapper.Net.Mail
 
         internal bool HandlerAdded;
 
-        protected void OnSendCompleted(object sender, AsyncCompletedEventArgs e)
+        internal void SendCompletedHandler(object sender, AsyncCompletedEventArgs e)
         {
             OnSendCompleted(e);
         }
 
-        internal void OnSendCompleted(AsyncCompletedEventArgs e)
+        protected void OnSendCompleted(AsyncCompletedEventArgs e)
         {
             SendCompleted?.Invoke(this, e);
         }
@@ -176,7 +176,7 @@ namespace SystemWrapper.Net.Mail
         {
             if (!HandlerAdded)
             {
-                Instance.SendCompleted += OnSendCompleted;
+                Instance.SendCompleted += SendCompletedHandler;
                 HandlerAdded = true;
             }
         }

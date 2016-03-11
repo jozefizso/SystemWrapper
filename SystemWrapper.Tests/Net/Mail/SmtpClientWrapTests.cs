@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using System.Windows.Forms;
 using SystemWrapper.Net.Mail;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -39,7 +40,7 @@ namespace SystemWrapper.Tests.Net.Mail
             Assert.AreEqual(creds, smtpClientWrap.Instance.Credentials);
             Assert.AreEqual(creds, smtpClientWrap.Credentials);
         }
-
+        
         [TestMethod]
         public void EventIsCalled()
         {
@@ -47,7 +48,7 @@ namespace SystemWrapper.Tests.Net.Mail
             var smtpClientWrap = new SmtpClientWrap();
             smtpClientWrap.SendCompleted += (o, args) => { wasCalled = true; };
 
-            smtpClientWrap.OnSendCompleted(null, null);
+            smtpClientWrap.SendCompletedHandler(null, null);
             Assert.IsTrue(wasCalled);
         }
     }
