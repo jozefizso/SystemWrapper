@@ -10,7 +10,7 @@ namespace SystemWrapper.Net.Mail
     using System.Net.Mail;
     using SystemInterface.Net.Mail;
 
-    public class SmtpClientWrap : ISmtpClient, IInstance<SmtpClient>
+    public class SmtpClientWrap : ISmtpClient
     {
         #region Constructors
         public SmtpClient Instance
