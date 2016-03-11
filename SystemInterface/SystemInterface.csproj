@@ -127,10 +127,6 @@
     <Compile Include="Net\IHttpWebRequestFactory.cs" />
     <Compile Include="Net\IHttpWebResponse.cs" />
     <Compile Include="Net\IHttpWebResponseFactory.cs" />
-    <Compile Include="Net\Mail\IMailAddress.cs" />
-    <Compile Include="Net\Mail\IMailAddressCollection.cs" />
-    <Compile Include="Net\Mail\IMailAddressFactory.cs" />
-    <Compile Include="Net\Mail\IMailMessage.cs" />
     <Compile Include="Net\Mail\ISmtpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\IAssembly.cs" />
