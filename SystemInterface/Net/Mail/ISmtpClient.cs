@@ -1,4 +1,6 @@
-﻿namespace SystemInterface.Net.Mail
+﻿using System.Threading.Tasks;
+
+namespace SystemInterface.Net.Mail
 {
     using System;
     using System.Net;
@@ -16,6 +18,14 @@
 
         void SendAsync(string from, string recipients, string subject, string body, object userToken);
 
+        void SendAsyncCancel();
+
+        Task SendMailAsync(MailMessage message);
+
+        Task SendMailAsync(string from, string recipients, string subject, string body);
+
         ICredentialsByHost Credentials { get; set; }
+
+        string Host { get; set; }
     }
 }
