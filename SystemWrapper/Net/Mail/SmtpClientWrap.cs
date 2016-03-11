@@ -169,7 +169,10 @@ namespace SystemWrapper.Net.Mail
 
         protected void OnSendCompleted(AsyncCompletedEventArgs e)
         {
-            SendCompleted?.Invoke(this, e);
+            if (SendCompleted != null)
+            {
+                SendCompleted.Invoke(this, e);
+            }
         }
 
         internal void AddHandler()
