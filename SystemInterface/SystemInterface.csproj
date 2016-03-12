@@ -192,7 +192,7 @@
     </GetAssemblyIdentity>
     <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
   </Target>
-  <Target Name="Package">
+  <Target Name="Package" DependsOnTargets="AfterBuild">
     <!-- Ensure the Package directory exists for this project -->
     <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
     <!-- Package the project -->
