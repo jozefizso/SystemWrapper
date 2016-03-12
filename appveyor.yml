@@ -3,7 +3,7 @@
 # AppVeyor configuration
 #
 
-version: 0.9.1.{build}
+version: 0.10.0.{build}
 
 branches:
   except:

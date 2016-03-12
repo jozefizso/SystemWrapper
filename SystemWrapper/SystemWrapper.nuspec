@@ -9,7 +9,8 @@
     <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Implementation of SystemWrapper.Interfaces using standard .NET Framework objects.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>New interfaces and wrappers for areas like IO, Net, X509, Xml, Data, ActiveDirectory and SmtpClient.
+Droped support for .NET 4.0</releaseNotes>
     <copyright>Copyright (c) 2014-2016 Jozef Izso</copyright>
     <tags>SystemWrapper mocks unit tests registry filesystem</tags>
     <dependencies>
@@ -18,7 +19,6 @@
   </metadata>
   <files>
     <file src="..\bin\$Configuration$\net45\SystemWrapper.*" target="lib\net45\" />
-    <file src="..\bin\$Configuration$\net40\SystemWrapper.*" target="lib\net40\" />
     <file src="..\Build\*.cs" target="src\Build\" />
     <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" exclude="..\SystemWrapper\obj\**;..\SystemWrapper\bin\**" />
   </files>

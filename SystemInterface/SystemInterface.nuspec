@@ -9,12 +9,12 @@
     <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Set of interfaces of .NET system APIs that allows interaction mocking.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>New interfaces for areas like IO, Net, X509, Xml, Data, ActiveDirectory and SmtpClient.
+Droped support for .NET 4.0</releaseNotes>
     <copyright>Copyright (c) 2014-2016 Jozef Izso</copyright>
     <tags>SystemWrapper mocks unit tests registry filesystem</tags>
   </metadata>
   <files>
-    <file src="..\bin\$Configuration$\net40\SystemInterface.*" target="lib\net40\" />
     <file src="..\bin\$Configuration$\net45\SystemInterface.*" target="lib\net45\" />
     <file src="..\Build\*.cs" target="src\Build\" />
     <file src="..\SystemInterface\**\*.cs" target="src\SystemInterface\" exclude="..\SystemInterface\obj\**;..\SystemInterface\bin\**" />

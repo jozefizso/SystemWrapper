@@ -65,17 +65,15 @@ function Run-Tests($project) {
     $assembly = Get-Assembly $project
 
     if ($appVeyor) {
-        Exec { nunit-console $assembly /framework:net-4.0 }
+        Exec { nunit-console $assembly /framework:net-4.5 }
     } else {
-        Exec { .$nunit $assembly /framework:net-4.0 /result:"$publish_dir\${project}_net40.xml" }
+        Exec { .$nunit $assembly /framework:net-4.5 /result:"$publish_dir\${project}_net40.xml" }
     }
 }
 
 ### Pack functions
 
 function Create-Package($project, $version) {
-
-    Build-Project $project "Release 4.0"
     Build-Project $project "Release 4.5"
     Build-Project $project "Release 4.5" "Package"
 }
