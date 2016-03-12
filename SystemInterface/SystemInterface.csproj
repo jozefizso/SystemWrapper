@@ -77,6 +77,7 @@
     <Compile Include="Collections\Specialized\INameValueCollection.cs" />
     <Compile Include="Collections\Specialized\INameValueCollectionFactory.cs" />
     <Compile Include="Configuration\IConfigurationManager.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Data\DataTable\IDataTable.cs" />
     <Compile Include="Data\DataTable\IDataTableFactory.cs" />
     <Compile Include="Data\SqlClient\ISqlCommand.cs" />

@@ -34,20 +34,20 @@ namespace SystemInterface.Configuration
         /// </summary>
         /// <param name="pExePath">The path to the configuration file associated with the executable file.</param>
         /// <returns>A Configuration object.</returns>
-        System.Configuration.Configuration OpenExeConfiguration(string pExePath);
+        IConfiguration OpenExeConfiguration(string pExePath);
 
         /// <summary>
         /// Opens the configuration file for the current application as a Configuration object.
         /// </summary>
         /// <param name="userLevel">The ConfigurationUserLevel for which you are opening the configuration.</param>
         /// <returns>A Configuration object.</returns>
-        System.Configuration.Configuration OpenExeConfiguration(ConfigurationUserLevel userLevel);
+        IConfiguration OpenExeConfiguration(ConfigurationUserLevel userLevel);
 
         /// <summary>
         /// Opens the machine configuration file on the current computer as a Configuration object.
         /// </summary>
         /// <returns>A Configuration object.</returns>
-        System.Configuration.Configuration OpenMachineConfiguration();
+        IConfiguration OpenMachineConfiguration();
 
         /// <summary>
         /// Opens the specified client configuration file as a Configuration object using the specified file mapping and user level.
@@ -55,14 +55,14 @@ namespace SystemInterface.Configuration
         /// <param name="fileMap"></param>
         /// <param name="userLevel"></param>
         /// <returns>A Configuration object.</returns>
-        System.Configuration.Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap fileMap, ConfigurationUserLevel userLevel);
+        IConfiguration OpenMappedExeConfiguration(ExeConfigurationFileMap fileMap, ConfigurationUserLevel userLevel);
 
         /// <summary>
         /// Opens the machine configuration file as a Configuration object using the specified file mapping.
         /// </summary>
         /// <param name="fileMap">An ExeConfigurationFileMap object that references configuration file to use instead of the application default configuration file.</param>
         /// <returns>A Configuration object.</returns>
-        System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap fileMap);
+        IConfiguration OpenMappedMachineConfiguration(ConfigurationFileMap fileMap);
 
         /// <summary>
         /// Refreshes the named section so the next time it is retrieved it will be re-read from disk.

@@ -90,6 +90,7 @@
     <Compile Include="Collections\Specialized\NameValueCollectionFactory.cs" />
     <Compile Include="Collections\Specialized\NameValueCollectionWrap.cs" />
     <Compile Include="Configuration\ConfigurationManagerWrap.cs" />
+    <Compile Include="Configuration\ConfigurationWrap.cs" />
     <Compile Include="ConsoleWrap.cs" />
     <Compile Include="Data\DataTable\DataTableFactory.cs" />
     <Compile Include="Data\DataTable\DataTableWrap.cs" />
