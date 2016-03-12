@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Win32.SafeHandles;
+﻿using Microsoft.Win32.SafeHandles;
 
 namespace SystemInterface.Microsoft.Win32.SafeHandles
 {
     /// <summary>
     /// Interface that matches the decoration of the object
-    /// Microsoft.Win32.SafeHandles.SafeRegistryHandle
+    /// <see cref="SafeRegistryHandle"/>.
     /// </summary>
     public interface ISafeRegistryHandle
     {

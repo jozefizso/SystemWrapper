@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Runtime;
 
 namespace SystemInterface.Diagnostics
 {
@@ -21,10 +20,10 @@ namespace SystemInterface.Diagnostics
         StringDictionary Attributes { get; }
 
         /// <summary>
-        ///     Gets the collection of trace listeners for the trace source.
+        /// Gets the collection of trace listeners for the trace source.
         /// </summary>
         /// <returns>A System.Diagnostics.TraceListenerCollection that contains the active trace
-        ///     listeners associated with the source.</returns>
+        /// listeners associated with the source.</returns>
         TraceListenerCollection Listeners { get; }
 
         /// <summary>
@@ -38,12 +37,12 @@ namespace SystemInterface.Diagnostics
         /// </summary>
         /// <returns>A System.Diagnostics.SourceSwitch object representing the source switch value.</returns>
         ///
-        ///<exception cref="System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///    System.Diagnostics.TraceSource.Switch is set to null.
-        /// </exception>   
+        /// </exception>
         SourceSwitch Switch { get; set; }
 
-        ///<summary>
+        /// <summary>
         /// Closes all the trace listeners in the trace listener collection.
         /// </summary>
         void Close();
@@ -58,7 +57,7 @@ namespace SystemInterface.Diagnostics
         ///    Writes trace data to the trace listeners in the System.Diagnostics.TraceSource.Listeners
         ///    collection using the specified event type, event identifier, and trace data.
         /// </summary>
-        /// 
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -74,7 +73,7 @@ namespace SystemInterface.Diagnostics
         ///    collection using the specified event type, event identifier, and trace data
         ///    array.
         /// </summary>
-        /// 
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -89,29 +88,24 @@ namespace SystemInterface.Diagnostics
         ///    Writes a trace event message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
         ///    collection using the specified event type and event identifier.
         /// </summary>
-        ///Parameters:
-        ///  eventType:
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
         /// <param name="id">A numeric identifier for the event.</param>
-        ///
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>
         void TraceEvent(TraceEventType eventType, int id);
 
-        ///  <summary>
+        /// <summary>
         ///     Writes a trace event message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
         ///     collection using the specified event type, event identifier, and message.
-        ///  </summary>
-        ///  
-        ///  <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
+        /// </summary>
+        /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///     type of the trace data.
-        ///  </param>
-        ///  <param name="id">A numeric identifier for the event.</param>
+        /// </param>
+        /// <param name="id">A numeric identifier for the event.</param>
         /// <param name="message">The trace message to write.</param>
-        ///
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>
@@ -122,7 +116,7 @@ namespace SystemInterface.Diagnostics
         ///    collection using the specified event type, event identifier, and argument
         ///    array and format.
         /// </summary>
-        ///  
+        ///
         /// <param name="eventType">One of the System.Diagnostics.TraceEventType values that specifies the event
         ///    type of the trace data.
         /// </param>
@@ -131,12 +125,12 @@ namespace SystemInterface.Diagnostics
         ///     format items, which correspond to objects in the args array.
         /// </param>
         /// <param name="args">An object array containing zero or more objects to format.</param>
-        /// <exception cref="System.ArgumentNullException">format is null.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="format"/> is null.</exception>
         /// <exception cref="System.FormatException">
-        ///    format is invalid.-or- The number that indicates an argument to format is
+        ///    <paramref name="format"/> is invalid. -or- The number that indicates an argument to format is
         ///    less than zero, or greater than or equal to the number of specified objects
         ///    to format.
-        /// </exception> 
+        /// </exception>
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>
@@ -160,12 +154,12 @@ namespace SystemInterface.Diagnostics
         ///     format items, which correspond to objects in the args array.
         /// </param>
         /// <param name="args">An object array containing zero or more objects to format.</param>
-        /// <exception cref="System.ArgumentNullException">format is null.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="format"/> is null.</exception>
         /// <exception cref="System.FormatException">
-        ///    format is invalid.-or- The number that indicates an argument to format is
+        ///    <paramref name="format"/> is invalid. -or- The number that indicates an argument to format is
         ///    less than zero, or greater than or equal to the number of specified objects
         ///    to format.
-        /// </exception> 
+        /// </exception>
         /// <exception cref="System.ObjectDisposedException">
         ///    An attempt was made to trace an event during finalization.
         /// </exception>
@@ -176,7 +170,6 @@ namespace SystemInterface.Diagnostics
         ///    collection using the specified numeric identifier, message, and related activity
         ///    identifier.
         /// </summary>
-
         /// <param name="id">A numeric identifier for the event.</param>
         /// <param name="message">The trace message to write.</param>
         /// <param name="relatedActivityId">A System.Guid structure that identifies the related activity.</param>

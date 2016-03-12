@@ -12,15 +12,15 @@ namespace SystemWrapper.IO.Compression
         #region Constructors and Initializers
 
         /// <summary>
-        /// Creates an uninitialized version of DeflateStreamWrap
+        /// Creates an uninitialized version of DeflateStreamWrap.
         /// </summary>
         public DeflateStreamWrap()
         {
-            //this constructor assumes caller will make a subsequent call to Initialize
+            // this constructor assumes caller will make a subsequent call to Initialize
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.Compression.DeflateStreamWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.Compression.DeflateStreamWrap"/> class.
         /// </summary>
         /// <param name="stream">The stream to compress or decompress.</param>
         /// <param name="mode">One of the CompressionMode values that indicates the action to take.</param>
@@ -30,7 +30,7 @@ namespace SystemWrapper.IO.Compression
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.Compression.DeflateStreamWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.Compression.DeflateStreamWrap"/> class.
         /// </summary>
         /// <param name="stream">The stream to compress or decompress.</param>
         /// <param name="mode">One of the CompressionMode values that indicates the action to take.</param>

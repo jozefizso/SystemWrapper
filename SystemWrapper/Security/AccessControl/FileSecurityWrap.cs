@@ -8,10 +8,10 @@ namespace SystemWrapper.Security.AccessControl
     /// </summary>
     public class FileSecurityWrap : IFileSecurity
     {
-        internal FileSecurity _fileSecurity;
+        private FileSecurity _fileSecurity;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileSecurity">A FileSecurity object.</param>
         public FileSecurityWrap(FileSecurity fileSecurity)
@@ -20,7 +20,7 @@ namespace SystemWrapper.Security.AccessControl
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileSecurity">A FileSecurity object.</param>
         public void Initialize(FileSecurity fileSecurity)
@@ -29,7 +29,7 @@ namespace SystemWrapper.Security.AccessControl
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path.
         /// </summary>
         public FileSecurityWrap()
         {
@@ -37,7 +37,7 @@ namespace SystemWrapper.Security.AccessControl
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path.
         /// </summary>
         public void Initialize()
         {

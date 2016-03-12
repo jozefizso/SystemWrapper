@@ -1,17 +1,18 @@
+using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
 {
-    ///<summary>
+    /// <summary>
     /// Wrapper for <see cref="T:System.Diagnostics.ProcessStartInfo"/> class.
-    ///</summary>
+    /// </summary>
     public class ProcessStartInfoWrap : IProcessStartInfo
     {
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process.
         /// </summary>
         public ProcessStartInfoWrap()
         {
@@ -19,7 +20,7 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process.
         /// </summary>
         public void Initialize()
         {
@@ -59,24 +60,24 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
-        /// <param name="processStartInfo">ProcessStartInfo instance</param>
+        /// <param name="processStartInfo">ProcessStartInfo instance.</param>
         public ProcessStartInfoWrap(ProcessStartInfo processStartInfo)
         {
             Initialize(processStartInfo);
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance.
         /// </summary>
-        /// <param name="processStartInfo">ProcessStartInfo instance</param>
+        /// <param name="processStartInfo">ProcessStartInfo instance.</param>
         public void Initialize(ProcessStartInfo processStartInfo)
         {
             ProcessStartInfoInstance = processStartInfo;
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public string Arguments
@@ -100,6 +101,20 @@ namespace SystemWrapper.Diagnostics
         {
             get { return ProcessStartInfoInstance.UseShellExecute; }
             set { ProcessStartInfoInstance.UseShellExecute = value; }
+        }
+
+        /// <inheritdoc />
+        public bool RedirectStandardOutput
+        {
+            get { return ProcessStartInfoInstance.RedirectStandardOutput; }
+            set { ProcessStartInfoInstance.RedirectStandardOutput = value; }
+        }
+
+        /// <inheritdoc />
+        public string WorkingDirectory
+        {
+            get { return ProcessStartInfoInstance.WorkingDirectory; }
+            set { ProcessStartInfoInstance.WorkingDirectory = value; }
         }
     }
 }

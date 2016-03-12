@@ -16,6 +16,7 @@ namespace SystemInterface
         /// Gets or sets the foreground color of the console.
         /// </summary>
         ConsoleColor ForegroundColor { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
+
         /// <summary>
         /// Gets the standard output stream.
         /// </summary>
@@ -28,35 +29,41 @@ namespace SystemInterface
         /// </summary>
         [SecuritySafeCritical]
         void ResetColor();
-        ///<summary>
+
+        /// <summary>
         /// Sets the Out  property to the specified TextWriter  object.
-        ///</summary>
-        ///<param name="newOut">A TextWriter  stream that is the new standard output.</param>
+        /// </summary>
+        /// <param name="newOut">A TextWriter  stream that is the new standard output.</param>
         [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
         void SetOut(TextWriter newOut);
+
         /// <summary>
         /// Writes the specified Unicode character value to the standard output stream.
         /// </summary>
         /// <param name="value">The value to write.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void Write(char value);
+
         /// <summary>
         /// Writes the specified string value to the standard output stream.
         /// </summary>
         /// <param name="value">The value to write.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void Write(string value);
+
         /// <summary>
         /// Writes the current line terminator to the standard output stream.
         /// </summary>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine();
+
         /// <summary>
         /// Writes the specified string value, followed by the current line terminator, to the standard output stream.
         /// </summary>
         /// <param name="value">The value to write.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string value);
+
         /// <summary>
         /// Writes the text representation of the specified object, followed by the current line terminator, to the standard output stream using the specified format information.
         /// </summary>
@@ -64,6 +71,7 @@ namespace SystemInterface
         /// <param name="arg0">An object to write using format.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string format, object arg0);
+
         /// <summary>
         /// Writes the text representation of the specified array of objects, followed by the current line terminator, to the standard output stream using the specified format information.
         /// </summary>
@@ -71,6 +79,7 @@ namespace SystemInterface
         /// <param name="arg">An array of objects to write using format.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string format, params object[] arg);
+
         /// <summary>
         /// Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
         /// </summary>
@@ -79,6 +88,7 @@ namespace SystemInterface
         /// <param name="arg1">The second object to write using format.</param>
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string format, object arg0, object arg1);
+
         /// <summary>
         /// Writes the text representation of the specified objects, followed by the current line terminator, to the standard output stream using the specified format information.
         /// </summary>
@@ -90,6 +100,7 @@ namespace SystemInterface
         void WriteLine(string format, object arg0, object arg1, object arg2);
 
         /*
+
                 // Events
                 public static event ConsoleCancelEventHandler CancelKeyPress;
 
@@ -222,6 +233,5 @@ namespace SystemInterface
                 public static int WindowTop { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int WindowWidth { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
         */
-
     }
 }

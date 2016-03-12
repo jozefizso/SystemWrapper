@@ -10,12 +10,12 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class BinaryWriterWrap :IBinaryWriter
+    public class BinaryWriterWrap : IBinaryWriter
     {
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
         public BinaryWriterWrap(BinaryWriter writer)
@@ -24,7 +24,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
         public void Initialize(BinaryWriter writer)
@@ -108,7 +108,7 @@ namespace SystemWrapper.IO
             BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public Stream BaseStream
@@ -198,7 +198,6 @@ namespace SystemWrapper.IO
         }
 
         /// <inheritdoc />
-        
         public void Write(sbyte value)
         {
             BinaryWriterInstance.Write(value);
@@ -216,21 +215,19 @@ namespace SystemWrapper.IO
             BinaryWriterInstance.Write(value);
         }
 
-        /// <inheritdoc />        
+        /// <inheritdoc />
         public void Write(ushort value)
         {
             BinaryWriterInstance.Write(value);
         }
 
         /// <inheritdoc />
-        
         public void Write(uint value)
         {
             BinaryWriterInstance.Write(value);
         }
 
         /// <inheritdoc />
-        
         public void Write(ulong value)
         {
             BinaryWriterInstance.Write(value);

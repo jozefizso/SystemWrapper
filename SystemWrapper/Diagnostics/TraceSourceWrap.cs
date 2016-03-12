@@ -10,8 +10,9 @@ namespace SystemWrapper.Diagnostics
     public class TraceSourceWrap : ITraceSource
     {
         #region Instance & Constructors
+
         /// <summary>
-        /// Concrete Instance of TraceSource
+        /// Actual <see cref="TraceSource"/> instance.
         /// </summary>
         public TraceSource TraceSourceInstance { get; internal set; }
 
@@ -27,9 +28,11 @@ namespace SystemWrapper.Diagnostics
         {
             TraceSourceInstance = new TraceSource(name, defaultLevel);
         }
-        #endregion
+
+        #endregion Instance & Constructors
 
         #region Properties
+
         /// <inheritdoc />
         public StringDictionary Attributes
         {
@@ -54,7 +57,8 @@ namespace SystemWrapper.Diagnostics
             get { return TraceSourceInstance.Switch; }
             set { TraceSourceInstance.Switch = value; }
         }
-        #endregion
+
+        #endregion Properties
 
         /// <inheritdoc />
         public void Close()

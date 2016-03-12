@@ -1,6 +1,6 @@
-using Microsoft.Win32;
-using System.Security.AccessControl;
 using System;
+using System.Security.AccessControl;
+using Microsoft.Win32;
 using SystemInterface.Microsoft.Win32.SafeHandles;
 using SystemInterface.Security.AccessControl;
 
@@ -12,12 +12,13 @@ namespace SystemInterface.Microsoft.Win32
     public interface IRegistryKey : IDisposable
     {
         #region Properties
+
         /// <inheritdoc />
         ISafeRegistryHandle Handle { get; }
 
         /// <inheritdoc />
         string Name { get; }
-        
+
         /// <summary>
         /// Gets <see cref="T:Microsoft.Win32.RegistryKey"/> object.
         /// </summary>
@@ -37,8 +38,8 @@ namespace SystemInterface.Microsoft.Win32
 
         /// <inheritdoc />
         RegistryView View { get; }
-        #endregion
 
+        #endregion Properties
 
         /// <summary>
         /// Closes the key and flushes it to disk if its contents have been modified.
@@ -49,7 +50,7 @@ namespace SystemInterface.Microsoft.Win32
         /// TODO: Add Comment
         /// </summary>
         /// <param name="subkey"></param>
-        /// <returns></returns>        
+        /// <returns></returns>
         IRegistryKey CreateSubKey(string subkey);
 
         /// <summary>
@@ -265,7 +266,7 @@ namespace SystemInterface.Microsoft.Win32
         /// </summary>
         /// <param name="registrySecurity"></param>
         void SetAccessControl(IRegistrySecurity registrySecurity);
-        
+
         /// <summary>
         /// Sets the specified name/value pair.
         /// </summary>
@@ -285,6 +286,6 @@ namespace SystemInterface.Microsoft.Win32
         /// TODO: Add Comment
         /// </summary>
         /// <returns></returns>
-        string ToString();        
+        string ToString();
     }
 }

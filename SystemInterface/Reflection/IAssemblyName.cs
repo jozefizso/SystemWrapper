@@ -56,7 +56,7 @@ namespace SystemInterface.Reflection
         AssemblyNameFlags Flags { get; set; }
 
         /// <summary>
-        /// 	 Gets the full name of the assembly, also known as the display name.
+        /// Gets the full name of the assembly, also known as the display name.
         /// </summary>
         string FullName { get; }
 
@@ -91,6 +91,7 @@ namespace SystemInterface.Reflection
         AssemblyVersionCompatibility VersionCompatibility { get; set; }
 
         // Methods
+
         /// <summary>
         /// Makes a copy of this IAssemblyNameWrap object.
         /// </summary>
@@ -134,7 +135,7 @@ namespace SystemInterface.Reflection
         /// </summary>
         /// <param name="reference">The reference assembly name. </param>
         /// <param name="definition"></param>
-        /// <returns> true if the loader resolves definition to the same assembly as reference; otherwise, false. </returns>
+        /// <returns> <c>true</c> if the loader resolves definition to the same assembly as reference; otherwise, <c>false</c>. </returns>
         [MethodImpl(MethodImplOptions.InternalCall)]
         bool ReferenceMatchesDefinition(IAssemblyName reference, IAssemblyName definition);
 

@@ -2,32 +2,33 @@ using System.Security.AccessControl;
 using Microsoft.Win32;
 using SystemInterface.Microsoft.Win32;
 using SystemInterface.Microsoft.Win32.SafeHandles;
+using SystemInterface.Security.AccessControl;
 using SystemWrapper.Microsoft.Win32.SafeHandles;
 using SystemWrapper.Security.AccessControl;
-using SystemInterface.Security.AccessControl;
 
 namespace SystemWrapper.Microsoft.Win32
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class RegistryKeyWrap : IRegistryKey
     {
         #region Implementation of IDisposable
+
         /// <summary>
-        /// Implementation of the Dispose
+        /// Implementation of the Dispose.
         /// </summary>
         public void Dispose()
         {
             RegistryKeyInstance.Dispose();
         }
 
-        #endregion
+        #endregion Implementation of IDisposable
 
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.RegistryKeyWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Microsoft.Win32.RegistryKeyWrap"/> class.
         /// </summary>
         /// <param name="registryKey"></param>
         public RegistryKeyWrap(RegistryKey registryKey)
@@ -36,28 +37,30 @@ namespace SystemWrapper.Microsoft.Win32
         }
 
         /// <summary>
-        /// Initiatlized the RegistryKey instance
+        /// Initiatlized the RegistryKey instance.
         /// </summary>
         /// <param name="registryKey"></param>
         public void Initialize(RegistryKey registryKey)
         {
-            _RegistryKeyInstance = registryKey;
+            this._registryKeyInstance = registryKey;
         }
 
         #endregion Constructors and Initializers
 
         #region Implementation of IRegistryKey
 
+        private RegistryKey _registryKeyInstance;
+
         /// <summary>
         /// Gets <see cref="T:Microsoft.Win32.RegistryKey"/> object.
         /// </summary>
         public RegistryKey RegistryKeyInstance
         {
-            get { return _RegistryKeyInstance; }
-        } private RegistryKey _RegistryKeyInstance;
+            get { return this._registryKeyInstance; }
+        }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ISafeRegistryHandle Handle
         {
@@ -130,7 +133,7 @@ namespace SystemWrapper.Microsoft.Win32
             if (null == key)
                 return null;
             else
-            return new RegistryKeyWrap(key);
+                return new RegistryKeyWrap(key);
         }
 
         /// <summary>
@@ -142,7 +145,7 @@ namespace SystemWrapper.Microsoft.Win32
         /// <returns></returns>
         public IRegistryKey CreateSubKey(string subkey, RegistryKeyPermissionCheck permissionCheck, RegistryOptions options)
         {
-            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options); ;
+            RegistryKey key = RegistryKeyInstance.CreateSubKey(subkey, permissionCheck, options);
             if (null == key)
                 return null;
             else
@@ -408,7 +411,6 @@ namespace SystemWrapper.Microsoft.Win32
                 return null;
             else
                 return new RegistryKeyWrap(key);
-
         }
 
         /// <summary>
@@ -501,6 +503,6 @@ namespace SystemWrapper.Microsoft.Win32
             RegistryKeyInstance.SetValue(name, value, valueKind);
         }
 
-        #endregion
+        #endregion Implementation of IRegistryKey
     }
 }

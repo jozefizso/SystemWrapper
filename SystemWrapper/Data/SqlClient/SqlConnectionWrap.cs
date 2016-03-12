@@ -12,7 +12,7 @@ namespace SystemWrapper.Data.SqlClient
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         public SqlConnectionWrap()
         {
@@ -20,7 +20,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         public void Initialize()
         {
@@ -28,7 +28,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         /// <param name="connection">SqlConnection object.</param>
         public SqlConnectionWrap(SqlConnection connection)
@@ -37,7 +37,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnectionWrap class. 
+        /// Initializes a new instance of the SqlConnectionWrap class.
         /// </summary>
         /// <param name="connection">SqlConnection object.</param>
         public void Initialize(SqlConnection connection)
@@ -46,7 +46,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string. 
+        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string.
         /// </summary>
         /// <param name="connectionString">The connection used to open the SQL Server database.</param>
         public SqlConnectionWrap(string connectionString)
@@ -55,7 +55,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string. 
+        /// Initializes a new instance of the SqlConnection class when given a string that contains the connection string.
         /// </summary>
         /// <param name="connectionString">The connection used to open the SQL Server database.</param>
         public void Initialize(string connectionString)
@@ -63,7 +63,7 @@ namespace SystemWrapper.Data.SqlClient
             SqlConnectionInstance = new SqlConnection(connectionString);
         }
 
-        #endregion
+        #endregion Constructors
 
         /// <inheritdoc />
         public string ConnectionString

@@ -3,14 +3,16 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Permissions;
-using SystemWrapper.Microsoft.Win32.SafeHandles;
-using SystemWrapper.Security.AccessControl;
 using SystemInterface.IO;
 using SystemInterface.Microsoft.Win32.SafeHandles;
 using SystemInterface.Security.AccessControl;
+using SystemWrapper.Microsoft.Win32.SafeHandles;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileStream"/> class.
     /// </summary>
@@ -21,7 +23,7 @@ namespace SystemWrapper.IO
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="stream">A <see cref="T:System.IO.Stream"/> object.</param>
         public FileStreamWrap(Stream stream)
@@ -30,7 +32,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="stream">A <see cref="T:System.IO.Stream"/> object.</param>
         public void Initialize(Stream stream)
@@ -39,7 +41,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileStream">A <see cref="T:System.IO.FileStream"/> object.</param>
         public FileStreamWrap(FileStream fileStream)
@@ -48,7 +50,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileStream">A <see cref="T:System.IO.FileStream"/> object.</param>
         public void Initialize(FileStream fileStream)
@@ -57,7 +59,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -67,7 +69,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -77,7 +79,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
@@ -87,7 +89,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
@@ -97,7 +99,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -108,7 +110,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
@@ -119,7 +121,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
@@ -130,7 +132,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode.
         /// </summary>
         /// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
         /// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
@@ -141,12 +143,12 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-        /// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
+        /// <param name="isAsync"> <c>true</c> if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
@@ -154,12 +156,12 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state.
         /// </summary>
         /// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-        /// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
+        /// <param name="isAsync"> <c>true</c> if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
@@ -258,7 +260,6 @@ namespace SystemWrapper.IO
             Initialize(path, mode, access, share, bufferSize, options);
         }
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write and sharing permission, the access other FileStreams can have to the same file, the buffer size, and additional file options.
         /// </summary>
@@ -331,7 +332,7 @@ namespace SystemWrapper.IO
             FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options, fileSecurity);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <summary>
         /// Gets a value indicating whether the current stream supports reading.
@@ -342,7 +343,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Gets a value indicating whether the current stream supports seeking. 
+        /// Gets a value indicating whether the current stream supports seeking.
         /// </summary>
         public bool CanSeek
         {
@@ -373,7 +374,13 @@ namespace SystemWrapper.IO
         /// <summary>
         /// Gets <see cref="T:System.IO.Stream"/> object.
         /// </summary>
-        public Stream StreamInstance { get { return FileStreamInstance; } }
+        public Stream StreamInstance
+        {
+            get
+            {
+                return FileStreamInstance;
+            }
+        }
 
         /// <inheritdoc />
         public int WriteTimeout
@@ -436,7 +443,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Begins an asynchronous write. 
+        /// Begins an asynchronous write.
         /// </summary>
         /// <param name="array">The buffer to read data into.</param>
         /// <param name="offset">The byte offset in array at which to begin reading.</param>
@@ -451,7 +458,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream. 
+        /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
         /// </summary>
         public void Close()
         {
@@ -459,7 +466,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Waits for the pending asynchronous read to complete. 
+        /// Waits for the pending asynchronous read to complete.
         /// </summary>
         /// <param name="asyncResult">The reference to the pending asynchronous request to wait for.</param>
         /// <returns>The number of bytes read from the stream, between 0 and the number of bytes you requested. Streams only return 0 at the end of the stream, otherwise, they should block until at least 1 byte is available.</returns>
@@ -469,7 +476,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Ends an asynchronous write, blocking until the I/O operation has completed. 
+        /// Ends an asynchronous write, blocking until the I/O operation has completed.
         /// </summary>
         /// <param name="asyncResult">The pending asynchronous I/O request. </param>
         public void EndWrite(IAsyncResult asyncResult)
@@ -498,7 +505,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Reads a block of bytes from the stream and writes the data in a given buffer. 
+        /// Reads a block of bytes from the stream and writes the data in a given buffer.
         /// </summary>
         /// <param name="buffer">When this method returns, contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source. </param>
         /// <param name="offset">The byte offset in array at which the read bytes will be placed. </param>
@@ -510,7 +517,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Reads a byte from the file and advances the read position one byte. 
+        /// Reads a byte from the file and advances the read position one byte.
         /// </summary>
         /// <returns>The byte, cast to an Int32, or -1 if the end of the stream has been reached.</returns>
         public int ReadByte()
@@ -519,7 +526,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Sets the current position of this stream to the given value. 
+        /// Sets the current position of this stream to the given value.
         /// </summary>
         /// <param name="offset">The point relative to origin from which to begin seeking.</param>
         /// <param name="origin">Specifies the beginning, the end, or the current position as a reference point for origin, using a value of type SeekOrigin. </param>
@@ -589,6 +596,7 @@ namespace SystemWrapper.IO
             FileStreamInstance.WriteByte(value);
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IFileStream[] ConvertFileStreamArrayIntoIFileStreamWrapArray(FileStream[] fileStreams)
         {
             var fileStreamWraps = new FileStreamWrap[fileStreams.Length];
@@ -596,6 +604,5 @@ namespace SystemWrapper.IO
                 fileStreamWraps[i] = new FileStreamWrap(fileStreams[i]);
             return fileStreamWraps;
         }
-
     }
 }

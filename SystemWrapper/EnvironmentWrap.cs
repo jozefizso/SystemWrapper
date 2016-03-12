@@ -30,10 +30,12 @@ namespace SystemWrapper
         }
 
 #if NET45
+
         public int CurrentManagedThreadId
         {
             get { return Environment.CurrentManagedThreadId; }
         }
+
 #endif
 
         public int ExitCode

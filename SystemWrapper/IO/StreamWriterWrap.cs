@@ -9,11 +9,10 @@ namespace SystemWrapper.IO
     /// </summary>
     public class StreamWriterWrap : TextWriter, IStreamWriter
     {
-
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamWriter">A <see cref="T:System.IO.StreamWriter"/> object.</param>
         public StreamWriterWrap(StreamWriter streamWriter)
@@ -22,7 +21,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamWriter">A <see cref="T:System.IO.StreamWriter"/> object.</param>
         public void Initialize(StreamWriter streamWriter)
@@ -67,7 +66,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -77,7 +76,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class for the specified stream, using the specified encoding and the default buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -107,7 +106,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size. 
+        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -118,7 +117,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size. 
+        /// Initializes a new instance of the StreamWriter class for the specified stream, using the specified encoding and buffer size.
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="encoding">The character encoding to use.</param>

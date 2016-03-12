@@ -9,16 +9,17 @@ namespace SystemWrapper.Data.SqlClient
     public class SqlDataReaderWrap : ISqlDataReader
     {
         #region Constructors
+
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class (requires a subsequent call to Initialize). 
+        /// Initializes a new instance of the SqlDataReaderWrap class (requires a subsequent call to Initialize).
         /// </summary>
         public SqlDataReaderWrap()
         {
-            //this constructor assumes the caller will call the Initialize method before using
+            // this constructor assumes the caller will call the Initialize method before using
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// Initializes a new instance of the SqlDataReaderWrap class.
         /// </summary>
         /// <param name="dataReader">SqlDataReader object.</param>
         public SqlDataReaderWrap(SqlDataReader dataReader)
@@ -27,7 +28,7 @@ namespace SystemWrapper.Data.SqlClient
         }
 
         /// <summary>
-        /// Initializes a new instance of the SqlDataReaderWrap class. 
+        /// Initializes a new instance of the SqlDataReaderWrap class.
         /// </summary>
         /// <param name="dataReader">SqlDataReader object.</param>
         public void Initialize(SqlDataReader dataReader)
@@ -35,7 +36,7 @@ namespace SystemWrapper.Data.SqlClient
             SqlDataReaderInstance = dataReader;
         }
 
-        #endregion
+        #endregion Constructors
 
         /// <inheritdoc />
         object ISqlDataReader.this[int i]

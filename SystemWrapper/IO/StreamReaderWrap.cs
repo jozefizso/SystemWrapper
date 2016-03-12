@@ -15,7 +15,7 @@ namespace SystemWrapper.IO
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
         public StreamReaderWrap(TextReader textReader)
@@ -24,7 +24,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
         public void Initialize(TextReader textReader)
@@ -33,7 +33,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
         public StreamReaderWrap(StreamReader streamReader)
@@ -42,7 +42,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path.
         /// </summary>
         /// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
         public void Initialize(StreamReader streamReader)
@@ -207,7 +207,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -218,7 +218,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -253,7 +253,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -265,7 +265,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
+        /// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         /// <param name="encoding">The character encoding to use. </param>
@@ -300,7 +300,13 @@ namespace SystemWrapper.IO
         public StreamReader StreamReaderInstance { get; private set; }
 
         /// <inheritdoc />
-        public TextReader TextReaderInstance { get { return StreamReaderInstance; } }
+        public TextReader TextReaderInstance
+        {
+            get
+            {
+                return StreamReaderInstance;
+            }
+        }
 
         /// <inheritdoc />
         public void Close()
@@ -315,7 +321,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Returns the next available character but does not consume it. 
+        /// Returns the next available character but does not consume it.
         /// </summary>
         /// <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
         public int Peek()
@@ -330,7 +336,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Reads a maximum of count characters from the current stream into buffer, beginning at index. 
+        /// Reads a maximum of count characters from the current stream into buffer, beginning at index.
         /// </summary>
         /// <param name="buffer">When this method returns, contains the specified character array with the values between index and (index + count - 1) replaced by the characters read from the current source.</param>
         /// <param name="index">The index of buffer at which to begin writing.</param>

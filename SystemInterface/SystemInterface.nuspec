@@ -17,6 +17,6 @@
     <file src="..\bin\$Configuration$\net40\SystemInterface.*" target="lib\net40\" />
     <file src="..\bin\$Configuration$\net45\SystemInterface.*" target="lib\net45\" />
     <file src="..\Build\*.cs" target="src\Build\" />
-    <file src="..\SystemInterface\**\*.cs" target="src\SystemInterface\" />
+    <file src="..\SystemInterface\**\*.cs" target="src\SystemInterface\" exclude="..\SystemInterface\obj\**;..\SystemInterface\bin\**" />
   </files>
 </package>

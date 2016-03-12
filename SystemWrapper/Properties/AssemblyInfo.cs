@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 // Assembly name and unique identifier
 [assembly: AssemblyTitle("System Wrapper")]
 [assembly: AssemblyDescription("Implementation of wrapper for .NET system APIs.")]
-
 [assembly: Guid("f50b78bf-5353-4df2-a4cc-536e5d05c823")]
 [assembly: InternalsVisibleTo("SystemWrapper.Tests, PublicKey=" +
 "002400000480000014010000060200000024000052534131000800000100010097d978dc8ad052" +

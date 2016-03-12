@@ -4,7 +4,7 @@ namespace SystemInterface.Security.AccessControl
 {
     /// <summary>
     /// Interface to match decoration of the object
-    /// System.Security.AccessControl.RegistrySecurity
+    /// <see cref="System.Security.AccessControl.RegistrySecurity"/>.
     /// </summary>
     public interface IRegistrySecurity
     {

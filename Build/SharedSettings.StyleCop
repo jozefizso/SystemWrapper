@@ -342,10 +342,17 @@
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>
         </Rule>
+        <Rule Name="CheckWhetherLastCodeLineIsEmpty">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
       </Rules>
       <AnalyzerSettings>
         <StringProperty Name="SP2001_Mode">Both:False</StringProperty>
-        <StringProperty Name="AdvancedNaming_Words">3D FxCop OS StyleCop</StringProperty>
+        <StringProperty Name="AdvancedNaming_Words">3D FxCop IO OS StyleCop</StringProperty>
+        <StringProperty Name="AdvancedNaming_ProtectedInstanceField">_$(aaBb)</StringProperty>
+        <StringProperty Name="AdvancedNaming_PrivateInstanceField">_$(aaBb)</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
   </Analyzers>

@@ -46,6 +46,7 @@ namespace SystemWrapper.IO
         {
             return Path.Combine(paths);
         }
+
         /// <inheritdoc />
         public string Combine(string path1, string path2)
         {
@@ -63,6 +64,7 @@ namespace SystemWrapper.IO
         {
             return Path.Combine(path1, path2, path3, path4);
         }
+
         /// <inheritdoc />
         public string GetDirectoryName(string path)
         {

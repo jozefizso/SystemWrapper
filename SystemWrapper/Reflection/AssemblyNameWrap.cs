@@ -1,5 +1,6 @@
 using System;
 using System.Configuration.Assemblies;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -210,6 +211,7 @@ namespace SystemWrapper.Reflection
             return AssemblyNameInstance.ToString();
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IAssemblyName[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)
         {
             AssemblyNameWrap[] wrapAssemblyNames = new AssemblyNameWrap[assemblyNames.Length];

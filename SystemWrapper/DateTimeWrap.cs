@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using SystemInterface;
 
@@ -13,7 +14,7 @@ namespace SystemWrapper
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class.
         /// </summary>
         public DateTimeWrap()
         {
@@ -21,7 +22,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class.
         /// </summary>
         public void Initialize()
         {
@@ -29,7 +30,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class.
         /// </summary>
         /// <param name="dateTime">A DateTime object.</param>
         public DateTimeWrap(DateTime dateTime)
@@ -38,7 +39,7 @@ namespace SystemWrapper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.DateTimeWrap"/> class.
         /// </summary>
         /// <param name="dateTime">A DateTime object.</param>
         public void Initialize(DateTime dateTime)
@@ -562,6 +563,7 @@ namespace SystemWrapper
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public IDateTime FromOADate(double d)
         {
             return new DateTimeWrap(DateTime.FromOADate(d));
@@ -706,6 +708,7 @@ namespace SystemWrapper
         }
 
         /// <inheritdoc />
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Valid method name from .NET API.")]
         public double ToOADate()
         {
             return DateTimeInstance.ToOADate();

@@ -12,8 +12,8 @@ namespace SystemWrapper.IO
     {
         #region Constructors and Initializers
 
-        /// <summary> 
-        /// Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class. 
+        /// <summary>
+        /// Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class.
         /// </summary>
         public FileSystemWatcherWrap()
         {
@@ -21,19 +21,18 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        ///       Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class, 
-        ///       given the specified directory to monitor.  
+        ///       Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class,
+        ///       given the specified directory to monitor.
         /// </summary>
         public FileSystemWatcherWrap(string path)
             : this(path, "*.*")
         {
         }
 
-
-        /// <summary>    
+        /// <summary>
         ///       Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class,
         ///       given the specified directory and type of files to monitor.
-        /// </summary> 
+        /// </summary>
         public FileSystemWatcherWrap(string path, string filter)
         {
             Initialize(path, filter);
@@ -51,16 +50,15 @@ namespace SystemWrapper.IO
             FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         #region IFileSystemWatcherWrap Members
 
         /// <inheritdoc />
         public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
 
-
-        /// <summary> 
-        ///       Gets or sets the type of changes to watch for. 
+        /// <summary>
+        ///       Gets or sets the type of changes to watch for.
         /// </summary>
         [DefaultValue(NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName)]
         public NotifyFilters NotifyFilter
@@ -71,7 +69,7 @@ namespace SystemWrapper.IO
 
         /// <summary>
         ///    Gets or sets a value indicating whether the component is enabled.
-        /// </summary> 
+        /// </summary>
         [DefaultValue(false)]
         public bool EnableRaisingEvents
         {
@@ -79,9 +77,9 @@ namespace SystemWrapper.IO
             set { FileSystemWatcherInstance.EnableRaisingEvents = value; }
         }
 
-        /// <summary> 
+        /// <summary>
         ///    Gets or sets the filter string, used to determine what files are monitored in a directory.
-        /// </summary> 
+        /// </summary>
         [DefaultValue("*.*")]
         public string Filter
         {
@@ -89,7 +87,7 @@ namespace SystemWrapper.IO
             set { FileSystemWatcherInstance.Filter = value; }
         }
 
-        /// <summary> 
+        /// <summary>
         ///       Gets or sets a
         ///       value indicating whether subdirectories within the specified path should be monitored.
         /// </summary>
@@ -101,8 +99,8 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        ///    Gets or 
-        ///       sets the size of the internal buffer. 
+        ///    Gets or
+        ///       sets the size of the internal buffer.
         /// </summary>
         [DefaultValue(8192)]
         public int InternalBufferSize
@@ -111,8 +109,7 @@ namespace SystemWrapper.IO
             set { FileSystemWatcherInstance.InternalBufferSize = value; }
         }
 
-
-        /// <summary> 
+        /// <summary>
         ///    Gets or sets the path of the directory to watch.
         /// </summary>
         [DefaultValue("")]
@@ -122,10 +119,10 @@ namespace SystemWrapper.IO
             set { FileSystemWatcherInstance.Path = value; }
         }
 
-        /// <summary> 
-        ///       Gets or sets the object used to marshal the event handler calls issued as a 
-        ///       result of a directory change. 
-        /// </summary> 
+        /// <summary>
+        ///       Gets or sets the object used to marshal the event handler calls issued as a
+        ///       result of a directory change.
+        /// </summary>
         [DefaultValue(null)]
         public ISynchronizeInvoke SynchronizingObject
         {
@@ -134,26 +131,25 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        ///    Notifies the object that initialization is beginning and tells it to standby. 
-        /// </summary> 
+        ///    Notifies the object that initialization is beginning and tells it to standby.
+        /// </summary>
         public void BeginInit()
         {
             FileSystemWatcherInstance.BeginInit();
         }
 
-        /// <summary> 
-        ///    
+        /// <summary>
+        ///
         ///       Notifies the object that initialization is complete.
-        ///    
-        /// </summary> 
+        ///
+        /// </summary>
         public void EndInit()
         {
             FileSystemWatcherInstance.EndInit();
         }
 
-
-        /// <summary> 
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        /// <summary>
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is changed.
         /// </summary>
         public event FileSystemEventHandler Changed
@@ -163,7 +159,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is created.
         /// </summary>
         public event FileSystemEventHandler Created
@@ -174,7 +170,7 @@ namespace SystemWrapper.IO
 
         /// <summary>
         ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
-        ///       is deleted. 
+        ///       is deleted.
         /// </summary>
         public event FileSystemEventHandler Deleted
         {
@@ -191,8 +187,8 @@ namespace SystemWrapper.IO
             remove { FileSystemWatcherInstance.Error -= value; }
         }
 
-        /// <summary> 
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        /// <summary>
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is renamed.
         /// </summary>
         public event RenamedEventHandler Renamed
@@ -201,21 +197,20 @@ namespace SystemWrapper.IO
             remove { FileSystemWatcherInstance.Renamed -= value; }
         }
 
-
-        /// <summary> 
+        /// <summary>
         ///       A synchronous method that returns a structure that
         ///       contains specific information on the change that occurred, given the type
-        ///       of change that you wish to monitor. 
-        /// </summary> 
+        ///       of change that you wish to monitor.
+        /// </summary>
         public WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType)
         {
             return FileSystemWatcherInstance.WaitForChanged(changeType);
         }
 
         /// <summary>
-        ///       A synchronous 
+        ///       A synchronous
         ///       method that returns a structure that contains specific information on the change that occurred, given the
-        ///       type of change that you wish to monitor and the time (in milliseconds) to wait before timing out. 
+        ///       type of change that you wish to monitor and the time (in milliseconds) to wait before timing out.
         /// </summary>
         public WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType, int timeout)
         {
@@ -229,7 +224,7 @@ namespace SystemWrapper.IO
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion IFileSystemWatcherWrap Members
 
         /// <inheritdoc />
         protected virtual void Dispose(bool disposing)
@@ -241,8 +236,9 @@ namespace SystemWrapper.IO
                     FileSystemWatcherInstance.Dispose();
                     FileSystemWatcherInstance = null;
                 }
-                // get rid of managed resources      
-            } // get rid of unmanaged resources  
+
+                // get rid of managed resources
+            } // get rid of unmanaged resources
         }
 
         /// <inheritdoc />

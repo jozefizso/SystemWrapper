@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.IO;
 
-
 namespace SystemInterface.IO
 {
     /// <summary>
@@ -11,12 +10,12 @@ namespace SystemInterface.IO
     public interface IFileSystemWatcher : ISupportInitialize, IDisposable
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileSystemWatcherWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileSystemWatcherWrap"/> class on the specified path.
         /// </summary>
         void Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileSystemWatcherWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemInterface.IO.FileSystemWatcherWrap"/> class on the specified path.
         /// </summary>
         /// <param name="path">The directory to monitor, in standard or Universal Naming Convention (UNC) notation.</param>
         /// <param name="filter">The type of files to watch. For example, "*.txt" watches for changes to all text files.</param>
@@ -27,25 +26,25 @@ namespace SystemInterface.IO
         /// </summary>
         FileSystemWatcher FileSystemWatcherInstance { get; }
 
-        /// <summary> 
-        ///       Gets or sets the type of changes to watch for. 
+        /// <summary>
+        ///       Gets or sets the type of changes to watch for.
         /// </summary>
         [DefaultValue(NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName)]
         NotifyFilters NotifyFilter { get; set; }
 
         /// <summary>
         ///    Gets or sets a value indicating whether the component is enabled.
-        /// </summary> 
+        /// </summary>
         [DefaultValue(false)]
         bool EnableRaisingEvents { get; set; }
 
-        /// <summary> 
+        /// <summary>
         ///    Gets or sets the filter string, used to determine what files are monitored in a directory.
-        /// </summary> 
+        /// </summary>
         [DefaultValue("*.*")]
         string Filter { get; set; }
 
-        /// <summary> 
+        /// <summary>
         ///       Gets or sets a
         ///       value indicating whether subdirectories within the specified path should be monitored.
         /// </summary>
@@ -53,40 +52,40 @@ namespace SystemInterface.IO
         bool IncludeSubdirectories { get; set; }
 
         /// <summary>
-        ///    Gets or 
-        ///       sets the size of the internal buffer. 
+        ///    Gets or
+        ///       sets the size of the internal buffer.
         /// </summary>
         [DefaultValue(8192)]
         int InternalBufferSize { get; set; }
 
-        /// <summary> 
+        /// <summary>
         ///    Gets or sets the path of the directory to watch.
         /// </summary>
         [DefaultValue("")]
         string Path { get; set; }
 
-        /// <summary> 
-        ///       Gets or sets the object used to marshal the event handler calls issued as a 
-        ///       result of a directory change. 
-        /// </summary> 
+        /// <summary>
+        ///       Gets or sets the object used to marshal the event handler calls issued as a
+        ///       result of a directory change.
+        /// </summary>
         [DefaultValue(null)]
         ISynchronizeInvoke SynchronizingObject { get; set; }
 
-        /// <summary> 
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        /// <summary>
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is changed.
         /// </summary>
         event FileSystemEventHandler Changed;
 
         /// <summary>
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is created.
         /// </summary>
         event FileSystemEventHandler Created;
 
         /// <summary>
         ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
-        ///       is deleted. 
+        ///       is deleted.
         /// </summary>
         event FileSystemEventHandler Deleted;
 
@@ -95,23 +94,23 @@ namespace SystemInterface.IO
         /// </summary>
         event ErrorEventHandler Error;
 
-        /// <summary> 
-        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/> 
+        /// <summary>
+        ///       Occurs when a file or directory in the specified <see cref='System.IO.FileSystemWatcher.Path'/>
         ///       is renamed.
         /// </summary>
         event RenamedEventHandler Renamed;
 
-        /// <summary> 
+        /// <summary>
         ///       A synchronous method that returns a structure that
         ///       contains specific information on the change that occurred, given the type
-        ///       of change that you wish to monitor. 
-        /// </summary> 
+        ///       of change that you wish to monitor.
+        /// </summary>
         WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType);
 
         /// <summary>
-        ///       A synchronous 
+        ///       A synchronous
         ///       method that returns a structure that contains specific information on the change that occurred, given the
-        ///       type of change that you wish to monitor and the time (in milliseconds) to wait before timing out. 
+        ///       type of change that you wish to monitor and the time (in milliseconds) to wait before timing out.
         /// </summary>
         WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType, int timeout);
     }

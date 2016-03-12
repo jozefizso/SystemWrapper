@@ -2,13 +2,15 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using SystemWrapper.Security.AccessControl;
+using SystemInterface;
 using SystemInterface.IO;
 using SystemInterface.Security.AccessControl;
-using SystemInterface;
+using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
     /// </summary>
@@ -18,7 +20,7 @@ namespace SystemWrapper.IO
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
         public FileInfoWrap(FileInfo fileInfo)
@@ -27,7 +29,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
         public void Initialize(FileInfo fileInfo)
@@ -36,7 +38,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
         public FileInfoWrap(string fileName)
@@ -45,7 +47,7 @@ namespace SystemWrapper.IO
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path.
         /// </summary>
         /// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
         public void Initialize(string fileName)
@@ -53,7 +55,7 @@ namespace SystemWrapper.IO
             FileInfoInstance = new FileInfo(fileName);
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public FileAttributes Attributes
@@ -76,7 +78,7 @@ namespace SystemWrapper.IO
             set { FileInfoInstance.CreationTimeUtc = value.DateTimeInstance; }
         }
 
-        /// <inheritdoc />	              
+        /// <inheritdoc />
         public IDirectoryInfo Directory
         {
             get { return new DirectoryInfoWrap(FileInfoInstance.Directory); }
@@ -288,6 +290,7 @@ namespace SystemWrapper.IO
             return FileInfoInstance.ToString();
         }
 
+        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IFileInfo[] ConvertFileInfoArrayIntoIFileInfoWrapArray(FileInfo[] fileInfos)
         {
             var fileInfoWraps = new FileInfoWrap[fileInfos.Length];

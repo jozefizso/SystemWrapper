@@ -1,14 +1,16 @@
+using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
+using SystemInterface.IO;
 
 namespace SystemWrapper.Diagnostics
 {
-    ///<summary>
+    /// <summary>
     /// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
-    ///</summary>
+    /// </summary>
     public class ProcessWrap : IProcess
     {
-        private IProcessStartInfo startInfo;
+        private IProcessStartInfo _startInfo;
 
         #region Constructors and Initializers
 
@@ -28,7 +30,7 @@ namespace SystemWrapper.Diagnostics
             ProcessInstance = new Process();
         }
 
-        #endregion
+        #endregion Constructors and Initializers
 
         /// <inheritdoc />
         public int ExitCode
@@ -54,8 +56,17 @@ namespace SystemWrapper.Diagnostics
         /// <inheritdoc />
         public IProcessStartInfo StartInfo
         {
-            get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
-            set { startInfo = value; }
+            get { return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
+            set { this._startInfo = value; }
+        }
+
+        /// <inheritdoc />
+        public IStreamReader StandardOutput
+        {
+            get
+            {
+                return new IO.StreamReaderWrap(ProcessInstance.StandardOutput);
+            }
         }
 
         /// <inheritdoc />
