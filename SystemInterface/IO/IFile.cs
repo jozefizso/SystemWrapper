@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Security.AccessControl;
 using System.Text;
@@ -272,6 +274,21 @@ namespace SystemInterface.IO
         /// <param name="encoding">The encoding applied to the contents of the file. </param>
         /// <returns>A string array containing all lines of the file. </returns>
         string ReadAllText(string path, Encoding encoding);
+
+        /// <summary>
+        /// Reads the lines of a file
+        /// </summary>
+        /// <param name="path">The file to read.</param>
+        /// <returns>All the lines of the file, or the lines that are the result of a query. </returns>
+        IEnumerable<string> ReadLines(string path);
+
+        /// <summary>
+        /// Read the lines of a file that has a specific encoding.
+        /// </summary>
+        /// <param name="path">The file to read. </param>
+        /// <param name="encoding">The encoding that is applied to the contents of the file. </param>
+        /// <returns>All the lines of the file, or the lines that are the result of a query. </returns>
+        IEnumerable<string> ReadLines(string path, Encoding encoding);
 
         /// <summary>
         /// Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file.

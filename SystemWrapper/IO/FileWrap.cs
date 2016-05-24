@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -224,6 +226,17 @@ namespace SystemWrapper.IO
         public string ReadAllText(string path, Encoding encoding)
         {
             return File.ReadAllText(path, encoding);
+        }
+
+        /// <inheritdoc />
+        public IEnumerable<string> ReadLines(string path) 
+        {
+            return File.ReadLines(path);
+        }
+        /// <inheritdoc />
+        public IEnumerable<string> ReadLines(string path, Encoding encoding) 
+        {
+            return File.ReadLines(path, encoding);
         }
 
         /// <inheritdoc />
