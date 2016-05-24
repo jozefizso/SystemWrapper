@@ -17,6 +17,20 @@ namespace SystemInterface.IO
         // Methods
 
         /// <summary>
+        /// Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
+        /// </summary>
+        /// <param name="path">The file to append the lines to. The file is created if it doesn't already exist.</param>
+        /// <param name="contents">The lines to append to the file.</param>
+        void AppendAllLines(string path, IEnumerable<string> contents);
+
+        /// <summary>
+        /// Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
+        /// </summary>
+        /// <param name="path">The file to append the lines to. The file is created if it doesn't already exist.</param>
+        /// <param name="contents">The lines to append to the file.</param>
+        void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding);
+
+        /// <summary>
         /// Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.
         /// </summary>
         /// <param name="path">The file to append the specified string to.</param>

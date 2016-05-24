@@ -16,8 +16,19 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.File"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class FileWrap : IFile
-    {
+    public class FileWrap : IFile {
+        /// <inheritdoc />
+        public void AppendAllLines(string path, IEnumerable<string> contents) 
+        {
+            File.AppendAllLines(path, contents);
+        }
+
+        /// <inheritdoc />
+        public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) 
+        {
+            File.AppendAllLines(path, contents, encoding);
+        }
+
         /// <inheritdoc />
         public void AppendAllText(string path, string contents)
         {
