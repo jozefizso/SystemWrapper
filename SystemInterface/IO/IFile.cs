@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Security.AccessControl;
 using System.Text;
@@ -13,6 +15,20 @@ namespace SystemInterface.IO
     public interface IFile
     {
         // Methods
+
+        /// <summary>
+        /// Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
+        /// </summary>
+        /// <param name="path">The file to append the lines to. The file is created if it doesn't already exist.</param>
+        /// <param name="contents">The lines to append to the file.</param>
+        void AppendAllLines(string path, IEnumerable<string> contents);
+
+        /// <summary>
+        /// Appends lines to a file, and then closes the file. If the specified file does not exist, this method creates a file, writes the specified lines to the file, and then closes the file.
+        /// </summary>
+        /// <param name="path">The file to append the lines to. The file is created if it doesn't already exist.</param>
+        /// <param name="contents">The lines to append to the file.</param>
+        void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding);
 
         /// <summary>
         /// Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.
@@ -272,6 +288,21 @@ namespace SystemInterface.IO
         /// <param name="encoding">The encoding applied to the contents of the file. </param>
         /// <returns>A string array containing all lines of the file. </returns>
         string ReadAllText(string path, Encoding encoding);
+
+        /// <summary>
+        /// Reads the lines of a file
+        /// </summary>
+        /// <param name="path">The file to read.</param>
+        /// <returns>All the lines of the file, or the lines that are the result of a query. </returns>
+        IEnumerable<string> ReadLines(string path);
+
+        /// <summary>
+        /// Read the lines of a file that has a specific encoding.
+        /// </summary>
+        /// <param name="path">The file to read. </param>
+        /// <param name="encoding">The encoding that is applied to the contents of the file. </param>
+        /// <returns>All the lines of the file, or the lines that are the result of a query. </returns>
+        IEnumerable<string> ReadLines(string path, Encoding encoding);
 
         /// <summary>
         /// Replaces the contents of a specified file with the contents of another file, deleting the original file, and creating a backup of the replaced file.
