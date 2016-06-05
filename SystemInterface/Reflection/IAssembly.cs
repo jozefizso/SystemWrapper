@@ -209,7 +209,16 @@ namespace SystemInterface.Reflection
         [MethodImpl(MethodImplOptions.NoInlining)]
         IAssembly LoadFrom(string assemblyFile);
 
-        /*
+        /// <summary>
+        /// Loads an assembly given the long form of its name.
+        /// </summary>
+        /// <param name="assemblyString">The long form of the assembly name. </param>
+        /// <returns>The loaded assembl.</returns>
+        [System.Security.SecuritySafeCritical]
+        [MethodImplAttribute(MethodImplOptions.NoInlining)]
+        IAssembly Load(string assemblyString);
+
+      /*
             public Module[] GetLoadedModules();
             public Module[] GetLoadedModules(bool getResourceModules);
             [MethodImpl(MethodImplOptions.NoInlining)]

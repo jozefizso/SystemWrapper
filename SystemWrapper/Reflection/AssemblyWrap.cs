@@ -251,5 +251,11 @@ namespace SystemWrapper.Reflection
         {
             return new AssemblyWrap(Assembly.LoadFrom(assemblyFile));
         }
+
+        /// <inheritdoc />
+        public IAssembly Load(string assemblyString)
+        {
+          return new AssemblyWrap(Assembly.Load(assemblyString));
+        }
     }
 }
