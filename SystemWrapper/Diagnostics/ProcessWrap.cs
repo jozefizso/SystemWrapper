@@ -57,7 +57,11 @@ namespace SystemWrapper.Diagnostics
         public IProcessStartInfo StartInfo
         {
             get { return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
-            set { this._startInfo = value; }
+            set
+            {
+                this._startInfo = value;
+                ProcessInstance.StartInfo = _startInfo.ProcessStartInfoInstance;
+            }
         }
 
         /// <inheritdoc />
