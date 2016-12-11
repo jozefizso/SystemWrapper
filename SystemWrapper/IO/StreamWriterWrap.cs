@@ -203,6 +203,15 @@ namespace SystemWrapper.IO
             StreamWriterInstance.Close();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                StreamWriterInstance.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         /// <inheritdoc />
         public override void Flush()
         {
