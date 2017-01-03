@@ -72,6 +72,7 @@
     <Compile Include="Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="Diagnostics\TraceSourceWrapTests.cs" />
     <Compile Include="EnvironmentWrapTests.cs" />
+    <Compile Include="Interop\WindowFunctionsTests.cs" />
     <Compile Include="IO\StreamWriterWrapTests.cs" />
     <Compile Include="IO\BinaryReaderWrapTests.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
