@@ -96,6 +96,8 @@
     <Compile Include="IConsole.cs" />
     <Compile Include="IDateTime.cs" />
     <Compile Include="IEnvironment.cs" />
+    <Compile Include="Interop\IWindowFunctions.cs" />
+    <Compile Include="Interop\RECT.cs" />
     <Compile Include="IO\Compression\IDeflateStream.cs" />
     <Compile Include="IO\IBinaryReader.cs" />
     <Compile Include="IO\IBinaryWriter.cs" />

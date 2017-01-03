@@ -103,6 +103,7 @@
     <Compile Include="Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="EnvironmentWrap.cs" />
     <Compile Include="Globalization\CultureInfoWrap.cs" />
+    <Compile Include="Interop\WindowFunctions.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
@@ -197,21 +198,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  -->
-  <Target Name="AfterBuild">
-    <!-- Load up the information from the assembly -->
-    <GetAssemblyIdentity AssemblyFiles="$(OutputPath)$(AssemblyName).dll">
-      <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
-    </GetAssemblyIdentity>
-    <Message Text="Assembly version: %(OutputAssemblyInfo.Version)" />
-  </Target>
-  <Target Name="Package" DependsOnTargets="AfterBuild">
-    <MakeDir Directories="$(MSBuildThisFileDirectory)..\publish" Condition=" !Exists('$(MSBuildThisFileDirectory)..\publish') " />
-    <!-- Package the project -->
-    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)" Command="$(MSBuildThisFileDirectory)..\.nuget\NuGet.exe pack &quot;$(MSBuildProjectName).nuspec&quot; -Verbosity detailed -Symbols -OutputDir &quot;$(MSBuildThisFileDirectory)..\publish&quot; -Version %(OutputAssemblyInfo.Version) -Properties &quot;Configuration=Release&quot;" />
-  </Target>
 </Project>
