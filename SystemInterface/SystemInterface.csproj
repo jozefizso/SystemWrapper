@@ -54,6 +54,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -97,6 +99,9 @@
     <Compile Include="IDateTime.cs" />
     <Compile Include="IEnvironment.cs" />
     <Compile Include="IO\Compression\IDeflateStream.cs" />
+    <Compile Include="IO\Compression\IZipArchive.cs" />
+    <Compile Include="IO\Compression\IZipArchiveEntry.cs" />
+    <Compile Include="IO\Compression\IZipFile.cs" />
     <Compile Include="IO\IBinaryReader.cs" />
     <Compile Include="IO\IBinaryWriter.cs" />
     <Compile Include="IO\IDirectory.Net45.cs" />
@@ -118,7 +123,9 @@
     <Compile Include="IO\IStreamReaderFactory.cs" />
     <Compile Include="IO\IStreamWriter.cs" />
     <Compile Include="IO\ITextReader.cs" />
+    <Compile Include="IStaticWrapper.cs" />
     <Compile Include="IVersion.cs" />
+    <Compile Include="IWrapper.cs" />
     <Compile Include="Microsoft.Win32\IAccessTheRegistry.cs" />
     <Compile Include="Microsoft.Win32\IRegistry.cs" />
     <Compile Include="Microsoft.Win32\IRegistryKey.cs" />
