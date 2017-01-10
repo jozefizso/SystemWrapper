@@ -1,9 +1,10 @@
-﻿namespace SystemInterface
-{
-    /// <summary>
-    /// This is marked interface for API that wraps static methods.
-    /// </summary>
-    public interface IStaticWrapper
-    {
-    }
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SystemInterface {
+	public interface IStaticWrapper {
+	}
 }

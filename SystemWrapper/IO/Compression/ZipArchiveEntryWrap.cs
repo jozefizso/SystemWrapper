@@ -1,85 +1,67 @@
 ﻿using System;
-using System.IO.Compression;
 using SystemInterface.IO;
 using SystemInterface.IO.Compression;
+using MicrosoftImpl = System.IO.Compression;
 
-namespace SystemWrapper.IO.Compression
-{
-    public class ZipArchiveEntryWrap : IZipArchiveEntry
-    {
-        public ZipArchiveEntryWrap(ZipArchiveEntry instance)
-        {
-            this.Instance = instance;
-        }
+namespace SystemWrapper.IO.Compression {
+	public class ZipArchiveEntryWrap : IZipArchiveEntry {
 
-        public ZipArchiveEntry Instance { get; private set; }
+		public MicrosoftImpl.ZipArchiveEntry Instance { get; private set; }
 
-        public IZipArchive Archive
-        {
-            get
-            {
-                return new ZipArchiveWrap(Instance.Archive);
-            }
-        }
+		public ZipArchiveEntryWrap(MicrosoftImpl.ZipArchiveEntry Instance) {
+			this.Instance = Instance;
+		}
 
-        public long CompressedLength
-        {
-            get
-            {
-                return Instance.CompressedLength;
-            }
-        }
+		public IZipArchive Archive {
+			get {
+				return new ZipArchiveWrap(Instance.Archive);
+			}
+		}
 
-        public string FullName
-        {
-            get
-            {
-                return Instance.FullName;
-            }
-        }
+		public long CompressedLength {
+			get {
+				return Instance.CompressedLength;
+			}
+		}
 
-        public DateTimeOffset LastWriteTime
-        {
-            get
-            {
-                return Instance.LastWriteTime;
-            }
+		public string FullName {
+			get {
+				return Instance.FullName;
+			}
+		}
 
-            set
-            {
-                Instance.LastWriteTime = value;
-            }
-        }
+		public DateTimeOffset LastWriteTime {
+			get {
+				return Instance.LastWriteTime;
+			}
 
-        public long Length
-        {
-            get
-            {
-                return Instance.Length;
-            }
-        }
+			set {
+				Instance.LastWriteTime = value;
+			}
+		}
 
-        public string Name
-        {
-            get
-            {
-                return Instance.Name;
-            }
-        }
+		public long Length {
+			get {
+				return Instance.Length;
+			}
+		}
 
-        public void Delete()
-        {
-            Instance.Delete();
-        }
+		public string Name {
+			get {
+				return Instance.Name;
+			}
+		}
 
-        public IStream Open()
-        {
-            return new StreamWrap(Instance.Open());
-        }
+		public void Delete() {
+			Instance.Delete();
+		}
 
-        public override string ToString()
-        {
-            return Instance.ToString();
-        }
-    }
+		public IStream Open() {
+			return new StreamWrap(Instance.Open());
+		}
+
+		public override string ToString() {
+			return Instance.ToString();
+		}
+	}
 }
