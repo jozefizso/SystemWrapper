@@ -9,7 +9,7 @@ using SystemWrapper.IO.Compression;
 
 namespace SystemWrapper.Tests.IO.Compression {
 	[TestFixture(Category = "SystemWrapper.IO.Compression")]
-	[Author("Chris Bush", "christopher.bush@schneider-electric.com")]
+	[Author("Chris Bush", "cjbush77@gmail.com")]
 	public class ZipArchiveEntryWrapTests {
 		private string ArchiveDirectory;
 		private string ArchiveFileName;
