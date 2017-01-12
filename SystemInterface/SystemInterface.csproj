@@ -139,6 +139,7 @@
     <Compile Include="Net\Mail\ISmtpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\IAssembly.cs" />
+    <Compile Include="Reflection\IAssemblyFactory.cs" />
     <Compile Include="Reflection\IAssemblyName.cs" />
     <Compile Include="Runtime\Serialization\Json\IDataContractJSonSerializer.cs" />
     <Compile Include="Runtime\Serialization\Json\IDataContractJSonSerializerFactory.cs" />

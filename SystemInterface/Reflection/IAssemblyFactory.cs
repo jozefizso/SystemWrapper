@@ -1,0 +1,36 @@
+﻿using System.Configuration.Assemblies;
+using System.Runtime.CompilerServices;
+using System.Security.Permissions;
+using System.Security.Policy;
+
+namespace SystemInterface.Reflection {
+	public interface IAssemblyFactory {
+		IAssembly Load(byte[] rawAssembly);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly Load(IAssemblyName assemblyRef);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly Load(string assemblyString);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly Load(IAssemblyName assemblyRef, Evidence assemblySecurity);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly Load(string assemblyString, Evidence assemblySecurity);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly Load(byte[] rawAssembly, byte[] rawSymbolStore);
+		[MethodImpl(MethodImplOptions.NoInlining), SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlEvidence)]
+		IAssembly Load(byte[] rawAssembly, byte[] rawSymbolStore, Evidence securityEvidence);
+		IAssembly LoadFile(string path);
+		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlEvidence)]
+		IAssembly LoadFile(string path, Evidence securityEvidence);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly LoadFrom(string assemblyFile, Evidence securityEvidence);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly LoadFrom(string assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly ReflectionOnlyLoad(string assemblyString);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly ReflectionOnlyLoad(byte[] rawAssembly);
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		IAssembly ReflectionOnlyLoadFrom(string assemb);
+
+	}
+}
