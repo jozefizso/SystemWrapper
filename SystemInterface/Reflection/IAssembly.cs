@@ -218,6 +218,9 @@ namespace SystemInterface.Reflection
         [MethodImplAttribute(MethodImplOptions.NoInlining)]
         IAssembly Load(string assemblyString);
 
+		string[] GetManifestResourceNames();
+		IStream GetManifestResourceStream(string name);
+
       /*
             public Module[] GetLoadedModules();
             public Module[] GetLoadedModules(bool getResourceModules);
