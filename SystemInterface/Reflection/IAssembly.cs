@@ -207,6 +207,7 @@ namespace SystemInterface.Reflection
         /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
         /// <returns>The loaded assembly. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
+		[Obsolete("Use IAssemblyFactory.LoadFrom")]
         IAssembly LoadFrom(string assemblyFile);
 
         /// <summary>
@@ -216,6 +217,7 @@ namespace SystemInterface.Reflection
         /// <returns>The loaded assembl.</returns>
         [System.Security.SecuritySafeCritical]
         [MethodImplAttribute(MethodImplOptions.NoInlining)]
+		[Obsolete("Use IAssemblyFactory.Load")]
         IAssembly Load(string assemblyString);
 
 		string[] GetManifestResourceNames();

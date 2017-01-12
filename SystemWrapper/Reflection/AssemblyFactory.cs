@@ -1,4 +1,5 @@
-﻿using System.Configuration.Assemblies;
+﻿using System;
+using System.Configuration.Assemblies;
 using System.Reflection;
 using System.Security.Policy;
 using SystemInterface.Reflection;
@@ -39,6 +40,10 @@ namespace SystemWrapper.Reflection {
 
 		public IAssembly LoadFile(string path, Evidence securityEvidence) {
 			return new AssemblyWrap(Assembly.LoadFile(path, securityEvidence));
+		}
+
+		public IAssembly LoadFrom(string assemblyFile) {
+			return new AssemblyWrap(Assembly.LoadFrom(assemblyFile));
 		}
 
 		public IAssembly LoadFrom(string assemblyFile, Evidence securityEvidence) {
