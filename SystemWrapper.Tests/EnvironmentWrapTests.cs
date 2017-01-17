@@ -43,5 +43,31 @@ namespace SystemWrapper.Tests
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [Test]
+        public void ExpandEnvironmentVariables_CurrentEnvironment_EscapesValuesInString()
+        {
+            // Arrange
+            var expectedValue = Environment.GetEnvironmentVariable("SystemRoot");
+
+            // Act
+            var actualValue = this.EnvironmentWrap.ExpandEnvironmentVariables("%SystemRoot%");
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void ExpandEnvironmentVariables_EmptyString_ReturnsEmptyString()
+        {
+            // Arrange
+            var expectedValue = String.Empty;
+
+            // Act
+            var actualValue = this.EnvironmentWrap.ExpandEnvironmentVariables("");
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Security;
 using System.Security.Permissions;
 
 namespace SystemInterface
 {
-    using System.IO.MemoryMappedFiles;
-
     /// <summary>
     /// Provides information about, and means to manipulate, the current environment and platform.
     /// </summary>
@@ -345,5 +344,27 @@ namespace SystemInterface
         /// For full access to the resource protected by this permission. Associated enumeration: <see cref="PermissionState.Unrestricted"/>.
         /// </permission>
         long WorkingSet { get; }
+
+        /// <summary>
+        /// Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string.
+        /// </summary>
+        /// <param name="name">A string containing the names of zero or more environment variables. Each environment variable is quoted with the percent sign character (%).</param>
+        /// <returns>A string with each environment variable replaced by its value.</returns>
+        /// <remarks>
+        /// <para>
+        /// COM interop is used to retrieve the environment variables from the operating system. 
+        /// If the environment variables cannot be retrieved due to a COM error, the HRESULT that explains the cause of the failure is used to generate one of several
+        /// possible exceptions; that is, the exception depends on the HRESULT. 
+        /// For more information about how the HRESULT is processed, see the Remarks section of the Marshal.ThrowExceptionForHR method.
+        /// </para>
+        /// <para>
+        /// Replacement only occurs for environment variables that are set. For example, suppose name is "MyENV = %MyENV%".
+        /// If the environment variable, MyENV, is set to 42, this method returns "MyENV = 42". If MyENV is not set, no change occurs; this method returns "MyENV = %MyENV%".
+        /// </para>
+        /// <para>
+        /// The size of the return value is limited to 32K.
+        /// </para>
+        /// </remarks>
+        string ExpandEnvironmentVariables(string name);
     }
 }

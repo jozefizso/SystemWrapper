@@ -130,5 +130,10 @@ namespace SystemWrapper
         {
             get { return Environment.WorkingSet; }
         }
+
+        public string ExpandEnvironmentVariables(string name)
+        {
+            return Environment.ExpandEnvironmentVariables(name);
+        }
     }
 }
