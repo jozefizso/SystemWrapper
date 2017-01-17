@@ -135,5 +135,15 @@ namespace SystemWrapper
         {
             return Environment.ExpandEnvironmentVariables(name);
         }
+
+        public string GetFolderPath(Environment.SpecialFolder folder)
+        {
+            return Environment.GetFolderPath(folder);
+        }
+
+        public string GetFolderPath(Environment.SpecialFolder folder, Environment.SpecialFolderOption option)
+        {
+            return Environment.GetFolderPath(folder, option);
+        }
     }
 }

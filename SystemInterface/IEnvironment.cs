@@ -366,5 +366,34 @@ namespace SystemInterface
         /// </para>
         /// </remarks>
         string ExpandEnvironmentVariables(string name);
+
+        /// <summary>
+        /// Gets the path to the system special folder that is identified by the specified enumeration.
+        /// </summary>
+        /// <param name="folder">An enumerated constant that identifies a system special folder.</param>
+        /// <returns>
+        /// The path to the specified system special folder, if that folder physically exists on your computer; otherwise, an empty string ("").
+        /// 
+        /// <para>
+        /// A folder will not physically exist if the operating system did not create it, the existing folder was deleted, or the folder
+        /// is a virtual directory, such as My Computer, which does not correspond to a physical path.
+        /// </para>
+        /// </returns>
+        string GetFolderPath(Environment.SpecialFolder folder);
+
+        /// <summary>
+        /// Gets the path to the system special folder that is identified by the specified enumeration, and uses a specified option for accessing special folders.
+        /// </summary>
+        /// <param name="folder">An enumerated constant that identifies a system special folder.</param>
+        /// <param name="option">Specifies options to use for accessing a special folder.</param>
+        /// <returns>
+        /// The path to the specified system special folder, if that folder physically exists on your computer; otherwise, an empty string ("").
+        /// 
+        /// <para>
+        /// A folder will not physically exist if the operating system did not create it, the existing folder was deleted, or the folder is a virtual directory,
+        /// such as My Computer, which does not correspond to a physical path.
+        /// </para>
+        /// </returns>
+        string GetFolderPath(Environment.SpecialFolder folder, Environment.SpecialFolderOption option);
     }
 }
