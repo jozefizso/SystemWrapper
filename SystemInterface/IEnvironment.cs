@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Security;
 using System.Security.Permissions;
 
 namespace SystemInterface
 {
-    using System.IO.MemoryMappedFiles;
-
     /// <summary>
     /// Provides information about, and means to manipulate, the current environment and platform.
     /// </summary>
@@ -345,5 +344,56 @@ namespace SystemInterface
         /// For full access to the resource protected by this permission. Associated enumeration: <see cref="PermissionState.Unrestricted"/>.
         /// </permission>
         long WorkingSet { get; }
+
+        /// <summary>
+        /// Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string.
+        /// </summary>
+        /// <param name="name">A string containing the names of zero or more environment variables. Each environment variable is quoted with the percent sign character (%).</param>
+        /// <returns>A string with each environment variable replaced by its value.</returns>
+        /// <remarks>
+        /// <para>
+        /// COM interop is used to retrieve the environment variables from the operating system. 
+        /// If the environment variables cannot be retrieved due to a COM error, the HRESULT that explains the cause of the failure is used to generate one of several
+        /// possible exceptions; that is, the exception depends on the HRESULT. 
+        /// For more information about how the HRESULT is processed, see the Remarks section of the Marshal.ThrowExceptionForHR method.
+        /// </para>
+        /// <para>
+        /// Replacement only occurs for environment variables that are set. For example, suppose name is "MyENV = %MyENV%".
+        /// If the environment variable, MyENV, is set to 42, this method returns "MyENV = 42". If MyENV is not set, no change occurs; this method returns "MyENV = %MyENV%".
+        /// </para>
+        /// <para>
+        /// The size of the return value is limited to 32K.
+        /// </para>
+        /// </remarks>
+        string ExpandEnvironmentVariables(string name);
+
+        /// <summary>
+        /// Gets the path to the system special folder that is identified by the specified enumeration.
+        /// </summary>
+        /// <param name="folder">An enumerated constant that identifies a system special folder.</param>
+        /// <returns>
+        /// The path to the specified system special folder, if that folder physically exists on your computer; otherwise, an empty string ("").
+        /// 
+        /// <para>
+        /// A folder will not physically exist if the operating system did not create it, the existing folder was deleted, or the folder
+        /// is a virtual directory, such as My Computer, which does not correspond to a physical path.
+        /// </para>
+        /// </returns>
+        string GetFolderPath(Environment.SpecialFolder folder);
+
+        /// <summary>
+        /// Gets the path to the system special folder that is identified by the specified enumeration, and uses a specified option for accessing special folders.
+        /// </summary>
+        /// <param name="folder">An enumerated constant that identifies a system special folder.</param>
+        /// <param name="option">Specifies options to use for accessing a special folder.</param>
+        /// <returns>
+        /// The path to the specified system special folder, if that folder physically exists on your computer; otherwise, an empty string ("").
+        /// 
+        /// <para>
+        /// A folder will not physically exist if the operating system did not create it, the existing folder was deleted, or the folder is a virtual directory,
+        /// such as My Computer, which does not correspond to a physical path.
+        /// </para>
+        /// </returns>
+        string GetFolderPath(Environment.SpecialFolder folder, Environment.SpecialFolderOption option);
     }
 }
