@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper", "SystemWrapper\SystemWrapper.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{492E26B9-DAD8-4883-809B-5B6E0D49C6EA}"
 	ProjectSection(SolutionItems) = preProject
 		Build\AssemblySharedInfo.cs = Build\AssemblySharedInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{50258B12-AECB-4BAF-9FE2-C4A3AACA249F}"
+	ProjectSection(SolutionItems) = preProject
+		Rebracer.xml = Rebracer.xml
 	EndProjectSection
 EndProject
 Global
