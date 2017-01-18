@@ -54,7 +54,10 @@ namespace SystemWrapper.Reflection
             get
             {
                 if (_assembly == null)
-                    throw new ArgumentNullException();
+                {
+                    throw new InvalidOperationException("AssemblyWrap instance was not initialized with Assembly object. Use Initialize() method to set Assembly object.");
+                }
+
                 return _assembly;
             }
         }
@@ -256,6 +259,16 @@ namespace SystemWrapper.Reflection
         public IAssembly Load(string assemblyString)
         {
             return new AssemblyWrap(Assembly.Load(assemblyString));
+        }
+
+        public string[] GetManifestResourceNames()
+        {
+            return AssemblyInstance.GetManifestResourceNames();
+        }
+
+        public IStream GetManifestResourceStream(string name)
+        {
+            return new StreamWrap(AssemblyInstance.GetManifestResourceStream(name));
         }
     }
 }
