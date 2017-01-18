@@ -258,12 +258,14 @@ namespace SystemWrapper.Reflection
             return new AssemblyWrap(Assembly.Load(assemblyString));
         }
 
-		public string[] GetManifestResourceNames() {
-			return AssemblyInstance.GetManifestResourceNames();
-		}
+        public string[] GetManifestResourceNames()
+        {
+            return AssemblyInstance.GetManifestResourceNames();
+        }
 
-		public IStream GetManifestResourceStream(string name) {
-			return new StreamWrap(AssemblyInstance.GetManifestResourceStream(name));
-		}
-	}
+        public IStream GetManifestResourceStream(string name)
+        {
+            return new StreamWrap(AssemblyInstance.GetManifestResourceStream(name));
+        }
+    }
 }
