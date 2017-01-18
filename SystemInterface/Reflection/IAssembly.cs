@@ -207,7 +207,7 @@ namespace SystemInterface.Reflection
         /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
         /// <returns>The loaded assembly. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
-        [Obsolete("Use IAssemblyFactory.LoadFrom")]
+        [Obsolete("This interface for static method Assembly.LoadFrom(string) was moved to the IAssemblyFactory.LoadFrom(string).")]
         IAssembly LoadFrom(string assemblyFile);
 
         /// <summary>
@@ -217,10 +217,20 @@ namespace SystemInterface.Reflection
         /// <returns>The loaded assembl.</returns>
         [System.Security.SecuritySafeCritical]
         [MethodImplAttribute(MethodImplOptions.NoInlining)]
-        [Obsolete("Use IAssemblyFactory.Load")]
+        [Obsolete("This interface for static method Assembly.LoadFrom(string) was moved to the IAssemblyFactory.LoadFrom(string).")]
         IAssembly Load(string assemblyString);
 
+        /// <summary>
+        /// Returns the names of all the resources in this assembly.
+        /// </summary>
+        /// <returns>An array that contains the names of all the resources.</returns>
         string[] GetManifestResourceNames();
+
+        /// <summary>
+        /// Loads the specified manifest resource from this assembly.
+        /// </summary>
+        /// <param name="name">The case-sensitive name of the manifest resource being requested.</param>
+        /// <returns>The manifest resource; or null if no resources were specified during compilation or if the resource is not visible to the caller.</returns>
         IStream GetManifestResourceStream(string name);
 
         /*
