@@ -57,6 +57,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +74,9 @@
     <Compile Include="Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="Diagnostics\TraceSourceWrapTests.cs" />
     <Compile Include="EnvironmentWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveEntryWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipFileWrapTests.cs" />
     <Compile Include="IO\StreamWriterWrapTests.cs" />
     <Compile Include="IO\BinaryReaderWrapTests.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
