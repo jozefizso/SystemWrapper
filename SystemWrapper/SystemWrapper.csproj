@@ -134,6 +134,7 @@
     <Compile Include="Net\HttpWebResponseWrapFactory.Generated.cs" />
     <Compile Include="Net\Mail\SmtpClientWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AssemblyFactory.cs" />
     <Compile Include="Reflection\AssemblyNameWrap.cs" />
     <Compile Include="Reflection\AssemblyWrap.cs" />
     <Compile Include="Runtime\Serialization\Json\DataContractJsonSerializerWrap.cs" />
