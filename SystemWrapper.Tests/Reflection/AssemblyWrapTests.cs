@@ -47,5 +47,17 @@ namespace SystemWrapper.Tests.Reflection
             var actualException = Assert.Throws<FileNotFoundException>(() => assembly.Load(expectedAssemblyFullName));
             StringAssert.StartsWith("Could not load file or assembly 'FakeAssemblyName, Version=0.0.1.0, Culture=neutral' or one of its dependencies.", actualException.Message);
         }
+
+        [Test]
+        public void AssemblyInstance_AssemblyWrapCreatedWithDefaultConstructor_ThrowsException()
+        {
+            // Arrange
+            var assembly = new AssemblyWrap();
+
+            // Act & Assert
+            var actualException = Assert.Throws<InvalidOperationException>(() => { var var1 = assembly.AssemblyInstance; });
+
+            Assert.AreEqual(actualException.Message, "AssemblyWrap instance was not initialized with Assembly object. Use Initialize() method to set Assembly object.");
+        }
     }
 }
