@@ -6,6 +6,9 @@ using SystemInterface.Reflection;
 
 namespace SystemWrapper.Reflection
 {
+    /// <summary>
+    /// Wrapper implementation for static methods from the <see cref="System.Reflection.Assembly"/> type.
+    /// </summary>
     public class AssemblyFactory : IAssemblyFactory
     {
         public IAssembly Load(string assemblyString)

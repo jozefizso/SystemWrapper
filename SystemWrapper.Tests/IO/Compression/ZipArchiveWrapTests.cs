@@ -1,7 +1,9 @@
-﻿using NUnit.Framework;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using System.Threading;
+
+using NUnit.Framework;
+
 using SystemWrapper.IO.Compression;
 
 namespace SystemWrapper.Tests.IO.Compression
@@ -10,7 +12,6 @@ namespace SystemWrapper.Tests.IO.Compression
     [Author("Chris Bush", "cjbush77@gmail.com")]
     public class ZipArchiveWrapTests
     {
-
         private string ArchiveDirectory;
         private string ArchiveFileName;
         private string UnarchiveDirectory;
@@ -147,6 +148,5 @@ namespace SystemWrapper.Tests.IO.Compression
                 Assert.AreEqual(expected.Instance.Name, actual.Instance.Name);
             }
         }
-
     }
 }

@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using MicrosoftImpl = System.IO.Compression;
+using System.IO.Compression;
 
 namespace SystemInterface.IO.Compression
 {
-    public interface IZipArchive : IDisposable, IWrapper<MicrosoftImpl.ZipArchive>
+    public interface IZipArchive : IDisposable, IWrapper<ZipArchive>
     {
-
         ReadOnlyCollection<IZipArchiveEntry> Entries { get; }
 
-        MicrosoftImpl.ZipArchiveMode Mode { get; }
-
+        ZipArchiveMode Mode { get; }
 
         IZipArchiveEntry CreateEntry(string entryName);
 
-        IZipArchiveEntry CreateEntry(string entryName, MicrosoftImpl.CompressionLevel compressionLevel);
+        IZipArchiveEntry CreateEntry(string entryName, CompressionLevel compressionLevel);
 
         IZipArchiveEntry GetEntry(string entryName);
     }

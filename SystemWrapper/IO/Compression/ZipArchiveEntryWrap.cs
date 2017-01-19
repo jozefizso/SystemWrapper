@@ -1,19 +1,18 @@
 ﻿using System;
+using System.IO.Compression;
 using SystemInterface.IO;
 using SystemInterface.IO.Compression;
-using MicrosoftImpl = System.IO.Compression;
 
 namespace SystemWrapper.IO.Compression
 {
     public class ZipArchiveEntryWrap : IZipArchiveEntry
     {
-
-        public MicrosoftImpl.ZipArchiveEntry Instance { get; private set; }
-
-        public ZipArchiveEntryWrap(MicrosoftImpl.ZipArchiveEntry Instance)
+        public ZipArchiveEntryWrap(ZipArchiveEntry instance)
         {
-            this.Instance = Instance;
+            this.Instance = instance;
         }
+
+        public ZipArchiveEntry Instance { get; private set; }
 
         public IZipArchive Archive
         {

@@ -1,9 +1,9 @@
 ﻿using System;
-using MicrosoftImpl = System.IO.Compression;
+using System.IO.Compression;
 
 namespace SystemInterface.IO.Compression
 {
-    public interface IZipArchiveEntry : IWrapper<MicrosoftImpl.ZipArchiveEntry>
+    public interface IZipArchiveEntry : IWrapper<ZipArchiveEntry>
     {
         IZipArchive Archive { get; }
 
@@ -20,6 +20,5 @@ namespace SystemInterface.IO.Compression
         void Delete();
 
         IStream Open();
-
     }
 }

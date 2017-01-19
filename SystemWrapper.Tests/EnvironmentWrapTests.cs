@@ -43,5 +43,57 @@ namespace SystemWrapper.Tests
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [Test]
+        public void ExpandEnvironmentVariables_CurrentEnvironment_EscapesValuesInString()
+        {
+            // Arrange
+            var expectedValue = Environment.GetEnvironmentVariable("SystemRoot");
+
+            // Act
+            var actualValue = this.EnvironmentWrap.ExpandEnvironmentVariables("%SystemRoot%");
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void ExpandEnvironmentVariables_EmptyString_ReturnsEmptyString()
+        {
+            // Arrange
+            var expectedValue = String.Empty;
+
+            // Act
+            var actualValue = this.EnvironmentWrap.ExpandEnvironmentVariables("");
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void GetFolderPath_ValidSpecialFolderValue_ReturnsCorrectFolderPath()
+        {
+            // Arrange
+            var expectedValue = Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms);
+
+            // Act
+            var actualValue = this.EnvironmentWrap.GetFolderPath(Environment.SpecialFolder.CommonPrograms);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [Test]
+        public void GetFolderPath_ValidSpecialFolderValueAndSpecialFolderOptionValue_CanBeCalled()
+        {
+            // Arrange
+            var expectedValue = Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms, Environment.SpecialFolderOption.DoNotVerify);
+
+            // Act
+            var actualValue = this.EnvironmentWrap.GetFolderPath(Environment.SpecialFolder.CommonPrograms, Environment.SpecialFolderOption.DoNotVerify);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }
