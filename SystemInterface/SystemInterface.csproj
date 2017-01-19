@@ -11,6 +11,7 @@
     <AssemblyName>SystemInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,6 +91,8 @@
     <Compile Include="Data\SqlClient\ISqlDataAdapterFactory.cs" />
     <Compile Include="Data\SqlClient\ISqlDataReader.cs" />
     <Compile Include="Data\SqlClient\ISqlParameterCollection.cs" />
+    <Compile Include="Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="Diagnostics\IFileVersionInfoFactory.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\IProcessStartInfo.cs" />
     <Compile Include="Diagnostics\ITraceSource.cs" />
