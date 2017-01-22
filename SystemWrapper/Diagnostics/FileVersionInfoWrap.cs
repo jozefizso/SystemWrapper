@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Diagnostics;
 using SystemInterface.Diagnostics;
 
 namespace SystemWrapper.Diagnostics
 {
     public class FileVersionInfoWrap : IFileVersionInfo
     {
-
-        private readonly System.Diagnostics.FileVersionInfo instance;
-        public FileVersionInfoWrap(System.Diagnostics.FileVersionInfo instance)
+        public FileVersionInfoWrap(FileVersionInfo instance)
         {
-            this.instance = instance;
+            this.Instance = instance;
         }
+
+        public FileVersionInfo Instance { get; }
 
         public string Comments
         {
             get
             {
-                return instance.Comments;
+                return Instance.Comments;
             }
         }
 
@@ -24,7 +25,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.CompanyName;
+                return Instance.CompanyName;
             }
         }
 
@@ -32,7 +33,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileBuildPart;
+                return Instance.FileBuildPart;
             }
         }
 
@@ -40,7 +41,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileDescription;
+                return Instance.FileDescription;
             }
         }
 
@@ -48,7 +49,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileMajorPart;
+                return Instance.FileMajorPart;
             }
         }
 
@@ -56,7 +57,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileMinorPart;
+                return Instance.FileMinorPart;
             }
         }
 
@@ -64,7 +65,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileName;
+                return Instance.FileName;
             }
         }
 
@@ -72,7 +73,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FilePrivatePart;
+                return Instance.FilePrivatePart;
             }
         }
 
@@ -80,15 +81,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.FileVersion;
-            }
-        }
-
-        public System.Diagnostics.FileVersionInfo Instance
-        {
-            get
-            {
-                return instance;
+                return Instance.FileVersion;
             }
         }
 
@@ -96,7 +89,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.InternalName;
+                return Instance.InternalName;
             }
         }
 
@@ -104,7 +97,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.IsDebug;
+                return Instance.IsDebug;
             }
         }
 
@@ -112,7 +105,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.IsPatched;
+                return Instance.IsPatched;
             }
         }
 
@@ -120,7 +113,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.IsPreRelease;
+                return Instance.IsPreRelease;
             }
         }
 
@@ -128,7 +121,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.IsPrivateBuild;
+                return Instance.IsPrivateBuild;
             }
         }
 
@@ -136,7 +129,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.IsSpecialBuild;
+                return Instance.IsSpecialBuild;
             }
         }
 
@@ -144,7 +137,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.Language;
+                return Instance.Language;
             }
         }
 
@@ -152,7 +145,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.LegalCopyright;
+                return Instance.LegalCopyright;
             }
         }
 
@@ -160,7 +153,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.LegalTrademarks;
+                return Instance.LegalTrademarks;
             }
         }
 
@@ -168,7 +161,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.OriginalFilename;
+                return Instance.OriginalFilename;
             }
         }
 
@@ -176,7 +169,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.PrivateBuild;
+                return Instance.PrivateBuild;
             }
         }
 
@@ -184,7 +177,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductBuildPart;
+                return Instance.ProductBuildPart;
             }
         }
 
@@ -192,7 +185,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductMajorPart;
+                return Instance.ProductMajorPart;
             }
         }
 
@@ -200,7 +193,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductMinorPart;
+                return Instance.ProductMinorPart;
             }
         }
 
@@ -208,7 +201,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductName;
+                return Instance.ProductName;
             }
         }
 
@@ -216,7 +209,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductPrivatePart;
+                return Instance.ProductPrivatePart;
             }
         }
 
@@ -224,7 +217,7 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.ProductVersion;
+                return Instance.ProductVersion;
             }
         }
 
@@ -232,13 +225,13 @@ namespace SystemWrapper.Diagnostics
         {
             get
             {
-                return instance.SpecialBuild;
+                return Instance.SpecialBuild;
             }
         }
 
         public override string ToString()
         {
-            return instance.ToString();
+            return Instance.ToString();
         }
     }
 }
