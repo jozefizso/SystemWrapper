@@ -90,6 +90,8 @@
     <Compile Include="Data\SqlClient\ISqlDataAdapterFactory.cs" />
     <Compile Include="Data\SqlClient\ISqlDataReader.cs" />
     <Compile Include="Data\SqlClient\ISqlParameterCollection.cs" />
+    <Compile Include="Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="Diagnostics\IFileVersionInfoFactory.cs" />
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\IProcessStartInfo.cs" />
     <Compile Include="Diagnostics\ITraceSource.cs" />
