@@ -100,6 +100,8 @@
     <Compile Include="Data\SqlClient\SqlConnectionWrap.cs" />
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="DateTimeWrap.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoWrap.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoFactory.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
     <Compile Include="Diagnostics\TraceSourceWrap.cs" />
