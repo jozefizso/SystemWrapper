@@ -1,74 +1,77 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemInterface;
+using NUnit.Framework;
+
 using SystemInterface.Diagnostics;
 using SystemWrapper.Diagnostics;
 
 namespace SystemWrapper.Tests.Diagnostics
 {
-    [TestFixture(Category = @"SystemWrapper.Diagnostics.FileVersionInfoWrap")]
+    [TestFixture]
     [Author("Chris Bush", "cjbush77@gmail.com")]
     public class FileVersionInfoWrapTests
     {
-        private System.Diagnostics.FileVersionInfo expected;
-        private IFileVersionInfo subject;
-        private IFileVersionInfoFactory factory;
+        private const string TestFilename = @"TestData\BinaryReaderWrapTestData.txt";
 
-        const string filename = @"TestData\BinaryReaderWrapTestData.txt";
-
-        [TestFixtureSetUp]
-        public void FixtureSetup()
+        [Test]
+        public void Instance_Property_ReturnsWrappedObjectInstance()
         {
-            var absPath = System.IO.Path.GetFullPath(filename);
-            factory = new FileVersionInfoFactory();
-            expected = System.Diagnostics.FileVersionInfo.GetVersionInfo(absPath);
-            subject = factory.GetVersionInfo(absPath);
+            // Arrange 
+            var filename = Path.GetFullPath(TestFilename);
+            var expectedFileVersioInfo = FileVersionInfo.GetVersionInfo(filename);
+
+            // Act
+            IWrapper<FileVersionInfo> actualFileVersionInfo = new FileVersionInfoWrap(expectedFileVersioInfo);
+
+            // Assert
+            Assert.AreSame(expectedFileVersioInfo, actualFileVersionInfo.Instance);
         }
 
         [Test]
-        public void Factory_ShouldReturn_ValidWrapper()
+        public void FileVersionInfoWrap_Properties_ReturnCorrectValues()
         {
-            var test = factory.GetVersionInfo(filename);
-            Assert.IsNotNull(test);
-            Assert.IsInstanceOf<FileVersionInfoWrap>(test);
-        }
+            // Arrange 
+            var filename = Path.GetFullPath(TestFilename);
+            var expectedFileVersioInfo = FileVersionInfo.GetVersionInfo(filename);
 
-        [Test]
-        public void Wrap_ShouldHave_AllProperties()
-        {
-            Assert.IsNotNull(subject.Instance);
-            Assert.IsInstanceOf<System.Diagnostics.FileVersionInfo>(subject.Instance);
-            Assert.AreEqual(expected.Comments, subject.Comments);
-            Assert.AreEqual(expected.CompanyName, subject.CompanyName);
-            Assert.AreEqual(expected.FileBuildPart, subject.FileBuildPart);
-            Assert.AreEqual(expected.FileDescription, subject.FileDescription);
-            Assert.AreEqual(expected.FileMajorPart, subject.FileMajorPart);
-            Assert.AreEqual(expected.FileMinorPart, subject.FileMinorPart);
-            Assert.AreEqual(expected.FileName, subject.FileName);
-            Assert.AreEqual(expected.FilePrivatePart, subject.FilePrivatePart);
-            Assert.AreEqual(expected.FileVersion, subject.FileVersion);
-            Assert.AreEqual(expected.InternalName, subject.InternalName);
-            Assert.AreEqual(expected.IsDebug, subject.IsDebug);
-            Assert.AreEqual(expected.IsPatched, subject.IsPatched);
-            Assert.AreEqual(expected.IsPreRelease, subject.IsPreRelease);
-            Assert.AreEqual(expected.IsPrivateBuild, subject.IsPrivateBuild);
-            Assert.AreEqual(expected.IsSpecialBuild, subject.IsSpecialBuild);
-            Assert.AreEqual(expected.Language, subject.Language);
-            Assert.AreEqual(expected.LegalCopyright, subject.LegalCopyright);
-            Assert.AreEqual(expected.LegalTrademarks, subject.LegalTrademarks);
-            Assert.AreEqual(expected.OriginalFilename, subject.OriginalFilename);
-            Assert.AreEqual(expected.PrivateBuild, subject.PrivateBuild);
-            Assert.AreEqual(expected.ProductBuildPart, subject.ProductBuildPart);
-            Assert.AreEqual(expected.ProductMajorPart, subject.ProductMajorPart);
-            Assert.AreEqual(expected.ProductMinorPart, subject.ProductMinorPart);
-            Assert.AreEqual(expected.ProductName, subject.ProductName);
-            Assert.AreEqual(expected.ProductPrivatePart, subject.ProductPrivatePart);
-            Assert.AreEqual(expected.ProductVersion, subject.ProductVersion);
-            Assert.AreEqual(expected.SpecialBuild, subject.SpecialBuild);
-            Assert.AreEqual(expected.ToString(), subject.ToString());
+            // Act
+            var actualFileVersionInfo = new FileVersionInfoWrap(expectedFileVersioInfo);
+
+            // Assert
+            Assert.AreEqual(expectedFileVersioInfo.Comments, actualFileVersionInfo.Comments);
+            Assert.AreEqual(expectedFileVersioInfo.CompanyName, actualFileVersionInfo.CompanyName);
+            Assert.AreEqual(expectedFileVersioInfo.FileBuildPart, actualFileVersionInfo.FileBuildPart);
+            Assert.AreEqual(expectedFileVersioInfo.FileDescription, actualFileVersionInfo.FileDescription);
+            Assert.AreEqual(expectedFileVersioInfo.FileMajorPart, actualFileVersionInfo.FileMajorPart);
+            Assert.AreEqual(expectedFileVersioInfo.FileMinorPart, actualFileVersionInfo.FileMinorPart);
+            Assert.AreEqual(expectedFileVersioInfo.FileName, actualFileVersionInfo.FileName);
+            Assert.AreEqual(expectedFileVersioInfo.FilePrivatePart, actualFileVersionInfo.FilePrivatePart);
+            Assert.AreEqual(expectedFileVersioInfo.FileVersion, actualFileVersionInfo.FileVersion);
+            Assert.AreEqual(expectedFileVersioInfo.InternalName, actualFileVersionInfo.InternalName);
+            Assert.AreEqual(expectedFileVersioInfo.IsDebug, actualFileVersionInfo.IsDebug);
+            Assert.AreEqual(expectedFileVersioInfo.IsPatched, actualFileVersionInfo.IsPatched);
+            Assert.AreEqual(expectedFileVersioInfo.IsPreRelease, actualFileVersionInfo.IsPreRelease);
+            Assert.AreEqual(expectedFileVersioInfo.IsPrivateBuild, actualFileVersionInfo.IsPrivateBuild);
+            Assert.AreEqual(expectedFileVersioInfo.IsSpecialBuild, actualFileVersionInfo.IsSpecialBuild);
+            Assert.AreEqual(expectedFileVersioInfo.Language, actualFileVersionInfo.Language);
+            Assert.AreEqual(expectedFileVersioInfo.LegalCopyright, actualFileVersionInfo.LegalCopyright);
+            Assert.AreEqual(expectedFileVersioInfo.LegalTrademarks, actualFileVersionInfo.LegalTrademarks);
+            Assert.AreEqual(expectedFileVersioInfo.OriginalFilename, actualFileVersionInfo.OriginalFilename);
+            Assert.AreEqual(expectedFileVersioInfo.PrivateBuild, actualFileVersionInfo.PrivateBuild);
+            Assert.AreEqual(expectedFileVersioInfo.ProductBuildPart, actualFileVersionInfo.ProductBuildPart);
+            Assert.AreEqual(expectedFileVersioInfo.ProductMajorPart, actualFileVersionInfo.ProductMajorPart);
+            Assert.AreEqual(expectedFileVersioInfo.ProductMinorPart, actualFileVersionInfo.ProductMinorPart);
+            Assert.AreEqual(expectedFileVersioInfo.ProductName, actualFileVersionInfo.ProductName);
+            Assert.AreEqual(expectedFileVersioInfo.ProductPrivatePart, actualFileVersionInfo.ProductPrivatePart);
+            Assert.AreEqual(expectedFileVersioInfo.ProductVersion, actualFileVersionInfo.ProductVersion);
+            Assert.AreEqual(expectedFileVersioInfo.SpecialBuild, actualFileVersionInfo.SpecialBuild);
+            Assert.AreEqual(expectedFileVersioInfo.ToString(), actualFileVersionInfo.ToString());
         }
     }
 }
