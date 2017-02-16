@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
+using System.Threading;
+using System.Threading.Tasks;
 using SystemInterface.IO;
 
 namespace SystemWrapper.IO
@@ -406,6 +408,31 @@ namespace SystemWrapper.IO
         public void Dispose()
         {
             MemoryStreamInstance.Dispose();
+        }
+
+        public async Task FlushAsync()
+        {
+            await MemoryStreamInstance.FlushAsync();
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count)
+        {
+            return await MemoryStreamInstance.ReadAsync(buffer, offset, count);
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            return await MemoryStreamInstance.ReadAsync(buffer, offset, count, cancellationToken);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count)
+        {
+            await MemoryStreamInstance.WriteAsync(buffer, offset, count);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            await MemoryStreamInstance.WriteAsync(buffer, offset, count, cancellationToken);
         }
     }
 }

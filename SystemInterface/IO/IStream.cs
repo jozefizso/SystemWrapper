@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SystemInterface.IO
 {
@@ -101,6 +103,20 @@ namespace SystemInterface.IO
         /// </summary>
         void Flush();
 
+        //
+        // Summary:
+        //     Asynchronously clears all buffers for this stream and causes any buffered data
+        //     to be written to the underlying device.
+        //
+        // Returns:
+        //     A task that represents the asynchronous flush operation.
+        //
+        // Exceptions:
+        //   T:System.ObjectDisposedException:
+        //     The stream has been disposed.
+        [ComVisible(false)]
+        Task FlushAsync();
+
         /// <summary>
         /// When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
         /// </summary>
@@ -109,6 +125,96 @@ namespace SystemInterface.IO
         /// <param name="count">The maximum number of bytes to be read from the current stream. </param>
         /// <returns>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached. </returns>
         int Read([In, Out] byte[] buffer, int offset, int count);
+
+        //
+        // Summary:
+        //     Asynchronously reads a sequence of bytes from the current stream and advances
+        //     the position within the stream by the number of bytes read.
+        //
+        // Parameters:
+        //   buffer:
+        //     The buffer to write the data into.
+        //
+        //   offset:
+        //     The byte offset in buffer at which to begin writing data from the stream.
+        //
+        //   count:
+        //     The maximum number of bytes to read.
+        //
+        // Returns:
+        //     A task that represents the asynchronous read operation. The value of the TResult
+        //     parameter contains the total number of bytes read into the buffer. The result
+        //     value can be less than the number of bytes requested if the number of bytes currently
+        //     available is less than the requested number, or it can be 0 (zero) if the end
+        //     of the stream has been reached.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     buffer is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     offset or count is negative.
+        //
+        //   T:System.ArgumentException:
+        //     The sum of offset and count is larger than the buffer length.
+        //
+        //   T:System.NotSupportedException:
+        //     The stream does not support reading.
+        //
+        //   T:System.ObjectDisposedException:
+        //     The stream has been disposed.
+        //
+        //   T:System.InvalidOperationException:
+        //     The stream is currently in use by a previous read operation.
+        [ComVisible(false)]
+        Task<int> ReadAsync(byte[] buffer, int offset, int count);
+
+        //
+        // Summary:
+        //     Asynchronously reads a sequence of bytes from the current stream, advances the
+        //     position within the stream by the number of bytes read, and monitors cancellation
+        //     requests.
+        //
+        // Parameters:
+        //   buffer:
+        //     The buffer to write the data into.
+        //
+        //   offset:
+        //     The byte offset in buffer at which to begin writing data from the stream.
+        //
+        //   count:
+        //     The maximum number of bytes to read.
+        //
+        //   cancellationToken:
+        //     The token to monitor for cancellation requests. The default value is System.Threading.CancellationToken.None.
+        //
+        // Returns:
+        //     A task that represents the asynchronous read operation. The value of the TResult
+        //     parameter contains the total number of bytes read into the buffer. The result
+        //     value can be less than the number of bytes requested if the number of bytes currently
+        //     available is less than the requested number, or it can be 0 (zero) if the end
+        //     of the stream has been reached.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     buffer is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     offset or count is negative.
+        //
+        //   T:System.ArgumentException:
+        //     The sum of offset and count is larger than the buffer length.
+        //
+        //   T:System.NotSupportedException:
+        //     The stream does not support reading.
+        //
+        //   T:System.ObjectDisposedException:
+        //     The stream has been disposed.
+        //
+        //   T:System.InvalidOperationException:
+        //     The stream is currently in use by a previous read operation.
+        [ComVisible(false)]
+        Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken);
 
         /// <summary>
         /// Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
@@ -144,6 +250,91 @@ namespace SystemInterface.IO
         /// <param name="offset">The zero-based byte offset in buffer at which to begin copying bytes to the current stream. </param>
         /// <param name="count">The number of bytes to be written to the current stream. </param>
         void Write(byte[] buffer, int offset, int count);
+
+        //
+        // Summary:
+        //     Asynchronously writes a sequence of bytes to the current stream and advances
+        //     the current position within this stream by the number of bytes written.
+        //
+        // Parameters:
+        //   buffer:
+        //     The buffer to write data from.
+        //
+        //   offset:
+        //     The zero-based byte offset in buffer from which to begin copying bytes to the
+        //     stream.
+        //
+        //   count:
+        //     The maximum number of bytes to write.
+        //
+        // Returns:
+        //     A task that represents the asynchronous write operation.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     buffer is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     offset or count is negative.
+        //
+        //   T:System.ArgumentException:
+        //     The sum of offset and count is larger than the buffer length.
+        //
+        //   T:System.NotSupportedException:
+        //     The stream does not support writing.
+        //
+        //   T:System.ObjectDisposedException:
+        //     The stream has been disposed.
+        //
+        //   T:System.InvalidOperationException:
+        //     The stream is currently in use by a previous write operation.
+        [ComVisible(false)]
+        Task WriteAsync(byte[] buffer, int offset, int count);
+
+        //
+        // Summary:
+        //     Asynchronously writes a sequence of bytes to the current stream, advances the
+        //     current position within this stream by the number of bytes written, and monitors
+        //     cancellation requests.
+        //
+        // Parameters:
+        //   buffer:
+        //     The buffer to write data from.
+        //
+        //   offset:
+        //     The zero-based byte offset in buffer from which to begin copying bytes to the
+        //     stream.
+        //
+        //   count:
+        //     The maximum number of bytes to write.
+        //
+        //   cancellationToken:
+        //     The token to monitor for cancellation requests. The default value is System.Threading.CancellationToken.None.
+        //
+        // Returns:
+        //     A task that represents the asynchronous write operation.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     buffer is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     offset or count is negative.
+        //
+        //   T:System.ArgumentException:
+        //     The sum of offset and count is larger than the buffer length.
+        //
+        //   T:System.NotSupportedException:
+        //     The stream does not support writing.
+        //
+        //   T:System.ObjectDisposedException:
+        //     The stream has been disposed.
+        //
+        //   T:System.InvalidOperationException:
+        //     The stream is currently in use by a previous write operation.
+        [ComVisible(false)]
+        Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken);
+
 
         /// <summary>
         /// Writes a byte to the current position in the stream and advances the position within the stream by one byte.
