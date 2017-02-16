@@ -23,7 +23,7 @@
 		<ToolsOptionsCategory name="TextEditor">
 			<ToolsOptionsSubCategory name="CSharp">
 				<PropertyValue name="IndentSize">4</PropertyValue>
-				<PropertyValue name="IndentStyle">2</PropertyValue>
+				<PropertyValue name="IndentStyle">2</PropertyValue>  
 				<PropertyValue name="InsertTabs">false</PropertyValue>
 			</ToolsOptionsSubCategory>
 			<ToolsOptionsSubCategory name="CSharp-Specific">

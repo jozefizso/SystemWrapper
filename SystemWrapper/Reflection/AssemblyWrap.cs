@@ -54,10 +54,7 @@ namespace SystemWrapper.Reflection
             get
             {
                 if (_assembly == null)
-                {
                     throw new InvalidOperationException("AssemblyWrap instance was not initialized with Assembly object. Use Initialize() method to set Assembly object.");
-                }
-
                 return _assembly;
             }
         }

@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO.Compression;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using SystemInterface.IO.Compression;
+using MicrosoftImpl = System.IO.Compression;
 
 namespace SystemWrapper.IO.Compression
 {
     public class ZipArchiveWrap : IZipArchive
     {
-        public ZipArchive Instance { get; private set; }
 
-        public ZipArchiveWrap(ZipArchive instance)
+        public MicrosoftImpl.ZipArchive Instance { get; private set; }
+
+        public ZipArchiveWrap(MicrosoftImpl.ZipArchive Instance)
         {
-            this.Instance = instance;
+            this.Instance = Instance;
         }
 
         public ReadOnlyCollection<IZipArchiveEntry> Entries
@@ -23,7 +23,7 @@ namespace SystemWrapper.IO.Compression
             }
         }
 
-        public ZipArchiveMode Mode
+        public MicrosoftImpl.ZipArchiveMode Mode
         {
             get
             {
@@ -36,7 +36,7 @@ namespace SystemWrapper.IO.Compression
             return new ZipArchiveEntryWrap(Instance.CreateEntry(entryName));
         }
 
-        public IZipArchiveEntry CreateEntry(string entryName, CompressionLevel compressionLevel)
+        public IZipArchiveEntry CreateEntry(string entryName, MicrosoftImpl.CompressionLevel compressionLevel)
         {
             return new ZipArchiveEntryWrap(Instance.CreateEntry(entryName, compressionLevel));
         }
@@ -46,9 +46,25 @@ namespace SystemWrapper.IO.Compression
             return new ZipArchiveEntryWrap(Instance.GetEntry(entryName));
         }
 
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Instance.Dispose();
+                }
+                disposedValue = true;
+            }
+        }
+
         public void Dispose()
         {
-            Instance.Dispose();
+            Dispose(true);
         }
+        #endregion
     }
 }

@@ -70,7 +70,6 @@
     <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlConnectionWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlDataReaderWrapTests.cs" />
-    <Compile Include="Diagnostics\FileVersionInfoFactoryTests.cs" />
     <Compile Include="Diagnostics\FileVersionInfoWrapTests.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrapTests.cs" />
     <Compile Include="Diagnostics\ProcessWrapTests.cs" />

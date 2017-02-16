@@ -1,252 +1,215 @@
-﻿using System.Diagnostics;
-
-namespace SystemInterface.Diagnostics
+﻿namespace SystemInterface.Diagnostics
 {
-    /// <summary>
-    /// Provides version information for a physical file on disk.
-    /// </summary>
-    public interface IFileVersionInfo : IWrapper<FileVersionInfo>
+    public interface IFileVersionInfo : IWrapper<System.Diagnostics.FileVersionInfo>
     {
-        /// <summary>
-        /// Gets the comments associated with the file.
-        /// </summary>
-        /// <value>
-        /// The comments associated with the file or null if the file did not contain version information.
-        /// </value>
         string Comments { get; }
-
-        /// <summary>
-        /// Gets the name of the company that produced the file.
-        /// </summary>
-        /// <value>
-        /// The name of the company that produced the file or null if the file did not contain
-        /// version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the name of the company that produced the file.
+        //
+        // Returns:
+        //     The name of the company that produced the file or null if the file did not contain
+        //     version information.
         string CompanyName { get; }
-
-        /// <summary>
-        /// Gets the build number of the file.
-        /// </summary>
-        /// <value>
-        /// A value representing the build number of the file or null if the file did not
-        /// contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the build number of the file.
+        //
+        // Returns:
+        //     A value representing the build number of the file or null if the file did not
+        //     contain version information.
         int FileBuildPart { get; }
-
-        /// <summary>
-        /// Gets the description of the file.
-        /// </summary>
-        /// <value>
-        /// The description of the file or null if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the description of the file.
+        //
+        // Returns:
+        //     The description of the file or null if the file did not contain version information.
         string FileDescription { get; }
-
-        /// <summary>
-        /// Gets the major part of the version number.
-        /// </summary>
-        /// <value>
-        /// A value representing the major part of the version number or 0 (zero) if the
-        /// file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the major part of the version number.
+        //
+        // Returns:
+        //     A value representing the major part of the version number or 0 (zero) if the
+        //     file did not contain version information.
         int FileMajorPart { get; }
-
-        /// <summary>
-        /// Gets the minor part of the version number of the file.
-        /// </summary>
-        /// <value>
-        /// A value representing the minor part of the version number of the file or 0 (zero)
-        /// if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the minor part of the version number of the file.
+        //
+        // Returns:
+        //     A value representing the minor part of the version number of the file or 0 (zero)
+        //     if the file did not contain version information.
         int FileMinorPart { get; }
-
-        /// <summary>
-        /// Gets the name of the file that this instance of System.Diagnostics.FileVersionInfo
-        /// describes.
-        /// </summary>
-        /// <value>
-        /// The name of the file described by this instance of System.Diagnostics.FileVersionInfo.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the name of the file that this instance of System.Diagnostics.FileVersionInfo
+        //     describes.
+        //
+        // Returns:
+        //     The name of the file described by this instance of System.Diagnostics.FileVersionInfo.
         string FileName { get; }
-
-        /// <summary>
-        /// Gets the file private part number.
-        /// </summary>
-        /// <value>
-        /// A value representing the file private part number or null if the file did not
-        /// contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the file private part number.
+        //
+        // Returns:
+        //     A value representing the file private part number or null if the file did not
+        //     contain version information.
         int FilePrivatePart { get; }
-
-        /// <summary>
-        /// Gets the file version number.
-        /// </summary>
-        /// <value>
-        /// The version number of the file or null if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the file version number.
+        //
+        // Returns:
+        //     The version number of the file or null if the file did not contain version information.
         string FileVersion { get; }
-
-        /// <summary>
-        /// Gets the internal name of the file, if one exists.
-        /// </summary>
-        /// <value>
-        /// The internal name of the file. If none exists, this property will contain the
-        /// original name of the file without the extension.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the internal name of the file, if one exists.
+        //
+        // Returns:
+        //     The internal name of the file. If none exists, this property will contain the
+        //     original name of the file without the extension.
         string InternalName { get; }
-
-        /// <summary>
-        /// Gets a value that specifies whether the file contains debugging information or
-        /// is compiled with debugging features enabled.
-        /// </summary>
-        /// <value>
-        /// true if the file contains debugging information or is compiled with debugging
-        /// features enabled; otherwise, false.
-        /// </value>
+        //
+        // Summary:
+        //     Gets a value that specifies whether the file contains debugging information or
+        //     is compiled with debugging features enabled.
+        //
+        // Returns:
+        //     true if the file contains debugging information or is compiled with debugging
+        //     features enabled; otherwise, false.
         bool IsDebug { get; }
-
-        /// <summary>
-        /// Gets a value that specifies whether the file has been modified and is not identical
-        /// to the original shipping file of the same version number.
-        /// </summary>
-        /// <value>
-        /// true if the file is patched; otherwise, false.
-        /// </value>
+        //
+        // Summary:
+        //     Gets a value that specifies whether the file has been modified and is not identical
+        //     to the original shipping file of the same version number.
+        //
+        // Returns:
+        //     true if the file is patched; otherwise, false.
         bool IsPatched { get; }
-
-        /// <summary>
-        /// Gets a value that specifies whether the file is a development version, rather
-        /// than a commercially released product.
-        /// </summary>
-        /// <value>
-        /// true if the file is prerelease; otherwise, false.
-        /// </value>
+        //
+        // Summary:
+        //     Gets a value that specifies whether the file is a development version, rather
+        //     than a commercially released product.
+        //
+        // Returns:
+        //     true if the file is prerelease; otherwise, false.
         bool IsPreRelease { get; }
-
-        /// <summary>
-        /// Gets a value that specifies whether the file was built using standard release
-        /// procedures.
-        /// </summary>
-        /// <value>
-        /// true if the file is a private build; false if the file was built using standard
-        /// release procedures or if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets a value that specifies whether the file was built using standard release
+        //     procedures.
+        //
+        // Returns:
+        //     true if the file is a private build; false if the file was built using standard
+        //     release procedures or if the file did not contain version information.
         bool IsPrivateBuild { get; }
-
-        /// <summary>
-        /// Gets a value that specifies whether the file is a special build.
-        /// </summary>
-        /// <value>
-        /// true if the file is a special build; otherwise, false.
-        /// </value>
+        //
+        // Summary:
+        //     Gets a value that specifies whether the file is a special build.
+        //
+        // Returns:
+        //     true if the file is a special build; otherwise, false.
         bool IsSpecialBuild { get; }
-
-        /// <summary>
-        /// Gets the default language string for the version info block.
-        /// </summary>
-        /// <value>
-        /// The description string for the Microsoft Language Identifier in the version resource
-        /// or null if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the default language string for the version info block.
+        //
+        // Returns:
+        //     The description string for the Microsoft Language Identifier in the version resource
+        //     or null if the file did not contain version information.
         string Language { get; }
-
-        /// <summary>
-        /// Gets all copyright notices that apply to the specified file.
-        /// </summary>
-        /// <value>
-        /// The copyright notices that apply to the specified file.
-        /// </value>
+        //
+        // Summary:
+        //     Gets all copyright notices that apply to the specified file.
+        //
+        // Returns:
+        //     The copyright notices that apply to the specified file.
         string LegalCopyright { get; }
-
-        /// <summary>
-        /// Gets the trademarks and registered trademarks that apply to the file.
-        /// </summary>
-        /// <value>
-        /// The trademarks and registered trademarks that apply to the file or null if the
-        /// file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the trademarks and registered trademarks that apply to the file.
+        //
+        // Returns:
+        //     The trademarks and registered trademarks that apply to the file or null if the
+        //     file did not contain version information.
         string LegalTrademarks { get; }
-
-        /// <summary>
-        /// Gets the name the file was created with.
-        /// </summary>
-        /// <value>
-        /// The name the file was created with or null if the file did not contain version
-        /// information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the name the file was created with.
+        //
+        // Returns:
+        //     The name the file was created with or null if the file did not contain version
+        //     information.
         string OriginalFilename { get; }
-
-        /// <summary>
-        /// Gets information about a private version of the file.
-        /// </summary>
-        /// <value>
-        /// Information about a private version of the file or null if the file did not contain
-        /// version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets information about a private version of the file.
+        //
+        // Returns:
+        //     Information about a private version of the file or null if the file did not contain
+        //     version information.
         string PrivateBuild { get; }
-
-        /// <summary>
-        /// Gets the build number of the product this file is associated with.
-        /// </summary>
-        /// <value>
-        /// A value representing the build number of the product this file is associated
-        /// with or null if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the build number of the product this file is associated with.
+        //
+        // Returns:
+        //     A value representing the build number of the product this file is associated
+        //     with or null if the file did not contain version information.
         int ProductBuildPart { get; }
-
-        /// <summary>
-        /// Gets the major part of the version number for the product this file is associated
-        /// with.
-        /// </summary>
-        /// <value>
-        /// A value representing the major part of the product version number or null if
-        /// the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the major part of the version number for the product this file is associated
+        //     with.
+        //
+        // Returns:
+        //     A value representing the major part of the product version number or null if
+        //     the file did not contain version information.
         int ProductMajorPart { get; }
-
-        /// <summary>
-        /// Gets the minor part of the version number for the product the file is associated
-        /// with.
-        /// </summary>
-        /// <value>
-        /// A value representing the minor part of the product version number or null if
-        /// the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the minor part of the version number for the product the file is associated
+        //     with.
+        //
+        // Returns:
+        //     A value representing the minor part of the product version number or null if
+        //     the file did not contain version information.
         int ProductMinorPart { get; }
-
-        /// <summary>
-        /// Gets the name of the product this file is distributed with.
-        /// </summary>
-        /// <value>
-        /// The name of the product this file is distributed with or null if the file did
-        /// not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the name of the product this file is distributed with.
+        //
+        // Returns:
+        //     The name of the product this file is distributed with or null if the file did
+        //     not contain version information.
         string ProductName { get; }
-
-        /// <summary>
-        /// Gets the private part number of the product this file is associated with.
-        /// </summary>
-        /// <value>
-        /// A value representing the private part number of the product this file is associated
-        /// with or null if the file did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the private part number of the product this file is associated with.
+        //
+        // Returns:
+        //     A value representing the private part number of the product this file is associated
+        //     with or null if the file did not contain version information.
         int ProductPrivatePart { get; }
-
-        /// <summary>
-        /// Gets the version of the product this file is distributed with.
-        /// </summary>
-        /// <value>
-        /// The version of the product this file is distributed with or null if the file
-        /// did not contain version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the version of the product this file is distributed with.
+        //
+        // Returns:
+        //     The version of the product this file is distributed with or null if the file
+        //     did not contain version information.
         string ProductVersion { get; }
-
-        /// <summary>
-        /// Gets the special build information for the file.
-        /// </summary>
-        /// <value>
-        /// The special build information for the file or null if the file did not contain
-        /// version information.
-        /// </value>
+        //
+        // Summary:
+        //     Gets the special build information for the file.
+        //
+        // Returns:
+        //     The special build information for the file or null if the file did not contain
+        //     version information.
         string SpecialBuild { get; }
     }
 }

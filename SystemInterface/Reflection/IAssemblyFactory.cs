@@ -1,14 +1,10 @@
-﻿using System;
-using System.Configuration.Assemblies;
+﻿using System.Configuration.Assemblies;
 using System.Runtime.CompilerServices;
 using System.Security.Permissions;
 using System.Security.Policy;
 
 namespace SystemInterface.Reflection
 {
-    /// <summary>
-    /// This interfaces includes static methods from the <see cref="System.Reflection.Assembly"/> type.
-    /// </summary>
     public interface IAssemblyFactory
     {
         IAssembly Load(byte[] rawAssembly);
@@ -58,5 +54,6 @@ namespace SystemInterface.Reflection
         /// <returns>The loaded assembly. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
         IAssembly LoadFrom(string assemblyFile);
+
     }
 }
