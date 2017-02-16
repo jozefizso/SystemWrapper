@@ -2,7 +2,8 @@
 {
     using System;
     using System.IO;
-
+    using System.Threading;
+    using System.Threading.Tasks;
     using SystemInterface.IO;
 
     /// <summary>
@@ -249,6 +250,11 @@
             this.StreamInstance.Flush();
         }
 
+        public async Task FlushAsync()
+        {
+            await StreamInstance.FlushAsync();
+        }
+
         /// <summary>
         ///     When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the 
         ///     number of bytes read.
@@ -272,6 +278,16 @@
                         int count)
         {
             return this.StreamInstance.Read(buffer, offset, count);
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count)
+        {
+            return await StreamInstance.ReadAsync(buffer, offset, count);
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            return await StreamInstance.ReadAsync(buffer, offset, count, cancellationToken);
         }
 
         /// <summary>
@@ -346,6 +362,16 @@
                           int count)
         {
             this.StreamInstance.Write(buffer, offset, count);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count)
+        {
+            await StreamInstance.WriteAsync(buffer, offset, count);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            await StreamInstance.WriteAsync(buffer, offset, count, cancellationToken);
         }
 
         /// <summary>

@@ -22,9 +22,31 @@
 		</ToolsOptionsCategory>
 		<ToolsOptionsCategory name="TextEditor">
 			<ToolsOptionsSubCategory name="CSharp">
+				<PropertyValue name="AutoListMembers">true</PropertyValue>
+				<PropertyValue name="AutoListParams">true</PropertyValue>
+				<PropertyValue name="BraceCompletion">true</PropertyValue>
+				<PropertyValue name="CutCopyBlankLines">true</PropertyValue>
+				<PropertyValue name="EnableLeftClickForURLs">true</PropertyValue>
+				<PropertyValue name="HideAdvancedMembers">true</PropertyValue>
 				<PropertyValue name="IndentSize">4</PropertyValue>
 				<PropertyValue name="IndentStyle">2</PropertyValue>
 				<PropertyValue name="InsertTabs">false</PropertyValue>
+				<PropertyValue name="OverviewWidth">58</PropertyValue>
+				<PropertyValue name="ShowAnnotations">true</PropertyValue>
+				<PropertyValue name="ShowCaretPosition">true</PropertyValue>
+				<PropertyValue name="ShowChanges">true</PropertyValue>
+				<PropertyValue name="ShowErrors">true</PropertyValue>
+				<PropertyValue name="ShowHorizontalScrollBar">true</PropertyValue>
+				<PropertyValue name="ShowLineNumbers">true</PropertyValue>
+				<PropertyValue name="ShowMarks">true</PropertyValue>
+				<PropertyValue name="ShowNavigationBar">true</PropertyValue>
+				<PropertyValue name="ShowPreview">true</PropertyValue>
+				<PropertyValue name="ShowVerticalScrollBar">true</PropertyValue>
+				<PropertyValue name="TabSize">4</PropertyValue>
+				<PropertyValue name="UseMapMode">false</PropertyValue>
+				<PropertyValue name="VirtualSpace">false</PropertyValue>
+				<PropertyValue name="WordWrap">false</PropertyValue>
+				<PropertyValue name="WordWrapGlyphs">true</PropertyValue>
 			</ToolsOptionsSubCategory>
 			<ToolsOptionsSubCategory name="CSharp-Specific">
 				<PropertyValue name="AddImport_SuggestForTypesInNuGetPackages">0</PropertyValue>
