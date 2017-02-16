@@ -95,5 +95,14 @@ namespace SystemWrapper.Tests
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [Test]
+        public void GetSetEnvironmentVariable_GetsAndSets_EnvironmentVariable()
+        {
+            this.EnvironmentWrap.SetEnvironmentVariable("SystemWrapperTest", "test");
+            var expectedValue = Environment.GetEnvironmentVariable("SystemWrapperTest");
+            var actualValue = this.EnvironmentWrap.GetEnvironmentVariable("SystemWrapperTest");
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

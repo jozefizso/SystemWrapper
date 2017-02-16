@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using SystemInterface;
 
 namespace SystemWrapper
@@ -131,9 +132,49 @@ namespace SystemWrapper
             get { return Environment.WorkingSet; }
         }
 
+        public void Exit(int exitCode)
+        {
+            Environment.Exit(ExitCode);
+        }
+
         public string ExpandEnvironmentVariables(string name)
         {
             return Environment.ExpandEnvironmentVariables(name);
+        }
+
+        public void FailFast(string message)
+        {
+            Environment.FailFast(message);
+        }
+
+        public void FailFast(string message, Exception exception)
+        {
+            Environment.FailFast(message, exception);
+        }
+
+        public string[] GetCommandLineArgs()
+        {
+            return Environment.GetCommandLineArgs();
+        }
+
+        public string GetEnvironmentVariable(string variable)
+        {
+            return Environment.GetEnvironmentVariable(variable);
+        }
+
+        public string GetEnvironmentVariable(string variable, EnvironmentVariableTarget target)
+        {
+            return Environment.GetEnvironmentVariable(variable, target);
+        }
+
+        public IDictionary GetEnvironmentVariables()
+        {
+            return Environment.GetEnvironmentVariables();
+        }
+
+        public IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target)
+        {
+            return Environment.GetEnvironmentVariables(target);
         }
 
         public string GetFolderPath(Environment.SpecialFolder folder)
@@ -144,6 +185,21 @@ namespace SystemWrapper
         public string GetFolderPath(Environment.SpecialFolder folder, Environment.SpecialFolderOption option)
         {
             return Environment.GetFolderPath(folder, option);
+        }
+
+        public string[] GetLogicalDrives()
+        {
+            return Environment.GetLogicalDrives();
+        }
+
+        public void SetEnvironmentVariable(string variable, string value)
+        {
+            Environment.SetEnvironmentVariable(variable, value);
+        }
+
+        public void SetEnvironmentVariable(string variable, string value, EnvironmentVariableTarget target)
+        {
+            Environment.SetEnvironmentVariable(variable, value, target);
         }
     }
 }
