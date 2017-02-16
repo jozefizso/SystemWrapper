@@ -341,5 +341,149 @@ namespace SystemInterface.IO
         /// </summary>
         /// <param name="value">The byte to write to the stream. </param>
         void WriteByte(byte value);
+
+        //
+        // Summary:
+        //     Reads the bytes from the current stream and writes them to another stream.
+        //
+        // Parameters:
+        //   destination:
+        //     The stream to which the contents of the current stream will be copied.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     destination is null.
+        //
+        //   T:System.NotSupportedException:
+        //     The current stream does not support reading.-or-destination does not support
+        //     writing.
+        //
+        //   T:System.ObjectDisposedException:
+        //     Either the current stream or destination were closed before the System.IO.Stream.CopyTo(System.IO.Stream)
+        //     method was called.
+        //
+        //   T:System.IO.IOException:
+        //     An I/O error occurred.
+        void CopyTo(IStream destination);
+        //
+        // Summary:
+        //     Reads the bytes from the current stream and writes them to another stream, using
+        //     a specified buffer size.
+        //
+        // Parameters:
+        //   destination:
+        //     The stream to which the contents of the current stream will be copied.
+        //
+        //   bufferSize:
+        //     The size of the buffer. This value must be greater than zero. The default size
+        //     is 81920.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     destination is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     bufferSize is negative or zero.
+        //
+        //   T:System.NotSupportedException:
+        //     The current stream does not support reading.-or-destination does not support
+        //     writing.
+        //
+        //   T:System.ObjectDisposedException:
+        //     Either the current stream or destination were closed before the System.IO.Stream.CopyTo(System.IO.Stream)
+        //     method was called.
+        //
+        //   T:System.IO.IOException:
+        //     An I/O error occurred.
+        void CopyTo(IStream destination, int bufferSize);
+        //
+        // Summary:
+        //     Asynchronously reads the bytes from the current stream and writes them to another
+        //     stream.
+        //
+        // Parameters:
+        //   destination:
+        //     The stream to which the contents of the current stream will be copied.
+        //
+        // Returns:
+        //     A task that represents the asynchronous copy operation.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     destination is null.
+        //
+        //   T:System.ObjectDisposedException:
+        //     Either the current stream or the destination stream is disposed.
+        //
+        //   T:System.NotSupportedException:
+        //     The current stream does not support reading, or the destination stream does not
+        //     support writing.
+        [ComVisible(false)]
+        Task CopyToAsync(IStream destination);
+        //
+        // Summary:
+        //     Asynchronously reads the bytes from the current stream and writes them to another
+        //     stream, using a specified buffer size.
+        //
+        // Parameters:
+        //   destination:
+        //     The stream to which the contents of the current stream will be copied.
+        //
+        //   bufferSize:
+        //     The size, in bytes, of the buffer. This value must be greater than zero. The
+        //     default size is 81920.
+        //
+        // Returns:
+        //     A task that represents the asynchronous copy operation.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     destination is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     buffersize is negative or zero.
+        //
+        //   T:System.ObjectDisposedException:
+        //     Either the current stream or the destination stream is disposed.
+        //
+        //   T:System.NotSupportedException:
+        //     The current stream does not support reading, or the destination stream does not
+        //     support writing.
+        [ComVisible(false)]
+        Task CopyToAsync(IStream destination, int bufferSize);
+        //
+        // Summary:
+        //     Asynchronously reads the bytes from the current stream and writes them to another
+        //     stream, using a specified buffer size and cancellation token.
+        //
+        // Parameters:
+        //   destination:
+        //     The stream to which the contents of the current stream will be copied.
+        //
+        //   bufferSize:
+        //     The size, in bytes, of the buffer. This value must be greater than zero. The
+        //     default size is 81920.
+        //
+        //   cancellationToken:
+        //     The token to monitor for cancellation requests. The default value is System.Threading.CancellationToken.None.
+        //
+        // Returns:
+        //     A task that represents the asynchronous copy operation.
+        //
+        // Exceptions:
+        //   T:System.ArgumentNullException:
+        //     destination is null.
+        //
+        //   T:System.ArgumentOutOfRangeException:
+        //     buffersize is negative or zero.
+        //
+        //   T:System.ObjectDisposedException:
+        //     Either the current stream or the destination stream is disposed.
+        //
+        //   T:System.NotSupportedException:
+        //     The current stream does not support reading, or the destination stream does not
+        //     support writing.
+        [ComVisible(false)]
+        Task CopyToAsync(IStream destination, int bufferSize, CancellationToken cancellationToken);
     }
 }

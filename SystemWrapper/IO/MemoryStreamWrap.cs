@@ -434,5 +434,30 @@ namespace SystemWrapper.IO
         {
             await MemoryStreamInstance.WriteAsync(buffer, offset, count, cancellationToken);
         }
+
+        public void CopyTo(IStream destination)
+        {
+            StreamInstance.CopyTo(destination.StreamInstance);
+        }
+
+        public void CopyTo(IStream destination, int bufferSize)
+        {
+            StreamInstance.CopyTo(destination.StreamInstance, bufferSize);
+        }
+
+        public async Task CopyToAsync(IStream destination)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance);
+        }
+
+        public async Task CopyToAsync(IStream destination, int bufferSize)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance, bufferSize);
+        }
+
+        public async Task CopyToAsync(IStream destination, int bufferSize, CancellationToken cancellationToken)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance, bufferSize, cancellationToken);
+        }
     }
 }
