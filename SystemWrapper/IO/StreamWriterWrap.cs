@@ -173,6 +173,26 @@ namespace SystemWrapper.IO
             StreamWriterInstance = new StreamWriter(path, append, encoding, bufferSize);
         }
 
+        public StreamWriterWrap(IStream stream)
+        {
+            Initialize(stream);
+        }
+
+        public void Initialize(IStream stream)
+        {
+            StreamWriterInstance = new StreamWriter(stream.StreamInstance);
+        }
+
+        public StreamWriterWrap(TextWriter tw)
+        {
+            Initialize(tw);
+        }
+
+        public void Initialize(TextWriter tw)
+        {
+            StreamWriterInstance = tw as StreamWriter;
+        }
+
         #endregion Constructors and Initializers
 
         /// <inheritdoc />
