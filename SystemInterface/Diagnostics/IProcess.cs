@@ -78,6 +78,27 @@ namespace SystemInterface.Diagnostics
         [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
         IStreamReader StandardOutput { get; }
 
+        /// <summary>
+        ///  Gets a new System.Diagnostics.Process component and associates it with the currently active process.
+        /// </summary>
+        /// <returns>A new System.Diagnostics.Process component associated with the process resource that is running the calling application.</returns>
+        Process GetCurrentProcess();
+
+        /// <summary>
+        /// Returns a new System.Diagnostics.Process component, given the identifier of a process on the local computer.
+        /// </summary>
+        /// <param name="processId">The system-unique identifier of a process resource.</param>
+        /// <returns>A System.Diagnostics.Process component that is associated with the local process resource identified by the processId parameter.</returns>
+        Process GetProcessById(int processId);
+
+        /// <summary>
+        /// Returns a new System.Diagnostics.Process component, given the identifier of a process on on the network.
+        /// </summary>
+        /// <param name="processId">The system-unique identifier of a process resource.</param>
+        /// <param name="machineName">The name of a computer on the network.</param>
+        /// <returns>A System.Diagnostics.Process component that is associated with a remote process resource identified by the processId parameter.</returns>
+        Process GetProcessById(int processId, string machineName);
+
         /*
 
             // Events

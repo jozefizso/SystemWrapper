@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
 using SystemInterface.IO;
@@ -56,7 +55,10 @@ namespace SystemWrapper.Diagnostics
         /// <inheritdoc />
         public IProcessStartInfo StartInfo
         {
-            get { return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
+            get
+            {
+                return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo));
+            }
             set
             {
                 this._startInfo = value;
@@ -95,6 +97,24 @@ namespace SystemWrapper.Diagnostics
         public bool WaitForInputIdle()
         {
             return ProcessInstance.WaitForInputIdle();
+        }
+
+        /// <inheritdoc />
+        public Process GetCurrentProcess()
+        {
+            return Process.GetCurrentProcess();
+        }
+
+        /// <inheritdoc />
+        public Process GetProcessById(int processId)
+        {
+            return Process.GetProcessById(processId);
+        }
+
+        /// <inheritdoc />
+        public Process GetProcessById(int processId, string machineName)
+        {
+            return Process.GetProcessById(processId, machineName);
         }
     }
 }
