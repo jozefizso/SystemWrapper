@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // Shared information about assemblies in the SystemWrapper solution.
@@ -12,5 +12,5 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // NOTE: Assembly name is set in respective project files.
-[assembly: AssemblyVersion("0.17.0.0")]
+[assembly: AssemblyVersion("0.19.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

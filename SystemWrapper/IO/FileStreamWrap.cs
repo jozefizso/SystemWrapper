@@ -3,6 +3,8 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Permissions;
+using System.Threading;
+using System.Threading.Tasks;
 using SystemInterface.IO;
 using SystemInterface.Microsoft.Win32.SafeHandles;
 using SystemInterface.Security.AccessControl;
@@ -603,6 +605,56 @@ namespace SystemWrapper.IO
             for (int i = 0; i < fileStreams.Length; i++)
                 fileStreamWraps[i] = new FileStreamWrap(fileStreams[i]);
             return fileStreamWraps;
+        }
+
+        public async Task FlushAsync()
+        {
+            await FileStreamInstance.FlushAsync();
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count)
+        {
+            return await FileStreamInstance.ReadAsync(buffer, offset, count);
+        }
+
+        public async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            return await FileStreamInstance.ReadAsync(buffer, offset, count, cancellationToken);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count)
+        {
+            await FileStreamInstance.WriteAsync(buffer, offset, count);
+        }
+
+        public async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            await FileStreamInstance.WriteAsync(buffer, offset, count, cancellationToken);
+        }
+
+        public void CopyTo(IStream destination)
+        {
+            StreamInstance.CopyTo(destination.StreamInstance);
+        }
+
+        public void CopyTo(IStream destination, int bufferSize)
+        {
+            StreamInstance.CopyTo(destination.StreamInstance, bufferSize);
+        }
+
+        public async Task CopyToAsync(IStream destination)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance);
+        }
+
+        public async Task CopyToAsync(IStream destination, int bufferSize)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance, bufferSize);
+        }
+
+        public async Task CopyToAsync(IStream destination, int bufferSize, CancellationToken cancellationToken)
+        {
+            await StreamInstance.CopyToAsync(destination.StreamInstance, bufferSize, cancellationToken);
         }
     }
 }
