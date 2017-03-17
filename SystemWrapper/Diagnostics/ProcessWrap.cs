@@ -65,6 +65,12 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <inheritdoc />
+        public void Kill()
+        {
+            ProcessInstance.Kill();
+        }
+
+        /// <inheritdoc />
         public IStreamReader StandardOutput
         {
             get

@@ -46,6 +46,11 @@ namespace SystemInterface.Diagnostics
         IProcessStartInfo StartInfo { get; set; }
 
         /// <summary>
+        /// Immediately stops the associated process.
+        /// </summary>
+        void Kill();
+
+        /// <summary>
         /// Instructs the ProcessInstance  component to wait indefinitely for the associated process to exit.
         /// </summary>
         void WaitForExit();
