@@ -24,9 +24,25 @@ namespace SystemWrapper.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
         /// </summary>
+        /// <param name="process"><see cref="T:System.Diagnostics.Process"/> object used to initialize 
+        ///     <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class
+        /// </param>
+        internal ProcessWrap(Process process)
+        {
+            Initialize(process);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
+        /// </summary>
         public void Initialize()
         {
-            ProcessInstance = new Process();
+            Initialize(new Process());
+        }
+
+        private void Initialize(Process process)
+        {
+            ProcessInstance = process;
         }
 
         #endregion Constructors and Initializers
@@ -97,24 +113,6 @@ namespace SystemWrapper.Diagnostics
         public bool WaitForInputIdle()
         {
             return ProcessInstance.WaitForInputIdle();
-        }
-
-        /// <inheritdoc />
-        public Process GetCurrentProcess()
-        {
-            return Process.GetCurrentProcess();
-        }
-
-        /// <inheritdoc />
-        public Process GetProcessById(int processId)
-        {
-            return Process.GetProcessById(processId);
-        }
-
-        /// <inheritdoc />
-        public Process GetProcessById(int processId, string machineName)
-        {
-            return Process.GetProcessById(processId, machineName);
         }
     }
 }
