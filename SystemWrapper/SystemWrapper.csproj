@@ -136,6 +136,7 @@
     <Compile Include="IO\StreamReaderWrapFactory.Generated.cs" />
     <Compile Include="IO\StreamWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
+    <Compile Include="IO\StreamWriterWrapFactory.cs" />
     <Compile Include="Microsoft.Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
