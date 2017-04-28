@@ -96,9 +96,14 @@
     <Compile Include="ConsoleWrap.cs" />
     <Compile Include="Data\DataTable\DataTableFactory.cs" />
     <Compile Include="Data\DataTable\DataTableWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandFactory.cs" />
     <Compile Include="Data\SqlClient\SqlCommandWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionFactory.cs" />
     <Compile Include="Data\SqlClient\SqlConnectionWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterFactory.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterWrap.cs" />
     <Compile Include="Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="Data\SqlClient\SqlParameterCollectionWrap.cs" />
     <Compile Include="DateTimeWrap.cs" />
     <Compile Include="Diagnostics\FileVersionInfoWrap.cs" />
     <Compile Include="Diagnostics\FileVersionInfoFactory.cs" />

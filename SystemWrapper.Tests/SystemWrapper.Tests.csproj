@@ -67,6 +67,8 @@
     </Compile>
     <Compile Include="AuthorAttribute.cs" />
     <Compile Include="Configuration\ConfigurationManagerWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionFactoryTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandFactoryTests.cs" />
     <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlConnectionWrapTests.cs" />
     <Compile Include="Data\SqlClient\SqlDataReaderWrapTests.cs" />
