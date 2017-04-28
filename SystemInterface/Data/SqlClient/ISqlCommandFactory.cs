@@ -1,4 +1,4 @@
-﻿namespace SystemInterface.Data.SqlClient
+namespace SystemInterface.Data.SqlClient
 {
     using System.Data.SqlClient;
 
@@ -51,8 +51,7 @@
         /// <returns>
         ///     The <see cref="ISqlCommand"/>.
         /// </returns>
-        ISqlCommand Create(string cmdText,
-                           ISqlConnection connection);
+        ISqlCommand Create(string cmdText, ISqlConnection connection);
 
         #endregion
     }

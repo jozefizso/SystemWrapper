@@ -1,4 +1,4 @@
-﻿namespace SystemWrapper.Data.SqlClient
+namespace SystemWrapper.Data.SqlClient
 {
     using System.Data.SqlClient;
 
@@ -62,8 +62,7 @@
         /// <returns>
         ///     The <see cref="ISqlCommand"/>.
         /// </returns>
-        public ISqlCommand Create(string cmdText,
-                                  ISqlConnection connection)
+        public ISqlCommand Create(string cmdText, ISqlConnection connection)
         {
             return new SqlCommandWrap(cmdText, connection);
         }
