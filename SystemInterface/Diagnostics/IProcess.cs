@@ -69,6 +69,14 @@ namespace SystemInterface.Diagnostics
         void Kill();
 
         /// <summary>
+        /// Gets a stream used to read the error output of the application.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IStreamReader"/> implementation that can be used to read the standard error stream of the application.
+        /// </value>
+        IStreamReader StandardError { get; }
+
+        /// <summary>
         /// Gets a stream used to read the output of the application.
         /// </summary>
         /// <value>
@@ -175,8 +183,6 @@ namespace SystemInterface.Diagnostics
             public bool Responding { get; }
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessSessionId")]
             public int SessionId { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessStandardError"), Browsable(false)]
-            public StreamReader StandardError { get; }
             [MonitoringDescription("ProcessStandardInput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
             public StreamWriter StandardInput { get; }
             [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

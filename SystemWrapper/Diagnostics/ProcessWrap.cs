@@ -65,6 +65,15 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <inheritdoc />
+        public IStreamReader StandardError
+        {
+            get
+            {
+                return new IO.StreamReaderWrap(ProcessInstance.StandardError);
+            }
+        }
+
+        /// <inheritdoc />
         public IStreamReader StandardOutput
         {
             get
