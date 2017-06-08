@@ -11,6 +11,26 @@ namespace SystemWrapper.Reflection
     /// </summary>
     public class AssemblyFactory : IAssemblyFactory
     {
+        public IAssembly GetAssembly(Type type)
+        {
+            return new AssemblyWrap(Assembly.GetAssembly(type));
+        }
+
+        public IAssembly GetCallingAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetCallingAssembly());
+        }
+
+        public IAssembly GetEntryAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetEntryAssembly());
+        }
+
+        public IAssembly GetExecutingAssembly()
+        {
+            return new AssemblyWrap(Assembly.GetExecutingAssembly());
+        }
+
         public IAssembly Load(string assemblyString)
         {
             return new AssemblyWrap(Assembly.Load(assemblyString));

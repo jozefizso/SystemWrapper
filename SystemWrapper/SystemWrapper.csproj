@@ -53,6 +53,8 @@
     <AssemblyOriginatorKeyFile>..\Build\SystemWrapper.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -67,6 +69,7 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Build\AssemblySharedInfo.cs">
@@ -132,10 +135,19 @@
     <Compile Include="IO\StreamWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="IO\StreamWriterWrapFactory.cs" />
+    <Compile Include="Microsoft.Win32\CommonDialogWrap.cs" />
+    <Compile Include="Microsoft.Win32\FileDialogCustomPlaceFactory.cs" />
+    <Compile Include="Microsoft.Win32\FileDialogCustomPlaceWrap.cs" />
+    <Compile Include="Microsoft.Win32\FileDialogWrap.cs" />
+    <Compile Include="Microsoft.Win32\OpenFileDialogFactory.cs" />
+    <Compile Include="Microsoft.Win32\OpenFileDialogWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeRegistryHandleWrap.cs" />
+    <Compile Include="Microsoft.Win32\SaveFileDialogFactory.cs" />
+    <Compile Include="Microsoft.Win32\SaveFileDialogWrap.cs" />
+    <Compile Include="Net\DnsWrap.cs" />
     <Compile Include="Net\HttpWebRequestWrap.cs" />
     <Compile Include="Net\HttpWebRequestWrapFactory.Generated.cs" />
     <Compile Include="Net\HttpWebResponseWrap.cs" />
@@ -177,6 +189,7 @@
     <Compile Include="VersionWrap.cs" />
     <Compile Include="Web\Script\Serialization\JavaScriptSerializerWrap.cs" />
     <Compile Include="Web\Script\Serialization\JavaScriptSerializerWrapFactory.Generated.cs" />
+    <Compile Include="Windows\MessageBoxWrap.cs" />
     <Compile Include="Xml\XCommentFactory.cs" />
     <Compile Include="Xml\XCommentWrap.cs" />
     <Compile Include="Xml\XDocumentFactory.cs" />

@@ -50,6 +50,7 @@
     <AssemblyOriginatorKeyFile>..\Build\SystemWrapper.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -126,14 +127,24 @@
     <Compile Include="IO\IStreamWriter.cs" />
     <Compile Include="IO\IStreamWriterFactory.cs" />
     <Compile Include="IO\ITextReader.cs" />
+    <Compile Include="IO\ITextWriter.cs" />
     <Compile Include="IStaticWrapper.cs" />
     <Compile Include="IVersion.cs" />
     <Compile Include="IWrapper.cs" />
     <Compile Include="Microsoft.Win32\IAccessTheRegistry.cs" />
+    <Compile Include="Microsoft.Win32\ICommonDialog.cs" />
+    <Compile Include="Microsoft.Win32\IFileDialog.cs" />
+    <Compile Include="Microsoft.Win32\IFileDialogCustomPlace.cs" />
+    <Compile Include="Microsoft.Win32\IFileDialogCustomPlaceFactory.cs" />
+    <Compile Include="Microsoft.Win32\IOpenFileDialog.cs" />
+    <Compile Include="Microsoft.Win32\IOpenFileDialogFactory.cs" />
     <Compile Include="Microsoft.Win32\IRegistry.cs" />
     <Compile Include="Microsoft.Win32\IRegistryKey.cs" />
+    <Compile Include="Microsoft.Win32\ISaveFileDialog.cs" />
+    <Compile Include="Microsoft.Win32\ISaveFileDialogFactory.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\ISafeFileHandle.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\ISafeRegistryHandle.cs" />
+    <Compile Include="Net\IDns.cs" />
     <Compile Include="Net\IHttpWebRequest.cs" />
     <Compile Include="Net\IHttpWebRequestFactory.cs" />
     <Compile Include="Net\IHttpWebResponse.cs" />
@@ -172,6 +183,7 @@
     <Compile Include="Timers\ITimerFactory.cs" />
     <Compile Include="Web\Script\Serialization\IJavaScriptSerializer.cs" />
     <Compile Include="Web\Script\Serialization\IJavaScriptSerializerFactory.cs" />
+    <Compile Include="Windows\IMessageBox.cs" />
     <Compile Include="Xml\IXComment.cs" />
     <Compile Include="Xml\IXCommentFactory.cs" />
     <Compile Include="Xml\IXDocument.cs" />

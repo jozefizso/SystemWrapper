@@ -22,7 +22,7 @@ namespace SystemWrapper.IO
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamWriterWrap"/> class on the specified path.
-        /// </summary>
+        /// </summary>`
         /// <param name="streamWriter">A <see cref="T:System.IO.StreamWriter"/> object.</param>
         public void Initialize(StreamWriter streamWriter)
         {

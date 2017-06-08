@@ -58,5 +58,11 @@ namespace SystemInterface.Reflection
         /// <returns>The loaded assembly. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
         IAssembly LoadFrom(string assemblyFile);
+
+
+        IAssembly GetAssembly(Type type);
+        IAssembly GetCallingAssembly();
+        IAssembly GetEntryAssembly();
+        IAssembly GetExecutingAssembly();
     }
 }

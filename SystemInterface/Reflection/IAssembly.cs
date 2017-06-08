@@ -135,6 +135,7 @@ namespace SystemInterface.Reflection
         /// </summary>
         /// <param name="type">A Type object representing a class in the assembly that will be returned.</param>
         /// <returns>The assembly in which the specified class is defined.</returns>
+        [Obsolete("Use IAssemblyFactory GetAssembly")]
         IAssembly GetAssembly(Type type);
 
         /// <summary>
@@ -142,12 +143,14 @@ namespace SystemInterface.Reflection
         /// </summary>
         /// <returns>The Assembly object of the method that invoked the currently executing method.</returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
+        [Obsolete("Use IAssemblyFactory GetCallingAssembly")]
         IAssembly GetCallingAssembly();
 
         /// <summary>
         /// Gets the process executable in the default application domain. In other application domains, this is the first executable that was executed by AppDomain.ExecuteAssembly.
         /// </summary>
         /// <returns>The Assembly that is the process executable in the default application domain, or the first executable that was executed by AppDomain.ExecuteAssembly. Can return nullNothingnullptra null reference (Nothing in Visual Basic) when called from unmanaged code. </returns>
+        [Obsolete("Use IAssemblyFactory GetEntryAssembly")]
         IAssembly GetEntryAssembly();
 
         /// <summary>
@@ -155,6 +158,7 @@ namespace SystemInterface.Reflection
         /// </summary>
         /// <returns>A IAssemblyWrap representing the assembly that contains the code that is currently executing. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
+        [Obsolete("Use IAssemblyFactory GetExecutingAssembly")]
         IAssembly GetExecutingAssembly();
 
         /// <summary>
