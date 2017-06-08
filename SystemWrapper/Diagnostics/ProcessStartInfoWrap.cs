@@ -104,6 +104,12 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <inheritdoc />
+        public bool RedirectStandardError {
+            get { return ProcessStartInfoInstance.RedirectStandardError; }
+            set { ProcessStartInfoInstance.RedirectStandardError = value; }
+        }
+
+        /// <inheritdoc />
         public bool RedirectStandardOutput
         {
             get { return ProcessStartInfoInstance.RedirectStandardOutput; }
