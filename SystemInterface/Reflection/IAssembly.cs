@@ -156,6 +156,13 @@ namespace SystemInterface.Reflection
         /// <returns>A IAssemblyWrap representing the assembly that contains the code that is currently executing. </returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
         IAssembly GetExecutingAssembly();
+        
+        /// <summary>
+        /// Gets the types defined in this assembly.
+        /// </summary>
+        /// <returns>An array that contains all the types that are defined in this assembly.</returns>
+        /// <exception cref="ReflectionTypeLoadException">The assembly contains one or more types that cannot be loaded.The array returned by the Types property of this exception contains a Type object for each type that was loaded and null for each type that could not be loaded, while the LoaderExceptions property contains an exception for each type that could not be loaded.</exception>
+        Type[] GetTypes();
 
         /// <summary>
         /// Gets the public types defined in this assembly that are visible outside the assembly.

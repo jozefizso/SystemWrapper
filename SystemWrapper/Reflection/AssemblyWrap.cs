@@ -195,6 +195,12 @@ namespace SystemWrapper.Reflection
         }
 
         /// <inheritdoc />
+        public virtual Type[] GetTypes()
+        {
+            return AssemblyInstance.GetTypes();
+        }
+
+        /// <inheritdoc />
         public virtual Type[] GetExportedTypes()
         {
             return AssemblyInstance.GetExportedTypes();
