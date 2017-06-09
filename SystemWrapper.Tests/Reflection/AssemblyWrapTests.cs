@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Reflection;
+
 using SystemWrapper.IO;
 using SystemWrapper.Reflection;
 using NUnit.Framework;
@@ -58,6 +60,21 @@ namespace SystemWrapper.Tests.Reflection
             var actualException = Assert.Throws<InvalidOperationException>(() => { var var1 = assembly.AssemblyInstance; });
 
             Assert.AreEqual(actualException.Message, "AssemblyWrap instance was not initialized with Assembly object. Use Initialize() method to set Assembly object.");
+        }
+
+        [Test]
+        public void GetTypes_AssemblyWrap_ReturnsSameTypesAsOriginalAssembly()
+        {
+            // Arrange
+            var assembly = Assembly.GetExecutingAssembly();
+            var expectedTypes = assembly.GetTypes();
+            var wrapper = new AssemblyWrap(assembly);
+
+            // Act
+            var actualTypes = wrapper.GetTypes();
+
+            // Assert
+            CollectionAssert.AreEquivalent(expectedTypes, actualTypes, $"{nameof(AssemblyWrap)} must return the same types as original Assembly instance.");
         }
     }
 }
