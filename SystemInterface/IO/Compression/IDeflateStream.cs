@@ -1,3 +1,4 @@
+﻿using System;
 using System.IO.Compression;
 
 namespace SystemInterface.IO.Compression
@@ -5,7 +6,7 @@ namespace SystemInterface.IO.Compression
     /// <summary>
     /// Description of IDeflateStreamWrap.
     /// </summary>
-    public interface IDeflateStream
+    public interface IDeflateStream : IDisposable
     {
         /// <summary>
         /// Initializes a new instance of the DeflateStream class using the specified stream and CompressionMode value, and a value that specifies whether to leave the stream open.
@@ -18,6 +19,16 @@ namespace SystemInterface.IO.Compression
         /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
         /// </summary>
         void Close();
+
+        /// <summary>
+        /// Reads the bytes from the current stream and writes them to another stream.
+        /// </summary>
+        /// <param name="destination"></param>
+        /// <exception cref="System.ArgumentNullException">destination is null.</exception>
+        /// <exception cref="System.NotSupportedException">The current stream does not support reading,-or- the destination stream does not support writing.</exception>
+        /// <exception cref="System.ObjectDisposedException">Either the current stream or the destination were closed before the CopyTo(stream) method was called.</exception>
+        /// <exception cref="System.IO.IOException">An I/O exception occurred.</exception>
+        void CopyTo(IStream destination);
 
         /// <summary>
         /// Flushes the contents of the internal buffer of the current stream object to the underlying stream.
