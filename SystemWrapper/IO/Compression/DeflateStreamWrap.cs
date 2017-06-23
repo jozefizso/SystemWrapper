@@ -1,4 +1,4 @@
-using System.IO.Compression;
+﻿using System.IO.Compression;
 using SystemInterface.IO;
 using SystemInterface.IO.Compression;
 
@@ -42,6 +42,9 @@ namespace SystemWrapper.IO.Compression
         #endregion Constructors and Initializers
 
         /// <inheritdoc />
+        public DeflateStream DeflateStreamInstance { get; private set; }
+
+        /// <inheritdoc />
         public int Read(byte[] array, int offset, int count)
         {
             return DeflateStreamInstance.Read(array, offset, count);
@@ -51,6 +54,11 @@ namespace SystemWrapper.IO.Compression
         public void Write(byte[] array, int offset, int count)
         {
             DeflateStreamInstance.Write(array, offset, count);
+        }
+
+        public void CopyTo(IStream destination)
+        {
+            DeflateStreamInstance.CopyTo(destination.StreamInstance);
         }
 
         /// <inheritdoc />
@@ -66,6 +74,9 @@ namespace SystemWrapper.IO.Compression
         }
 
         /// <inheritdoc />
-        public DeflateStream DeflateStreamInstance { get; private set; }
+        public void Dispose()
+        {
+            DeflateStreamInstance.Dispose();
+        }
     }
 }
