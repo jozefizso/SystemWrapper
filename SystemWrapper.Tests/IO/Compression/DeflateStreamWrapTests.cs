@@ -1,11 +1,10 @@
-using System.IO;
+﻿using System.IO;
 using System.IO.Compression;
-using System.Net.Mime;
+using System.Text;
 using SystemWrapper.IO;
 using SystemWrapper.IO.Compression;
 using NUnit.Framework;
 using Rhino.Mocks;
-using System.Windows.Forms;
 using SystemInterface.IO;
 
 namespace SystemWrapper.Tests.IO
@@ -51,6 +50,37 @@ namespace SystemWrapper.Tests.IO
             Assert.IsNotNull(instance.DeflateStreamInstance);
         }
 
+        [Test]
+        public void Integration_Test()
+        {
+            var textToCompress = "Hello World";
+            var originalBytes = Encoding.UTF8.GetBytes(textToCompress);
+            byte[] compressedBytes;
+            byte[] decompressedBytes;
+
+            using (var memoryStream = new MemoryStreamWrap())
+            {
+                var compressInstance = new DeflateStreamWrap(memoryStream, CompressionMode.Compress);
+                compressInstance.Write(originalBytes, 0, originalBytes.Length);
+                compressInstance.Dispose();
+
+                compressedBytes = memoryStream.ToArray();
+            }
+
+            using (var compressedMemoryStream = new MemoryStreamWrap(compressedBytes))
+            { 
+                using (var deflateStream = new DeflateStreamWrap(compressedMemoryStream, CompressionMode.Decompress))
+                {
+                    using (var resultStream = new MemoryStreamWrap())
+                    {
+                        deflateStream.CopyTo(resultStream);
+                        decompressedBytes = resultStream.ToArray();
+                    }
+                }
+            }
+
+            Assert.AreEqual(textToCompress, Encoding.UTF8.GetString(decompressedBytes));
+        }
 
     }
 }
