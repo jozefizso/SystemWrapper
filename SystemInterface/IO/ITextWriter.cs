@@ -1,11 +1,14 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SystemInterface.IO
 {
     public interface ITextWriter : IDisposable
-	{
+    {
+        TextWriter Instance { get; }
+
         void Flush();
         //
         // Summary:

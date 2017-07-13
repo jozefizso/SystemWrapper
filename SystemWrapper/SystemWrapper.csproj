@@ -135,6 +135,8 @@
     <Compile Include="IO\StreamWrap.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="IO\StreamWriterWrapFactory.cs" />
+    <Compile Include="IO\StringWriterWrap.cs" />
+    <Compile Include="IO\TextWriterFactory.cs" />
     <Compile Include="Microsoft.Win32\CommonDialogWrap.cs" />
     <Compile Include="Microsoft.Win32\FileDialogCustomPlaceFactory.cs" />
     <Compile Include="Microsoft.Win32\FileDialogCustomPlaceWrap.cs" />

@@ -2,12 +2,11 @@
 {
     using System;
     using System.CodeDom.Compiler;
-    using System.IO;
     using System.Reflection;
     using System.Security.Policy;
     using System.Xml;
     using System.Xml.Serialization;
-
+    using SystemInterface.IO;
     using SystemInterface.Xml;
 
     /// <summary>
@@ -211,9 +210,9 @@
         ///     The <see cref="T:System.Object"/> being deserialized.
         /// </returns>
         /// <param name="stream">The <see cref="T:System.IO.Stream"/> that contains the XML document to deserialize. </param>
-        public object Deserialize(Stream stream)
+        public object Deserialize(IStream stream)
         {
-            return this.XmlSerializerInstance.Deserialize(stream);
+            return this.XmlSerializerInstance.Deserialize(stream.StreamInstance);
         }
 
         /// <summary>
@@ -223,9 +222,9 @@
         ///     The <see cref="T:System.Object"/> being deserialized.
         /// </returns>
         /// <param name="textReader">The <see cref="T:System.IO.TextReader"/> that contains the XML document to deserialize. </param><exception cref="T:System.InvalidOperationException">An error occurred during deserialization. The original exception is available using the <see cref="P:System.Exception.InnerException"/> property. </exception>
-        public object Deserialize(TextReader textReader)
+        public object Deserialize(ITextReader textReader)
         {
-            return this.XmlSerializerInstance.Deserialize(textReader);
+            return this.XmlSerializerInstance.Deserialize(textReader.TextReaderInstance);
         }
 
         /// <summary>
@@ -387,42 +386,42 @@
         ///     Serializes the specified <see cref="T:System.Object"/> and writes the XML document to a file using the specified <see cref="T:System.IO.TextWriter"/>.
         /// </summary>
         /// <param name="textWriter">The <see cref="T:System.IO.TextWriter"/> used to write the XML document. </param><param name="o">The <see cref="T:System.Object"/> to serialize. </param>
-        public void Serialize(TextWriter textWriter,
+        public void Serialize(ITextWriter textWriter,
                               object o)
         {
-            this.XmlSerializerInstance.Serialize(textWriter, o, null);
+            this.XmlSerializerInstance.Serialize(textWriter.Instance, o, null);
         }
 
         /// <summary>
         ///     Serializes the specified <see cref="T:System.Object"/> and writes the XML document to a file using the specified <see cref="T:System.IO.TextWriter"/> and references the specified namespaces.
         /// </summary>
         /// <param name="textWriter">The <see cref="T:System.IO.TextWriter"/> used to write the XML document. </param><param name="o">The <see cref="T:System.Object"/> to serialize. </param><param name="namespaces">The <see cref="T:System.Xml.Serialization.XmlSerializerNamespaces"/> that contains namespaces for the generated XML document. </param><exception cref="T:System.InvalidOperationException">An error occurred during serialization. The original exception is available using the <see cref="P:System.Exception.InnerException"/> property. </exception>
-        public void Serialize(TextWriter textWriter,
+        public void Serialize(ITextWriter textWriter,
                               object o,
                               XmlSerializerNamespaces namespaces)
         {
-            this.XmlSerializerInstance.Serialize(textWriter, o, namespaces);
+            this.XmlSerializerInstance.Serialize(textWriter.Instance, o, namespaces);
         }
 
         /// <summary>
         ///     Serializes the specified <see cref="T:System.Object"/> and writes the XML document to a file using the specified <see cref="T:System.IO.Stream"/>.
         /// </summary>
         /// <param name="stream">The <see cref="T:System.IO.Stream"/> used to write the XML document. </param><param name="o">The <see cref="T:System.Object"/> to serialize. </param><exception cref="T:System.InvalidOperationException">An error occurred during serialization. The original exception is available using the <see cref="P:System.Exception.InnerException"/> property. </exception>
-        public void Serialize(Stream stream,
+        public void Serialize(IStream stream,
                               object o)
         {
-            this.XmlSerializerInstance.Serialize(stream, o, null);
+            this.XmlSerializerInstance.Serialize(stream.StreamInstance, o, null);
         }
 
         /// <summary>
         ///     Serializes the specified <see cref="T:System.Object"/> and writes the XML document to a file using the specified <see cref="T:System.IO.Stream"/>that references the specified namespaces.
         /// </summary>
         /// <param name="stream">The <see cref="T:System.IO.Stream"/> used to write the XML document. </param><param name="o">The <see cref="T:System.Object"/> to serialize. </param><param name="namespaces">The <see cref="T:System.Xml.Serialization.XmlSerializerNamespaces"/> referenced by the object. </param><exception cref="T:System.InvalidOperationException">An error occurred during serialization. The original exception is available using the <see cref="P:System.Exception.InnerException"/> property. </exception>
-        public void Serialize(Stream stream,
+        public void Serialize(IStream stream,
                               object o,
                               XmlSerializerNamespaces namespaces)
         {
-            this.XmlSerializerInstance.Serialize(stream, o, namespaces);
+            this.XmlSerializerInstance.Serialize(stream.StreamInstance, o, namespaces);
         }
 
         /// <summary>

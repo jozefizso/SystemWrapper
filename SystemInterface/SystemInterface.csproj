@@ -126,8 +126,10 @@
     <Compile Include="IO\IStreamReaderFactory.cs" />
     <Compile Include="IO\IStreamWriter.cs" />
     <Compile Include="IO\IStreamWriterFactory.cs" />
+    <Compile Include="IO\IStringWriter.cs" />
     <Compile Include="IO\ITextReader.cs" />
     <Compile Include="IO\ITextWriter.cs" />
+    <Compile Include="IO\ITextWriterFactory.cs" />
     <Compile Include="IStaticWrapper.cs" />
     <Compile Include="IVersion.cs" />
     <Compile Include="IWrapper.cs" />
