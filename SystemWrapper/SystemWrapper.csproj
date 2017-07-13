@@ -109,6 +109,7 @@
     <Compile Include="Diagnostics\FileVersionInfoFactory.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
+    <Compile Include="Diagnostics\StopwatchWrap.cs" />
     <Compile Include="Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="EnvironmentWrap.cs" />
     <Compile Include="Globalization\CultureInfoWrap.cs" />

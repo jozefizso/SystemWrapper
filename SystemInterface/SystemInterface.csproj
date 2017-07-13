@@ -95,6 +95,7 @@
     <Compile Include="Diagnostics\IProcess.cs" />
     <Compile Include="Diagnostics\IProcessStartInfo.cs" />
     <Compile Include="Diagnostics\ITraceSource.cs" />
+    <Compile Include="Diagnostics\IStopwatch.cs" />
     <Compile Include="Globalization\ICultureInfo.cs" />
     <Compile Include="IAppDomain.cs" />
     <Compile Include="IConsole.cs" />
