@@ -115,6 +115,7 @@
     <Compile Include="Globalization\CultureInfoWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
+    <Compile Include="IO\Compression\DeflateStreamFactory.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
     <Compile Include="IO\Compression\ZipArchiveEntryWrap.cs" />
     <Compile Include="IO\Compression\ZipArchiveWrap.cs" />
