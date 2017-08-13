@@ -1,4 +1,4 @@
-﻿using System.IO.Compression;
+using System.IO.Compression;
 using SystemWrapper.IO;
 using SystemWrapper.IO.Compression;
 using NUnit.Framework;
@@ -9,7 +9,7 @@ namespace SystemWrapper.Tests.IO.Compression
     public class DeflateStreamFactoryTests
     {
         [Test]
-        public void Create_ReturnsANewWrappedStream()
+        public void Create_ValidParameters_ReturnsWrappedStream()
         {
             // Arrange
             var factory = new DeflateStreamFactory();
