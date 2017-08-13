@@ -107,6 +107,7 @@
     <Compile Include="DateTimeWrap.cs" />
     <Compile Include="Diagnostics\FileVersionInfoWrap.cs" />
     <Compile Include="Diagnostics\FileVersionInfoFactory.cs" />
+    <Compile Include="Diagnostics\ProcessFactory.cs" />
     <Compile Include="Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="Diagnostics\ProcessWrap.cs" />
     <Compile Include="Diagnostics\StopwatchWrap.cs" />

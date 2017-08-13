@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using SystemInterface.Diagnostics;
 using SystemInterface.IO;
@@ -25,9 +24,25 @@ namespace SystemWrapper.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
         /// </summary>
+        /// <param name="process"><see cref="T:System.Diagnostics.Process"/> object used to initialize 
+        ///     <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class
+        /// </param>
+        internal ProcessWrap(Process process)
+        {
+            Initialize(process);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
+        /// </summary>
         public void Initialize()
         {
-            ProcessInstance = new Process();
+            Initialize(new Process());
+        }
+
+        private void Initialize(Process process)
+        {
+            ProcessInstance = process;
         }
 
         #endregion Constructors and Initializers
@@ -56,12 +71,21 @@ namespace SystemWrapper.Diagnostics
         /// <inheritdoc />
         public IProcessStartInfo StartInfo
         {
-            get { return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
+            get
+            {
+                return this._startInfo ?? (this._startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo));
+            }
             set
             {
                 this._startInfo = value;
                 ProcessInstance.StartInfo = _startInfo.ProcessStartInfoInstance;
             }
+        }
+
+        /// <inheritdoc />
+        public void Kill()
+        {
+            ProcessInstance.Kill();
         }
 
         /// <inheritdoc />
