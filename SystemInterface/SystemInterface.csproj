@@ -102,6 +102,7 @@
     <Compile Include="IDateTime.cs" />
     <Compile Include="IEnvironment.cs" />
     <Compile Include="IO\Compression\IDeflateStream.cs" />
+    <Compile Include="IO\Compression\IDeflateStreamFactory.cs" />
     <Compile Include="IO\Compression\IZipArchive.cs" />
     <Compile Include="IO\Compression\IZipArchiveEntry.cs" />
     <Compile Include="IO\Compression\IZipFile.cs" />
