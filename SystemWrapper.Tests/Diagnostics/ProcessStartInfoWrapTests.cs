@@ -4,7 +4,7 @@ using SystemWrapper.Diagnostics;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace SystemWrapper.Tests.IO
+namespace SystemWrapper.Tests.Diagnostics
 {
 	[TestFixture]
 	[Author("Brad Irby", "Brad@BradIrby.com")]

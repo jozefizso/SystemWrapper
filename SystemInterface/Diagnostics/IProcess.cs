@@ -46,22 +46,27 @@ namespace SystemInterface.Diagnostics
         IProcessStartInfo StartInfo { get; set; }
 
         /// <summary>
-        /// Instructs the ProcessInstance  component to wait indefinitely for the associated process to exit.
+        /// Instructs the ProcessInstance component to wait indefinitely for the associated process to exit.
         /// </summary>
         void WaitForExit();
 
         /// <summary>
-        /// Instructs the Process  component to wait the specified number of milliseconds for the associated process to exit.
+        /// Instructs the Process component to wait the specified number of milliseconds for the associated process to exit.
         /// </summary>
         /// <param name="milliseconds">The amount of time, in milliseconds, to wait for the associated process to exit. The maximum is the largest possible value of a 32-bit integer, which represents infinity to the operating system.</param>
         /// <returns>true if the associated process has exited; otherwise, <c>false</c>.</returns>
         bool WaitForExit(int milliseconds);
 
         /// <summary>
-        /// Causes the Process  component to wait indefinitely for the associated process to enter an idle state. This overload applies only to processes with a user interface and, therefore, a message loop.
+        /// Causes the Process component to wait indefinitely for the associated process to enter an idle state. This overload applies only to processes with a user interface and, therefore, a message loop.
         /// </summary>
         /// <returns>true if the associated process has reached an idle state.</returns>
         bool WaitForInputIdle();
+
+        /// <summary>
+        /// Immediately stops the Process component. The Kill method executes asynchronously. After calling the Kill method, call the WaitForExit method to wait for the process to exit, or check the HasExited property to determine if the process has exited.
+        /// </summary>
+        void Kill();
 
         /// <summary>
         /// Gets a stream used to read the output of the application.
