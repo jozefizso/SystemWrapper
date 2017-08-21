@@ -10,8 +10,6 @@ namespace SystemWrapper.Tests.Diagnostics
     [Author("Brad Irby", "Brad@BradIrby.com")]
     public class ProcessWrapTests
     {
-        const string LongRunningCmdFilename = @"TestData\LongRunningProcess.cmd";
-
         [SetUp]
         public void Setup()
         {
