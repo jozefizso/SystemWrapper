@@ -105,6 +105,7 @@
     <Compile Include="IO\Compression\IDeflateStreamFactory.cs" />
     <Compile Include="IO\Compression\IZipArchive.cs" />
     <Compile Include="IO\Compression\IZipArchiveEntry.cs" />
+    <Compile Include="IO\Compression\IZipArchiveFactory.cs" />
     <Compile Include="IO\Compression\IZipFile.cs" />
     <Compile Include="IO\IBinaryReader.cs" />
     <Compile Include="IO\IBinaryWriter.cs" />

@@ -81,6 +81,7 @@
     <Compile Include="EnvironmentWrapTests.cs" />
     <Compile Include="IO\Compression\DeflateStreamFactoryTests.cs" />
     <Compile Include="IO\Compression\ZipArchiveEntryWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveFactoryTests.cs" />
     <Compile Include="IO\Compression\ZipArchiveWrapTests.cs" />
     <Compile Include="IO\Compression\ZipFileWrapTests.cs" />
     <Compile Include="IO\StreamWriterWrapTests.cs" />

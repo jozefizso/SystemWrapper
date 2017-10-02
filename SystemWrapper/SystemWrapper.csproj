@@ -118,6 +118,7 @@
     <Compile Include="IO\Compression\DeflateStreamFactory.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
     <Compile Include="IO\Compression\ZipArchiveEntryWrap.cs" />
+    <Compile Include="IO\Compression\ZipArchiveFactory.cs" />
     <Compile Include="IO\Compression\ZipArchiveWrap.cs" />
     <Compile Include="IO\Compression\ZipFileWrap.cs" />
     <Compile Include="IO\DirectoryInfoFactory.cs" />
