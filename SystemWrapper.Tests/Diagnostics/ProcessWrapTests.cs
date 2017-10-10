@@ -4,13 +4,12 @@ using SystemWrapper.Diagnostics;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace SystemWrapper.Tests.IO
+namespace SystemWrapper.Tests.Diagnostics
 {
     [TestFixture]
     [Author("Brad Irby", "Brad@BradIrby.com")]
     public class ProcessWrapTests
     {
-
         [SetUp]
         public void Setup()
         {
@@ -62,6 +61,17 @@ namespace SystemWrapper.Tests.IO
             Assert.AreEqual(mockProcessStartInfoWrap, instance.StartInfo);
             Assert.AreEqual(processStartInfo, instance.StartInfo.ProcessStartInfoInstance);
             Assert.AreEqual(processStartInfo, instance.ProcessInstance.StartInfo);
+        }
+        
+        [Test]
+        [ExpectedException(typeof(System.InvalidOperationException), ExpectedMessage = "No process is associated with this object.")]
+        public void Kill_throws_expected_exception_if_process_not_started()
+        {
+            // Arrange
+            var instance = new ProcessWrap();
+
+            // Act
+            instance.Kill();
         }
     }
 }
