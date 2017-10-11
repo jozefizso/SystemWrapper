@@ -90,5 +90,11 @@ namespace SystemWrapper.Diagnostics
         {
             return ProcessInstance.WaitForInputIdle();
         }
+
+        /// <inheritdoc />
+        public void Kill()
+        {
+            ProcessInstance.Kill();
+        }
     }
 }

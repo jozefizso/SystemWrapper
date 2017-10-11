@@ -118,6 +118,7 @@
     <Compile Include="IO\Compression\DeflateStreamFactory.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
     <Compile Include="IO\Compression\ZipArchiveEntryWrap.cs" />
+    <Compile Include="IO\Compression\ZipArchiveFactory.cs" />
     <Compile Include="IO\Compression\ZipArchiveWrap.cs" />
     <Compile Include="IO\Compression\ZipFileWrap.cs" />
     <Compile Include="IO\DirectoryInfoFactory.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="IO\StreamReaderWrap.cs" />
     <Compile Include="IO\StreamReaderWrapFactory.Generated.cs" />
     <Compile Include="IO\StreamWrap.cs" />
+    <Compile Include="IO\StreamWriterFactory.cs" />
     <Compile Include="IO\StreamWriterWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft.Win32\RegistryWrap.cs" />
