@@ -1,5 +1,6 @@
 ﻿namespace SystemWrapper.ActiveDirectory
 {
+    using System;
     using System.Collections.Specialized;
     using System.DirectoryServices;
 
@@ -129,6 +130,16 @@
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(true);
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">Indicates whether or not unmanaged resources should be disposed.</param>
+        protected virtual void Dispose(bool disposing)
         {
             this.directorySearcher.Dispose();
         }
