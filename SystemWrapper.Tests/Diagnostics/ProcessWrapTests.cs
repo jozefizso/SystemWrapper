@@ -45,6 +45,18 @@ namespace SystemWrapper.Tests.Diagnostics
         }
 
         [Test]
+        [ExpectedException(typeof(System.InvalidOperationException))]
+        public void StandardError_NotNull_ThrowsExceptionBecauseProcessNotYetStarted()
+        {
+            var instance = new ProcessWrap();
+            var origInfo = instance.ProcessInstance;
+            instance.Initialize();
+            Assert.AreNotSame(origInfo, instance.ProcessInstance);
+            Assert.IsNotNull(instance.ProcessInstance);
+            Assert.IsNotNull(instance.StandardError);
+        }
+
+        [Test]
         public void StartInfo_Set_AssignsStartInfoWrap()
         {
             // Arrange
