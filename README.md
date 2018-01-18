@@ -20,3 +20,7 @@ Install-Package SystemWrapper.Wrappers
 Source code is licensed under [Microsoft Public License (MS-PL)](LICENSE.txt).
 
 Source code is forked from [https://systemwrapper.codeplex.com/](https://systemwrapper.codeplex.com/).
+
+## TechSmith Updates
+
+We've added a new batch file, `CreatePackages.bat`, which will automatically build and create nuget packages for SystemWrapper and SystemInterface. After running this batch file, the packages will be in the `publish` directory.
