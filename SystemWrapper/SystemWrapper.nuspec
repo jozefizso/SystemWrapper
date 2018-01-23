@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>SystemWrapper.Wrappers</id>
+    <id>system-wrappers-tsc-package</id>
     <version>$Version$</version>
     <authors>Jozef Izso, Yann Brulhart</authors>
     <owners>Jozef Izso</owners>
@@ -14,7 +14,7 @@ Droped support for .NET 4.0</releaseNotes>
     <copyright>Copyright (c) 2014-2016 Jozef Izso</copyright>
     <tags>SystemWrapper mocks unit tests registry filesystem</tags>
     <dependencies>
-      <dependency id="SystemWrapper.Interfaces" version="[$Version$]" />
+      <dependency id="system-interfaces-tsc-package" version="[$Version$]" />
     </dependencies>
   </metadata>
   <files>
