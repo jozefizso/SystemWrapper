@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>SystemWrapper.Interfaces</id>
+    <id>system-interfaces-tsc-package</id>
     <version>$Version$</version>
     <authors>Jozef Izso, Yann Brulhart</authors>
     <owners>Jozef Izso</owners>
