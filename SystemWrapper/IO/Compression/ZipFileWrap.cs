@@ -1,4 +1,4 @@
-﻿using System.IO.Compression;
+using System.IO.Compression;
 using System.Text;
 using SystemInterface.IO.Compression;
 
@@ -38,7 +38,7 @@ namespace SystemWrapper.IO.Compression
 
         public IZipArchive Open(string archiveFileName, System.IO.Compression.ZipArchiveMode mode, Encoding entryNameEncoding)
         {
-            return new ZipArchiveWrap(ZipFile.Open(archiveFileName, mode));
+            return new ZipArchiveWrap(ZipFile.Open(archiveFileName, mode, entryNameEncoding));
         }
 
         public IZipArchive OpenRead(string archiveFileName)

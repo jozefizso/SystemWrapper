@@ -1,4 +1,5 @@
-﻿using System.IO;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -135,14 +136,40 @@ namespace SystemWrapper.Tests.IO.Compression
         }
 
         [Test]
-        public void Open_WithEncoding_Creates_ZipArchiveWrap()
+        public void Open_WithUTF8Encoding_Creates_OpensZipWithCorrectEncoding()
         {
+            var assembly = Assembly.GetAssembly(typeof(ZipFileWrapTests));
+            var testFilePath = assembly.CodeBase.Substring(8);  //remove the "file://" from the front
+            testFilePath = Path.GetDirectoryName(testFilePath) + @"\TestData\Encoding_UTF8.zip";
+
             var instance = new ZipFileWrap();
-            instance.CreateFromDirectory(ArchiveDirectory, ArchiveFileName);
-            using (var archive = instance.Open(ArchiveFileName, System.IO.Compression.ZipArchiveMode.Read, Encoding.UTF8))
+            using (var archive = instance.Open(testFilePath, System.IO.Compression.ZipArchiveMode.Read, Encoding.UTF8))
             {
                 Assert.IsNotNull(archive);
                 Assert.IsInstanceOf<ZipArchiveWrap>(archive);
+
+                var entry = archive.Entries.First();
+                Assert.AreEqual("text-ľščťžýáíé.txt", entry.Name);
+            }
+        }
+
+        [Test]
+        public void Open_WithWindows1250Encoding_OpensZipWithCorrectEncoding()
+        {
+            var assembly = Assembly.GetAssembly(typeof(ZipFileWrapTests));
+            var testFilePath = assembly.CodeBase.Substring(8);  //remove the "file://" from the front
+            testFilePath = Path.GetDirectoryName(testFilePath) + @"\TestData\Encoding_Windows1250.zip";
+
+            var instance = new ZipFileWrap();
+
+            var encodingWindows1250 = Encoding.GetEncoding(1250);
+            using (var archive = instance.Open(testFilePath, System.IO.Compression.ZipArchiveMode.Read, encodingWindows1250))
+            {
+                Assert.IsNotNull(archive);
+                Assert.IsInstanceOf<ZipArchiveWrap>(archive);
+
+                var entry = archive.Entries.First();
+                Assert.AreEqual("text-ľščťžýáíé.txt", entry.Name);
             }
         }
 

@@ -118,6 +118,12 @@
     <None Include="packages.config" />
     <None Include="Settings.StyleCop" />
     <None Include="SystemWrapper.snk" />
+    <Content Include="TestData\Encoding_UTF8.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Encoding_Windows1250.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
