@@ -2,8 +2,6 @@
 {
     using System;
     using System.ServiceModel;
-
-    using SystemInterface.Attributes;
     using SystemInterface.ServiceModel;
 
     /// <summary>
@@ -69,6 +67,7 @@
         public void Dispose()
         {
             this.Dispose(true);
+            GC.SuppressFinalize(true);
         }
 
         #endregion

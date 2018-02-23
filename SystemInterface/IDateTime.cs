@@ -6,7 +6,7 @@ namespace SystemInterface
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Wrapper for <see cref="System.Version"/> class.
+    /// Wrapper for <see cref="System.DateTime"/> class.
     /// </summary>
     public interface IDateTime
     {

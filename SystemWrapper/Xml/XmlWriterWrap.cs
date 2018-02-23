@@ -258,11 +258,17 @@ namespace SystemWrapper.Xml
         /// <exception cref="T:System.InvalidOperationException">An <see cref="T:System.Xml.XmlWriter"/> method was called before a previous asynchronous operation finished. In this case, <see cref="T:System.InvalidOperationException"/> is thrown with the message “An asynchronous operation is already in progress.”</exception>
         public void Dispose()
         {
-            var disposable = this.instance as IDisposable;
-            if (disposable != null)
-            {
-                disposable.Dispose();
-            }
+            Dispose(true);
+            GC.SuppressFinalize(true);
+        }
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">Indicates whether or not unmanaged resources should be disposed.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            this.instance.Dispose();
         }
 
         /// <summary>

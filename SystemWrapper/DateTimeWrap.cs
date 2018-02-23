@@ -6,7 +6,7 @@ using SystemInterface;
 namespace SystemWrapper
 {
     /// <summary>
-    /// Wrapper for <see cref="System.Version"/> class.
+    /// Wrapper for <see cref="System.DateTime"/> class.
     /// </summary>
     [Serializable]
     public class DateTimeWrap : IDateTime
