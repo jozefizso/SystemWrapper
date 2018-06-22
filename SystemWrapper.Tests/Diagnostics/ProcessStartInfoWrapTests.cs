@@ -45,8 +45,6 @@ namespace SystemWrapper.Tests.Diagnostics
 				Assert.AreSame(info, instance.ProcessStartInfoInstance);
 			}
 
-
-
 			[Test]
 			public void Initializer_1_Sets_Command_Instance()
 			{
@@ -87,7 +85,24 @@ namespace SystemWrapper.Tests.Diagnostics
 				Assert.AreSame(info, instance.ProcessStartInfoInstance);
 			}
 
+			[Test]
+			public void Get_RedirectStandardError_Test()
+			{
+				var processStartInfo = new ProcessStartInfo { RedirectStandardError = true };
+				var processStartInfoWrapper = new ProcessStartInfoWrap(processStartInfo);
 
+				Assert.AreEqual(processStartInfoWrapper.RedirectStandardError, processStartInfo.RedirectStandardError);
+			}
 
+			[Test]
+			public void Set_RedirectStandardError_Test()
+			{
+				var processStartInfo = new ProcessStartInfo();
+				var processStartInfoWrapper = new ProcessStartInfoWrap(processStartInfo);
+
+				processStartInfoWrapper.RedirectStandardError = true;
+
+				Assert.AreEqual(processStartInfoWrapper.RedirectStandardError, processStartInfo.RedirectStandardError);
+			}
 	}
 }
