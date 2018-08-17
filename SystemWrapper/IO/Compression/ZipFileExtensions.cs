@@ -22,12 +22,12 @@ namespace SystemWrapper.IO.Compression
 
         public static void ExtractToFile(this IZipArchiveEntry source, string destinationFileName)
         {
-            //source.ExtractToFile(destinationFileName);
+            source.Instance.ExtractToFile(destinationFileName);
         }
 
         public static void ExtractToFile(this IZipArchiveEntry source, string destinationFileName, bool overwrite)
         {
-            //source.ExtractToFile(destinationFileName, overwrite);
+            source.Instance.ExtractToFile(destinationFileName, overwrite);
         }
     }
 }
