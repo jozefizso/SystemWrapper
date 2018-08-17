@@ -14,5 +14,20 @@ namespace SystemWrapper.IO.Compression
         {
             return new ZipArchiveEntryWrap(destination.Instance.CreateEntryFromFile(sourceFileName, entryName, compressionLevel));
         }
+
+        public static void ExtractToDirectory(this IZipArchive source, string destinationDirectoryName)
+        {
+            source.Instance.ExtractToDirectory(destinationDirectoryName);
+        }
+
+        public static void ExtractToFile(this IZipArchiveEntry source, string destinationFileName)
+        {
+            //source.ExtractToFile(destinationFileName);
+        }
+
+        public static void ExtractToFile(this IZipArchiveEntry source, string destinationFileName, bool overwrite)
+        {
+            //source.ExtractToFile(destinationFileName, overwrite);
+        }
     }
 }

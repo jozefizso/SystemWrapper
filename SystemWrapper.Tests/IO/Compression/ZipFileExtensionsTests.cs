@@ -11,6 +11,7 @@ namespace SystemWrapper.Tests.IO.Compression
     {
         private const string ArchiveFileName = "archiveFileName.zip";
         private const string FileName = "test.txt";
+        private const string ExtractionDir = "extracted";
         private IZipFile mZipFile;
 
         [SetUp]
@@ -24,6 +25,7 @@ namespace SystemWrapper.Tests.IO.Compression
         {
             File.Delete(ArchiveFileName);
             File.Delete(FileName);
+            Directory.Delete(ExtractionDir, true);
         }
 
         [Test]
@@ -57,6 +59,28 @@ namespace SystemWrapper.Tests.IO.Compression
             using (IZipArchive zipArchive = mZipFile.OpenRead(ArchiveFileName))
             {
                 Assert.AreEqual(1, zipArchive.Entries.Count);
+            }
+        }
+
+        [Test]
+        public void ExtractToDirectory_ShouldExtractFileToDirectory()
+        {
+            File.WriteAllLines(FileName, new[] { "this is the only line" });
+
+            using (IZipArchive newZipArchive = mZipFile.Open(ArchiveFileName, ZipArchiveMode.Create))
+            {
+                newZipArchive.CreateEntryFromFile(FileName, FileName);
+
+                //Test sanity check
+                Assert.IsFalse(Directory.Exists(ExtractionDir));
+            }
+
+            using (IZipArchive zipArchive = mZipFile.OpenRead(ArchiveFileName))
+            {
+                zipArchive.ExtractToDirectory(ExtractionDir);
+
+                Assert.IsTrue(Directory.Exists(ExtractionDir));
+                Assert.IsTrue(Directory.GetFiles(ExtractionDir)[0].Contains(FileName));
             }
         }
     }
