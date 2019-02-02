@@ -508,7 +508,11 @@ namespace SystemWrapper
             return DateTime.Compare(t1.DateTimeInstance, t2.DateTimeInstance);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Compares the value of this instance to a specified IDateTimeWrap value and returns an integer that indicates whether this instance is earlier than, the same as, or later than the specified IDateTimeWrap value.
+        /// </summary>
+        /// <param name="value">A IDateTimeWrap object to compare. </param>
+        /// <returns>A signed number indicating the relative values of this instance and the value parameter.</returns>
         public int CompareTo(IDateTime value)
         {
             return DateTimeInstance.CompareTo(value.DateTimeInstance);
@@ -526,16 +530,23 @@ namespace SystemWrapper
             return DateTime.DaysInMonth(year, month);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Returns a value indicating whether this instance is equal to the specified IDateTimeWrap instance.
+        /// </summary>
+        /// <param name="value">A IDateTimeWrap instance to compare to this instance. </param>
+        /// <returns> <c>true</c> if the value parameter equals the value of this instance; otherwise, false.</returns>
         public bool Equals(IDateTime value)
         {
-            return DateTimeInstance.Equals(value);
+            return value != null && DateTimeInstance.Equals(value.DateTimeInstance);
         }
 
         /// <inheritdoc />
         public override bool Equals(object obj)
         {
-            return DateTimeInstance.Equals(obj);
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((IDateTime)obj);
         }
 
         /// <inheritdoc />
