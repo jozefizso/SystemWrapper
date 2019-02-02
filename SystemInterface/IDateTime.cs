@@ -8,7 +8,7 @@ namespace SystemInterface
     /// <summary>
     /// Wrapper for <see cref="System.DateTime"/> class.
     /// </summary>
-    public interface IDateTime
+    public interface IDateTime : IEquatable<IDateTime>, IComparable<IDateTime>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class.
@@ -299,13 +299,6 @@ namespace SystemInterface
         int Compare(IDateTime t1, IDateTime t2);
 
         /// <summary>
-        /// Compares the value of this instance to a specified IDateTimeWrap value and returns an integer that indicates whether this instance is earlier than, the same as, or later than the specified IDateTimeWrap value.
-        /// </summary>
-        /// <param name="value">A IDateTimeWrap object to compare. </param>
-        /// <returns>A signed number indicating the relative values of this instance and the value parameter.</returns>
-        int CompareTo(IDateTime value);
-
-        /// <summary>
         /// Compares the value of this instance to a specified object that contains a specified IDateTimeWrap value, and returns an integer that indicates whether this instance is earlier than, the same as, or later than the specified IDateTimeWrap value.
         /// </summary>
         /// <param name="value"></param>
@@ -319,14 +312,7 @@ namespace SystemInterface
         /// <param name="month">The month (a number ranging from 1 to 12). </param>
         /// <returns>The number of days in month for the specified year.</returns>
         int DaysInMonth(int year, int month);
-
-        /// <summary>
-        /// Returns a value indicating whether this instance is equal to the specified IDateTimeWrap instance.
-        /// </summary>
-        /// <param name="value">A IDateTimeWrap instance to compare to this instance. </param>
-        /// <returns> <c>true</c> if the value parameter equals the value of this instance; otherwise, false.</returns>
-        bool Equals(IDateTime value);
-
+        
         /// <summary>
         /// Returns a value indicating whether two instances of IDateTimeWrap are equal.
         /// </summary>
