@@ -8,7 +8,7 @@ namespace SystemInterface
     /// <summary>
     /// Wrapper for <see cref="System.DateTime"/> class.
     /// </summary>
-    public interface IDateTime : IEquatable<IDateTime>, IComparable<IDateTime>
+    public interface IDateTime : IEquatable<IDateTime>, IComparable<IDateTime>, IComparable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemInterface.DateTimeWrap"/> class.
@@ -297,13 +297,6 @@ namespace SystemInterface
         /// <param name="t2">The second IDateTimeWrap. </param>
         /// <returns>A signed number indicating the relative values of t1 and t2.</returns>
         int Compare(IDateTime t1, IDateTime t2);
-
-        /// <summary>
-        /// Compares the value of this instance to a specified object that contains a specified IDateTimeWrap value, and returns an integer that indicates whether this instance is earlier than, the same as, or later than the specified IDateTimeWrap value.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        int CompareTo(object value);
 
         /// <summary>
         /// Returns the number of days in the specified month and year.

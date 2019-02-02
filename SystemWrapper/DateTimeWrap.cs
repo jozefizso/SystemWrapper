@@ -515,13 +515,19 @@ namespace SystemWrapper
         /// <returns>A signed number indicating the relative values of this instance and the value parameter.</returns>
         public int CompareTo(IDateTime value)
         {
-            return DateTimeInstance.CompareTo(value.DateTimeInstance);
+            return value == null ? 
+                DateTimeInstance.CompareTo(value) :
+                DateTimeInstance.CompareTo(value.DateTimeInstance);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Compares the value of this instance to a specified object that contains a specified IDateTimeWrap value, and returns an integer that indicates whether this instance is earlier than, the same as, or later than the specified IDateTimeWrap value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public int CompareTo(object value)
         {
-            return DateTimeInstance.CompareTo(value);
+            return CompareTo(value as DateTimeWrap);
         }
 
         /// <inheritdoc />
