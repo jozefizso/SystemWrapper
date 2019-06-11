@@ -157,28 +157,56 @@ namespace SystemWrapper.IO.Compression
             DeflateStreamInstance.Flush();
         }
 
-        public bool CanRead => DeflateStreamInstance.CanRead;
-        public bool CanSeek => DeflateStreamInstance.CanSeek;
-        public bool CanTimeout => DeflateStreamInstance.CanTimeout;
-        public bool CanWrite => DeflateStreamInstance.CanWrite;
-        public long Length => DeflateStreamInstance.Length;
-        public long Position
+        public bool CanRead
         {
-            get => DeflateStreamInstance.Position;
-            set => DeflateStreamInstance.Position = value;
-        }
-        public int ReadTimeout
-        {
-            get => DeflateStreamInstance.ReadTimeout;
-            set => DeflateStreamInstance.ReadTimeout = value;
+            get { return DeflateStreamInstance.CanRead; }
         }
 
-        public Stream StreamInstance => DeflateStreamInstance;
+        public bool CanSeek
+        {
+            get { return DeflateStreamInstance.CanSeek; }
+        }
+
+
+        public bool CanTimeout
+        {
+            get { return DeflateStreamInstance.CanTimeout; }
+        }
+
+
+        public bool CanWrite
+        {
+            get { return DeflateStreamInstance.CanWrite; }
+        }
+
+
+        public long Length
+        {
+            get { return DeflateStreamInstance.Length; }
+        }
+
+        public long Position
+        {
+            get { return DeflateStreamInstance.Position; }
+            set { DeflateStreamInstance.Position = value; }
+
+        }
+
+        public int ReadTimeout
+        {
+            get { return DeflateStreamInstance.ReadTimeout; }
+            set { DeflateStreamInstance.ReadTimeout = value; }
+        }
+
+        public Stream StreamInstance
+        {
+            get { return DeflateStreamInstance; }
+        }
 
         public int WriteTimeout
         {
-            get => DeflateStreamInstance.WriteTimeout;
-            set => DeflateStreamInstance.WriteTimeout = value;
+            get { return DeflateStreamInstance.WriteTimeout; }
+            set { DeflateStreamInstance.WriteTimeout = value; }
         }
 
         public IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
