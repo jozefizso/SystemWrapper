@@ -1,5 +1,8 @@
-﻿using System;
+using System;
+using System.IO;
 using System.IO.Compression;
+using System.Threading;
+using System.Threading.Tasks;
 using SystemInterface.IO;
 using SystemInterface.IO.Compression;
 
@@ -10,6 +13,8 @@ namespace SystemWrapper.IO.Compression
     /// </summary>
     public class DeflateStreamWrap : IDeflateStream
     {
+        private CompressionMode _mode;
+
         #region Constructors and Initializers
 
         /// <summary>
@@ -37,7 +42,13 @@ namespace SystemWrapper.IO.Compression
         /// <param name="mode">One of the CompressionMode values that indicates the action to take.</param>
         public void Initialize(IStream stream, CompressionMode mode)
         {
-            DeflateStreamInstance = new DeflateStream(stream.StreamInstance, mode);
+            Initialize(stream.StreamInstance, mode);
+        }
+
+        private void Initialize(Stream stream, CompressionMode mode)
+        {
+            DeflateStreamInstance = new DeflateStream(stream, mode);
+            _mode = mode;
         }
 
         #endregion Constructors and Initializers
@@ -45,10 +56,48 @@ namespace SystemWrapper.IO.Compression
         /// <inheritdoc />
         public DeflateStream DeflateStreamInstance { get; private set; }
 
+        public Task FlushAsync()
+        {
+            return DeflateStreamInstance.FlushAsync();
+        }
+
         /// <inheritdoc />
         public int Read(byte[] array, int offset, int count)
         {
             return DeflateStreamInstance.Read(array, offset, count);
+        }
+
+        public Task<int> ReadAsync(byte[] buffer, int offset, int count)
+        {
+            return DeflateStreamInstance.ReadAsync(buffer, offset, count);
+        }
+
+        public Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            return DeflateStreamInstance.ReadAsync(buffer, offset, count, cancellationToken);
+        }
+
+        public int ReadByte()
+        {
+            return DeflateStreamInstance.ReadByte();
+        }
+
+        public long Seek(long offset, SeekOrigin origin)
+        {
+            return DeflateStreamInstance.Seek(offset, origin);
+        }
+
+        public void SetLength(long value)
+        {
+            DeflateStreamInstance.SetLength(value);
+        }
+
+        public IStream Synchronized(IStream stream)
+        {
+            var deflateStreamWrap = new DeflateStreamWrap();
+            deflateStreamWrap.Initialize(Stream.Synchronized(stream.StreamInstance), _mode);
+
+            return deflateStreamWrap;
         }
 
         /// <inheritdoc />
@@ -57,9 +106,49 @@ namespace SystemWrapper.IO.Compression
             DeflateStreamInstance.Write(array, offset, count);
         }
 
+        public Task WriteAsync(byte[] buffer, int offset, int count)
+        {
+            return DeflateStreamInstance.WriteAsync(buffer, offset, count);
+        }
+
+        public Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+        {
+            return DeflateStreamInstance.WriteAsync(buffer, offset, count, cancellationToken);
+        }
+
+        public void WriteByte(byte value)
+        {
+            DeflateStreamInstance.WriteByte(value);
+        }
+
         public void CopyTo(IStream destination)
         {
             DeflateStreamInstance.CopyTo(destination.StreamInstance);
+        }
+
+        public void CopyTo(IStream destination, int bufferSize)
+        {
+            DeflateStreamInstance.CopyTo(destination.StreamInstance, bufferSize);
+        }
+
+        public Task CopyToAsync(IStream destination)
+        {
+            return DeflateStreamInstance.CopyToAsync(destination.StreamInstance);
+        }
+
+        public Task CopyToAsync(IStream destination, int bufferSize)
+        {
+            return DeflateStreamInstance.CopyToAsync(destination.StreamInstance, bufferSize);
+        }
+
+        public Task CopyToAsync(IStream destination, int bufferSize, CancellationToken cancellationToken)
+        {
+            return DeflateStreamInstance.CopyToAsync(destination.StreamInstance, bufferSize, cancellationToken);
+        }
+
+        public void EndWrite(IAsyncResult asyncResult)
+        {
+            DeflateStreamInstance.EndWrite(asyncResult);
         }
 
         /// <inheritdoc />
@@ -68,10 +157,49 @@ namespace SystemWrapper.IO.Compression
             DeflateStreamInstance.Flush();
         }
 
+        public bool CanRead => DeflateStreamInstance.CanRead;
+        public bool CanSeek => DeflateStreamInstance.CanSeek;
+        public bool CanTimeout => DeflateStreamInstance.CanTimeout;
+        public bool CanWrite => DeflateStreamInstance.CanWrite;
+        public long Length => DeflateStreamInstance.Length;
+        public long Position
+        {
+            get => DeflateStreamInstance.Position;
+            set => DeflateStreamInstance.Position = value;
+        }
+        public int ReadTimeout
+        {
+            get => DeflateStreamInstance.ReadTimeout;
+            set => DeflateStreamInstance.ReadTimeout = value;
+        }
+
+        public Stream StreamInstance => DeflateStreamInstance;
+
+        public int WriteTimeout
+        {
+            get => DeflateStreamInstance.WriteTimeout;
+            set => DeflateStreamInstance.WriteTimeout = value;
+        }
+
+        public IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        {
+            return DeflateStreamInstance.BeginRead(buffer, offset, count, callback, state);
+        }
+
+        public IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+        {
+            return DeflateStreamInstance.BeginWrite(buffer, offset, count, callback, state);
+        }
+
         /// <inheritdoc />
         public void Close()
         {
             DeflateStreamInstance.Close();
+        }
+
+        public int EndRead(IAsyncResult asyncResult)
+        {
+            return DeflateStreamInstance.EndRead(asyncResult);
         }
 
         /// <inheritdoc />
