@@ -1,14 +1,14 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using SystemInterface;
 
 namespace SystemWrapper.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class DateTimeWrapTests
     {
         const long dateTicks = 636846612300000000L;
 
-        [TestMethod]
+        [Test]
         public void Equatable_SameDateTime()
         {
             IDateTime date1 = new DateTimeWrap(dateTicks);
@@ -21,7 +21,7 @@ namespace SystemWrapper.Tests
             Assert.AreEqual(date1.GetHashCode(), date2.GetHashCode());
         }
 
-        [TestMethod]
+        [Test]
         public void Equatable_DifferentDateTime()
         {
             var date1 = new DateTimeWrap(dateTicks);
@@ -33,7 +33,7 @@ namespace SystemWrapper.Tests
             Assert.AreNotEqual(date1, dateObject);
         }
         
-        [TestMethod]
+        [Test]
         public void Comparable_SameDateTime()
         {
             IDateTime date1 = new DateTimeWrap(dateTicks);
@@ -45,7 +45,7 @@ namespace SystemWrapper.Tests
             Assert.AreEqual(date1.CompareTo(dateObject), 0);
         }
 
-        [TestMethod]
+        [Test]
         public void Comparable_DifferentDateTime()
         {
             IDateTime date = new DateTimeWrap(dateTicks);
