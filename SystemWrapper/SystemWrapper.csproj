@@ -27,15 +27,15 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 4.5|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\net45</OutputPath>
+    <OutputPath>..\bin\Release</OutputPath>
     <DefineConstants>TRACE;NET40;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\Release\net45\SystemWrapper.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Release\SystemWrapper.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>

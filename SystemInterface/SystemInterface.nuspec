@@ -19,7 +19,7 @@ Droped support for .NET 4.0</releaseNotes>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\bin\$Configuration$\net45\SystemInterface.*" target="lib\net45\" />
+    <file src="..\bin\$Configuration$\SystemInterface.*" target="lib\net45\" />
     <file src="..\Build\*.cs" target="src\Build\" />
     <file src="..\SystemInterface\**\*.cs" target="src\SystemInterface\" exclude="..\SystemInterface\obj\**;..\SystemInterface\bin\**" />
     <file src="..\Images\SystemWrapper_128.png" target="icon.png" />

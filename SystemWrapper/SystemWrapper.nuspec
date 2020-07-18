@@ -21,7 +21,7 @@ Droped support for .NET 4.0</releaseNotes>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\bin\$Configuration$\net45\SystemWrapper.*" target="lib\net45\" />
+    <file src="..\bin\$Configuration$\SystemWrapper.*" target="lib\net45\" />
     <file src="..\Build\*.cs" target="src\Build\" />
     <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" exclude="..\SystemWrapper\obj\**;..\SystemWrapper\bin\**" />
     <file src="..\Images\SystemWrapper_128.png" target="icon.png" />

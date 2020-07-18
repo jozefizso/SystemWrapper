@@ -74,8 +74,8 @@ function Run-Tests($project) {
 ### Pack functions
 
 function Create-Package($project, $version) {
-    Build-Project $project "Release 4.5"
-    Build-Project $project "Release 4.5" "Package"
+    Build-Project $project "Release"
+    Build-Project $project "Release" "Package"
 }
 
 function Build-Project($project, $config, $target = "Build") {
