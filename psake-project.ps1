@@ -1,4 +1,4 @@
-Framework "4.6"
+Framework "4.8"
 
 Properties {
     $solution = "SystemWrapper.sln"
