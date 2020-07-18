@@ -1,22 +1,21 @@
-﻿using System.Net;
+using System.Net;
 using System.Net.Mail;
-using System.Windows.Forms;
 using SystemWrapper.Net.Mail;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace SystemWrapper.Tests.Net.Mail
 {
-    [TestClass]
+    [TestFixture]
     public class SmtpClientWrapTests
     {
-        [TestMethod]
+        [Test]
         public void InstanceIsNotNull()
         {
             var smtpClientWrap = new SmtpClientWrap();
             Assert.IsNotNull(smtpClientWrap.Instance);
         }
 
-        [TestMethod]
+        [Test]
         public void InstanceHasPassedInHost()
         {
             var host = "mail.domain.tld";
@@ -24,7 +23,7 @@ namespace SystemWrapper.Tests.Net.Mail
             Assert.AreEqual(host, smtpClientWrap.Instance.Host);
         }
 
-        [TestMethod]
+        [Test]
         public void InstanceIsPassedInObject()
         {
             var concreteClient = new SmtpClient();
@@ -32,7 +31,7 @@ namespace SystemWrapper.Tests.Net.Mail
             Assert.AreEqual(concreteClient, smtpClientWrap.Instance);
         }
 
-        [TestMethod]
+        [Test]
         public void CredentialsAreInstanceCredentials()
         {
             var creds = new NetworkCredential("user1", "password1");
@@ -41,7 +40,7 @@ namespace SystemWrapper.Tests.Net.Mail
             Assert.AreEqual(creds, smtpClientWrap.Credentials);
         }
         
-        [TestMethod]
+        [Test]
         public void EventIsCalled()
         {
             bool wasCalled = false;
