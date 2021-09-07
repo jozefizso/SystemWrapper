@@ -104,6 +104,13 @@ namespace SystemWrapper.Diagnostics
         }
 
         /// <inheritdoc />
+        public bool CreateNoWindow
+        {
+            get { return ProcessStartInfoInstance.CreateNoWindow; }
+            set { ProcessStartInfoInstance.CreateNoWindow = value; }
+        }
+
+        /// <inheritdoc />
         public bool RedirectStandardOutput
         {
             get { return ProcessStartInfoInstance.RedirectStandardOutput; }
