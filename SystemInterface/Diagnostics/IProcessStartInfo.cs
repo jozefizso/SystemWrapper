@@ -51,6 +51,11 @@ namespace SystemInterface.Diagnostics
         bool UseShellExecute { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether to start the process in a new window
+        /// </summary>
+        bool CreateNoWindow { get; set; }
+
+        /// <summary>
         /// Gets or sets a value that indicates whether the output of an application is written to
         /// the <see cref="IProcess.StandardOutput"/> stream.
         /// </summary>
