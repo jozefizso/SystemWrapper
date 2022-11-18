@@ -19,7 +19,7 @@ jobs:
           PROJECT_FILE_PATH: SystemWrapper.Core.Registry/SystemWrapper.Core.Registry.csproj
 
           # Configuration to build and package
-          BUILD_CONFIGURATION: Release
+          # BUILD_CONFIGURATION: Release
 
           # Platform target to compile (default is empty/AnyCPU)
           # BUILD_PLATFORM: x64
