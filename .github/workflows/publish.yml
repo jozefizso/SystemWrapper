@@ -33,7 +33,7 @@ jobs:
           PACKAGE_NAME: SystemWrapper.Core.Registry
 
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-          VERSION_FILE_PATH: 1.0.0.0
+          #VERSION_FILE_PATH: 1.0.0.0
 
           # Regex pattern to extract version info in a capturing group
           # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
