@@ -1,10 +1,10 @@
 using System;
 using System.Security.AccessControl;
 using Microsoft.Win32;
-using SystemWrapper.Core.Registry.Microsoft.Win32.SafeHandles;
-using SystemWrapper.Core.Registry.Security.AccessControl;
+using SystemWrappers.Core.Registry.Microsoft.Win32.SafeHandles;
+using SystemWrappers.Core.Registry.Security.AccessControl;
 
-namespace SystemWrapper.Core.Registry.Microsoft.Win32
+namespace SystemWrappers.Core.Registry.Microsoft.Win32
 {
     /// <summary>
     ///
@@ -36,7 +36,7 @@ namespace SystemWrapper.Core.Registry.Microsoft.Win32
         #region Constructors and Initializers
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Core.Registry.Microsoft.Win32.RegistryKeyWrap"/> class.
+        /// Initializes a new instance of the <see cref="T:SystemWrappers.Core.Registry.Microsoft.Win32.RegistryKeyWrap"/> class.
         /// </summary>
         /// <param name="registryKey"></param>
         public RegistryKeyWrap(RegistryKey registryKey)

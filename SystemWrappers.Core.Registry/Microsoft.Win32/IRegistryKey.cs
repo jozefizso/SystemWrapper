@@ -1,10 +1,10 @@
 using System;
 using System.Security.AccessControl;
 using Microsoft.Win32;
-using SystemWrapper.Core.Registry.Microsoft.Win32.SafeHandles;
-using SystemWrapper.Core.Registry.Security.AccessControl;
+using SystemWrappers.Core.Registry.Microsoft.Win32.SafeHandles;
+using SystemWrappers.Core.Registry.Security.AccessControl;
 
-namespace SystemWrapper.Core.Registry.Microsoft.Win32
+namespace SystemWrappers.Core.Registry.Microsoft.Win32
 {
     /// <summary>
     /// Wrapper for <see cref="T:Microsoft.Win32.RegistryKey"/> class.

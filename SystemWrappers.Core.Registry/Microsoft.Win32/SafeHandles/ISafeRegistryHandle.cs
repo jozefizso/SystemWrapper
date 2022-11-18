@@ -1,6 +1,6 @@
 using Microsoft.Win32.SafeHandles;
 
-namespace SystemWrapper.Core.Registry.Microsoft.Win32.SafeHandles
+namespace SystemWrappers.Core.Registry.Microsoft.Win32.SafeHandles
 {
     /// <summary>
     /// Interface that matches the decoration of the object

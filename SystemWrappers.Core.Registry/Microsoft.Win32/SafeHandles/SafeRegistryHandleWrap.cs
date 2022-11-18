@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Win32.SafeHandles;
 
-namespace SystemWrapper.Core.Registry.Microsoft.Win32.SafeHandles
+namespace SystemWrappers.Core.Registry.Microsoft.Win32.SafeHandles
 {
     /// <summary>
     /// SafeRegistryHandleWrap should be used instead of SafeRegistryHandle

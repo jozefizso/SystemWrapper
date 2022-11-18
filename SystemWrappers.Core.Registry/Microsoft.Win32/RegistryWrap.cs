@@ -1,6 +1,6 @@
 using Microsoft.Win32;
 
-namespace SystemWrapper.Core.Registry.Microsoft.Win32
+namespace SystemWrappers.Core.Registry.Microsoft.Win32
 {
     /// <summary>
     /// Wrapper for <see cref="T:Microsoft.Win32.Registry"/> class.

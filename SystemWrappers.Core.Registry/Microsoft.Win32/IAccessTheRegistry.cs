@@ -1,4 +1,4 @@
-namespace SystemWrapper.Core.Registry.Microsoft.Win32
+namespace SystemWrappers.Core.Registry.Microsoft.Win32
 {
     /// <summary>
     /// This is an interface that demonstrates a good practice

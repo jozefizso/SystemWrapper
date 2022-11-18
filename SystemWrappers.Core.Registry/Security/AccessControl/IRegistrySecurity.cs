@@ -1,6 +1,6 @@
 using System.Security.AccessControl;
 
-namespace SystemWrapper.Core.Registry.Security.AccessControl
+namespace SystemWrappers.Core.Registry.Security.AccessControl
 {
     /// <summary>
     /// Interface to match decoration of the object
