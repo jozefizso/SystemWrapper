@@ -1,0 +1,28 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+<Project>
+  <!-- Code quality -->
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+	 <Version>1.0.0.3</Version>
+	 <AssemblyVersion>1.0.0.3</AssemblyVersion>
+	 <FileVersion>1.0.0.3</FileVersion>	
+    <Nullable>enable</Nullable>
+  </PropertyGroup>  
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <!-- Strong Signing assemblies in Release configuration -->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)SystemWrapper.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+</Project>
